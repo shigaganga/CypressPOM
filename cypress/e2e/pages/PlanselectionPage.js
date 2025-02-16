@@ -4,6 +4,7 @@ class planselectionPage{
         medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
         longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
        AivanteImg="img";
+       prescriptionbtn="div[class='button-wrapper ng-star-inserted'] button:nth-child(1) span:nth-child(1)";
        medicareAdvantageClick(){
         cy.get(this.medicareAdv).click();
        }
@@ -18,6 +19,9 @@ longtermClick(){
 }
 AivanteImagClick(){
     cy.get(this.AivanteImg).click();
+}
+prescriptionClick(){
+    cy.rightclick(this.prescriptionbtn).click();
 }
 }
 export default planselectionPage;

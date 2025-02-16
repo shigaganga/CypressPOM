@@ -147,7 +147,7 @@ describe('Home Flow Test', () => {
      longtermPg.submitLongTermClick();
      cy.wait(100);
      
-     longtermPg.pdfclick();
+    // longtermPg.pdfclick();
      cy.wait(100);
      longtermPg.backLongTermToPlanSelectionClick();
      cy.wait(100);

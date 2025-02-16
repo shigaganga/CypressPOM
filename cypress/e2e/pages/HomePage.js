@@ -4,15 +4,16 @@ class HomePage{
      goodhealth='#mat-option-5 > .mat-option-text';
     name= '#mat-input-4';
     lifeExpectancy="#mat-input-5";
-   datePicker=".mat-datepicker-toggle > .mat-focus-indicator";
-   // datePicker=".mat-datepicker-toggle-default-icon.ng-star-inserted"
+   //datePicker=".mat-datepicker-toggle > .mat-focus-indicator";
+   datePicker=".mat-datepicker-toggle-default-icon.ng-star-inserted"
     year=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
    // year="td[aria-label='1957'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    month="td[aria-label='1957-02-01T00:00:00-05:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-//month=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
+    //month="td[aria-label='1957-02-01T00:00:00-05:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
+month=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
     zip="#mat-input-8";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     nexthome=".form-wrapper > .mat-raised-button";
+
    
    EnterEmail(email){
     cy.get(this.email).type(email);
