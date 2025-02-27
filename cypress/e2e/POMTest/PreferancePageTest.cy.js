@@ -8,7 +8,6 @@ import planselectionPage from '../pages/PlanselectionPage.js';
 import planListPage from '../pages/PlanListPage.js';
 import longTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicareAdvantagePage.js';
-import LongTermPage from '../pages/LongTermPage.js';
 
 describe('PreferencePageTest', () => {
 
@@ -52,7 +51,7 @@ describe('PreferencePageTest', () => {
         cy.wait(100);
     });
 
-    it.skip('should test search preference with YES', () => {
+    it('should test search preference with YES', () => {
         const prefPage = new PreferencePage();
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
@@ -65,7 +64,7 @@ describe('PreferencePageTest', () => {
 
     const prefPage = new PreferencePage();
 
-    it.skip('should test search preference with back', () => {
+    it('should test search preference with back', () => {
         const prefPage = new PreferencePage();
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
@@ -79,7 +78,7 @@ describe('PreferencePageTest', () => {
     
     });
     
-    it.skip('should test Edit Yes FunctionalTesting', () => {
+    it('should test Edit Yes FunctionalTesting', () => {
         const prefPage = new PreferencePage();
         const recPage = new RecommendationLandingPage();
         const HPage = new HomePage();
@@ -112,14 +111,8 @@ describe('PreferencePageTest', () => {
         cy.wait(100);
         Pharmacypage.clicknextpharmacy();
         cy.wait(100);
-        
-        cy.wait(100);
         const planListPg=new planListPage();
         cy.wait(100);
-       
-        cy.wait(100);
-        
-
         planselctPg.medicareAdvantageClick();
         cy.wait(100);
         planListPg.planWellCaresimpleClick();

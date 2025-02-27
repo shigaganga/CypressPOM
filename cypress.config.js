@@ -2,16 +2,13 @@ const { defineConfig } = require("cypress");
 const allureWriter = require("@shelex/cypress-allure-plugin/writer");
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',//for html report
   e2e: {
     setupNodeEvents(on, config) {
-      // Implement node event listeners here
-      allureWriter(on, config);
-
+      screenshotOnRunFailure: true, // Enable screenshot on failure
+      require('cypress-mochawesome-reporter/plugin')(on);//2nd config for html report
       return config;
     },
-    screenshotOnRunFailure: true, // Enable screenshot on failure
-    video: true, // Disable video recording (optional)
-    screenshotsFolder: 'cypress/screenshots', // Set folder for screenshots
-    //trashAssetsBeforeRuns: true, // Clean up previous screenshots before the new run
+   
   },
 });
