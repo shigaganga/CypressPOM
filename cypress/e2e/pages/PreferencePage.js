@@ -45,6 +45,9 @@ verifyMedicarePageUrl(){
 verifyPdpPageUrl(){
     cy.url().should('include', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');  
 }
+verifyHomePageUrl(){
+    cy.url().should('include','http://169.61.105.110/medicareAdvantage_sandbox/home')
+}
 
 }
 
