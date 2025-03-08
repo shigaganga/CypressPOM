@@ -115,45 +115,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         planselctPg.AivanteImagClick();
         cy.wait(100);
-       recPage.editRecommendationClick();
-     HPage.NextHomeClick();
-     prefPage.clickNextPrefPage();
-     drugpage.DoneAddDrugClick();
-     
-     Pharmacypage.clickfarmacy3Edit();
-     cy.wait(100);
-     Pharmacypage.clicknextpharmacy();
-     cy.wait(100);
-     planselctPg.medicareAdvantageClick();
-     cy.wait(100);
-     planListPg.HumanaGoldPlanClick();
-     cy.wait(100);
-     planListPg.DoneplanSelectionClick();
-     cy.wait(100);
-     planselctPg.tickClick();
-     cy.wait(100);
-     planselctPg.medicareclick();
-     cy.wait(100);
-     medicarepg.medicarArrowClick();
-     cy.wait(100);
-     medicarepg.submitMedicareClick();
-     cy.wait(100);
-     medicarepg.backToplanSelectionClick();
-     cy.wait(100);
-     planselctPg.longtermClick();
-     cy.wait(100);
-     longtermPg.longTermArrowClick();
-     cy.wait(100);
-     longtermPg.submitLongTermClick();
-     cy.wait(100);
-     
-    // longtermPg.pdfclick();
-     cy.wait(100);
-     longtermPg.backLongTermToPlanSelectionClick();
-     cy.wait(100);
-     planselctPg.AivanteImagClick();
-     cy.wait(100);
-     
+      
      
 
 

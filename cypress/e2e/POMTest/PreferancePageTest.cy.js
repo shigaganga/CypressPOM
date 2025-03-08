@@ -202,11 +202,8 @@ describe('PreferencePageTest', () => {
         cy.wait(100);
         longtermPg.submitLongTermClick();
         cy.wait(100);
-    
-        cy.wait(100);
         longtermPg.backLongTermToPlanSelectionClick()
         planListPg.pdpClick();
-
        prefPage.verifyPdpPageUrl();
        planListPg.wellcareValuScriptClick();
        planListPg.donePdpClick();
