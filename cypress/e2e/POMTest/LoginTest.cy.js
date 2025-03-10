@@ -7,7 +7,7 @@ describe("POM",()=>{
             const ln=new LoginPage();
             ln.setUserName(data.username);
             ln.setPassword(data.password);
-            ln.ClickLoginBtn();
+            ln.clickLoginBtn();
             ln.verifyLogin();
               
                     })

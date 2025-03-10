@@ -20,38 +20,38 @@ describe('Home Flow Test', () => {
             // Perform login steps
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
-            lPage.ClickLoginBtn();
+            lPage.clickLoginBtn();
             lPage.verifyLogin(); // Ensure login was successful
         });
             // Now, on the landing page the recommendation button exists
             // Interact with recommendation page after login
          const recPage = new RecommendationLandingPage();
            recPage.clickRecommedation();
-           const HPage=new HomePage();
+           const homepage=new HomePage();
            cy.wait(100);
-           HPage.EnterEmail("ShigaPOM@gmail.com");
+           homepage.enterEmail("ShigaPOM@gmail.com");
            cy.wait(100);
-           HPage.clickhealthArrow();
+           homepage.clickhealthArrow();
            cy.wait(100);
-           HPage.clickGoodHealth();
+           homepage.clickGoodHealth();
            cy.wait(100);
-           HPage.EnterName("Shigapage");
+           homepage.enterName("Shigapage");
            cy.wait(100);
-           HPage.enterLifeExpectancy("86");
+           homepage.enterLifeexpectancy("86");
            cy.wait(100);
-           HPage.DatePickerclick();
+           homepage.datePickerclick();
            cy.wait(100);
-           HPage.Yearclick();
+           homepage.year1957click();
            cy.wait(100);
-           HPage.Monthclick();
+           homepage.month1957click();
            cy.wait(100);
-           HPage.Enterzip("27529")
+           homepage.enterZip("27529")
            cy.wait(100);
-           HPage.searchclick();
+           homepage.searchclick();
            cy.wait(100);
-           HPage.NextHomeClick();
+           homepage.NextHomeClick();
            cy.wait(100);
-        // HPage.verifyUrl("https://analytics.dzeecloud.com/medicareAdvantage_sandbox/preferences");
+        // homepage.verifyUrl("https://analytics.dzeecloud.com/medicareAdvantage_sandbox/preferences");
          cy.wait(100);
          const prefPage=new PreferencePage();
          cy.wait(100);
@@ -109,51 +109,13 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         longtermPg.submitLongTermClick();
         cy.wait(100);
-       // longtermPg.pdfclick();
+        longtermPg.pdfclick();
         cy.wait(100);
         longtermPg.backLongTermToPlanSelectionClick();
         cy.wait(100);
         planselctPg.AivanteImagClick();
         cy.wait(100);
-       recPage.editRecommendationClick();
-     HPage.NextHomeClick();
-     prefPage.clickNextPrefPage();
-     drugpage.DoneAddDrugClick();
-     
-     Pharmacypage.clickfarmacy3Edit();
-     cy.wait(100);
-     Pharmacypage.clicknextpharmacy();
-     cy.wait(100);
-     planselctPg.medicareAdvantageClick();
-     cy.wait(100);
-     planListPg.HumanaGoldPlanClick();
-     cy.wait(100);
-     planListPg.DoneplanSelectionClick();
-     cy.wait(100);
-     planselctPg.tickClick();
-     cy.wait(100);
-     planselctPg.medicareclick();
-     cy.wait(100);
-     medicarepg.medicarArrowClick();
-     cy.wait(100);
-     medicarepg.submitMedicareClick();
-     cy.wait(100);
-     medicarepg.backToplanSelectionClick();
-     cy.wait(100);
-     planselctPg.longtermClick();
-     cy.wait(100);
-     longtermPg.longTermArrowClick();
-     cy.wait(100);
-     longtermPg.submitLongTermClick();
-     cy.wait(100);
-     
-    // longtermPg.pdfclick();
-     cy.wait(100);
-     longtermPg.backLongTermToPlanSelectionClick();
-     cy.wait(100);
-     planselctPg.AivanteImagClick();
-     cy.wait(100);
-     
+      
      
 
 

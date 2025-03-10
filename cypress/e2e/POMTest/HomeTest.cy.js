@@ -1,6 +1,7 @@
 import LoginPage from '../pages/LoginPage';
 import RecommendationLandingPage from '../pages/RecomendationLandingPage.cy';
 import HomePage from '../pages/HomePage';
+import PlanselectionPage from '../pages/PlanselectionPage';
 
 describe('Home Flow Test', () => {
     it('should log in and accesshome page', () => {
@@ -13,25 +14,24 @@ describe('Home Flow Test', () => {
             // Perform login steps
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
-            lPage.ClickLoginBtn();
+            lPage.clickLoginBtn();
             lPage.verifyLogin(); // Ensure login was successful
         });
             // Now, on the landing page the recommendation button exists
             // Interact with recommendation page after login
          const recPage = new RecommendationLandingPage();
            recPage.clickRecommedation();
-           const HPage=new HomePage();
-           HPage.EnterEmail("page@gmail.com");
-           HPage.clickhealthArrow();
-           HPage.clickGoodHealth();
-           HPage.EnterName("page");
-           HPage.enterLifeExpectancy("86");
-           HPage.DatePickerclick();
-           HPage.Yearclick();
-           HPage.Monthclick();
-           HPage.Enterzip("27529")
-           HPage.searchclick();
-           HPage.NextHomeClick();
-         HPage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
+           const homepage=new HomePage();
+           homepage.enterEmail("page@gmail.com");
+           homepage.clickhealthArrow();
+           homepage.clickGoodHealth();
+           homepage.enterName("page");
+           homepage.enterLifeexpectancy("86");
+           homepage.datePickerclick();
+           homepage.year1957click();
+           homepage.month1957click();
+           homepage.enterZip("27529")
+           homepage.searchclick();
+           homepage.NextHomeClick();
     });
 });
