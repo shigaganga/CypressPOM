@@ -1,20 +1,20 @@
 class LoginPage{
-    UserNameEle="#mat-input-0";
-    PasswordEle="#mat-input-1";
-    LoginButtonEle=".mat-button-wrapper";
-    HomePageHeading = ".page-heading";
+    userNameEle="#mat-input-0";
+    passwordEle="#mat-input-1";
+    loginButtonEle=".mat-button-wrapper";
+    homePageHeading = ".page-heading";
     
 setUserName(username){
-    cy.get(this.UserNameEle).type(username);
+    cy.get(this.userNameEle).type(username);
 }
 setPassword(password){
-    cy.get(this.PasswordEle).type(password);
+    cy.get(this.passwordEle).type(password);
 }
-ClickLoginBtn(){
-    cy.get(this.LoginButtonEle).click();
+clickLoginBtn(){
+    cy.get(this.loginButtonEle).click();
 }
 verifyLogin() {
-    cy.get(this.HomePageHeading).should('have.text', "Recommendations");
+    cy.get(this.homePageHeading).should('have.text', "Recommendations");
 }
 
 }
