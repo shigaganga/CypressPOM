@@ -1,7 +1,6 @@
 import LoginPage from '../pages/LoginPage';
-import RecommendationLandingPage from '../pages/RecomendationLandingPage.cy';
+import LandingPage from '../pages/LandingPage';
 import HomePage from '../pages/HomePage';
-import PlanselectionPage from '../pages/PlanselectionPage';
 
 describe('Home Flow Test', () => {
     it('should log in and accesshome page', () => {
@@ -19,7 +18,7 @@ describe('Home Flow Test', () => {
         });
             // Now, on the landing page the recommendation button exists
             // Interact with recommendation page after login
-         const recPage = new RecommendationLandingPage();
+         const recPage = new LandingPage();
            recPage.clickRecommedation();
            const homepage=new HomePage();
            homepage.enterEmail("page@gmail.com");
@@ -33,5 +32,6 @@ describe('Home Flow Test', () => {
            homepage.enterZip("27529")
            homepage.searchclick();
            homepage.NextHomeClick();
+          
     });
 });

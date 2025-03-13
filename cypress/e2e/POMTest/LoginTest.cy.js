@@ -11,7 +11,5 @@ describe("POM",()=>{
             ln.verifyLogin();
               
                     })
-        
-       // cy.get('.mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted').click();
     })
 })

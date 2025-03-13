@@ -1,13 +1,13 @@
 import LoginPage from '../pages/LoginPage.js';
-import RecommendationLandingPage from '../pages/RecomendationLandingPage.cy.js';
+import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
-import ManagePrescriptionPage from '../pages/ManagePrescriptionPage.js';
-import ManageFarmacyPage from '../pages/ManageFarmacyPage';
+import PrescriptionPage from '../pages/PrescriptionPage.js';
 import planselectionPage from '../pages/PlanselectionPage.js';
 import planListPage from '../pages/PlanListPage.js';
-import longTermPage from '../pages/LongTermPage.js';
-import MedicareAdvantagepage from '../pages/MedicareAdvantagePage.js';
+import LongTermPage from '../pages/LongTermPage.js';
+import MedicareAdvantagepage from '../pages/MedicarePage.js';
+import PharmacyPage from '../pages/PharmacyPage.js';
 
 describe('PreferencePageTest', () => {
 
@@ -22,8 +22,7 @@ describe('PreferencePageTest', () => {
             lPage.verifyLogin(); 
         });
 
-    
-        const recPage = new RecommendationLandingPage();
+        const recPage = new LandingPage();
         recPage.clickRecommedation();
         const homepage = new HomePage();
         cy.wait(100);
@@ -71,7 +70,7 @@ describe('PreferencePageTest', () => {
         prefPage.clickNextPrefPage();  
         cy.wait(100);
         prefPage.verifyManagePrescriptionurl();
-        const drugpage=new ManagePrescriptionPage();
+        const drugpage=new PrescriptionPage();
         cy.wait(500);
         drugpage.ClickGobackPreference();
         prefPage.verifyPreferencePageUrl();
@@ -80,12 +79,12 @@ describe('PreferencePageTest', () => {
     
     it('should test Edit Yes FunctionalTesting', () => {
         const prefPage = new PreferencePage();
-        const recPage = new RecommendationLandingPage();
+        const recPage = new LandingPage();
         const homepage = new HomePage();
-        const drugpage=new ManagePrescriptionPage();
-        const Pharmacypage=new ManageFarmacyPage();
+        const drugpage=new PrescriptionPage();
+        const Pharmacypage=new PharmacyPage();
         const planselctPg=new planselectionPage();
-        const longtermPg=new longTermPage();
+        const longtermPg=new LongTermPage();
         const medicarepg=new MedicareAdvantagepage()
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
@@ -163,12 +162,12 @@ describe('PreferencePageTest', () => {
     })
     it('should test Edit No FunctionalTesting', () => {
         const prefPage = new PreferencePage();
-        const recPage = new RecommendationLandingPage();
+        const recPage = new LandingPage();
         const homepage = new HomePage();
-        const drugpage=new ManagePrescriptionPage();
-        const Pharmacypage=new ManageFarmacyPage();
+        const drugpage=new PrescriptionPage();
+        const Pharmacypage=new PharmacyPage();
         const planselctPg=new planselectionPage();
-        const longtermPg=new longTermPage();
+        const longtermPg=new LongTermPage();
         const medicarepg=new MedicareAdvantagepage()
         const planListPg=new planListPage();
         cy.wait(100);

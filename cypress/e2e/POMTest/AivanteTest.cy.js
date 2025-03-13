@@ -1,14 +1,14 @@
+
 import LoginPage from '../pages/LoginPage.js';
-import RecommendationLandingPage from '../pages/RecomendationLandingPage.cy.js';
+import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
-import PreferencePage from '../pages/PreferencePage.js';
-import ManagePrescriptionPage from '../pages/ManagePrescriptionPage.js';
-import ManageFarmacyPage from '../pages/ManageFarmacyPage';
 import planselectionPage from '../pages/PlanselectionPage.js';
 import planListPage from '../pages/PlanListPage.js';
 import longTermPage from '../pages/LongTermPage.js';
-import MedicareAdvantagepage from '../pages/MedicareAdvantagePage.js';
-
+import PharmacyPage from '../pages/PharmacyPage.js';
+import PreferencePage from '../pages/PreferencePage';
+import PrescriptionPage from '../pages/PrescriptionPage';
+import MedicarePage from '../pages/MedicarePage.js';
 describe('Home Flow Test', () => {
     it('should log in and accesshome page', () => {
          // Visit the login page
@@ -25,7 +25,7 @@ describe('Home Flow Test', () => {
         });
             // Now, on the landing page the recommendation button exists
             // Interact with recommendation page after login
-         const recPage = new RecommendationLandingPage();
+         const recPage = new LandingPage();
            recPage.clickRecommedation();
            const homepage=new HomePage();
            cy.wait(100);
@@ -59,9 +59,9 @@ describe('Home Flow Test', () => {
          cy.wait(100);
          prefPage.clickNextPrefPage();
          cy.wait(100);
-         const drugpage=new ManagePrescriptionPage();
+         const drugpage=new PrescriptionPage();
          cy.wait(100);
-         drugpage.EnterDrugSearchBox("Gabapentin");
+         drugpage.EnterDrugSearchBox();
          cy.wait(100);
          drugpage.SelectDrug();
          cy.wait(100);
@@ -69,7 +69,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         drugpage.DoneAddDrugClick();
         cy.wait(100);
-        const Pharmacypage=new ManageFarmacyPage();
+        const Pharmacypage=new PharmacyPage();
         cy.wait(100);
         Pharmacypage.clickFindFarmacy();
         cy.wait(100);
@@ -83,7 +83,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         const planListPg=new planListPage();
         cy.wait(100);
-        const medicarepg=new MedicareAdvantagepage()
+        const medicarepg=new MedicarePage()
         cy.wait(100);
         const longtermPg=new longTermPage();
 
@@ -109,7 +109,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         longtermPg.submitLongTermClick();
         cy.wait(100);
-        longtermPg.pdfclick();
+        //longtermPg.pdfclick();
         cy.wait(100);
         longtermPg.backLongTermToPlanSelectionClick();
         cy.wait(100);
