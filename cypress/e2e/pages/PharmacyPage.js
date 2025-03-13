@@ -1,4 +1,4 @@
-class ManageFarmacyPage{
+class PharmacyPage{
    // y='.ng-star-inserted > .mat-focus-indicator > .mat-button-wrapper';
    findFarmacy =':nth-child(4) > .mat-focus-indicator > .mat-button-wrapper';
     farmacy1='#mat-checkbox-14 > .mat-checkbox-layout > .mat-checkbox-inner-container';
@@ -22,4 +22,4 @@ clicknextpharmacy(){
     cy.get(this.nextFarmacy).click();
 }
 }
-export default ManageFarmacyPage;
+export default PharmacyPage;

@@ -1,4 +1,4 @@
-class MedicareAdvantagepage{
+class MedicarePage{
     medicareArrow=".mat-expansion-indicator";
     submitMedicare=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
     backToPlanSelection=".button-wrapper > :nth-child(1) > .mat-button-wrapper";
@@ -16,4 +16,4 @@ class MedicareAdvantagepage{
         cy.get(this.aivanteimg).click();
     }
 }
-export default MedicareAdvantagepage;
+export default MedicarePage;

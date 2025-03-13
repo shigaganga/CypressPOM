@@ -1,5 +1,5 @@
 import LoginPage from '../pages/LoginPage';
-import RecommendationLandingPage from '../pages/RecomendationLandingPage.cy';
+import LandingPage from '../pages/LandingPage';
 
 describe('Recommendation Flow Test', () => {
     it('should log in and access recommendation page', () => {
@@ -12,12 +12,11 @@ describe('Recommendation Flow Test', () => {
             // Perform login steps
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
-            lPage.ClickLoginBtn();
+            lPage.clickLoginBtn();
             lPage.verifyLogin(); // Ensure login was successful
         });
-            // Now, on the landing page the recommendation button exists
-            // Interact with recommendation page after login
-         const recPage = new RecommendationLandingPage();
+          
+         const recPage = new LandingPage();
            recPage.clickRecommedation();
        
     });
