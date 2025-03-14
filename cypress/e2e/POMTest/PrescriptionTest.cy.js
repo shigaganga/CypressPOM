@@ -43,7 +43,7 @@ describe('PrescriptionPageTest', () => {
         homepage.NextHomeClick();
         cy.wait(100);
     });
-    it('should add or verify  prescription drug and proceed', () => {
+    it('should add or import prescription drug and proceed', () => {
         const prefPage = new PreferencePage();
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
@@ -51,12 +51,28 @@ describe('PrescriptionPageTest', () => {
         prefPage.clickNextPrefPage();  
         const drugPage = new PrescriptionPage();
         cy.wait(100);
-        drugPage.EnterDrugSearchBox("Gabapentin");
+        drugPage.enterDrugSearchBox("Gabapentin");
         cy.wait(100);
-        drugPage.SelectDrug();
+        drugPage.selectDrug();
         cy.wait(100);
         drugPage.clickAddToDrug();
         cy.wait(100);
-        drugPage.DoneAddDrugClick();
+        drugPage.doneAddDrugClick();
+    });
+    it('validate begin typing to find &select your drug', () => {
+        const prefPage = new PreferencePage();
+        cy.wait(100);
+        prefPage.clickyesRadioDrugCost();  
+        cy.wait(100);
+        prefPage.clickNextPrefPage();  
+        const drugPage = new PrescriptionPage();
+        cy.wait(100);
+        drugPage.enterDrugSearchBox("Gabapentin");
+        cy.wait(100);
+        drugPage.selectDrug();
+        cy.wait(100);
+        drugPage.clickAddToDrug();
+        cy.wait(100);
+        drugPage.doneAddDrugClick();
     });
 });

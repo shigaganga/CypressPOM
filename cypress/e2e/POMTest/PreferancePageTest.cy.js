@@ -22,6 +22,7 @@ describe('PreferencePageTest', () => {
             lPage.verifyLogin(); 
         });
 
+
         const recPage = new LandingPage();
         recPage.clickRecommedation();
         const homepage = new HomePage();
@@ -72,7 +73,7 @@ describe('PreferencePageTest', () => {
         prefPage.verifyManagePrescriptionurl();
         const drugpage=new PrescriptionPage();
         cy.wait(500);
-        drugpage.ClickGobackPreference();
+        drugpage.clickGobackPreference();
         prefPage.verifyPreferencePageUrl();
     
     });
@@ -90,13 +91,13 @@ describe('PreferencePageTest', () => {
         prefPage.clickyesRadioDrugCost();  
         prefPage.clickNextPrefPage();  
          cy.wait(100);
-         drugpage.EnterDrugSearchBox("Gabapentin");
+         drugpage.enterDrugSearchBox("Gabapentin");
          cy.wait(100);
-         drugpage.SelectDrug();
+         drugpage.selectDrug();
          cy.wait(100);
         drugpage.clickAddToDrug();
         cy.wait(100);
-        drugpage.DoneAddDrugClick();
+        drugpage.doneAddDrugClick();
         cy.wait(100);
         Pharmacypage.clickFindFarmacy();
         cy.wait(100);
@@ -139,8 +140,7 @@ describe('PreferencePageTest', () => {
        recPage.editRecommendationClick();
      homepage.NextHomeClick();
      prefPage.clickNextPrefPage();
-     drugpage.DoneAddDrugClick();
-     
+     drugpage.doneAddDrugClick();
      Pharmacypage.clickfarmacy3Edit();
      cy.wait(100);
      Pharmacypage.clicknextpharmacy();
