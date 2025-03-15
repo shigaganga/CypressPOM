@@ -164,19 +164,24 @@ describe('PrescriptionPageTest', () => {
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
         cy.log("user should be able to save druglist under recommendation, test passed.");
     });
-    it.only('verify Browse Drugs A_Z functionality', () => {
+    it('verify Browse Drugs A_Z functionality', () => {
         const prefPage = new PreferencePage();
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
         cy.wait(100);
         prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        drugPage.clickBrowseAtoZlink();
-       // drugPage.clickSelectLetterDropdown();
-        drugPage.enterLetter("D");
+        const prescriptionpage= new PrescriptionPage();
+        prescriptionpage.clickBrowseAtoZlink(); 
+        cy.wait(1000)
+        prescriptionpage.enterLetter("D");
+        prescriptionpage.clickDrugFound();
+        prescriptionpage.clickSelectDrug();
+        prescriptionpage.clickAddDrug();
+        prescriptionpage.clickAddToDrugList();
+        prescriptionpage.clickDoneAddDrug();
        
     });
-    it('remove ', () => {
+    it.only('remove ', () => {
         const prefPage = new PreferencePage();
         cy.wait(100);
         prefPage.clickyesRadioDrugCost();  
