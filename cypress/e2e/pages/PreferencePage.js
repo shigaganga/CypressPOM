@@ -5,7 +5,6 @@ NoRadioDrugcost='#mat-radio-12> .mat-radio-label > .mat-radio-container > .mat-r
 NextPrefPage="/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-preference/div[2]/div[2]/button/span[1]";
 greatText="//h2[normalize-space()='Great!']";
 Areyousuretext="//h2[normalize-space()='Are you sure?']"
-//Areyousuretext="/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-preference/div[2]/div[1]/div/h2"
 clickyesRadioDrugCost(){
     cy.get(this.YesRadioDrugcost).should('be.visible').click( { force: true});
 }

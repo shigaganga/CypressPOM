@@ -61,13 +61,13 @@ describe('Home Flow Test', () => {
          cy.wait(100);
          const drugpage=new PrescriptionPage();
          cy.wait(100);
-         drugpage.EnterDrugSearchBox();
+         drugpage.enterDrugSearchBox("Gabapentin");
          cy.wait(100);
-         drugpage.SelectDrug();
+         drugpage.selectDrug();
          cy.wait(100);
         drugpage.clickAddToDrug();
         cy.wait(100);
-        drugpage.DoneAddDrugClick();
+        drugpage.doneAddDrugClick();
         cy.wait(100);
         const Pharmacypage=new PharmacyPage();
         cy.wait(100);
