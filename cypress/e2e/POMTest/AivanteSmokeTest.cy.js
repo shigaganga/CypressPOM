@@ -6,8 +6,8 @@ import planselectionPage from '../pages/PlanselectionPage.js';
 import planListPage from '../pages/PlanListPage.js';
 import longTermPage from '../pages/LongTermPage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
-import PreferencePage from '../pages/PreferencePage';
-import PrescriptionPage from '../pages/PrescriptionPage';
+import PreferencePage from '../pages/PreferencePage.js';
+import PrescriptionPage from '../pages/PrescriptionPage.js';
 import MedicarePage from '../pages/MedicarePage.js';
 describe('Home Flow Test', () => {
     it('should log in and accesshome page', () => {
