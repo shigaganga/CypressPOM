@@ -17,7 +17,7 @@ describe('Recommendation Flow Test', () => {
         });
           
          const recPage = new LandingPage();
-           recPage.clickRecommedation();
+           recPage.clickCreateRecommendation();
        
     });
 });

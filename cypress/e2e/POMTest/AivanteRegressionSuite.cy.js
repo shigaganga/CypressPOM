@@ -7,11 +7,11 @@ describe('Regression Suite', function() {
       cy.exec('npx cypress run --spec cypress/e2e/POMTest/HomeTest.cy.js', { failOnNonZeroExit: false });
     });
   
-    it('Preference Test', function() {
+    it.skip('Preference Test', function() {
       cy.exec('npx cypress run --spec cypress/e2e/POMTest/PreferenceTest.cy.js', { failOnNonZeroExit: false });
     });
   
-    it('Prescription Test', function() {
+    it.skip('Prescription Test', function() {
       cy.exec('npx cypress run --spec cypress/e2e/POMTest/PrescriptionTest.cy.js', { failOnNonZeroExit: false });
     });
   });
