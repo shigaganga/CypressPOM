@@ -3,7 +3,6 @@ import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import planselectionPage from '../pages/PlanselectionPage.js';
-import planListPage from '../pages/PlanListPage.js';
 import longTermPage from '../pages/LongTermPage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
@@ -26,7 +25,7 @@ describe('Home Flow Test', () => {
             // Now, on the landing page the recommendation button exists
             // Interact with recommendation page after login
          const recPage = new LandingPage();
-           recPage.clickRecommedation();
+           recPage.clickCreateRecommendation();
            const homepage=new HomePage();
            cy.wait(100);
            homepage.enterEmail("ShigaPOM@gmail.com");
@@ -81,17 +80,15 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         const planselctPg=new planselectionPage();
         cy.wait(100);
-        const planListPg=new planListPage();
-        cy.wait(100);
         const medicarepg=new MedicarePage()
         cy.wait(100);
         const longtermPg=new longTermPage();
 
         planselctPg.medicareAdvantageClick();
         cy.wait(100);
-        planListPg.planWellCaresimpleClick();
+        planselctPg.planWellCaresimpleClick();
         cy.wait(100);
-        planListPg.DoneplanSelectionClick();
+        planselctPg.DoneplanSelectionClick();
         cy.wait(100);
         planselctPg.tickClick();
         cy.wait(100);

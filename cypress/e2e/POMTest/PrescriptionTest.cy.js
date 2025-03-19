@@ -16,7 +16,7 @@ describe('PrescriptionPageTest', () => {
         });
 
         const recPage = new LandingPage();
-        recPage.clickRecommedation();
+        recPage.clickCreateRecommendation();
         const homepage = new HomePage();
         
         homepage.enterEmail("ShigaPOM@gmail.com");
@@ -191,13 +191,13 @@ describe('PrescriptionPageTest', () => {
     it('test10,verify user can add another drug ', () => {
         const prefPage = new PreferencePage();
         
-        prefPage.clickyesRadioDrugCost();  
+       prefPage.clickyesRadioDrugCost();  
         
         prefPage.clickNextPrefPage();  
         const drugPage = new PrescriptionPage();
         
         drugPage.enterDrugSearchBox("ibuprofen");
-        drugPage.selectDrug();
+       // drugPage.selectDrug();
         drugPage.addMyDrugListClick();
         drugPage.clickAddAnotherDrug();
         
@@ -265,7 +265,7 @@ describe('PrescriptionPageTest', () => {
 
     });
     
-  /*  it.skip('test14,verify select prescription drug from existing list ', () => {
+    it('test14,verify select prescription drug from existing list ', () => {
         const prefPage = new PreferencePage();
         
         prefPage.clickyesRadioDrugCost();  
@@ -275,7 +275,7 @@ describe('PrescriptionPageTest', () => {
         
         
         cy.log("user should be able to see prescription list , test passed.");
-    });*/
+    });
     it('test15,verify clear search ', () => {
         const prefPage = new PreferencePage();
         

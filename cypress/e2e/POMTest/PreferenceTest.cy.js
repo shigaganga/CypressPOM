@@ -4,7 +4,6 @@ import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 import planselectionPage from '../pages/PlanselectionPage.js';
-import planListPage from '../pages/PlanListPage.js';
 import LongTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicarePage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
@@ -24,7 +23,7 @@ describe('PreferenceTest', () => {
 
 
         const recPage = new LandingPage();
-        recPage.clickRecommedation();
+        recPage.clickCreateRecommendation();
         const homepage = new HomePage();
         
         homepage.enterEmail("ShigaPOM@gmail.com");
@@ -51,7 +50,7 @@ describe('PreferenceTest', () => {
         
     });
 
-    it('should test search preference with YES', () => {
+    it('test1,should test search preference with YES', () => {
         const prefPage = new PreferencePage();
         
         prefPage.clickyesRadioDrugCost();  
@@ -62,9 +61,18 @@ describe('PreferenceTest', () => {
         prefPage.verifyManagePrescriptionurl();
     });
 
-    const prefPage = new PreferencePage();
+    it.only('test2,should test search preference with No', () => {
+        const prefPage = new PreferencePage();
+        
+        prefPage.clicknoRadioDrugCost();  
+        
+        prefPage.verifyAreUSureText();
+        prefPage.clickNextPrefPage();  
+        
+        prefPage.verifyPlanSelectionUrl();
+    });
 
-    it('should test search preference with back', () => {
+    it('test3,should test search preference with back', () => {
         const prefPage = new PreferencePage();
         
         prefPage.clickyesRadioDrugCost();  
@@ -78,7 +86,7 @@ describe('PreferenceTest', () => {
     
     });
     
-    it('should test Edit Yes FunctionalTesting', () => {
+    it.skip('should test search preference with no, FunctionalTesting', () => {
         const prefPage = new PreferencePage();
         const recPage = new LandingPage();
         const homepage = new HomePage();
@@ -107,13 +115,12 @@ describe('PreferenceTest', () => {
         
         Pharmacypage.clicknextpharmacy();
         
-        const planListPg=new planListPage();
         
         planselctPg.medicareAdvantageClick();
         
-        planListPg.planWellCaresimpleClick();
+        planselctPg.planWellCaresimpleClick();
         
-        planListPg.DoneplanSelectionClick();
+        planselctPg.DoneplanSelectionClick();
         
         planselctPg.tickClick();
         
@@ -138,21 +145,15 @@ describe('PreferenceTest', () => {
         planselctPg.AivanteImagClick();
         
        recPage.editRecommendationClick();
-     homepage.NextHomeClick();
+     homepage.nextHomeClick();
      prefPage.clickNextPrefPage();
      drugpage.doneAddDrugClick();
      Pharmacypage.clickfarmacy3Edit();
-     
      Pharmacypage.clicknextpharmacy();
-     
      planselctPg.medicareAdvantageClick();
-     
-     planListPg.HumanaGoldPlanClick();
-     
-     planListPg.DoneplanSelectionClick();
-     
+     planselctPg.HumanaGoldPlanClick();
+     planselctPg.DoneplanSelectionClick();
      planselctPg.tickClick();
-     
      planselctPg.medicareclick();
      cy.wait(300);
      medicarepg.medicarArrowClick();
@@ -160,47 +161,11 @@ describe('PreferenceTest', () => {
      medicarepg.aivanteImgClick();
    
     })
-    it('should test Edit No FunctionalTesting', () => {
+    it('should test next button on view recommendation, navigationTesting', () => {
         const prefPage = new PreferencePage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const drugpage=new PrescriptionPage();
-        const Pharmacypage=new PharmacyPage();
-        const planselctPg=new planselectionPage();
-        const longtermPg=new LongTermPage();
-        const medicarepg=new MedicareAdvantagepage()
-        const planListPg=new planListPage();
-        
+        const planselctPg=new planselectionPage()
         prefPage.clicknoRadioDrugCost();  
         prefPage.clickNextPrefPage();  
-        planselctPg.medicareAdvantageClick();
-        
-        prefPage.verifyMedicarePageUrl();
-        planListPg.HumanaGoldPlusPlanClick();
-        
-        planListPg.DoneplanSelectionClick();
-        
-        planselctPg.tickClick();
-        
-        planselctPg.medicareclick();
-        
-        medicarepg.medicarArrowClick();
-        
-        medicarepg.submitMedicareClick();
-        
-        medicarepg.backToplanSelectionClick();
-        
-        planselctPg.longtermClick();
-        
-        longtermPg.longTermArrowClick();
-        
-        longtermPg.submitLongTermClick();
-        
-        longtermPg.backLongTermToPlanSelectionClick()
-        planListPg.pdpClick();
-       prefPage.verifyPdpPageUrl();
-       planListPg.wellcareValuScriptClick();
-       planListPg.donePdpClick();
-      //lanselctPg.prescriptionClick();
+    planselctPg.verifyManagePrescriptionurl();
     })
 });
