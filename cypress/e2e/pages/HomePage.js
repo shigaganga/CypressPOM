@@ -8,7 +8,7 @@ class HomePage{
    // year="td[aria-label='1957'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
     //month="td[aria-label='1957-02-01T00:00:00-05:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
      month1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-   // zip="#mat-input-8";
+   zip="#mat-input-8";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
    nexthome=".form-wrapper > .mat-raised-button";
 /*
