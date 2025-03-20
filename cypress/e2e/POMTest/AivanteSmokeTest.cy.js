@@ -48,7 +48,7 @@ describe('Home Flow Test', () => {
            cy.wait(100);
            homepage.searchclick();
            cy.wait(100);
-           homepage.NextHomeClick();
+           homepage.nextHomeClick();
            cy.wait(100);
         // homepage.verifyUrl("https://analytics.dzeecloud.com/medicareAdvantage_sandbox/preferences");
          cy.wait(100);
