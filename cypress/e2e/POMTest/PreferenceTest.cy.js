@@ -52,7 +52,6 @@ describe('PreferenceTest', () => {
 
     it('test1,should test search preference with YES', () => {
         const prefPage = new PreferencePage();
-        
         prefPage.clickyesRadioDrugCost();  
         
         prefPage.verifyGreatText();
@@ -86,82 +85,7 @@ describe('PreferenceTest', () => {
     
     });
     
-    it.skip('should test search preference with no, FunctionalTesting', () => {
-        const prefPage = new PreferencePage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const drugpage=new PrescriptionPage();
-        const Pharmacypage=new PharmacyPage();
-        const planselctPg=new planselectionPage();
-        const longtermPg=new LongTermPage();
-        const medicarepg=new MedicareAdvantagepage()
-        
-        prefPage.clickyesRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
-         
-         drugpage.enterDrugSearchBox("Gabapentin");
-         
-         drugpage.selectDrug();
-         
-        drugpage.clickAddToDrug();
-        
-        drugpage.doneAddDrugClick();
-        
-        Pharmacypage.clickFindFarmacy();
-        
-        Pharmacypage.clickfarmacyOne();
-        
-        Pharmacypage.clickfarmacyTwo();
-        
-        Pharmacypage.clicknextpharmacy();
-        
-        
-        planselctPg.medicareAdvantageClick();
-        
-        planselctPg.planWellCaresimpleClick();
-        
-        planselctPg.DoneplanSelectionClick();
-        
-        planselctPg.tickClick();
-        
-        planselctPg.medicareclick();
-        
-        medicarepg.medicarArrowClick();
-        
-        medicarepg.submitMedicareClick();
-        
-        medicarepg.backToplanSelectionClick();
-        
-        planselctPg.longtermClick();
-        
-        longtermPg.longTermArrowClick();
-        
-        longtermPg.submitLongTermClick();
-        
-       // longtermPg.pdfclick();
-        
-        longtermPg.backLongTermToPlanSelectionClick();
-        
-        planselctPg.AivanteImagClick();
-        
-       recPage.editRecommendationClick();
-     homepage.nextHomeClick();
-     prefPage.clickNextPrefPage();
-     drugpage.doneAddDrugClick();
-     Pharmacypage.clickfarmacy3Edit();
-     Pharmacypage.clicknextpharmacy();
-     planselctPg.medicareAdvantageClick();
-     planselctPg.HumanaGoldPlanClick();
-     planselctPg.DoneplanSelectionClick();
-     planselctPg.tickClick();
-     planselctPg.medicareclick();
-     cy.wait(300);
-     medicarepg.medicarArrowClick();
-     cy.wait(200);
-     medicarepg.aivanteImgClick();
-   
-    })
-    it('should test next button on view recommendation, navigationTesting', () => {
+    it('test4,should test next button on view recommendation, navigationTesting', () => {
         const prefPage = new PreferencePage();
         const planselctPg=new planselectionPage()
         prefPage.clicknoRadioDrugCost();  
