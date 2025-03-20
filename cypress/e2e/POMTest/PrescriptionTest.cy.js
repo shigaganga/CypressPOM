@@ -39,7 +39,7 @@ describe('PrescriptionPageTest', () => {
         
         homepage.searchclick();
         
-        homepage.NextHomeClick();
+        homepage.nextHomeClick();
         
     });
     it('test1,Begin typing to find select your drug', () => {
@@ -179,7 +179,6 @@ describe('PrescriptionPageTest', () => {
         
         prefPage.clickNextPrefPage();  
         const drugPage = new PrescriptionPage();
-        
         drugPage.enterDrugSearchBox("ibuprofen");
         drugPage.selectDrug();
         drugPage.addMyDrugListClick();
