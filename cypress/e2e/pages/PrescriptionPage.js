@@ -11,8 +11,8 @@ class PrescriptionPage{
     addGeneric="button[class='marginTop2Percent login-form-button login-form-margin primary-btn floatLeft ant-btn ant-btn-primary'] span[class='ng-star-inserted']";
 
     addBrand=".marginLeft20pxImp > .ng-star-inserted";
-    addMyDrugList="button[class='marginTop2Percent login-form-button login-form-margin primary-btn floatLeft ant-btn ant-btn-primary ng-star-inserted'] span[class='ng-star-inserted']";
-   addAno
+   // addMyDrugList="button[class='marginTop2Percent login-form-button login-form-margin primary-btn floatLeft ant-btn ant-btn-primary ng-star-inserted'] span[class='ng-star-inserted']";
+   addMyDrugList="//span[normalize-space()='Add To My Drug List']";
     browzeA_Zlink=":nth-child(1) > .login-form-forgot > u";
    selectLetter="nz-select-item[title='A']";
    lettertEle =('.ant-select-selection-item');
@@ -82,7 +82,7 @@ class PrescriptionPage{
         cy.get(this.addGeneric).click();
     }
     addMyDrugListClick(){
-        cy.get(this.addMyDrugList).should('be.visible').click( { force: true});
+        cy.xpath(this.addMyDrugList).should('be.visible').click( { force: true});
     }
     clickBrowseAtoZlink(){
         cy.get(this.browzeA_Zlink).click();

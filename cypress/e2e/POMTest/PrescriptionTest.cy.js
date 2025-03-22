@@ -37,7 +37,7 @@ describe('PrescriptionPageTest', () => {
         
         homepage.enterZip("27529");
         
-        homepage.searchclick();
+        homepage.clickSearch();
         
         homepage.nextHomeClick();
         

@@ -46,7 +46,7 @@ describe('Home Flow Test', () => {
            cy.wait(100);
            homepage.enterZip("27529")
            cy.wait(100);
-           homepage.searchclick();
+           homepage.clickSearch();
            cy.wait(100);
            homepage.nextHomeClick();
            cy.wait(100);
