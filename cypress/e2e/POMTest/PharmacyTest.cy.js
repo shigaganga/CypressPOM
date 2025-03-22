@@ -195,8 +195,7 @@ describe('PharmacyTest', () => {
             cy.wait(1000)
             pharmacypg.clickFindPahramcyinzipcode()
             cy.wait(1000)
-            //cy.log('The system sholud show error')
-
+            
         });
 
         it('Test9,Find Pharmacy By Zip', () => {
@@ -313,7 +312,6 @@ describe('PharmacyTest', () => {
             cy.log('The system should throw error msg Pharmacy details not found in AiVante system,Test passed')
             
         });
-
 
         it('Test16,Zip code history', () => {
             const drugpage = new PrescriptionPage();
@@ -527,7 +525,6 @@ describe('PharmacyTest', () => {
         });
 
 
-
         it('Test27,verify the Item per page', () => {
             const drugpage = new PrescriptionPage();
             drugpage.doneAddDrugClick();
@@ -664,13 +661,8 @@ describe('PharmacyTest', () => {
             pharmacypg.clickNextBtn()
         });
 
-        
-
 
 });
-
-
-
 
 
     
