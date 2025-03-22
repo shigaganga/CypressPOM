@@ -16,7 +16,7 @@ describe('PharmacyTest', () => {
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
             lPage.clickLoginBtn();
-            lPage.verifyLogin(); 
+            lPage.verifyLogin();
        });
 
        const recPage = new LandingPage();
