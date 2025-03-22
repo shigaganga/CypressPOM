@@ -73,7 +73,7 @@ describe('PharmacyTest', () => {
             cy.wait(100);
 
             const pharmacypg = new PharmacyPage();
-            pharmacypg.clickZipcoderadio()
+            pharmacypg.clickZipcoderadio();
             cy.wait(1000)
 
         })
@@ -85,7 +85,7 @@ describe('PharmacyTest', () => {
             cy.wait(100);
 
             const pharmacypg = new PharmacyPage();
-            pharmacypg.clickZipcoderadio()
+            pharmacypg.clickZipcoderadio();
             cy.wait(1000)
             pharmacypg.enterZipcode('80109') 
             cy.wait(1000)
@@ -103,11 +103,11 @@ describe('PharmacyTest', () => {
             cy.wait(100);
 
             const pharmacypg = new PharmacyPage();
-            pharmacypg.clickZipcoderadio()
+            pharmacypg.clickZipcoderadio();
             cy.wait(1000)
             pharmacypg.enterZipcode('5000') 
             cy.wait(1000)
-            pharmacypg.clickFindPahramcyinzipcode()
+            pharmacypg.clickFindPahramcyinzipcode();
             cy.wait(1000)
             cy.log('Error on fetching county code.,Test passed')
          
@@ -120,7 +120,7 @@ describe('PharmacyTest', () => {
             cy.wait(100);
 
             const pharmacypg = new PharmacyPage();
-            pharmacypg.clickZipcoderadio()
+            pharmacypg.clickZipcoderadio();
             cy.wait(1000)
             pharmacypg.enterZipcode('') 
             cy.wait(1000)
