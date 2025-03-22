@@ -29,9 +29,7 @@ verifyAreUSureText() {
         .contains('Are you sure?')      
         .should('be.visible');   
 }
-verifyManagePrescriptionurl(){
-    cy.url().should('include', 'http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions');  
-}
+
 verifyPlanSelectionUrl(){
     cy.url().should('include', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');  
 }
@@ -47,7 +45,10 @@ verifyPdpPageUrl(){
 verifyHomePageUrl(){
     cy.url().should('include','http://169.61.105.110/medicareAdvantage_sandbox/home')
 }
-
+verifyManagePrescriptionurl(){
+    cy.wait(500);
+    cy.url().should('include', 'http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions');  
+}
 }
 
 export default PreferencePage;

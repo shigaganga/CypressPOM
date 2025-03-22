@@ -97,6 +97,7 @@ MedigapArrow='div.mat-select-arrow-wrapper';
   {
     cy.get(this.PharmacyButtn).click();
   }
+ 
 
 }
 export default planselectionPage;
