@@ -62,5 +62,41 @@ AivanteImagClick(){
 prescriptionClick(){
     cy.rightclick(this.prescriptionbtn).click();
 }
+
+MedigapArrow='div.mat-select-arrow-wrapper';
+    SetMedigapArrow()
+    {
+    cy.wait(2000)    
+    cy.get(this.MedigapArrow).should('be.visible').click();
+    }
+
+  SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
+  SetSupplementButtn()
+  {
+    cy.wait(5000)
+    cy.get(this.SupplementButtn).click();
+  } 
+
+  ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
+  SetProviderButtn()
+  {
+    cy.get(this.ProviderButtn).click();
+  }
+  ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
+  SetProfileButtn()
+  {
+    cy.get(this.ProfileButtn).click();
+  }
+  PrescriptionButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(3)';
+  SetPrescriptionButtn()
+  {
+    cy.get(this.PrescriptionButtn).click();
+  }
+  PharmacyButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(4)';
+  SetPharmacyButtn()
+  {
+    cy.get(this.PharmacyButtn).click();
+  }
+
 }
 export default planselectionPage;
