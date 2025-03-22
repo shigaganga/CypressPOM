@@ -66,7 +66,6 @@ describe('PharmacyTest', () => {
         
     });
 
-
         it('Test1,Select Zip code radio button',() => {
             const drugpage = new PrescriptionPage();
             drugpage.doneAddDrugClick();
@@ -664,10 +663,4 @@ describe('PharmacyTest', () => {
 
 });
 
-
-    
-
-
-
-    
 
