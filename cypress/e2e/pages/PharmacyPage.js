@@ -11,7 +11,7 @@ class PharmacyPage{
     addressbtn='#mat-radio-15 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
     zipele='#mat-input-13'
     Ziphistoryarrow='.mat-select-arrow'
-    //addressEle='#mat-input-14'
+    addressEle='#mat-input-14'
     zipfindphramacyelement=':nth-child(4) > .mat-focus-indicator > .mat-button-wrapper'
     AddressfindpharmacyELe='.form-field-container-col2 > :nth-child(3) > .mat-focus-indicator'
     distanceele='#mat-input-12'
@@ -47,9 +47,9 @@ class PharmacyPage{
     clickZiphistoryarrow(){
         cy.get(this.Ziphistoryarrow).click()
     }
-    //enterAddress(address){
-     //   cy.get(this.addressEle,{ timeout: 10000 }).type(address)
-    //}
+    enterAddress(address){
+       cy.get(this.addressEle,{ timeout: 10000 }).type(address)
+    }
     clickFindPahramcyinzipcode(){
         cy.get(this.zipfindphramacyelement).click()
     }
