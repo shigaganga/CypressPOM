@@ -140,7 +140,7 @@ describe('PharmacyTest', () => {
             cy.wait(1000)
             pharmacypg.enterZipcode('as1') 
             cy.wait(1000)
-            pharmacypg.clickFindPahramcyinzipcode()
+            pharmacypg.clickFindPahramcyinzipcode();
             cy.wait(1000)
             cy.log('Zipcode is not in correct format,Test passed')
 
