@@ -14,7 +14,10 @@ class HomePage{
 /*
     backBut=".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
     clickbackBut(){cy.get(this.backBut).wait(2000).click()   }
+       clickbackButton(){cy.get(this.backBut).wait(2000).click()   }
+
 */
+
 email="#mat-input-3";
 healthProfile=".mat-select-arrow.ng-tns-c216-10";
 bestHealth = "#mat-option-4 > .mat-option-text";
