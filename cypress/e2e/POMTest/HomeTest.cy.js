@@ -1,4 +1,5 @@
 import LoginPage from "../Pages/LoginPage";
+//import LandingPage from "../pages/LandingPage";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 describe('HomePage test', () => {
@@ -29,7 +30,7 @@ describe('HomePage test', () => {
     });
     it('TC-3, Verify Recommendation email', () => {
         const homepage = new HomePage();
-        homepage.enterEmail("Sh@gmail.com");
+        homepage.enterEmail("chhabi@gmail.com");
     });
     it('TC-4, Verify the health profile field', () => {
         const homepage = new HomePage();
