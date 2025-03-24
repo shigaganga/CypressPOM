@@ -1,5 +1,7 @@
 
-import LoginPage from "../pages/LoginPage"
+//import LoginPage from "../pages/LoginPage"
+import LoginPage from "../Pages/LoginPage";
+
 describe("POM",()=>{
     it("Test1,LoginTest",()=>{
         cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage");

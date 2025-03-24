@@ -11,13 +11,12 @@ class HomePage{
    zip="#mat-input-8";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
    nexthome=".form-wrapper > .mat-raised-button";
-/*
-    backBut=".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
-    clickbackBut(){cy.get(this.backBut).wait(2000).click()   }
-       clickbackButton(){cy.get(this.backBut).wait(2000).click()   }
 
-*/
 
+
+
+//backBut=".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
+backBut=".button-wrapper > .mat-focus-indicator";
 email="#mat-input-3";
 healthProfile=".mat-select-arrow.ng-tns-c216-10";
 bestHealth = "#mat-option-4 > .mat-option-text";
@@ -68,6 +67,10 @@ communicationEmail = "#mat-input-9";
 contact = "#mat-input-10";
 nextButt = ".form-wrapper > .mat-raised-button";
 
+
+clickbackBut()
+{cy.get(this.backBut).wait(2000).click();
+}
 clickAiVanteLogo(){
     cy.get(this.AiVanteLogo).click();
 }
