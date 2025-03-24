@@ -209,8 +209,7 @@ it("Test8:To verify Part A & B expands and collapse",()=>{
    cy.get(".mat-button-wrapper").contains('Plan Details').click();
 cy.get(".mat-content .mat-expansion-panel-header-title").contains('Parts A & B').click(); //Part A &B expands
 cy.wait(2000)
-cy.get('#mat-expansion-panel-header-2 >span.mat-expansion-indicator').should('be.visible').invoke('click');;
-; //Part A & B collapse
+cy.get('#mat-expansion-panel-header-2 >span.mat-expansion-indicator').should('be.visible').invoke('click'); //Part A & B collapse
 cy.wait(2000)
 })
 
