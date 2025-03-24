@@ -25,11 +25,10 @@ describe('Recommendation Flow Test', () => {
 import LoginPage from "../Pages/LoginPage";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
-//import PreferencePage from "../Pages/PreferencesPage";
 import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from "../Pages/PrescriptionPage";
 import PharmacyPage from "../Pages/PharmacyPage";
-import PlanSelectionPage from "../Pages/PlanSelectionPage";
+import planselectionPage from "../Pages/PlanSelectionPage.js";
 
 describe('LandingPage test', () => {
     beforeEach(() => {
@@ -45,7 +44,7 @@ describe('LandingPage test', () => {
     });
 
     it('test1 Verify Tsign', () => {
-        //const landingpage = new LandingPage();
+        //const recPage = new LandingPage();
         const recPage = new LandingPage();
         cy.wait(2000);
         recPage.clickTsign();
@@ -74,25 +73,38 @@ describe('LandingPage test', () => {
     it.skip('test5 Verify delete Recommendation plan', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        recPage.clickDeleteRecommendationIcon();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        recPage.clickDeleteRecommandtionBut();
+        recPage.enterByEmail('lata');//Filter by recommendation email or name
+        cy.wait(2000);
+        recPage.clickExpandPlan();
+        cy.wait(2000);
+        recPage.clickDeletePlanIcon();
+        cy.wait(2000);
+        recPage.clickDeleteBut();
         cy.wait(2000);
     });
     it('test6 Verify cancel Recommendation plan', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        recPage.clickDeleteRecommendationIcon();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        recPage.clickCancelRecommendation();
+        recPage.enterByEmail('lata');//Filter by recommendation email or name
         cy.wait(2000);
+        recPage.clickExpandPlan();
+        cy.wait(2000);
+        recPage.clickDeletePlanIcon();
+        cy.wait(2000);
+        recPage.clickCancelDeleteBut();
+        cy.wait(2000);
+        
     });
     it('test7 Verify the Expand Plan', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
         recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        recPage.enterByEmail('Chha');//Filter by recommendation email or name
+        recPage.enterByEmail('lata');//Filter by recommendation email or name
         cy.wait(2000);
         recPage.clickExpandPlan();
         cy.wait(2000);
@@ -102,7 +114,7 @@ describe('LandingPage test', () => {
         cy.wait(2000);
         recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Chha');//Filter by recommendation email or name
+        recPage.enterByEmail('lata');//Filter by recommendation email or name
         cy.wait(2000);
         recPage.clickExpandPlan();
         cy.wait(2000);
@@ -133,7 +145,7 @@ describe('LandingPage test', () => {
         recPage.clickItemFirstPage();
         cy.wait(2000);
     });
-    it('test13 Verify create Recommendation', () => {
+    it.only('test13 Verify create Recommendation', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
         recPage.clickCreateRecommendation();
@@ -143,7 +155,7 @@ describe('LandingPage test', () => {
         homepage.enterEmail('chhabi@gmail.com');
         homepage.clickHealthProfile();
         homepage.clickBestHealth();
-        homepage.enterRecommName('Lata');
+        homepage.enterName('Lata');
         homepage.enterLifeexpectancy('80');
         homepage.clickDateOfBirth();
         homepage.clickCalenderEle();
@@ -171,7 +183,7 @@ describe('LandingPage test', () => {
         const pharmacypage = new PharmacyPage();
         pharmacypage.selectPharmacy();
         pharmacypage.clickNextBtn();
-        const planMA = new PlanSelectionPage();
+        const planMA = new PlanselectionPage();
         planMA.clickMA();
         planMA.clickPlan();
         planMA.clickDone();
@@ -214,147 +226,146 @@ describe('LandingPage test', () => {
         cy.wait(2000);
         recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewRecom();
-        cy.wait(2000)
+        recPage.clickviewRecom();
         cy.wait(2000);
-        landingpage.clickviewBackbut();
+        recPage.clickviewBackbut();
         cy.wait(2000);
     });
     it('test16 Verify view low cost pharmacy view-recommendation page then back to the landing page', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewRecom();
+        recPage.clickviewRecom();
         cy.wait(3000)
-        landingpage.clickviewLowCost();
+        recPage.clickviewLowCost();
         cy.wait(3000);
-        landingpage.clickbackLowCost();//back to the view-recommendation
+        recPage.clickbackLowCost();//back to the view-recommendation
         cy.wait(3000);
-        landingpage.clickviewBackbut();//back to the landing page
+        recPage.clickviewBackbut();//back to the landing page
         cy.wait(2000);
     });
     it('test17 Verify view provider on the view-recommendation page then back', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewRecom();
+        recPage.clickviewRecom();
         cy.wait(2000)
-        landingpage.clickviewProvider();
+        recPage.clickviewProvider();
         cy.wait(2000);
-        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        recPage.clickbackViewRecommendation();//back to the view-recommendation
         cy.wait(2000);
-        landingpage.clickviewBackbut();//back to the landing page
+        recPage.clickviewBackbut();//back to the landing page
         cy.wait(2000);
     });
     it('test18 Verify view medicare on the view-recommendation page then back', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewRecom();
+        recPage.clickviewRecom();
         cy.wait(2000)
-        landingpage.clickviewMedicare();
+        recPage.clickviewMedicare();
         cy.wait(2000);
-        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        recPage.clickbackViewRecommendation();//back to the view-recommendation
         cy.wait(2000);
-        landingpage.clickviewBackbut();//back to the landing page
+        recPage.clickviewBackbut();//back to the landing page
         cy.wait(2000);
     });
     it('test19 Verify view longTerm on the view-recommendation page then back', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewRecom();
+        recPage.clickviewRecom();
         cy.wait(2000)
-        landingpage.clickviewLongTerm();
+        recPage.clickviewLongTerm();
         cy.wait(2000);
-        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        recPage.clickbackViewRecommendation();//back to the view-recommendation
         cy.wait(2000);
-        landingpage.clickviewBackbut();//back to the landing page
+        recPage.clickviewBackbut();//back to the landing page
         cy.wait(2000);
     });
     it('test20 Verify delete recommendation plan', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickDeletePlanIcon();
+        recPage.clickDeletePlanIcon();
         cy.wait(2000)
-        landingpage.clickDeleteBut();
+        recPage.clickDeleteBut();
     });
     it('test21 Verify cancel the delete recommendation plan', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickRecommendationRadioBut();
+        recPage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Lata');
+        recPage.enterByEmail('Lata');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickDeletePlanIcon();
+        recPage.clickDeletePlanIcon();
         cy.wait(2000)
-        landingpage.clickCancelDeleteBut();
+        recPage.clickCancelDeleteBut();
     });
     it('test22 Verify Prescription Radio button', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickPrescriptionRadioBut();
+        recPage.clickPrescriptionRadioBut();
         cy.wait(2000);
     });
     it('test23 Verify Edit Prescription', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickPrescriptionRadioBut();
+        recPage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        landingpage.enterEditPresEmail('chha');
+        recPage.enterEditPresEmail('chha');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickeditPresDrug();
+        recPage.clickeditPresDrug();
         cy.wait(2000);
-        landingpage.clickeditDrug();
+        recPage.clickeditDrug();
         cy.wait(2000);
-        landingpage.clickFrequencyBut();
+        recPage.clickFrequencyBut();
         cy.wait(2000);
-        landingpage.clickFrequency60();
+        recPage.clickFrequency60();
         cy.wait(2000);
-        landingpage.enterQuanty('45');
+        recPage.enterQuanty('45');
     });
     it('test24 Verify view Prescription', () => {
         const recPage = new LandingPage();
         cy.wait(2000);
-        landingpage.clickPrescriptionRadioBut();
+        recPage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        landingpage.enterEditPresEmail('chha');
+        recPage.enterEditPresEmail('chha');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        recPage.clickExpandPlan();
         cy.wait(2000);
-        landingpage.clickviewDrug();
+        recPage.clickviewDrug();
         cy.wait(2000);
     });
     it('test25 Verify view Prescription', () => {

@@ -1,5 +1,5 @@
 class planselectionPage{
-    medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
+    /*medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
         tick=".mat-checkbox-inner-container";
         medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
       longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
@@ -15,7 +15,8 @@ class planselectionPage{
        donePdp='.button-container > .mat-focus-indicator > .mat-button-wrapper';
        aetenaMedicarePremier="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container";
        wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-container";
-       planWellCaresimpleClick(){
+
+planWellCaresimpleClick(){
            cy.get(this.WellcareSimple).click();
        }
        HumanaGoldPlanClick(){
@@ -96,7 +97,45 @@ MedigapArrow='div.mat-select-arrow-wrapper';
   SetPharmacyButtn()
   {
     cy.get(this.PharmacyButtn).click();
-  }
+  }*/
+
+    selectMA = ":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
+selectPlan = ".mat-checkbox-layout > .mat-checkbox-inner-container.first().click({force:true})";
+doneButt = ".button-container > .mat-focus-indicator";
+planCheckbox = ".mat-checkbox-inner-container";
+medicareBut = ".button-container > :nth-child(1) > .mat-button-wrapper";
+backBut=".button-wrapper > :nth-child(1)"; 
+longTermBut=".button-container > :nth-child(2) > .mat-button-wrapper";
+aivanteLogo = "img[src='assets/images/Aivante-logo.png']"; //Captured from cssSelector
+
+clickMA() {
+cy.get(this.selectMA).wait(2000).click();
+}
+/*clickPlan(){
+    cy.get(this.selectPlan).first().click();
+}*/
+clickPlan() {
+cy.get('.mat-checkbox-layout > .mat-checkbox-inner-container').first().click({ force: true });
+}
+clickDone() {
+cy.get(this.doneButt).wait(3000).click();
+}
+clickPlanCheckbox() {
+cy.get(this.planCheckbox).wait(3000).click();
+}
+
+clickMedicareBut() {
+cy.get(this.medicareBut).wait(3000).click();
+}
+clickBackBut(){
+cy.get(this.backBut).wait(3000).click();
+}
+clicklongTermBut(){
+cy.get(this.longTermBut).wait(2000).click();
+}
+clickAivanteLogo() {
+cy.get(this.aivanteLogo).wait(2000).click();
+}
  
 
 }

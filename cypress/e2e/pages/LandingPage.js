@@ -1,43 +1,12 @@
-
-/*class LandingPage{
-    
-    recommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
-    edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
-   
-    clickCreateRecommendation() {
-        cy.get(this.recommendation).should('exist').should('be.visible').click();
-
-    }
-    editRecommendationClick() {
-        cy.get(this.edit).should('exist').should('be.visible').click();
-    }
-}
-export default LandingPage;*/
-
 class LandingPage {
 
     //CREATE RECOMMENDATION:
-    createRecommendation = "button[class='mat-focus-indicator mat-raised-button mat-button-base mat-primary ng-star-inserted'] span[class='mat-button-wrapper']";//cssselectorHub code
-    createRecommandtionPlan = ":nth-child(3) > .cdk-column-actions > :nth-child(1)";
-    deleteRecommendationIcon = "tbody tr:nth-child(1) td:nth-child(1) button:nth-child(1) span:nth-child(1) mat-icon:nth-child(1)";
-    deleteRecommandtionBut = "button[class='mat-focus-indicator mat-raised-button mat-button-base mat-warn'] span[class='mat-button-wrapper']";//CelectorHub code
-    cancelRecommendation = ".mat-dialog-actions > .mat-primary > .mat-button-wrapper";//SelectorHub code//.mat-dialog-actions > .mat-primary
+    createRecommendation = "clickCreateRecommendation";//cssselectorHub code
     Tsign = "//span[@id='userInitial']";
     logOut = "//button[normalize-space(text())='Logout']";
+
     clickCreateRecommendation() {
         cy.get(this.createRecommendation).should('exist').should('be.visible').click();;
-    }
-    clickCreateRecommandtionPlan() {
-        cy.get(this.createRecommandtionPlan).click();
-    }
-    clickDeleteRecommendationIcon() {
-        cy.get(this.deleteRecommendationIcon).wait(2000).click();
-    }
-    clickDeleteRecommandtionBut() {
-        cy.get(this.deleteRecommandtionBut).wait(2000).click()
-    }
-    clickCancelRecommendation() {
-        cy.get(this.cancelRecommendation).wait(2000).click();
     }
     clickTsign() {
         cy.xpath(this.Tsign).click();
