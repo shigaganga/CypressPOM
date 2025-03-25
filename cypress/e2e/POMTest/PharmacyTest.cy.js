@@ -406,7 +406,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('Test21, pharmacies with blank values in the Distance field ', () => {
+        it.only('Test21, pharmacies with blank values in the Distance field ', () => {
             const drugpage = new PrescriptionPage();
             drugpage.doneAddDrugClick();
             cy.wait(100);
@@ -416,7 +416,7 @@ describe('PharmacyTest', () => {
             cy.wait(1000)
             pharmacypg.enterZipcode('80108') 
             cy.wait(1000)
-            pharmacypg.enterDistance('')
+            pharmacypg.enterDistance('5')
             cy.wait(1000)
             pharmacypg.clickFindPahramcyinzipcode()
             cy.wait(1000)

@@ -4,9 +4,6 @@ import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 import planselectionPage from '../pages/PlanselectionPage.js';
-import LongTermPage from '../pages/LongTermPage.js';
-import MedicareAdvantagepage from '../pages/MedicarePage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
 
 describe('PreferenceTest', () => {
 

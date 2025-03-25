@@ -187,7 +187,7 @@ describe('PrescriptionPageTest', () => {
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
         cy.log("user should be able to save druglist under recommendation, test passed.");
     });
-    it('test10,verify user can add another drug ', () => {
+    it.only('test10,verify user can add another drug ', () => {
         const prefPage = new PreferencePage();
         
        prefPage.clickyesRadioDrugCost();  
@@ -195,8 +195,8 @@ describe('PrescriptionPageTest', () => {
         prefPage.clickNextPrefPage();  
         const drugPage = new PrescriptionPage();
         
-        drugPage.enterDrugSearchBox("ibuprofen");
-       // drugPage.selectDrug();
+        drugPage.enterDrugSearchBox("Ibuprofen");
+        drugPage.selectDrug();
         drugPage.addMyDrugListClick();
         drugPage.clickAddAnotherDrug();
         

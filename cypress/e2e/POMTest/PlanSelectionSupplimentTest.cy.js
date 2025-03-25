@@ -22,7 +22,7 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
             lPage.clickLoginBtn();
-            lPage.verifyLogin(); // Ensure login was successful
+            lPage.verifyLogin(); 
         })
            recPage.clickCreateRecommendation();
            cy.wait(100);
