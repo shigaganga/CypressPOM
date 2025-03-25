@@ -3,12 +3,12 @@ import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js'; 
 import PrescriptionPage from '../pages/PrescriptionPage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
+import PlanselectionPage from '../pages/PlanselectionPage.js';
 import LongTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicarePage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
-    const planselectionpage= new planselectionPage();
+    const planselectionpage= new PlanselectionPage();
      beforeEach("Login to PlanSelectionPage",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
         const lPage = new LoginPage();
@@ -72,60 +72,60 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
 
 
 it("Test1:To verify functionality of supplement button on plan-selection/plan-list/SUPPLEMENT page and to verify that user can select max 3 plans",()=>{
-    planselectionpage.SetSupplementButtn()
-    cy.wait(5000)
-    //cy.viewport(1920, 1080);
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetplanSelectionCheckBox(2);
-    planselectionpage.SetplanSelectionCheckBox(3);
-    planselectionpage.SetplanSelectionCheckBox(4);
+    planselectionpage.setSupplementButtn()
+    cy.wait(10000)
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBox(2);
+    planselectionpage.setPlanSelectionCheckBox(3);
+    planselectionpage.setPlanSelectionCheckBox(4);
     
-    planselectionpage.Max3PlanVerifyMsg();
-    planselectionpage.SetplanSelectionCheckBox(1);  //validating the uncheck functionality of plan checkbox.
+    planselectionpage.max3PlanVerifyMsg();
+    planselectionpage.setPlanSelectionCheckBox(1);  //validating the uncheck functionality of plan checkbox.
 
 })
   
 it("Test2:To verify that user can select only one supplement plan from previously selected 3 plans and able to see the plan details",()=>{
-    planselectionpage.SetSupplementButtn()
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetplanSelectionCheckBox(2);
-    planselectionpage.SetplanSelectionCheckBox(3);
-    planselectionpage.DoneplanSelectionClick();
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.VerifyMsg(); //asretion ,user can selectonly 1 plan out of selected 3  maximum plans.
+    planselectionpage.setSupplementButtn()
+    cy.wait(10000)
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBox(2);
+    planselectionpage.setPlanSelectionCheckBox(3);
+    planselectionpage.donePlanSelectionClick();
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.verifyMsg(); //asretion ,user can selectonly 1 plan out of selected 3  maximum plans.
     
 })
  
 it("Test3:To verify the functionality of Medigap plan N ,filter button",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-   planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+   planselectionpage.setSupplementButtn();
    cy.wait(10000)
-   planselectionpage.SetFilterButton() 
-   planselectionpage.FilterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
+   planselectionpage.setFilterButton() 
+   planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
       
 })
 
 it("Test4:To verify the functionality of Medigap plan N ,reset button",()=>{
-  planselectionpage.SetMedigapArrow()
-  planselectionpage.SetSelectPlanN()
-  planselectionpage.SetSupplementButtn();
+  planselectionpage.setMedigapArrow()
+  planselectionpage.setSelectPlanN()
+  planselectionpage.setSupplementButtn();
   cy.wait(10000)
-  planselectionpage.SetFilterButton() 
-   planselectionpage.FilterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
-   planselectionpage.SetResetButton(); //reset button validation
+  planselectionpage.setFilterButton() 
+   planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
+   planselectionpage.setResetButton(); //reset button validation
 
 })
 
 it("Test5:To verify the functionality of Medigap plan N details:PartA ",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton()         
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton()         
 
-    planselectionpage.VerifyHospitalization()  //Hospitalization validation under partA
+    planselectionpage.verifyHospitalization()  //Hospitalization validation under partA
    
    cy.contains('Skilled Nursing Facility Care').should('exist');   //Skilled Nursing Facility Care validation
 
@@ -133,17 +133,17 @@ it("Test5:To verify the functionality of Medigap plan N details:PartA ",()=>{
    cy.contains('Blood').should('exist');  //Blood Validation
    cy.wait(2000)
    cy.contains("Hospice Care").should('exist');  //Hospics Care validation
-   planselectionpage.SetPartAExpandsCollapsIndicator()
+   planselectionpage.setPartAExpandsCollapsIndicator()
 })
  
 it("Test6:To verify the functionality of Medigap plan N details:PartA:Hospitalization",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton() 
-    planselectionpage.SetHospitalizationClick()
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton() 
+    planselectionpage.setHospitalizationClick()
     cy.get(".mat-expansion-panel-body table.mat-table.cdk-table.detail-table tbody", { timeout: 10000 })
     .should('be.visible') // Check table is visible
    .find('tr') // Find all rows in the table
@@ -157,76 +157,76 @@ it("Test6:To verify the functionality of Medigap plan N details:PartA:Hospitaliz
 
 
 it("Test7:To verify Part B expands and collapse",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton()
-    planselectionpage.SetPartBExpands()   //PartB expands
-    planselectionpage.SetPartBCollapse()  //Part B collapse
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton()
+    planselectionpage.setPartBExpands()   //PartB expands
+    planselectionpage.setPartBCollapse()  //Part B collapse
 }) 
 
 it("Test8:To verify Part A & B expands and collapse",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton()
-    planselectionpage.SetPartABExpands()
-    planselectionpage.SetPartABCollapse()
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton()
+    planselectionpage.setPartABExpands()
+    planselectionpage.setPartABCollapse()
 })
 
 it("Test9:To verify Other Benefits expands and collapse",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton()
-    planselectionpage.SetOtherBenefitsExpands()
-    planselectionpage.SetOtherBenefitsCollapse()
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton()
+    planselectionpage.setOtherBenefitsExpands()
+    planselectionpage.setOtherBenefitsCollapse()
 })
  it("Test10:To verify functionality of Back button on suppliment plan details page",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetplanSelectionCheckBox(1);
-    planselectionpage.SetPlanDetailsButton()
-    planselectionpage.SetBackButton() //Back button validation
+    planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanDetailsButton()
+    planselectionpage.setBackButton() //Back button validation
    cy.wait(2000);
    cy.url().should('eq','http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
  })
 
  it("Test 11: To verify the functionality of Cancel button on suppliment planlist page",()=>{
-    planselectionpage.SetMedigapArrow()
-    planselectionpage.SetSelectPlanN()
-    planselectionpage.SetSupplementButtn();
+    planselectionpage.setMedigapArrow()
+    planselectionpage.setSelectPlanN()
+    planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.SetCancelButton()  //Cancel button
+    planselectionpage.setCancelButton()  //Cancel button
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/plan-selection");
 
  })
 
  it("Test12: To verify functionality of Profile Button",()=>{
-    planselectionpage.SetProfileButtn()
+    planselectionpage.setProfileButtn()
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/home");
  })
 
  it("Test13: To verify functionality of Provider Button",()=>{
-    planselectionpage.SetProviderButtn()
+    planselectionpage.setProviderButtn()
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
  })
 
  it("Test14: To verify functionality of Prescription Button",()=>{
-    planselectionpage.SetPrescriptionButtn()
+    planselectionpage.setPrescriptionButtn()
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions");
  })
  
  it("Test15: To verify functionality of Pharmacy Button",()=>{
-    planselectionpage.SetPharmacyButtn()
+    planselectionpage.setPharmacyButtn()
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
 
 })
