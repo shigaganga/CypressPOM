@@ -16,6 +16,5 @@ clickLoginBtn(){
 verifyLogin() {
     cy.get(this.homePageHeading).should('have.text', "Recommendations");
 }
-
 }
 export default LoginPage;
