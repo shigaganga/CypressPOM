@@ -2,9 +2,8 @@ import LoginPage from "../pages/LoginPage"
 import LandingPage from "../pages/LandingPage"
 import HomePage from "../pages/HomePage"
 import PreferencePage from "../pages/PreferencePage"
-import PrescriptionPage from "../pages/PrescriptionPage"
-import PharmacyPage from "../pages/PharmacyPage"
-
+import PrescriptionPage from "../Pages/PrescriptionPage"
+import PharmacyPage from "../Pages/PharmacyPage"
 
 describe('PharmacyTest', () => {
 

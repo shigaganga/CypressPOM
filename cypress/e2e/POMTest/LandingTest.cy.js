@@ -22,7 +22,7 @@ describe('Recommendation Flow Test', () => {
     });
 });*/
 
-import LoginPage from "../Pages/LoginPage";
+import LoginPage from "../pages/LoginPage.js";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 import PreferencePage from '../pages/PreferencePage.js';

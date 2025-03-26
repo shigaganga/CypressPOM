@@ -1,7 +1,8 @@
 class LandingPage {
 
     //CREATE RECOMMENDATION:
-    createRecommendation = "clickCreateRecommendation";//cssselectorHub code
+    createRecommendation = ".button-container > .mat-focus-indicator > .mat-button-wrapper";//cssselectorHub code
+ 
     Tsign = "//span[@id='userInitial']";
     logOut = "//button[normalize-space(text())='Logout']";
 

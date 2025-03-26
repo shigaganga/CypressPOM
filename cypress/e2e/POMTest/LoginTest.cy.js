@@ -1,6 +1,6 @@
 
 //import LoginPage from "../pages/LoginPage"
-import LoginPage from "../Pages/LoginPage";
+import LoginPage from "../pages/LoginPage";
 
 describe("POM",()=>{
     it("Test1,LoginTest",()=>{

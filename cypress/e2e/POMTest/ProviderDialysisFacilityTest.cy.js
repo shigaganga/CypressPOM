@@ -3,10 +3,10 @@ import ProviderDialysisFacility from "../pages/ProviderDialysisFacility.js";
 import LoginPage from "../pages/LoginPage.js";
 import HomePage from "../pages/HomePage.js";
 import PreferencePage from "../pages/PreferencePage.js";
-import PrescriptionPage from "../pages/PrescriptionPage.js";
+import PrescriptionPage from "../Pages/PrescriptionPage.js";
 import LandingPage from "../pages/LandingPage.js";
 import ProviderPage from "../pages/ProviderPage.js";
-import PharmacyPage from "../pages/PharmacyPage.js"
+import PreferencePage from "../pages/PreferencePage.js";
 
 describe('ProviderDialysisFacility', () => {
 

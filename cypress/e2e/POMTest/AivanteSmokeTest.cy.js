@@ -2,11 +2,11 @@
 import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
+import planselectionPage from '../Pages/PlanSelectionPage.js';
 import longTermPage from '../pages/LongTermPage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
+import PharmacyPage from '../Pages/PharmacyPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
-import PrescriptionPage from '../pages/PrescriptionPage.js';
+import PrescriptionPage from '../Pages/PrescriptionPage.js';
 import MedicarePage from '../pages/MedicarePage.js';
 describe('Home Flow Test', () => {
     it('should log in and accesshome page', () => {

@@ -2,9 +2,8 @@ import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
-import PrescriptionPage from '../pages/PrescriptionPage.js';
-import PlanSelectionPage from '../pages/PlanselectionPage.js';
-
+import PrescriptionPage from '../Pages/PrescriptionPage.js';
+import planselectionPage from '../Pages/PlanSelectionPage.js';
 describe('Preference Test Suite', () => {
     const loginPage = new LoginPage();
     const landingPage = new LandingPage();

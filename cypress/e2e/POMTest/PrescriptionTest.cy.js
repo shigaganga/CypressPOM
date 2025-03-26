@@ -1,7 +1,7 @@
 import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
-import PrescriptionPage from '../pages/PrescriptionPage.js';
+import PrescriptionPage from '../Pages/PrescriptionPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
 
 describe('PrescriptionPageTest', () => {

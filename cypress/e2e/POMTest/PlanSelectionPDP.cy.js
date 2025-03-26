@@ -2,10 +2,9 @@ import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
-import PrescriptionPage from '../pages/PrescriptionPage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
-
+import PrescriptionPage from '../Pages/PrescriptionPage.js';
+import planselectionPage from '../Pages/PlanSelectionPage.js';
+import PharmacyPage from '../Pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Page PDP",()=> {
     
     beforeEach("Login to PlanSelectionPage",()=>{

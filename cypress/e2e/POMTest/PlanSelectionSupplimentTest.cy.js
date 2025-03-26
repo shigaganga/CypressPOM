@@ -2,11 +2,11 @@ import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js'; 
-import PrescriptionPage from '../pages/PrescriptionPage.js';
-import PlanselectionPage from '../pages/PlanselectionPage.js';
+import PrescriptionPage from '../Pages/PrescriptionPage.js';
+import planselectionPage from '../Pages/PlanSelectionPage.js';
 import LongTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicarePage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
+import PharmacyPage from '../Pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
     const planselectionpage= new PlanselectionPage();
      beforeEach("Login to PlanSelectionPage",()=>{
