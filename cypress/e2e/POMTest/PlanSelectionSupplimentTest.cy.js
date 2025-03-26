@@ -25,47 +25,47 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
             lPage.verifyLogin(); 
         })
            recPage.clickCreateRecommendation();
-           cy.wait(100);
+           
            homepage.enterEmail("rani@gmail.com");
-           cy.wait(100);
+           
            homepage.clickhealthArrow();
-           cy.wait(100);
+           
            homepage.clickGoodHealth();
-           cy.wait(100);
+           
            homepage.enterName("Shigapage");
-           cy.wait(100);
+           
            homepage.enterLifeexpectancy("86");
-           cy.wait(100);
+           
            homepage.datePickerclick();
-           cy.wait(100);
+           
            homepage.year1957click();
-           cy.wait(100);
+           
            homepage.month1957click();
-           cy.wait(100);
+           
            homepage.enterZip("27529")
-           cy.wait(100);
+           
            homepage.clickSearch();
-           cy.wait(100);
+           
            homepage.nextHomeClick();
-           cy.wait(100);
+           
            prefPage.clickyesRadioDrugCost();
-         cy.wait(100);
+         
          prefPage.clickNextPrefPage();
-         cy.wait(100);
+         
          prescriptionpage.enterDrugSearchBox("Gabapentin");
-         cy.wait(100);
+         
          prescriptionpage.selectDrug();
-         cy.wait(100);
+         
          prescriptionpage.clickAddToDrug();
-        cy.wait(100);
+        
         prescriptionpage.doneAddDrugClick();
-        cy.wait(100);
+        
         pharmacypage.clickFindFarmacy();
-        cy.wait(100);
+        
         pharmacypage.clickfarmacyOne();
-        cy.wait(100);
+        
         pharmacypage.clickfarmacyTwo();
-        cy.wait(100);
+        
         pharmacypage.clicknextpharmacy();
 
 })
@@ -73,7 +73,7 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
 
 it("Test1:To verify functionality of supplement button on plan-selection/plan-list/SUPPLEMENT page and to verify that user can select max 3 plans",()=>{
     planselectionpage.setSupplementButtn()
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanSelectionCheckBox(2);
     planselectionpage.setPlanSelectionCheckBox(3);
@@ -86,7 +86,7 @@ it("Test1:To verify functionality of supplement button on plan-selection/plan-li
   
 it("Test2:To verify that user can select only one supplement plan from previously selected 3 plans and able to see the plan details",()=>{
     planselectionpage.setSupplementButtn()
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanSelectionCheckBox(2);
     planselectionpage.setPlanSelectionCheckBox(3);
@@ -100,7 +100,7 @@ it("Test3:To verify the functionality of Medigap plan N ,filter button",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
    planselectionpage.setSupplementButtn();
-   cy.wait(10000)
+   
    planselectionpage.setFilterButton() 
    planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
       
@@ -110,7 +110,7 @@ it("Test4:To verify the functionality of Medigap plan N ,reset button",()=>{
   planselectionpage.setMedigapArrow()
   planselectionpage.setSelectPlanN()
   planselectionpage.setSupplementButtn();
-  cy.wait(10000)
+  
   planselectionpage.setFilterButton() 
    planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
    planselectionpage.setResetButton(); //reset button validation
@@ -121,7 +121,7 @@ it("Test5:To verify the functionality of Medigap plan N details:PartA ",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton()         
 
@@ -129,9 +129,9 @@ it("Test5:To verify the functionality of Medigap plan N details:PartA ",()=>{
    
    cy.contains('Skilled Nursing Facility Care').should('exist');   //Skilled Nursing Facility Care validation
 
-   cy.wait(2000)
+   
    cy.contains('Blood').should('exist');  //Blood Validation
-   cy.wait(2000)
+   
    cy.contains("Hospice Care").should('exist');  //Hospics Care validation
    planselectionpage.setPartAExpandsCollapsIndicator()
 })
@@ -140,7 +140,7 @@ it("Test6:To verify the functionality of Medigap plan N details:PartA:Hospitaliz
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton() 
     planselectionpage.setHospitalizationClick()
@@ -160,7 +160,7 @@ it("Test7:To verify Part B expands and collapse",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setPartBExpands()   //PartB expands
@@ -171,7 +171,7 @@ it("Test8:To verify Part A & B expands and collapse",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setPartABExpands()
@@ -182,7 +182,7 @@ it("Test9:To verify Other Benefits expands and collapse",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setOtherBenefitsExpands()
@@ -192,11 +192,10 @@ it("Test9:To verify Other Benefits expands and collapse",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setBackButton() //Back button validation
-   cy.wait(2000);
    cy.url().should('eq','http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
  })
 
@@ -204,7 +203,7 @@ it("Test9:To verify Other Benefits expands and collapse",()=>{
     planselectionpage.setMedigapArrow()
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
-    cy.wait(10000)
+    
     planselectionpage.setCancelButton()  //Cancel button
     cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/plan-selection");
 
