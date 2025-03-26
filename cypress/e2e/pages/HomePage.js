@@ -1,71 +1,69 @@
-class HomePage {
-    AiVanteLogo = "img[src='assets/images/Aivante-logo.png']";
-    healtharrow = ".mat-select-arrow.ng-tns-c216-10";
-    datePicker = ".mat-datepicker-toggle-default-icon.ng-star-inserted"
-    year1957 = ".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-    month1957 = ".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-    zip = "#mat-input-8";
-    search = ".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    nexthome = ".form-wrapper > .mat-raised-button";
-    email = "#mat-input-3";
-    healthProfile = ".mat-select-arrow.ng-tns-c216-10";
-    bestHealth = "#mat-option-4 > .mat-option-text";
-    goodHealth = "#mat-option-5 > .mat-option-text";
-    moderateHealth = "#mat-option-6 > .mat-option-text";
-    poorHealth = "#mat-option-7 > .mat-option-text"
-    sickHealth = "#mat-option-8 > .mat-option-text";
-    recommendationName = "#mat-input-4";
-    lifeExpectancy = "#mat-input-5";
-    dateOfBirth = "#mat-input-6";
-    calenderEle = ".mat-datepicker-toggle > .mat-focus-indicator"; //':nth-child(5) > :nth-child(1) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex';
-    year1959 = "td[aria-label='1959'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    month1959 = "td[aria-label='1959-02-01T00:00:00-07:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    year = ":nth-child(6) > [data-mat-col='2']";
-    month = "//div[normalize-space()='APR']";
-    gender = "#mat-select-value-5";
-    genderM = "#mat-option-9 > .mat-option-text";//Gender Male
-    genderF = "//span[@class='mat-option-text'][normalize-space()='Female']";
-    tabaccoNo = "#mat-radio-6 > .mat-radio-label"
-    tabaccoYes = "#mat-radio-7 > .mat-radio-label";
-    taxFilingJoin = "#mat-radio-8 > .mat-radio-label";//Tax filing jointly
-    taxFilingIndiv = "#mat-radio-9 > .mat-radio-label";//Tax filing individual
-    tobacoUserLink = 'mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
-    street = "#mat-input-7";
-    zipCode = "#mat-input-8";
-    searchNew = ".mat-form-field-suffix > .mat-focus-indicator";
-    search = ".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    magiTier = "#mat-select-value-11";
-    magiT16 = "#mat-option-13 > .mat-option-text";//Magitier 3
-    emailCom = "#mat-input-9";
-    contact = "#mat-input-10";
-    nextButt = ".form-wrapper > .mat-raised-button";
-    healthProfileMSG = ":nth-child(2) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    countyState = "#mat-select-value-7";
-    city = '#mat-select-value-9';
-    city1 = "#mat-option-18 > .mat-option-text"
-    city2 = "#mat-option-19 > .mat-option-text";
-    lifeExpectancyMSG = ":nth-child(4) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    magiTier = "#mat-select-value-11";
-    magiTier1 = "#mat-option-11 > .mat-option-text";
-    magiTier2 = "#mat-option-12 > .mat-option-text";
-    magiTier3 = "#mat-option-13 > .mat-option-text";
-    magiTier4 = "#mat-option-14 > .mat-option-text";
-    magiTier5 = "#mat-option-15 > .mat-option-text";
-    communicationEmail = "#mat-input-9";
-    contact = "#mat-input-10";
-    nextButt = ".form-wrapper > .mat-raised-button";
+class HomePage{
+    AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
+     healtharrow=".mat-select-arrow.ng-tns-c216-10";
+    datePicker=".mat-datepicker-toggle-default-icon.ng-star-inserted"
+     year1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
+     month1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
+   zip="#mat-input-8";
+    search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+   nexthome=".form-wrapper > .mat-raised-button";
+email="#mat-input-3";
+healthProfile=".mat-select-arrow.ng-tns-c216-10";
+bestHealth = "#mat-option-4 > .mat-option-text";
+goodHealth = "#mat-option-5 > .mat-option-text";
+moderateHealth = "#mat-option-6 > .mat-option-text";
+poorHealth = "#mat-option-7 > .mat-option-text"
+sickHealth = "#mat-option-8 > .mat-option-text";
+recommendationName="#mat-input-4";
+lifeExpectancy="#mat-input-5";
+dateOfBirth="#mat-input-6";
+calenderEle =".mat-datepicker-toggle > .mat-focus-indicator"; //':nth-child(5) > :nth-child(1) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex';
+year1959="td[aria-label='1959'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
+month1959="td[aria-label='1959-02-01T00:00:00-07:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
+year = ":nth-child(6) > [data-mat-col='2']";
+month="//div[normalize-space()='APR']";
+gender="#mat-select-value-5";
+genderM="#mat-option-9 > .mat-option-text";//Gender Male
+genderF="//span[@class='mat-option-text'][normalize-space()='Female']";
+tabaccoNo="#mat-radio-6 > .mat-radio-label"
+tabaccoYes="#mat-radio-7 > .mat-radio-label";
+taxFilingJoin="#mat-radio-8 > .mat-radio-label";//Tax filing jointly
+taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//Tax filing individual
+tobacoUserLink='mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
+street="#mat-input-7";
+zipCode="#mat-input-8";
+searchNew=".mat-form-field-suffix > .mat-focus-indicator";
+search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+magiTier="#mat-select-value-11";
+magiT16="#mat-option-13 > .mat-option-text";//Magitier 3
+emailCom="#mat-input-9";
+contact="#mat-input-10";
+nextButt=".form-wrapper > .mat-raised-button";
+healthProfileMSG=":nth-child(2) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+countyState="#mat-select-value-7";
+city='#mat-select-value-9';
+city1="#mat-option-18 > .mat-option-text"
+city2 ="#mat-option-19 > .mat-option-text";
+lifeExpectancyMSG=":nth-child(4) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+magiTier = "#mat-select-value-11";
+magiTier1 = "#mat-option-11 > .mat-option-text";
+magiTier2 = "#mat-option-12 > .mat-option-text";
+magiTier3 = "#mat-option-13 > .mat-option-text";
+magiTier4 = "#mat-option-14 > .mat-option-text";
+magiTier5 = "#mat-option-15 > .mat-option-text";
+communicationEmail = "#mat-input-9";
+contact = "#mat-input-10";
+nextButt = ".form-wrapper > .mat-raised-button";
 
-    clickAiVanteLogo() {
-        cy.get(this.AiVanteLogo).click();
-    }
-    enterEmail(email) {
-        cy.get(this.email).type(email);
-    }
-    clickHealthProfile() {
-        cy.get(this.healthProfile).click();
-    }
-    clickSick() {
-        cy.get(this.sickHealth).wait(1000).click();
+clickAiVanteLogo(){
+    cy.get(this.AiVanteLogo).click();
+}
+enterEmail(email){
+    cy.get(this.email).type(email);}
+clickHealthProfile(){
+    cy.get(this.healthProfile).click(); }
+clickSick(){
+    cy.get(this.sickHealth).wait(1000).click();
     }
     clickModerateHealth() {
         cy.get(this.moderateHealth).click();
