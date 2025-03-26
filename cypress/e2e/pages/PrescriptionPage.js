@@ -1,6 +1,5 @@
 class PrescriptionPage{
     drugSearchBox="//div[contains(@class, 'ant-form-item-control-input')]//input[1]";
-    //clickDrugDropDown="//nz-option-item[@title='Gabapentin ']";
     clickDrugDropDown= "//nz-option-container//nz-option-item[1]";
     addToDrug="//form//button[contains(@class, 'ant-btn') and span]";
     doneAddDrug="//span[normalize-space()='Done Adding Drugs']";
@@ -9,10 +8,8 @@ class PrescriptionPage{
     dosageInfo='.ant-card-body';
     genericBrandWindow='.ant-modal-body';
     addGeneric="button[class='marginTop2Percent login-form-button login-form-margin primary-btn floatLeft ant-btn ant-btn-primary'] span[class='ng-star-inserted']";
-
     addBrand=".marginLeft20pxImp > .ng-star-inserted";
-   // addMyDrugList="button[class='marginTop2Percent login-form-button login-form-margin primary-btn floatLeft ant-btn ant-btn-primary ng-star-inserted'] span[class='ng-star-inserted']";
-   addMyDrugList="//span[normalize-space()='Add To My Drug List']";
+   addMyDrugList="(//span[normalize-space()='Add To My Drug List'])[1]";
     browzeA_Zlink=":nth-child(1) > .login-form-forgot > u";
    selectLetter="nz-select-item[title='A']";
    lettertEle =('.ant-select-selection-item');
@@ -23,18 +20,15 @@ class PrescriptionPage{
   quantity="input[placeholder='Quantity']"
   clearSearch=".floatRight > u"
   cantFindDrug=":nth-child(2) > .login-form-forgot > u";
-  existingDrugList=".ng-tns-c108-29 > .ant-select-selection-search > .ant-select-selection-search-input";//Select Prescription Drug from your Existing List field
-  selectdrugFromlist="[title='Save'] > .ant-select-item-option-content";  //select save drug list name
-  editDrug="[style='bottom: -10px; position: relative;'] > :nth-child(1) > u";//Edit the drug
+  existingDrugList=".ng-tns-c108-29 > .ant-select-selection-search > .ant-select-selection-search-input";
+  selectdrugFromlist="[title='Save'] > .ant-select-item-option-content";  
+  editDrug="[style='bottom: -10px; position: relative;'] > :nth-child(1) > u";
   cancelUpdate=".floatRight > .ng-star-inserted";
-  //quantityLessText="//div[@class='ng-tns-c132-74 ng-trigger ng-trigger-helpMotion' and text()='Quantity should be greater than 0']";
   quantityLessText=".ant-form-item-explain > .ng-tns-c132-36";
   refillFreequency=".marginTop2Percent > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item";
   sixtyDaysRefill="nz-option-item[title='60 Days'] div[class='ant-select-item-option-content']";
   addAnotherDrug="span[class='ng-star-inserted']";
   updateThisDrug="//span[normalize-space()='Update This Drug']";
-  // updateThisDrug=".floatLeft > .ng-star-inserted";  //Update this drug
-  //removeDrug=".floatRight > a > u"; //Remove drug
   removeDrug="//u[normalize-space()='Remove drug']";
   reviewPrescriptionList="//span[normalize-space()='Review prescription list']";
   enterDrugSearchBox(drugName) {
@@ -82,7 +76,9 @@ class PrescriptionPage{
         cy.get(this.addGeneric).click();
     }
     addMyDrugListClick(){
-        cy.xpath(this.addMyDrugList).should('be.visible').click( { force: true});
+        cy.xpath(this.addMyDrugList, { timeout: 10000 }).should('be.visible').click({ force: true });
+       //cy.contains('span', 'Add To My Drug List').should('be.visible').click();
+
     }
     clickBrowseAtoZlink(){
         cy.get(this.browzeA_Zlink).click();

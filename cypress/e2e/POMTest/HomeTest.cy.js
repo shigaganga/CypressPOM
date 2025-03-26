@@ -89,14 +89,14 @@ describe('HomePage test', () => {
     it('TC-15, Verify the male', () => {
         const homepage = new HomePage();
         homepage.clickGender();
-        cy.wait(2000);
+        
         homepage.clickMale();
-        cy.wait(2000);
+        
     });
     it('TC-16, Verify the female', () => {
         const homepage = new HomePage();
         homepage.clickGender();
-        cy.wait(2000);
+        
         homepage.clickFemale();
     });
     it('TC-17, Verify TabaccoNo', () => {
@@ -126,49 +126,49 @@ describe('HomePage test', () => {
     it('TC-23, Verify the Zip Code', () => {
         const homepage = new HomePage();
         homepage.enterZip('80108');
-        cy.wait(2000);
+        
     });
     it('TC-24, Verify the Zip Code', () => {
         const homepage = new HomePage();
         homepage.enterZip('80108');
-        cy.wait(2000);
+        
         homepage.clickSearch();
-        cy.wait(2000);
+        
     });
     it('TC-25, Verify the Zip Code', () => {
         const homepage = new HomePage();
         homepage.enterZip('80108');
-        cy.wait(2000);
+        
         homepage.clickSearch();
-        cy.wait(2000);
+        
         homepage.clickCountyState();
-        cy.wait(2000);
+        
     });
     it('TC-26, Verify the Zip Code', () => {
         const homepage = new HomePage();
         homepage.enterZip('80108');
-        cy.wait(2000);
+        
         homepage.clickSearch();
-        cy.wait(2000);
+        
         homepage.clickCountyState();
-        cy.wait(2000);
+        
         homepage.clickCity();
-        cy.wait(2000);
+        
         homepage.clickCity1();
-        cy.wait(2000);
+        
     });
     it('TC-27, Verify the Zip Code', () => {
         const homepage = new HomePage();
         homepage.enterZip('80108');
-        cy.wait(2000);
+        
         homepage.clickSearch();
-        cy.wait(2000);
+        
         homepage.clickCountyState();
-        cy.wait(2000);
+        
         homepage.clickCity();
-        cy.wait(2000);
+        
         homepage.clickCity2();
-        cy.wait(2000);
+        
     });
     it('TC-28, Verify the MagiTier', () => {
         const homepage = new HomePage();
