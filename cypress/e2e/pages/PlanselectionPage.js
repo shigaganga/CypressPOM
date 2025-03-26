@@ -1,490 +1,233 @@
-import LoginPage from '../pages/LoginPage.js';
-import LandingPage from '../pages/LandingPage.js';
-import HomePage from '../pages/HomePage.js';
-import PreferencePage from '../pages/PreferencePage.js';
-import PrescriptionPage from '../pages/PrescriptionPage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
 
-describe("Automation of test cases for PlanSelection Page PDP",()=> {
-    
-    beforeEach("Login to PlanSelectionPage",()=>{
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
-        const lPage = new LoginPage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const prefPage = new PreferencePage();
-        const prescriptionpage=new PrescriptionPage();
-        const pharmacypage=new PharmacyPage();
-    
-        cy.fixture('LoginFixture').then((data) => {
-            
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin(); // Ensure login was successful
-        })
-           recPage.clickCreateRecommendation();
-           cy.wait(100);
-           homepage.enterEmail("siri21@gmail.com");
-           cy.wait(100);
-           homepage.clickhealthArrow();
-           cy.wait(100);
-           homepage.clickGoodHealth();
-           cy.wait(100);
-           homepage.enterName("sneha");
-           cy.wait(100);
-           homepage.enterLifeexpectancy("80");
-           cy.wait(100);
-           homepage.datePickerclick();
-           cy.wait(100);
-           homepage.year1957click();
-           cy.wait(100);
-           homepage.month1957click();
-           cy.wait(100);
-           homepage.enterZip("80109")
-           cy.wait(100);
-           homepage.clickSearch();
-           cy.wait(100);
-           homepage.nextHomeClick();
-           cy.wait(100);
-           prefPage.clickyesRadioDrugCost();
-           cy.wait(100);
-           prefPage.clickNextPrefPage();
-           cy.wait(100);
-           prescriptionpage.enterDrugSearchBox("Gabapentin");
-           cy.wait(100);
-           prescriptionpage.selectDrug();
-           cy.wait(100);
-           prescriptionpage.clickAddToDrug();
-           cy.wait(100);
-           prescriptionpage.doneAddDrugClick();
-           cy.wait(100);
-           pharmacypage.clickFindFarmacy();
-           cy.wait(100);
-           pharmacypage.clickfarmacyOne();
-           cy.wait(100);
-           pharmacypage.clickfarmacyTwo();
-           cy.wait(100);
-           pharmacypage.clicknextpharmacy();
+class PlanselectionPage{
+  medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
+      tick=".mat-checkbox-inner-container";
+      medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
+    longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+     AivanteImg="img";
+     prescriptionbtn="div[class='button-wrapper ng-star-inserted'] button:nth-child(1) span:nth-child(1)";
+     WellcareSimple="#mat-checkbox-28 > .mat-checkbox-layout > .mat-checkbox-inner-container";
+     done=".button-container > .mat-focus-indicator > .mat-button-wrapper";
+     humanaGold="#mat-checkbox-53 > .mat-checkbox-layout > .mat-checkbox-inner-container"
+  humanaGoldFirstplan="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container"
+     humanGoldPlus="#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container"
+     pdp='.selected-container > :nth-child(1) > .mat-focus-indicator';
+     wellcareValueScriptPdp="#mat-checkbox-17 > .mat-checkbox-layout > .mat-checkbox-inner-container";
+     donePdp='.button-container > .mat-focus-indicator > .mat-button-wrapper';
+     aetenaMedicarePremier="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container";
+     wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-container";
+     planWellCaresimpleClick(){
+         cy.get(this.WellcareSimple).click();
+     }
+     humanaGoldPlanClick(){
+         cy.get(this.humanaGold).click();
+     }
+     donePlanSelectionClick(){
+         cy.get(this.done).click();
+     }
+     humanaGoldPlusPlanClick(){
+         cy.get(this.humanGoldPlus).click();
+     }
+     pdpClick(){
+         cy.get(this.pdp).click();
+     }
+     wellcareValuScriptClick(){
+         cy.get(this.wellcareValueScriptPdp).click();
+     }
+     donePdpClick(){
+         cy.get(this.donePdp).click();
+     }
+     aetenaMedicarePremierClick(){
+         cy.get(this.aetenaMedicarePremier).click({ force: true });
+     }
+     wellcaregivebackclick(){
+         cy.get(this.wellcaregiveback).scrollIntoView().click({ force: true });
+     }
+     
+     medicareAdvantageClick(){
+      cy.get(this.medicareAdv).click();
+     }
+     tickClick(){
+      cy.get(this.tick).click();
+     }
+     medicareclick(){
+      cy.get(this.medicare).click();
+     }
+longtermClick(){
+  cy.get(this.longterm).should('be.visible').click( { force: true});
+ // cy.xpath(this.longterm).click();
+}
+aivanteImagClick(){
+  cy.get(this.AivanteImg).click();
+}
+prescriptionClick(){
+  cy.rightclick(this.prescriptionbtn).click();
+}
+//Rani Suppliment page elements
+MedigapArrow='div.mat-select-arrow-wrapper';
+  setMedigapArrow()
+  {
+  cy.wait(2000)    
+  cy.get(this.MedigapArrow).should('be.visible').click();
+  }
+
+SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
+setSupplementButtn()
+{
+  cy.wait(5000)
+  cy.get(this.SupplementButtn).click();
+} 
+
+ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
+setProviderButtn()
+{
+  cy.get(this.ProviderButtn).click();
+}
+ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
+setProfileButtn()
+{
+  cy.get(this.ProfileButtn).click();
+}
+PrescriptionButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(3)';
+setPrescriptionButtn()
+{
+  cy.get(this.PrescriptionButtn).click();
+}
+PharmacyButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(4)';
+setPharmacyButtn()
+{
+  cy.get(this.PharmacyButtn).click();
+}
+
+PlanSelectionCheckBox='.mat-checkbox-layout > .mat-checkbox-inner-container'
 
-        });
+setPlanSelectionCheckBox(index)
+{
+cy.get(this.PlanSelectionCheckBox, { timeout: 10000 })
+.should('be.visible')
+.eq(index) .click({ force: true });
 
-        
-           it('Test1, verify the "PDP Button" functionality on the plan-selection page',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
 
-           });
+}
 
-
-           it('Test2,verify the message displays about duration of all expences ',() => {
-
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.verifyRemaningYears();
-            cy.wait(1000);
-
-           });
-
-           it('Test3, Verify Location Information Display',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.verifyLocationSelector()
-            cy.wait(1000);
-
-           });
-
-           it('Test4,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.verifyInnetworkPharmacy()
-            cy.wait(1000);
-
-           })
-
-           it('Test5,Verify selected Drugs are Covered by Insurance Plan message display',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.verifyCoveragemessage();
-            cy.wait(1000);
-
-           });
-
-
-           it('Test6,verify the PDP PlanDetails',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            
-           });
-
-           it('Test7,verify the "Select PDP Plan" functionality ',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-            planselectionpage.clickDoneBtn()
-            cy.wait(1000);
-    
-
-           });
-
-           it('Test8,verify the "Deselect PDP Plan" functionality ',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-
-           });
-
-
-           it('Test9,verify the message displays after selecting a PDP plan on plan-selection page',() => {
-            
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-            planselectionpage.clickDoneBtn()
-            cy.wait(1000);
-            planselectionpage.selectPdpPlanatPlanselectionPage()
-            cy.log('Maximum 1 MA with/without 1 PDP or 1 PDP with 1 Supplement plan are allowed')
-
-           });
-
-
-           it('Test10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-            planselectionpage.selectAARP()
-            cy.log('Maximum 3 plans allowed. Remove previous plan to add new plan')
-           
-            
-           });
-
-           it('Test11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
-            planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
-            planselectionpage.clickDoneBtn()
-            cy.wait(1000);
-            
-           });
-
-
-           it('Test12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickFilterplanBtn()
-            cy.wait(1000);
-            planselectionpage.clickInsuranceCarrierArrow()
-            cy.wait(1000); 
-            planselectionpage.selectHumanaPlanfrominsurancefilter()
-            cy.wait(1000); 
-            planselectionpage.clickResetBtn()
-
-           });
-
-
-           it('Test13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickFilterplanBtn()
-            cy.wait(1000);
-
-           });
-
-           it('Test14,Filter Plans By Inurance Carrier',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickFilterplanBtn()
-            cy.wait(1000);
-            planselectionpage.clickInsuranceCarrierArrow()
-            cy.wait(1000);
-            planselectionpage.selectHumanaPlanfrominsurancefilter()
-            cy.wait(1000);
-
-           });
-
-           it('Test15,Filter Plans By Star Rating',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickFilterplanBtn()
-            cy.wait(1000);
-            planselectionpage.clickStarRatingFilter()
-            cy.wait(1000);
-            planselectionpage.selectStarRating()
-            cy.wait(1000);
-
-           });
-
-           it('Test16,Filter Plans with Drug Coverage',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickFilterplanBtn()
-            cy.wait(1000);
-            planselectionpage.clickDrugCoverage()
-            cy.wait(1000);
-            planselectionpage.SelectDrugCoveragefromfilter()
-            cy.wait(1000);
-
-           });
-
-           it('Test17,Sort plan functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickSortPlan()
-            cy.wait(1000);
-
-           });
-
-           it('Test18,Sort Plans with Lowest monthly premium functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickSortPlan()
-            cy.wait(1000);
-            planselectionpage.clickSortplanArrow()
-            cy.wait(1000);
-            planselectionpage.selectLowestPremium()
-
-           });
-
-           it('Test19, Sort Plan with Lowest drug + Premium cost',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickSortPlan()
-            cy.wait(1000);
-            planselectionpage.clickSortplanArrow()
-            cy.wait(1000);
-            planselectionpage.selectLowestdrugPremium()
-
-            });
-
-            it('Test20,verify the "Next page" functionality',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectNextExpandBtn()
-                
-            });
-
-            it('Test21, verify the "last page" functionality ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickLastPageBtn();
-           
-            });
-
-            it('Test22, verify the "Previous page" functionality ',() => {    
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickLastPageBtn();
-            cy.wait(1000);
-            planselectionpage.clickPerivousPageBtn()
-               
-            });
-
-            it('Test23, verify the "First page" functionality ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectNextExpandBtn();
-            cy.wait(1000);
-            planselectionpage.itemPerPage();
-            
-            });
-
-            it('Test24, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-
-            });
-
-            it('Test25, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-
-            });
-
-            it('Test26,Expand Drug Information in PDP plandetails',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickExpandDrugInfo()
-
-            });
-
-            it('Test27,close Drug Information in PDP plandetails',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickExpandDrugInfo()
-            cy.wait(1000);
-            planselectionpage.clickExpandDrugInfo()
-
-            });
-
-            it('Test28,Expand Remaining year Drug & OOP Costin plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickRemaningDrugYear()
-            cy.wait(1000);
-            
-            });
-
-            it('Test29,close Remaining year Drug & OOP Cost in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickRemaningDrugYear()
-            cy.wait(1000);
-            planselectionpage.clickRemaningDrugYear()
-
-            });
-
-            it('Test30,Expand Estimated total drug + premium cost in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickTotaldrugPeriumcost()
-            cy.wait(1000);
-
-            });
-
-            it('Test31,close Estimated total drug + premium cost in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickTotaldrugPeriumcost()
-            cy.wait(1000);
-            planselectionpage.clickTotaldrugPeriumcost()
-            cy.wait(1000);
-
-            });
-
-            it('Test32,Expand Estimated total monthly drug cost in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.expandTotalMonthlyDrugcost()
-
-            });
-
-            it('Test33,Close Estimated total monthly drug cost in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.expandTotalMonthlyDrugcost()
-            cy.wait(1000);
-            planselectionpage.expandTotalMonthlyDrugcost()
-
-            });
-
-            it('Test34, verify the BACK Button functionality in plan details',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickBackBtn()
-            cy.wait(1000);
-
-            });
-
-            it('Test35, verify the Done Button functionality ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
-            planselectionpage.clickDoneBtn()
-
-            });
-
-            it('Test36, verify the Cancle Button functionality ',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickCancleBtn()
-
-            });
+max3PlanVerifyMsg()
+{
+cy.on('window:confirm',(t)=>{
+    expect(t).to.contains("Maximum 3 plans allowed.Remove previous plan to add new plan"); 
 })
+}
+
+verifyMsg()
+{
+cy.on('window:confirm',(t)=>{
+    expect(t).to.contains("Maximum 1 MA with/without 1 PDP or 1 PDP with 1 supplement plan are allowed");     //asretion ,user can selectonly 1 plan out of selected 3  maximum plans.
+    
+})
+}
+
+
+SelectPlanN='.mat-option-text';
+setSelectPlanN()
+{
+cy.get(this.SelectPlanN).contains("N").wait(2000).click({force:true});
+}
+
+FilterButton='.ng-fa-icon'
+setFilterButton()
+{
+  cy.get(this.FilterButton,{timeout:8000}).should('be.visible').click({force:true}) 
+}
+
+filterByInsuranceCarrier(InsuranceCarrier)
+{
+  cy.get('.mat-select-placeholder').click()
+  cy.get('div>.mat-select-panel-wrap')
+  .find('div[role="listbox"]')
+  .contains(InsuranceCarrier)
+  .scrollIntoView({ timeout: 10000 })
+  .should('be.visible')
+  .click({ force: true })
+      
+}
+
+ResetButton='.mat-action-row > .mat-focus-indicator';
+setResetButton()
+{
+  cy.get(this.ResetButton).click()
+}
+
+PlanDetailsButton='.mat-button-wrapper';
+setPlanDetailsButton()
+{
+  cy.get(this.PlanDetailsButton).contains('Plan Details').click();
+}
+
+Hospitalization='.mat-expansion-panel-body:nth-child(1)'
+verifyHospitalization()
+{
+  cy.get(this.Hospitalization).contains("Hospitalization");  //Hospitalization validation under partA
+ cy.wait(2000)
+}
+
+PartAExpandsCollapsIndicator='#mat-expansion-panel-header-1 > .mat-expansion-indicator';
+setPartAExpandsCollapsIndicator()
+{
+  cy.get(this.PartAExpandsCollapsIndicator).click();
+}
+
+setHospitalizationClick()
+{
+  cy.get('.mat-content .mat-expansion-panel-header-title').contains('Hospitalization').click({force:true});
+}
+
+
+setPartBExpands()
+{
+  cy.get('.mat-content .mat-expansion-panel-header-title').contains('Part B').click(); //PartB expands
+cy.wait(2000)
+}
+setPartBCollapse()
+{
+  cy.get('#mat-expansion-panel-header-2 >span.mat-expansion-indicator').should('be.visible').invoke('click');
+  cy.wait(2000);
+}
+
+setPartABExpands()
+{
+  cy.get(".mat-content .mat-expansion-panel-header-title").contains('Parts A & B').click(); //Part A &B expands
+cy.wait(2000)
+}
+setPartABCollapse()
+{
+  cy.get('#mat-expansion-panel-header-2 >span.mat-expansion-indicator').should('be.visible').invoke('click'); //Part A & B collapse
+cy.wait(2000)
+}
+
+setOtherBenefitsExpands()
+{
+  cy.get(".mat-content .mat-expansion-panel-header-title").contains('Other Benefits').click(); //Other Benefits expands
+cy.wait(2000)
+}
+
+setOtherBenefitsCollapse()
+{
+  cy.get("#mat-expansion-panel-header-3 > span.mat-expansion-indicator").should('be.visible').click({force:true}); //Other Benefits collapse
+cy.wait(2000)
+}
+
+BackButton='.button-wrapper > .mat-focus-indicator';
+setBackButton()
+{
+  cy.get(this.BackButton).click();
+}
+
+CancelButton='.right-container > .mat-focus-indicator > .mat-button-wrapper';
+setCancelButton()
+{
+  cy.get(this.CancelButton).contains("Cancel").click()
+}
+
+
+
+}
+export default PlanselectionPage;
