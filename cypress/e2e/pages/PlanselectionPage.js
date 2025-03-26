@@ -1,8 +1,9 @@
 class planselectionPage{
-    /*medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
+    medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
         tick=".mat-checkbox-inner-container";
         medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
-      longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+     // longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+       longterm="(//span[normalize-space()='Long Term'])[1]"
        AivanteImg="img";
        prescriptionbtn="div[class='button-wrapper ng-star-inserted'] button:nth-child(1) span:nth-child(1)";
        WellcareSimple="#mat-checkbox-28 > .mat-checkbox-layout > .mat-checkbox-inner-container";
@@ -19,13 +20,13 @@ class planselectionPage{
 planWellCaresimpleClick(){
            cy.get(this.WellcareSimple).click();
        }
-       HumanaGoldPlanClick(){
+       humanaGoldPlanClick(){
            cy.get(this.humanaGold).click();
        }
-       DoneplanSelectionClick(){
+       donePlanSelectionClick(){
            cy.get(this.done).click();
        }
-       HumanaGoldPlusPlanClick(){
+       humanaGoldPlusPlanClick(){
            cy.get(this.humanGoldPlus).click();
        }
        pdpClick(){
@@ -54,88 +55,50 @@ planWellCaresimpleClick(){
         cy.get(this.medicare).click();
        }
 longtermClick(){
-    cy.get(this.longterm).should('be.visible').click( { force: true});
-   // cy.xpath(this.longterm).click();
+    //cy.get(this.longterm).should('be.visible').click( { force: true});
+    cy.xpath(this.longterm).should('be.visible').click( { force: true});
 }
-AivanteImagClick(){
+aivanteImagClick(){
     cy.get(this.AivanteImg).click();
 }
 prescriptionClick(){
     cy.rightclick(this.prescriptionbtn).click();
 }
-
+//Rani Suppliment page elements
 MedigapArrow='div.mat-select-arrow-wrapper';
-    SetMedigapArrow()
+    setMedigapArrow()
     {
     cy.wait(2000)    
     cy.get(this.MedigapArrow).should('be.visible').click();
     }
 
   SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
-  SetSupplementButtn()
+  setSupplementButtn()
   {
     cy.wait(5000)
     cy.get(this.SupplementButtn).click();
   } 
 
   ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
-  SetProviderButtn()
+  setProviderButtn()
   {
     cy.get(this.ProviderButtn).click();
   }
   ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
-  SetProfileButtn()
+  setProfileButtn()
   {
     cy.get(this.ProfileButtn).click();
   }
   PrescriptionButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(3)';
-  SetPrescriptionButtn()
+  setPrescriptionButtn()
   {
     cy.get(this.PrescriptionButtn).click();
   }
   PharmacyButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(4)';
-  SetPharmacyButtn()
+  setPharmacyButtn()
   {
     cy.get(this.PharmacyButtn).click();
-  }*/
-
-    selectMA = ":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
-selectPlan = ".mat-checkbox-layout > .mat-checkbox-inner-container.first().click({force:true})";
-doneButt = ".button-container > .mat-focus-indicator";
-planCheckbox = ".mat-checkbox-inner-container";
-medicareBut = ".button-container > :nth-child(1) > .mat-button-wrapper";
-backBut=".button-wrapper > :nth-child(1)"; 
-longTermBut=".button-container > :nth-child(2) > .mat-button-wrapper";
-aivanteLogo = "img[src='assets/images/Aivante-logo.png']"; //Captured from cssSelector
-
-clickMA() {
-cy.get(this.selectMA).wait(2000).click();
-}
-/*clickPlan(){
-    cy.get(this.selectPlan).first().click();
-}*/
-clickPlan() {
-cy.get('.mat-checkbox-layout > .mat-checkbox-inner-container').first().click({ force: true });
-}
-clickDone() {
-cy.get(this.doneButt).wait(3000).click();
-}
-clickPlanCheckbox() {
-cy.get(this.planCheckbox).wait(3000).click();
-}
-
-clickMedicareBut() {
-cy.get(this.medicareBut).wait(3000).click();
-}
-clickBackBut(){
-cy.get(this.backBut).wait(3000).click();
-}
-clicklongTermBut(){
-cy.get(this.longTermBut).wait(2000).click();
-}
-clickAivanteLogo() {
-cy.get(this.aivanteLogo).wait(2000).click();
-}
+  }
  
 
 }

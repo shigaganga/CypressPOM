@@ -1,22 +1,16 @@
 class HomePage{
     AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
      healtharrow=".mat-select-arrow.ng-tns-c216-10";
-   // lifeExpectancy="#mat-input-5";
-   //datePicker=".mat-datepicker-toggle > .mat-focus-indicator";
     datePicker=".mat-datepicker-toggle-default-icon.ng-star-inserted"
      year1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-   // year="td[aria-label='1957'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    //month="td[aria-label='1957-02-01T00:00:00-05:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
      month1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
    zip="#mat-input-8";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
    nexthome=".form-wrapper > .mat-raised-button";
-
-
-
-
-//backBut=".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
-backBut=".button-wrapper > .mat-focus-indicator";
+/*
+    backBut=".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
+    clickbackBut(){cy.get(this.backBut).wait(2000).click()   }
+*/
 email="#mat-input-3";
 healthProfile=".mat-select-arrow.ng-tns-c216-10";
 bestHealth = "#mat-option-4 > .mat-option-text";
@@ -54,8 +48,6 @@ countyState="#mat-select-value-7";
 city='#mat-select-value-9';
 city1="#mat-option-18 > .mat-option-text"
 city2 ="#mat-option-19 > .mat-option-text";
-//city2="//span[normalize-space()='CASTLE ROCK']";
-//city2="#mat-option-19 > .mat-option-text";  //Castle Rock
 lifeExpectancyMSG=":nth-child(4) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
 magiTier = "#mat-select-value-11";
 magiTier1 = "#mat-option-11 > .mat-option-text";

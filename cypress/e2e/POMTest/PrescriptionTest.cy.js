@@ -3,11 +3,16 @@ import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
-describe('PrescriptionPageTest', () => {
 
+describe('PrescriptionPageTest', () => {
+    let prefPage;
+    let drugPage;
+
+    // Before each test, setup the required navigation and actions
     beforeEach(() => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
 
+        // Login actions
         cy.fixture('LoginFixture').then((data) => {
             const lPage = new LoginPage();
             lPage.setUserName(data.username);
@@ -20,357 +25,188 @@ describe('PrescriptionPageTest', () => {
         const homepage = new HomePage();
         
         homepage.enterEmail("ShigaPOM@gmail.com");
-        
         homepage.clickhealthArrow();
-        
         homepage.clickGoodHealth();
-        
         homepage.enterName("Shigapage");
-        
         homepage.enterLifeexpectancy("86");
-        
         homepage.datePickerclick();
-        
         homepage.year1957click();
-        
         homepage.month1957click();
-        
         homepage.enterZip("27529");
-        
         homepage.clickSearch();
-        
         homepage.nextHomeClick();
-        
+
+        prefPage = new PreferencePage();
+        prefPage.clickyesRadioDrugCost();
+        prefPage.clickNextPrefPage();
+        drugPage = new PrescriptionPage();
     });
-    it('test1,Begin typing to find select your drug', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test1, Begin typing to find and select your drug', () => {
         drugPage.enterDrugSearchBox("Gabapentin");
-        
         drugPage.selectDrug();
-        
         drugPage.clickAddToDrug();
-        
         drugPage.doneAddDrugClick();
     });
-    it('test2,drug search', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test2, Drug search', () => {
         drugPage.enterDrugSearchBox("ibup");
-        
         drugPage.selectDrug();
-        
         drugPage.clickAddToDrug();
-        cy.log("drug was  found in the dropdown, test passed.");
+        cy.log("Drug was found in the dropdown, test passed.");
     });
-    it('test3,Add drug with dosage function', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test3, Add drug with dosage function', () => {
         drugPage.enterDrugSearchBox("amoxicillin");
-        //cy.log("drug was not found in the dropdown, test passed.");
         drugPage.selectDrug();
-        
         drugPage.clickAddToDrug();
         drugPage.verifyDosageWindow();
     });
-    
-    it('test4,Add drugsearch with package', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test4, Add drug search with package', () => {
         drugPage.enterDrugSearchBox("amoxicillin");
         drugPage.selectDrug();
-        
         drugPage.clickAddToDrug();
         drugPage.verifyDosageWindow();
-        cy.log("user should view dosage information in dosageWindow , test passed.");
+        cy.log("User should view dosage information in dosage window, test passed.");
     });
-    it('test5,Add drugsearch with refill freequency', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test5, Add drug search with refill frequency', () => {
         drugPage.enterDrugSearchBox("amoxicillin");
         drugPage.selectDrug();
-        cy.wait(500);
         drugPage.clickRefillFreequency();
         drugPage.clickSixtyDaysRefill();
         drugPage.clickAddToDrug();
-       drugPage.verifyDosageWindow();
-      cy.log("user should view refil freequency information in dosageWindow as every 2 month , test passed.");
-    });
-    it('test6,verify user should add drug with quantity', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
-        drugPage.enterDrugSearchBox("amoxicillin");
-        drugPage.selectDrug();
-        cy.wait(500);
-        drugPage.enterQuantity("45");
-        cy.wait(500);
-        drugPage.clickAddToDrug();
-    cy.log("when quantity less than zero it throw error message");
-       
+        drugPage.verifyDosageWindow();
+        cy.log("User should view refill frequency information in dosage window as every 2 months, test passed.");
     });
 
-    it('test7,boundary value test as quantity zero', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+    it('test6, Verify user can add drug with quantity', () => {
         drugPage.enterDrugSearchBox("amoxicillin");
         drugPage.selectDrug();
-        
-        drugPage.enterQuantity("0");
-    drugPage.verifyQuantityText();
-    cy.log("when quantity less than zero it throw error message");
-       
+        drugPage.enterQuantity("45");
+        drugPage.clickAddToDrug();
+        cy.log("When quantity is less than zero, it throws an error message.");
     });
-    it('test8,Add branded drug to generic drug', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test7, Boundary value test as quantity zero', () => {
+        drugPage.enterDrugSearchBox("amoxicillin");
+        drugPage.selectDrug();
+        drugPage.enterQuantity("0");
+        drugPage.verifyQuantityText();
+        cy.log("When quantity is zero, it throws an error message.");
+    });
+
+    it('test8, Add branded drug to generic drug', () => {
         drugPage.enterDrugSearchBox("ATORVALIQ");
         drugPage.selectDrug();
-        
         drugPage.verifyGenericBrandWindow();
         drugPage.addBrandInsteadClick();
         drugPage.addMyDrugListClick();
-     //drugPage.doneAddDrugClick();
-        cy.log("user should add branded drug to generic, test passed.");
+        cy.log("User should be able to add branded drug to generic, test passed.");
     });
-    it('test9,verify user should  save drug list ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
+
+    it('test9, Verify user can save drug list', () => {
         drugPage.enterDrugSearchBox("ibuprofen");
         drugPage.selectDrug();
         drugPage.addMyDrugListClick();
         drugPage.doneAddDrugClick();
-        const homepage=new HomePage();
+        const homepage = new HomePage();
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
-        cy.log("user should be able to save druglist under recommendation, test passed.");
+        cy.log("User should be able to save drug list under recommendation, test passed.");
     });
-    it('test10,verify user can add another drug ', () => {
-        const prefPage = new PreferencePage();
-        
-       prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test10, Verify user can add another drug', () => {
         drugPage.enterDrugSearchBox("ibuprofen");
-       // drugPage.selectDrug();
+        drugPage.selectDrug();
         drugPage.addMyDrugListClick();
         drugPage.clickAddAnotherDrug();
-        
         drugPage.enterDrugSearchBox("cipro");
-        
         drugPage.selectDrug();
-        
         drugPage.addGenericClick();
         drugPage.clickAddToDrug();
-        
-        cy.log("user should be able to save another drug, test passed.");
+        cy.log("User should be able to save another drug, test passed.");
     });
-    it('test11,verify user should  done adding drugs ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test11, Verify user can finish adding drugs', () => {
         drugPage.enterDrugSearchBox("ibuprofen");
         drugPage.selectDrug();
         drugPage.addMyDrugListClick();
         drugPage.doneAddDrugClick();
-        const homepage=new HomePage();
+        const homepage = new HomePage();
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
-        cy.log("user should be able to done adding drug, test passed.");
+        cy.log("User should be able to finish adding drugs, test passed.");
     });
 
-    it('test12,verify Browse Drugs A_Z functionality', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const prescriptionpage= new PrescriptionPage();
-        prescriptionpage.clickBrowseAtoZlink(); 
-        cy.wait(1000)
+    it('test12, Verify Browse Drugs A-Z functionality', () => {
+        const prescriptionpage = new PrescriptionPage();
+        prescriptionpage.clickBrowseAtoZlink();
         prescriptionpage.enterLetter("B");
-        cy.wait(1000);
         prescriptionpage.clickDrugFound();
-        cy.wait(1000);
         prescriptionpage.clickSelectDrug();
-        cy.wait(1000);
         prescriptionpage.clickAddDrug();
-        cy.wait(5000);
         prescriptionpage.clickAddToDrugList();
-        cy.wait(5000);
         prescriptionpage.doneAddDrugClick();
-        const homepage=new HomePage();
+        const homepage = new HomePage();
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies");
-        cy.log("user should be able to save drug by browsing letter, test passed.");
-        
+        cy.log("User should be able to save drug by browsing letter, test passed.");
     });
-    it('test13,verify drugsearch with invalid name,cant find your drug', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
-        drugPage.enterDrugSearchBox("albuterol HFA");
-        cy.log("drug was not found in the dropdown, test passed.");
 
+    it('test13, Verify drug search with invalid name (cannot find your drug)', () => {
+        drugPage.enterDrugSearchBox("albuterol HFA");
+        cy.log("Drug was not found in the dropdown, test passed.");
     });
-    
-    it('test14,verify select prescription drug from existing list ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
-        
-        cy.log("user should be able to see prescription list , test passed.");
+
+    it('test14, Verify select prescription drug from existing list', () => {
+        cy.log("User should be able to see prescription list, test passed.");
     });
-    it('test15,verify clear search ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test15, Verify clear search functionality', () => {
         drugPage.enterDrugSearchBox("Gabapentin");
-        
         drugPage.selectDrug();
-        cy.wait(1000);
         drugPage.clickClearSearch();
-        cy.log("user should be able to clear drug on search box, test passed.");
+        cy.log("User should be able to clear drug in search box, test passed.");
     });
-    it('test16,go back preference navigation testing ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test16, Verify going back to preference page', () => {
         drugPage.clickGobackPreference();
-        const homepage=new HomePage();
+        const homepage = new HomePage();
         homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
-        cy.log("user should be able to return to yhe search preference page, test passed.");
+        cy.log("User should be able to return to the search preference page, test passed.");
     });
-    it('test17,go back to add drug navigation testing ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
+
+    it('test17, Verify going back to add drug page', () => {
         drugPage.enterDrugSearchBox("ibuprofen");
         drugPage.selectDrug();
         drugPage.addMyDrugListClick();
-        
         drugPage.clickGobackAddDrug();
-        //const homepage=new HomePage();
-        //homepage.verifyUrl("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
-        cy.log("user should be able to return to yhe search preference page, test passed.");
+        cy.log("User should be able to return to the add drug page, test passed.");
     });
-    it('test18,Edit drug functional testing ', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.clickNextPrefPage();  
-        const drugPage = new PrescriptionPage();
-        
-        
+
+    it('test18, Verify edit drug functionality', () => {
         drugPage.enterDrugSearchBox("ibuprofen");
         drugPage.selectDrug();
         drugPage.addMyDrugListClick();
-        
         drugPage.editDrugClick();
         drugPage.enterQuantity("60");
-        cy.wait(500);
-       // drugPage.clickRefillFreequency();
-        //drugPage.clickSixtyDaysRefill();
         drugPage.updateThisDrugClick();
-    cy.log("quantity is edited, test passed");
-});
-it('test19,remove drug functional testing ', () => {
-    const prefPage = new PreferencePage();
-    
-    prefPage.clickyesRadioDrugCost();  
-    
-    prefPage.clickNextPrefPage();  
-    const drugPage = new PrescriptionPage();
-    
-    drugPage.enterDrugSearchBox("ibuprofen");
-    drugPage.selectDrug();
-    drugPage.addMyDrugListClick();
-    
-    drugPage.removeDrugClick();
-    cy.log("the drug is removed, test passed");
-});
-it('test20,review prescriptional list ,functional testing ', () => {
-    const prefPage = new PreferencePage();
-    
-    prefPage.clickyesRadioDrugCost();  
-    
-    prefPage.clickNextPrefPage();  
-    const drugPage = new PrescriptionPage();
-    
-    
-    drugPage.enterDrugSearchBox("ibuprofen");
-    drugPage.selectDrug();
-    drugPage.addMyDrugListClick();
-    
-   drugPage.clickAddAnotherDrug();
-   drugPage.reviewPrescriptionListClick();
-    cy.log("user can see prescriptionlist, test passed");
-});
+        cy.log("Quantity is edited, test passed.");
+    });
+
+    it('test19, Verify remove drug functionality', () => {
+        drugPage.enterDrugSearchBox("ibuprofen");
+        drugPage.selectDrug();
+        drugPage.addMyDrugListClick();
+        drugPage.removeDrugClick();
+        cy.log("The drug is removed, test passed.");
+    });
+
+    it('test20, Review prescription list functionality', () => {
+        drugPage.enterDrugSearchBox("ibuprofen");
+        drugPage.selectDrug();
+        drugPage.addMyDrugListClick();
+        drugPage.clickAddAnotherDrug();
+        drugPage.reviewPrescriptionListClick();
+        cy.log("User can see prescription list, test passed.");
+    });
 });
