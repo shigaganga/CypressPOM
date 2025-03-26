@@ -8,11 +8,11 @@ describe('PrescriptionPageTest', () => {
     let prefPage;
     let drugPage;
 
-    // Before each test, setup the required navigation and actions
+    
     beforeEach(() => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
 
-        // Login actions
+    
         cy.fixture('LoginFixture').then((data) => {
             const lPage = new LoginPage();
             lPage.setUserName(data.username);
