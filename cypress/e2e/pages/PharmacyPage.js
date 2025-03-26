@@ -1,12 +1,9 @@
 class PharmacyPage{
-   // y='.ng-star-inserted > .mat-focus-indicator > .mat-button-wrapper';
    findFarmacy =':nth-child(4) > .mat-focus-indicator > .mat-button-wrapper';
     farmacy1='#mat-checkbox-14 > .mat-checkbox-layout > .mat-checkbox-inner-container';
     farmacy2='#mat-checkbox-15 > .mat-checkbox-layout > .mat-checkbox-inner-container';
     farmacy3Edit='#mat-checkbox-43 > .mat-checkbox-layout > .mat-checkbox-inner-container';
     nextFarmacy='.button-wrapper > .mat-button-wrapper';
-//snehacode
-
     zipcodebtn='#mat-radio-14 > .mat-radio-label > .mat-radio-container > .mat-radio-inner-circle'
     addressbtn='#mat-radio-15 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
     zipele='#mat-input-13'

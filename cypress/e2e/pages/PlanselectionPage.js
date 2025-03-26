@@ -2,7 +2,8 @@ class planselectionPage{
     medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
         tick=".mat-checkbox-inner-container";
         medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
-      longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+     // longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+       longterm="(//span[normalize-space()='Long Term'])[1]"
        AivanteImg="img";
        prescriptionbtn="div[class='button-wrapper ng-star-inserted'] button:nth-child(1) span:nth-child(1)";
        WellcareSimple="#mat-checkbox-28 > .mat-checkbox-layout > .mat-checkbox-inner-container";
@@ -16,16 +17,18 @@ class planselectionPage{
        aetenaMedicarePremier="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container";
        wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-container";
 
+
+
        planWellCaresimpleClick(){
            cy.get(this.WellcareSimple).click();
        }
-       HumanaGoldPlanClick(){
+       humanaGoldPlanClick(){
            cy.get(this.humanaGold).click();
        }
-       DoneplanSelectionClick(){
+       donePlanSelectionClick(){
            cy.get(this.done).click();
        }
-       HumanaGoldPlusPlanClick(){
+       humanaGoldPlusPlanClick(){
            cy.get(this.humanGoldPlus).click();
        }
        pdpClick(){
@@ -54,47 +57,47 @@ class planselectionPage{
         cy.get(this.medicare).click();
        }
 longtermClick(){
-    cy.get(this.longterm).should('be.visible').click( { force: true});
-   // cy.xpath(this.longterm).click();
+    //cy.get(this.longterm).should('be.visible').click( { force: true});
+    cy.xpath(this.longterm).should('be.visible').click( { force: true});
 }
-AivanteImagClick(){
+aivanteImagClick(){
     cy.get(this.AivanteImg).click();
 }
 prescriptionClick(){
     cy.rightclick(this.prescriptionbtn).click();
 }
-
+//Rani Suppliment page elements
 MedigapArrow='div.mat-select-arrow-wrapper';
-    SetMedigapArrow()
+    setMedigapArrow()
     {
     cy.wait(2000)    
     cy.get(this.MedigapArrow).should('be.visible').click();
     }
 
   SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
-  SetSupplementButtn()
+  setSupplementButtn()
   {
     cy.wait(5000)
     cy.get(this.SupplementButtn).click();
   } 
 
   ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
-  SetProviderButtn()
+  setProviderButtn()
   {
     cy.get(this.ProviderButtn).click();
   }
   ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
-  SetProfileButtn()
+  setProfileButtn()
   {
     cy.get(this.ProfileButtn).click();
   }
   PrescriptionButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(3)';
-  SetPrescriptionButtn()
+  setPrescriptionButtn()
   {
     cy.get(this.PrescriptionButtn).click();
   }
   PharmacyButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(4)';
-  SetPharmacyButtn()
+  setPharmacyButtn()
   {
     cy.get(this.PharmacyButtn).click();
 
