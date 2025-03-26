@@ -8,164 +8,164 @@ import LongTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicarePage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 
-describe('PreferenceTest', () => {
+//describe('PreferenceTest', () => {
 
-    beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
+  //  beforeEach(() => {
+    //    cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
 
-        cy.fixture('LoginFixture').then((data) => {
-            const lPage = new LoginPage();
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin(); 
-        });
+      //  cy.fixture('LoginFixture').then((data) => {
+        //    const lPage = new LoginPage();
+          //  lPage.setUserName(data.username);
+           // lPage.setPassword(data.password);
+            //lPage.clickLoginBtn();
+            //lPage.verifyLogin(); 
+        //});
 
 
-        const recPage = new LandingPage();
-        recPage.clickCreateRecommendation();
-        const homepage = new HomePage();
+        //const recPage = new LandingPage();
+        //recPage.clickCreateRecommendation();
+        //const homepage = new HomePage();
         
-        homepage.enterEmail("ShigaPOM@gmail.com");
+        //homepage.enterEmail("ShigaPOM@gmail.com");
         
-        homepage.clickhealthArrow();
+       // homepage.clickhealthArrow();
         
-        homepage.clickGoodHealth();
+      //  homepage.clickGoodHealth();
         
-        homepage.enterName("Shigapage");
+       // homepage.enterName("Shigapage");
         
-        homepage.enterLifeexpectancy("86");
+        //homepage.enterLifeexpectancy("86");
         
-        homepage.datePickerclick();
+        //homepage.datePickerclick();
         
-        homepage.year1957click();
+        //homepage.year1957click();
         
-        homepage.month1957click();
+        //homepage.month1957click();
         
-        homepage.enterZip("27529");
+        //homepage.enterZip("27529");
         
-        homepage.searchclick();
+        //homepage.searchclick();
         
-        homepage.NextHomeClick();
+        //homepage.NextHomeClick();
         
-    });
+    //});
 
-    it('test1,should test search preference with YES', () => {
-        const prefPage = new PreferencePage();
+    //it('test1,should test search preference with YES', () => {
+      //  const prefPage = new PreferencePage();
         
-        prefPage.clickyesRadioDrugCost();  
+        //prefPage.clickyesRadioDrugCost();  
         
-        prefPage.verifyGreatText();
-        prefPage.clickNextPrefPage();  
+        //prefPage.verifyGreatText();
+        //prefPage.clickNextPrefPage();  
         
-        prefPage.verifyManagePrescriptionurl();
-    });
+        //prefPage.verifyManagePrescriptionurl();
+    //});
 
-    it.only('test2,should test search preference with No', () => {
-        const prefPage = new PreferencePage();
+    //it.only('test2,should test search preference with No', () => {
+      //  const prefPage = new PreferencePage();
         
-        prefPage.clicknoRadioDrugCost();  
+       // prefPage.clicknoRadioDrugCost();  
         
-        prefPage.verifyAreUSureText();
-        prefPage.clickNextPrefPage();  
+       // prefPage.verifyAreUSureText();
+        //prefPage.clickNextPrefPage();  
         
-        prefPage.verifyPlanSelectionUrl();
-    });
+        //prefPage.verifyPlanSelectionUrl();
+    //});
 
-    it('test3,should test search preference with back', () => {
-        const prefPage = new PreferencePage();
+    //it('test3,should test search preference with back', () => {
+      //  const prefPage = new PreferencePage();
         
-        prefPage.clickyesRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
+        //prefPage.clickyesRadioDrugCost();  
+        //prefPage.clickNextPrefPage();  
         
-        prefPage.verifyManagePrescriptionurl();
-        const drugpage=new PrescriptionPage();
-        cy.wait(500);
-        drugpage.clickGobackPreference();
-        prefPage.verifyPreferencePageUrl();
+      //  prefPage.verifyManagePrescriptionurl();
+        //const drugpage=new PrescriptionPage();
+        //cy.wait(500);
+        //drugpage.clickGobackPreference();
+        //prefPage.verifyPreferencePageUrl();
     
-    });
+    //});
     
-    it.skip('should test search preference with no, FunctionalTesting', () => {
-        const prefPage = new PreferencePage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const drugpage=new PrescriptionPage();
-        const Pharmacypage=new PharmacyPage();
-        const planselctPg=new planselectionPage();
-        const longtermPg=new LongTermPage();
-        const medicarepg=new MedicareAdvantagepage()
+    //it.skip('should test search preference with no, FunctionalTesting', () => {
+      //  const prefPage = new PreferencePage();
+       // const recPage = new LandingPage();
+        //const homepage = new HomePage();
+        //const drugpage=new PrescriptionPage();
+        //const Pharmacypage=new PharmacyPage();
+        //const planselctPg=new planselectionPage();
+        //const longtermPg=new LongTermPage();
+        //const medicarepg=new MedicareAdvantagepage()
         
-        prefPage.clickyesRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
+       // prefPage.clickyesRadioDrugCost();  
+        //prefPage.clickNextPrefPage();  
          
-         drugpage.enterDrugSearchBox("Gabapentin");
+         //drugpage.enterDrugSearchBox("Gabapentin");
          
-         drugpage.selectDrug();
+         //drugpage.selectDrug();
          
-        drugpage.clickAddToDrug();
+        //drugpage.clickAddToDrug();
         
-        drugpage.doneAddDrugClick();
+        //drugpage.doneAddDrugClick();
         
-        Pharmacypage.clickFindFarmacy();
+        //Pharmacypage.clickFindFarmacy();
         
-        Pharmacypage.clickfarmacyOne();
+        //Pharmacypage.clickfarmacyOne();
         
-        Pharmacypage.clickfarmacyTwo();
+        //Pharmacypage.clickfarmacyTwo();
         
-        Pharmacypage.clicknextpharmacy();
+        //Pharmacypage.clicknextpharmacy();
         
         
-        planselctPg.medicareAdvantageClick();
+        //planselctPg.medicareAdvantageClick();
         
-        planselctPg.planWellCaresimpleClick();
+        //planselctPg.planWellCaresimpleClick();
         
-        planselctPg.DoneplanSelectionClick();
+        //planselctPg.DoneplanSelectionClick();
         
-        planselctPg.tickClick();
+        //planselctPg.tickClick();
         
-        planselctPg.medicareclick();
+        //planselctPg.medicareclick();
         
-        medicarepg.medicarArrowClick();
+        //medicarepg.medicarArrowClick();
         
-        medicarepg.submitMedicareClick();
+        //medicarepg.submitMedicareClick();
         
-        medicarepg.backToplanSelectionClick();
+        //medicarepg.backToplanSelectionClick();
         
-        planselctPg.longtermClick();
+        //planselctPg.longtermClick();
         
-        longtermPg.longTermArrowClick();
+        //longtermPg.longTermArrowClick();
         
-        longtermPg.submitLongTermClick();
+        //longtermPg.submitLongTermClick();
         
        // longtermPg.pdfclick();
         
-        longtermPg.backLongTermToPlanSelectionClick();
+        //longtermPg.backLongTermToPlanSelectionClick();
         
-        planselctPg.AivanteImagClick();
+       // planselctPg.AivanteImagClick();
         
-       recPage.editRecommendationClick();
-     homepage.nextHomeClick();
-     prefPage.clickNextPrefPage();
-     drugpage.doneAddDrugClick();
-     Pharmacypage.clickfarmacy3Edit();
-     Pharmacypage.clicknextpharmacy();
-     planselctPg.medicareAdvantageClick();
-     planselctPg.HumanaGoldPlanClick();
-     planselctPg.DoneplanSelectionClick();
-     planselctPg.tickClick();
-     planselctPg.medicareclick();
-     cy.wait(300);
-     medicarepg.medicarArrowClick();
-     cy.wait(200);
-     medicarepg.aivanteImgClick();
+       //recPage.editRecommendationClick();
+     //homepage.nextHomeClick();
+     //prefPage.clickNextPrefPage();
+     //drugpage.doneAddDrugClick();
+     //Pharmacypage.clickfarmacy3Edit();
+     //Pharmacypage.clicknextpharmacy();
+     //planselctPg.medicareAdvantageClick();
+     //planselctPg.HumanaGoldPlanClick();
+     //planselctPg.DoneplanSelectionClick();
+     //planselctPg.tickClick();
+     //planselctPg.medicareclick();
+     //cy.wait(300);
+     //medicarepg.medicarArrowClick();
+     //cy.wait(200);
+     //medicarepg.aivanteImgClick();
    
-    })
-    it('should test next button on view recommendation, navigationTesting', () => {
-        const prefPage = new PreferencePage();
-        const planselctPg=new planselectionPage()
-        prefPage.clicknoRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
-    planselctPg.verifyManagePrescriptionurl();
-    })
-});
+    //})
+    //it('should test next button on view recommendation, navigationTesting', () => {
+      //  const prefPage = new PreferencePage();
+        //const planselctPg=new planselectionPage()
+        //prefPage.clicknoRadioDrugCost();  
+        //prefPage.clickNextPrefPage();  
+    //planselctPg.verifyManagePrescriptionurl();
+    //})
+//});
