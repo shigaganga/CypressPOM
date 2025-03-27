@@ -10,8 +10,8 @@ class ProviderDialysisFacility {
     searchEle = ('.display-flex > .mat-focus-indicator > .mat-button-wrapper');
     providerfilterEle = ('#mat-expansion-panel-header-2 > .mat-expansion-indicator');
     distanceEle = ('#distance');
-    ratingEle = (' #rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow');
-    ratingfiveEle = ('#mat-option-136');
+   // ratingEle = (' #rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow');
+   // ratingfiveEle = ('#mat-option-136');
     applyfilterEle = (' :nth-child(2) > [type="submit"]');
     clearfilterEle = ('form.ng-valid > :nth-child(2) > [type="button"] > .mat-button-wrapper');
     backbtnEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
@@ -55,12 +55,12 @@ class ProviderDialysisFacility {
         cy.get(this.distanceEle).type(distance);
     }
 
-    clickRating() {
-        cy.get(this.ratingEle).click();
-    }
-    selectRatingFive() {
-        cy.get(this.ratingfiveEle).click();
-    }
+   // clickRating() {
+      //  cy.get(this.ratingEle).click();
+   // }
+   // selectRatingFive() {
+       // cy.get(this.ratingfiveEle).click();
+    //}
 
     clickApplyFilter() {
         cy.get(this.applyfilterEle).click({ force: true });

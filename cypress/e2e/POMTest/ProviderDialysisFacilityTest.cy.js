@@ -95,18 +95,17 @@ describe('ProviderDialysisFacility Testing', () => {
         const providerDialysisFacility = new ProviderDialysisFacility();
         providerDialysisFacility.enterDialysisFacilityName("Davita Englewood Dialysis Center");
         cy.log("Dialysis Facility Name - Passed");
-
     });
 
     it('TC-3 dialysisfacility street', () => {
         const providerDialysisFacility = new ProviderDialysisFacility();
         cy.wait(1000);
         providerDialysisFacility.enterStreet("Girard");
-
     });
 
-    it('TC-4 dialysisfacility centerzipcode', () => {
+    it('TC-4 dialysisfacility enterzipcode', () => {
         const providerDialysisFacility = new ProviderDialysisFacility();
+        cy.wait(1000);
         providerDialysisFacility.enterZipCode("80113");
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
@@ -146,6 +145,7 @@ describe('ProviderDialysisFacility Testing', () => {
         const providerDialysisFacility = new ProviderDialysisFacility();
         //Search to get to next page.
         providerDialysisFacility.clickRadiusIn();
+        cy.wait(1000);
         providerDialysisFacility.clickSearch();
         cy.wait(1000);
         providerDialysisFacility.clickBackBtn();
