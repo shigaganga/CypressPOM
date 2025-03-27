@@ -1,10 +1,10 @@
-import LoginPage from "../Pages/LoginPage";
+import LoginPage from "../pages/LoginPage.js";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 import PreferencePage from '../pages/PreferencePage.js';
-import PrescriptionPage from "../Pages/PrescriptionPage";
-import PharmacyPage from "../Pages/PharmacyPage.js";
-import planselectionPage from "../Pages/PlanSelectionPage.js";
+import PrescriptionPage from "../pages/PrescriptionPage.js";
+import PharmacyPage from "../pages/PharmacyPage.js";
+import PlanselectionPage from "../pages/PlanselectionPage.js";
 
 describe('Recommendation Flow Test', () => {
     beforeEach(() => {
