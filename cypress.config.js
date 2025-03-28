@@ -1,16 +1,14 @@
 const { defineConfig } = require("cypress");
+const mochawesome = require("cypress-mochawesome-reporter/plugin");
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter', // For HTML report
+  reporter: "cypress-mochawesome-reporter", // Generates HTML reports using Mochawesome
   e2e: {
     setupNodeEvents(on, config) {
-      // Enable screenshot on failure
-      config.screenshotOnRunFailure = true;
-      
-      // Integrate the Mochawesome reporter
-      require('cypress-mochawesome-reporter/plugin')(on);
-
+      mochawesome(on); // Register Mochawesome plugin
       return config;
     },
+    screenshotOnRunFailure: true, // Capture screenshots on test failure
+    video: false, // Disable video recording to save space (optional)
   },
 });

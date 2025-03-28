@@ -5,16 +5,26 @@ class LoginPage{
     homePageHeading = ".page-heading";
     
 setUserName(username){
-    cy.get(this.userNameEle).type(username);
+    cy.get(this.userNameEle)
+    .should('be.visible')
+    .and('not.be.disabled')
+    .type(username);
 }
-setPassword(password){
-    cy.get(this.passwordEle).type(password);
-}
+setPassword(password){cy.get(this.passwordEle)
+    .should('be.visible')
+    .and('not.be.disabled')
+    .type(password);}
+    
 clickLoginBtn(){
-    cy.get(this.loginButtonEle).click();
+    cy.get(this.loginButtonEle)
+    .should('be.visible')
+    .and('not.be.disabled')
+    .click();
 }
 verifyLogin() {
-    cy.get(this.homePageHeading).should('have.text', "Recommendations");
+    cy.get(this.homePageHeading)
+    .should('be.visible')
+    .and('have.text', "Recommendations");
 }
 
 }
