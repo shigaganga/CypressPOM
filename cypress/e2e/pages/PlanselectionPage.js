@@ -85,6 +85,15 @@ setProviderButtn()
 {
   cy.get(this.ProviderButtn).click();
 }
+
+clickProviderButton()
+{
+    cy.get('.ng-star-inserted > :nth-child(2) > .mat-button-wrapper')
+  .should('exist')
+  .should('be.visible').contains('Provider')
+  .click({ force: true });
+
+}
 ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
 setProfileButtn()
 {
