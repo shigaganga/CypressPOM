@@ -139,7 +139,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickApplyFilter();
     })
 
-    it.only('test9, click clear filter',()=>
+    it('test9, click clear filter',()=>
     {
         const planselectionPage=new PlanselectionPage();
         const providerInRePage=new ProviderInpatientRehabilitationPage();

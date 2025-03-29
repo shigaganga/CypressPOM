@@ -1,7 +1,16 @@
 class ProviderInpatientRehabilitationPage
 {
     providerbtn='.mat-focus-indicator mat-raised-button mat-button-base mat-primary';
-
+    ipRehabButton='.category-name';
+    ipRehabRadius='#mat-input-15';
+    searchProvider='.mat-button-wrapper';
+    optionalipName='#mat-input-11';
+    emptyName='#mat-input-11';
+    providerFilter='.mat-expansion-panel-header-title';
+    ownership='#ownership';
+    dropDown='.mat-option-text';
+    applyFilter='.mat-button-wrapper';
+    clearFilter='.mat-button-wrapper';
 clickProviderButton()
 {
     cy.get('.ng-star-inserted > :nth-child(2) > .mat-button-wrapper')
@@ -12,52 +21,50 @@ clickProviderButton()
 }
 clickIpRehab()
 {
-    cy.get('.category-name').should('exist').should('be.visible').contains('Inpatient rehabilitation facilities').click( { force: true });
+    cy.get(this.ipRehabButton).should('exist').should('be.visible').contains('Inpatient rehabilitation facilities').click( { force: true });
 }
 
 searchIpRehabRadius()
 {
-    cy.get('#mat-input-15', { timeout: 10000 }).should('be.visible').clear().type('100');
-   
-    
+    cy.get(this.ipRehabRadius, { timeout: 10000 }).should('be.visible').clear().type('100');
+       
 }
 
 clickSearchProvider()
 {
-    cy.get('.mat-button-wrapper').should('exist').should('be.visible').contains('Search').click({force : true });
+    cy.get(this.searchProvider).should('exist').should('be.visible').contains('Search').click({force : true });
 }
 optionalIpName()
 {
-    cy.get('#mat-input-11', { timeout: 10000 }).should('be.visible').clear().type('UNIVERSITY OF COLORADO HOSP');
+    cy.get(this.optionalipName, { timeout: 10000 }).should('be.visible').clear().type('UNIVERSITY OF COLORADO HOSP');
 
 }
 emptyRehabName()
 {
-    cy.get('#mat-input-11', { timeout: 10000 }).should('be.visible').clear().type(' ');
+    cy.get(this.emptyName, { timeout: 10000 }).should('be.visible').clear().type(' ');
 }
 clickProviderFilter()
 {
-    cy.get('.mat-expansion-panel-header-title').contains('Provider filters').should('be.visible').click();
+    cy.get(this.providerFilter).contains('Provider filters').should('be.visible').click();
     cy.wait(2000); 
-    cy.get('#ownership', { timeout: 10000 }).should('exist').should('be.visible').click();
+    cy.get(this.ownership, { timeout: 10000 }).should('exist').should('be.visible').click();
 
 }
 
 selectDropDown()
 {
-    cy.get('.mat-option-text').contains('Government').should('be.visible').click();
+    cy.get(this.dropDown).contains('Government').should('be.visible').click();
 }
 
 clickApplyFilter()
 {
-    cy.get('.mat-button-wrapper').contains('Apply filter').should('be.visible').click();
+    cy.get(this.applyFilter).contains('Apply filter').should('be.visible').click();
 }
  
 clickClearFilter()
 {
-    cy.get('.mat-button-wrapper').contains('Clear filter').should('be.visible').click();
+    cy.get(this.clearFilter).contains('Clear filter').should('be.visible').click();
 }
-
  
 }
 
