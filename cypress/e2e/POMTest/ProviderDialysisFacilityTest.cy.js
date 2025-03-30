@@ -4,8 +4,8 @@ import HomePage from "../pages/HomePage.js";
 import PreferencePage from "../pages/PreferencePage.js";
 import PrescriptionPage from "../pages/PrescriptionPage.js";
 import LandingPage from "../pages/LandingPage.js";
-import ProviderPage from "../pages/ProviderPage.js";
 import PharmacyPage from "../pages/PharmacyPage.js"
+import PlanselectionPage from '../pages/PlanselectionPage.js';
 
 describe('ProviderDialysisFacility Testing', () => {
 
@@ -22,7 +22,6 @@ describe('ProviderDialysisFacility Testing', () => {
         landingpage.clickCreateRecommendation();
 
         //Steps to go to the dialysis page
-        //cy.wait(3000);
         const homepage = new HomePage();
         cy.wait(100);
         homepage.enterEmail("ShigaPOM@gmail.com");
@@ -77,9 +76,9 @@ describe('ProviderDialysisFacility Testing', () => {
         cy.wait(100);
         Pharmacypage.clicknextpharmacy();
         cy.wait(100);
-
-        const providerPage = new ProviderPage();
-        providerPage.clickProviderBtn();
+        //PlanselectionPage
+        const planselectionpage = new PlanselectionPage();
+        planselectionpage.setProviderButtn();
 
         cy.log("Entering Dialysis Facility Page");
         cy.wait(3000)
