@@ -14,27 +14,27 @@ describe('Preference Test Suite', () => {
     const planSelectionPage = new PlanSelectionPage();
 
     beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
         cy.fixture('LoginFixture').then((data) => {
+            cy.visit(data.baseUrl); // Using baseUrl from fixture
+            
             loginPage.setUserName(data.username);
             loginPage.setPassword(data.password);
             loginPage.clickLoginBtn();
-            loginPage.verifyLogin();
-        });
+            
 
-        landingPage.clickCreateRecommendation();
-        homePage.enterEmail("ShigaPOM@gmail.com");
-        homePage.clickhealthArrow();
-        homePage.clickGoodHealth();
-        homePage.enterName("Shigapage");
-        homePage.enterLifeexpectancy("86");
-        homePage.datePickerclick();
-        homePage.year1957click();
-        homePage.month1957click();
-        homePage.enterZip("27529");
-        homePage.clickSearch();
-        homePage.nextHomeClick();
+            landingPage.clickCreateRecommendation();
+            homePage.enterEmail(data.email);  // Using email from fixture
+            homePage.clickhealthArrow();
+            homePage.clickGoodHealth();
+            homePage.enterName(data.name);  // Using name from fixture
+            homePage.enterLifeexpectancy(data.lifeexpectancy);  // Using life expectancy from fixture
+            homePage.datePickerclick();
+            homePage.year1957click();
+            homePage.month1957click();
+            homePage.enterZip(data.zip);  // Using ZIP code from fixture
+            homePage.clickSearch();
+            homePage.nextHomeClick();
+        });
     });
 
     function setPreference(option) {
