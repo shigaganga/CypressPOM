@@ -86,7 +86,45 @@ class LandingPage{
 
    
     clickCreateRecommendation() {
-        cy.get(this.recommendation).should('exist').should('be.visible').click();
+
+            cy.get(this.createRecommendation).first().should('exist').should('be.visible').click();
+        }
+        clickTsign() {
+            cy.xpath(this.Tsign).click();
+        }
+        clickLogOut() {
+            cy.xpath(this.logOut).should('be.visible').click();
+        }
+        clickRecommendationRadioBut() {
+            cy.get(this.recommendationRadioBut).click();
+        }
+        enterByEmail(filterByEmail) {
+            cy.get(this.filterByEmail).type(filterByEmail);
+        }
+        clickExpandPlan() {
+            cy.get(this.expandPlan).click();
+        }
+        clickCollapsesPlan() {
+            cy.get(this.collapsesPlan).click();
+        }
+        clickItemPerPageNext() {
+            cy.get(this.itemPerPageNext).click();
+        }
+        clickItemPreviousPage() {
+            cy.get(this.itemPreviousPage).click({ force: true });
+        }
+        clickItemLastPage() {
+            cy.get(this.itemLastPage).click();
+        }
+        clickItemFirstPage() {
+            cy.get(this.itemFirstPage).click({ force: true });
+        }
+        clickEditRecommandtion() {
+            cy.get(this.editRecommandtion).click();
+        }
+    clickEditHealthProfile(){
+      
+        cy.get(this.editHealthProfile).should('exist').should('be.visible').click();
 
     }
     editRecommendationClick() {
@@ -129,6 +167,7 @@ class LandingPage{
         cy.get(this.backBut).wait(2000).click();
     }
     clickEditHealthProfile() {
+
         cy.get(this.editHealthProfile).click();
     }
     clickEditHealthProfile1() {
