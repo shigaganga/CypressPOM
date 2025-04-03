@@ -100,7 +100,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            });
 
            it('Test4,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
-            
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -109,8 +108,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            })
 
-           it('Test5,Verify selected Drugs are Covered by Insurance Plan message display',() => {
-            
+           it('Test5,Verify selected Drugs are Covered by Insurance Plan message display',() => { 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -121,7 +119,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
 
            it('Test6,verify the PDP PlanDetails',() => {
-            
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -130,7 +127,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            });
 
            it('Test7,verify the "Select PDP Plan" functionality ',() => {
-            
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -143,11 +139,9 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             planselectionpage.clickDoneBtn()
             cy.wait(1000);
     
-
            });
 
            it('Test8,verify the "Deselect PDP Plan" functionality ',() => {
-            
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -166,9 +160,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-
            it('Test9,verify the message displays after selecting a PDP plan on plan-selection page',() => {
-            
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -466,7 +458,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             planselectionpage.clickPlandetailsBtn()
             cy.wait(1000);
             planselectionpage.clickBackBtn()
-            cy.wait(1000);
 
             });
 
