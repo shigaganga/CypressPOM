@@ -372,6 +372,12 @@ describe('ProviderHospitalTest',()=>{
         provHos.displayHosName('RALEIGH OAKS BEHAVIO...');
         
        });
+       it("TC verify the functionality of Radius if it is above 200 miles",()=>{
+        const provHos = new ProviderHospitalsPage();
+        provHos.clickHospitalCat();
+        provHos.setRadius('300');
+        provHos.disabledSearchProvBtn();
+       });
 
 
     
