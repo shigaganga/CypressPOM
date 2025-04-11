@@ -11,32 +11,30 @@ describe('Preference Test Suite', () => {
     const homePage = new HomePage();
     const preferencePage = new PreferencePage();
     const prescriptionPage = new PrescriptionPage();
-    const planSelectionPage = new PlanSelectionPage();
-
     beforeEach(() => {
+        cy.session('Preference session',()=>{
         cy.fixture('LoginFixture').then((data) => {
-            cy.visit(data.baseUrl); // Using baseUrl from fixture
-            
+            cy.visit(data.baseUrl); 
             loginPage.setUserName(data.username);
             loginPage.setPassword(data.password);
             loginPage.clickLoginBtn();
-            
-
             landingPage.clickCreateRecommendation();
-            homePage.enterEmail(data.email);  // Using email from fixture
+            homePage.enterEmail(data.email);  
             homePage.clickhealthArrow();
             homePage.clickGoodHealth();
-            homePage.enterName(data.name);  // Using name from fixture
-            homePage.enterLifeexpectancy(data.lifeexpectancy);  // Using life expectancy from fixture
+            homePage.enterName(data.name);  
+            homePage.enterLifeexpectancy(data.lifeexpectancy);  
             homePage.datePickerclick();
             homePage.year1957click();
             homePage.month1957click();
-            homePage.enterZip(data.zip);  // Using ZIP code from fixture
+            homePage.enterZip(data.zip);  
             homePage.clickSearch();
             homePage.nextHomeClick();
         });
     });
-
+    // Always start from Preferences page for all tests
+    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
+    });
     function setPreference(option) {
         if (option === 'yes') {
             preferencePage.clickyesRadioDrugCost();
