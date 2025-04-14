@@ -89,34 +89,34 @@ describe("Automate test cases for Medicare Page",()=>{
        medicarepage.clickmedicare();
     })
 
-it("Test02_Click on medicare button and validatepgelements",()=>{
-    medicarepage.clickmedicare();
-    medicarepage.validatepgelements();
-})
+    it("Test02_Click on medicare button and validatepgelements",()=>{
+        medicarepage.clickmedicare();
+        medicarepage.validatepgelements();
+    })
 
-it("Test03_PurchasepartA",()=>{
-    medicarepage.clickmedicare();
-    medicarepage.togglepurchasepartA();
-})
+    it("Test03_PurchasepartA",()=>{
+        medicarepage.clickmedicare();
+        medicarepage.togglepurchasepartA();
+    })
 
-it("Test04_Verify user info detalis",()=>{ 
-    medicarepage.clickmedicare();  
-medicarepage.verifyuserinfodetalis();
-})
+    it("Test04_Verify user info detalis",()=>{ 
+        medicarepage.clickmedicare();  
+        medicarepage.verifyuserinfodetalis();
+    })
 
-it("Test05_Verify PV ABMA IRMA",()=>{
-    medicarepage.clickmedicare();
-    medicarepage.verifyPVABMAIRMA();
-})
+    it("Test05_Verify PV ABMA IRMA",()=>{
+        medicarepage.clickmedicare();
+        medicarepage.verifyPVABMAIRMA();
+    })
 
-it("Test06_Verify total premium surcharge oop",()=>{
-    medicarepage.clickmedicare();
-    medicarepage.verifytotalpremiumsurchargeoop();
-})
+    it("Test06_Verify total premium surcharge oop",()=>{
+        medicarepage.clickmedicare();
+        medicarepage.verifytotalpremiumsurchargeoop();
+    })
  
-it("Test07_Click on AIVANTE_IMAGE",()=>{
-    medicarepage.clickmedicare();
-    medicarepage.aivanteimgclick();
+    it("Test07_Click on AIVANTE_IMAGE",()=>{
+        medicarepage.clickmedicare();
+        medicarepage.aivanteimgclick();
     })
 
     it("Test08_Edit recommendation and check for purchase Part A",()=>{
@@ -144,7 +144,7 @@ it("Test07_Click on AIVANTE_IMAGE",()=>{
         medicarepage.clickbackbtn();
         })
 
-    it.only("Test12_Click on generatepdf button to generate plan details",()=>{
+    it("Test12_Click on generatepdf button to generate plan details",()=>{
     medicarepage.clickmedicare();
     medicarepage.generatepdf();
     })
