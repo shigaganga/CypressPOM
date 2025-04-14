@@ -73,6 +73,7 @@ class ProviderHospitalsPage {
  
  providerListEle='#mat-expansion-panel-header-2 > .mat-expansion-indicator';
  noproviderfoundEle='#cdk-accordion-child-2 > .mat-expansion-panel-body > .ng-star-inserted';
+ disabledSearchProvBtnEle='.display-flex > .mat-focus-indicator';
 
 clickHospitalCat(){
   cy.get(this.HospitalCatEle).click();
@@ -486,6 +487,10 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
 });
     
   }
+  disabledSearchProvBtn(){
+    cy.get(this.disabledSearchProvBtnEle).should('have.class','mat-button-disabled');
+    
+  } 
 }
 
 
