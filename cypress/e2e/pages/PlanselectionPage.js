@@ -234,29 +234,29 @@ setCancelButton()
 
 pdpelement='.selected-container > :nth-child(1) > .mat-focus-indicator'
 filterplanEle='[mattooltip="Filter Plan"]'
-insurancecarrierele='#mat-select-16 > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow'
-Humanaplanfromfilterele='#mat-option-27 > .mat-option-text'
-starratingele='#mat-select-18 > .mat-select-trigger > .mat-select-arrow-wrapper'
-pickstarratingfromfilterEle='#mat-option-30 > .mat-option-text'
+insurancecarrierele='#mat-select-value-3 > .mat-select-placeholder'//16
+Humanaplanfromfilterele='#mat-option-7 > .mat-option-text'
+starratingele='#mat-select-value-5 > .mat-select-placeholder'
+pickstarratingfromfilterEle='#mat-option-11 > .mat-option-text'
 selectplanfromstarratingele='#mat-checkbox-62 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-drugcoverageele='#mat-select-20 > .mat-select-trigger > .mat-select-arrow-wrapper'
+drugcoverageele='#mat-select-6 > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow'
 selectfromdrugcoveragefilterele='.mat-option-text'
 plandetailsEle =':nth-child(1) > .mat-card > .mat-card-actions > .mat-focus-indicator'
 locationselectorele='.location'    //Assertion for location on PDP plan selection page 
-remaningyearele='.info-message > span' //Assertion for remaning plan years 
+remaningyearele='.info-message > span'//Assertion for remaning plan years 
 inNetworkPharmaciesEle=':nth-child(1) > .mat-card > .mat-card-content > .card-contant-wrapper > :nth-child(8) > .text-explain > span'
 coveragemessageEle =':nth-child(1) > .mat-card > .mat-card-content > .card-contant-wrapper > [style="color: white; background-color: red;"] > .text-explain > span'
 resetbuttonele='.mat-action-row > .mat-focus-indicator'
 fliterexpansionarrowele='.mat-expansion-indicator'
 sortplanele='.mat-icon'    //this is beside the filter option 
 sortplanarrowele='.mat-select-arrow'
-pdpplanatplanselectionEle='#mat-checkbox-37 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-Lowestmonthlypremiumele='#mat-option-24 > .mat-option-text'
-LowestdrugPremiumcostele='#mat-option-23 > .mat-option-text'
-selectwellcareplanele='#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-selectcignahealthEle='#mat-checkbox-26 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-selecthumanabasciEle='#mat-checkbox-27 > .mat-checkbox-layout > .mat-checkbox-inner-container'
-selectaarpEle='#mat-checkbox-32 > .mat-checkbox-layout > .mat-checkbox-inner-container'
+pdpplanatplanselectionEle='#mat-checkbox-13 > .mat-checkbox-layout > .mat-checkbox-inner-container'//37
+Lowestmonthlypremiumele='#mat-option-4 > .mat-option-text'
+LowestdrugPremiumcostele='#mat-option-3 > .mat-option-text'
+selectwellcareplanele='#mat-checkbox-1 > .mat-checkbox-layout > .mat-checkbox-inner-container'//25
+selectcignahealthEle='#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container'//26
+selecthumanabasciEle='#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container'//27
+selectaarpEle='#mat-checkbox-8 > .mat-checkbox-layout > .mat-checkbox-inner-container'//32
 nextexpandBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-next'
 lastpageBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-last'
 perivouspageBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-previous'
@@ -267,11 +267,11 @@ itemperpageEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-
 expandgruginfoEle='#mat-expansion-panel-header-1 > .mat-expansion-indicator'
 expandremaningyeardrugEle='#mat-expansion-panel-header-2 > .mat-expansion-indicator'
 expandtotaldrugandPeriumcost='#mat-expansion-panel-header-3 > .mat-expansion-indicator'
-expandtotalmonthlydrugcost='#mat-expansion-panel-header-4 > .mat-expansion-indicator'
+expandtotalmonthlydrugcost='#mat-expansion-panel-header-3'
 BackBtnEle='.button-wrapper > .mat-focus-indicator > .mat-button-wrapper'
 
 clickPdpBtn(){
- cy.get(this.pdpelement).click({force:true})
+ cy.get(this.pdpelement,{ timeout: 120000 }).click({force:true})
 }
 clickFilterplanBtn(){
  cy.get(this.filterplanEle).click()
@@ -312,7 +312,7 @@ verifyLocationSelector(){
  cy.get(this.locationselectorele).should('have.text', 'Location : Colorado');
 }
 verifyRemaningYears(){
- cy.get(this.remaningyearele).should('have.text', 'Remaining Year: All expenses unless specified are for 9 months of 2025');
+  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 8 months of 2025');
 }
 clickResetBtn(){
  cy.get(this.resetbuttonele).click()
@@ -360,7 +360,7 @@ clickFirstPageBtn(){
  cy.get(this.firstpageBtnEle).click()
 }
 itemPerPage(){
- cy.get(this.itemperpageEle).should('contain','Items per page:')
+ cy.get(this.itemperpageEle).should('contain','Max items')
 }
 clickExpandDrugInfo(){
  cy.get(this.expandgruginfoEle).click()
