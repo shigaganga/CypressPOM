@@ -7,13 +7,14 @@ class HomePage{
     zip="#mat-input-8";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     nexthome=".form-wrapper > .mat-raised-button";
-    email="#mat-input-3";
-    healthProfile=".mat-select-arrow.ng-tns-c216-10";
-    bestHealth = "#mat-option-4 > .mat-option-text";
-    goodHealth = "#mat-option-5 > .mat-option-text";
-    moderateHealth = "#mat-option-6 > .mat-option-text";
-    poorHealth = "#mat-option-7 > .mat-option-text";
-    sickHealth = "#mat-option-8 > .mat-option-text";
+    email="//input[@id='mat-input-3']"//"#mat-input-0";//3////input[@id='mat-input-0']
+    //healthProfile=".mat-select-arrow.ng-tns-c216-10";
+    healthProfile="#mat-select-value-3";//1
+    bestHealth = "#mat-option-4 > .mat-option-text";//0//#mat-option-4 > .mat-option-text";
+    goodHealth = "#mat-option-5 > .mat-option-text";//5
+    moderateHealth = "#mat-option-6 > .mat-option-text";//6
+    poorHealth = "#mat-option-7 > .mat-option-text";//7
+    sickHealth = "#mat-option-8 > .mat-option-text";//8
     recommendationName="#mat-input-4";
     lifeExpectancy="#mat-input-5";
     dateOfBirth="#mat-input-6";
@@ -22,16 +23,16 @@ class HomePage{
     month1959="td[aria-label='1959-02-01T00:00:00-07:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
     year = ":nth-child(6) > [data-mat-col='2']";
     month="//div[normalize-space()='APR']";
-    gender="#mat-select-value-5";
-    genderM="#mat-option-9 > .mat-option-text";//Gender Male
-    genderF="//span[@class='mat-option-text'][normalize-space()='Female']";
-    taboccoNo="#mat-radio-6 > .mat-radio-label";
-    taboccoYes="#mat-radio-7 > .mat-radio-label";
-    taxFilingJoin="#mat-radio-8 > .mat-radio-label";//Tax filing jointly
-    taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//Tax filing individual
+    gender="#mat-select-value-5";//#mat-select-value-3
+    genderM="#mat-option-9 > .mat-option-text";//"#mat-option-5 > .mat-option-text";//Gender Male
+    genderF="#mat-option-10 > .mat-option-text"//"//span[@class='mat-option-text'][normalize-space()='Female']";
+    taboccoNo="#mat-radio-6 > .mat-radio-label";//3
+    taboccoYes="#mat-radio-7 > .mat-radio-label";//4
+    taxFilingJoin="#mat-radio-8 > .mat-radio-label";//3 Tax filing jointly
+    taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//4 Tax filing individual
     tobacoUserLink='mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
-    street="#mat-input-7";
-    zipCode="#mat-input-8";
+    street="#mat-input-7";//4
+    zipCode="#mat-input-8";//5
     searchNew=".mat-form-field-suffix > .mat-focus-indicator";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     magiT16="#mat-option-13 > .mat-option-text";//Magitier 3
@@ -39,7 +40,7 @@ class HomePage{
     contact="#mat-input-10";
     nextButt=".form-wrapper > .mat-raised-button";
     healthProfileMSG=":nth-child(2) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    countyState="#mat-select-value-7";
+    countyState="#mat-select-value-7";//5
     city='#mat-select-value-9';
     city1="#mat-option-18 > .mat-option-text";
     city2 ="#mat-option-19 > .mat-option-text";
@@ -55,10 +56,10 @@ class HomePage{
     nextButt = ".form-wrapper > .mat-raised-button";
 
     clickAiVanteLogo(){
-        cy.get(this.AiVanteLogo).should('be.visible').click();
+        cy.get(this.AiVanteLogo).should('exist').should('be.visible').click();
     }
     enterEmail(email){
-        cy.get(this.email).should('be.visible').type(email);
+        cy.xpath(this.email).should('be.visible').type(email);
     }
     clickHealthProfile(){
         cy.get(this.healthProfile).should('be.visible').click();
@@ -109,7 +110,7 @@ class HomePage{
         cy.get(this.genderM).should('be.visible').click();
     }
     clickFemale() {
-        cy.xpath(this.genderF).should('be.visible').click();
+        cy.get(this.genderF).should('be.visible').click();
     }
     clickTabaccoNo() {
         cy.get(this.taboccoNo).should('be.visible').click();

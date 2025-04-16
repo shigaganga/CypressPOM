@@ -17,7 +17,14 @@ donePdp='.button-container > .mat-focus-indicator > .mat-button-wrapper';
 aetenaMedicarePremier="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container";
 wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-container";
 
-
+MAsecondPlan="#mat-checkbox-14 > .mat-checkbox-layout > .mat-checkbox-inner-container";//Chhabi added
+backMA=".button-wrapper > :nth-child(1)";//Chhabi added
+clickSecondPlan(){
+  cy.get(this.MAsecondPlan).click();
+}
+clickbackMA(){
+  cy.get(this.backMA).click();
+}
     planWellCaresimpleClick(){
         cy.get(this.WellcareSimple).click();
     }

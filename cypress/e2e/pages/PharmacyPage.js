@@ -31,6 +31,11 @@ class PharmacyPage{
     nextbtnEle='.selected-pharmacy > .button-wrapper'
     backbtnEle='.button-wrapper > .mat-focus-indicator'
 
+    pharmacy3="#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container";//Chhabi added, please don't remove
+    clickPharmacy3(){
+        cy.get(this.pharmacy3).click();
+    }
+
 
     clickZipcoderadio(){
         cy.get(this.zipcodebtn).click({force:true})
