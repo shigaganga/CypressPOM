@@ -7,16 +7,16 @@ class PharmacyPage{
     nextFarmacy='.button-wrapper > .mat-button-wrapper';
 //snehacode
 
-    zipcodebtn='#mat-radio-14 > .mat-radio-label > .mat-radio-container > .mat-radio-inner-circle'
-    addressbtn='#mat-radio-15 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
-    zipele='#mat-input-13'
+    zipcodebtn='#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'//14
+    addressbtn='#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'//15
+    zipele='#mat-input-2'//13
     Ziphistoryarrow='.mat-select-arrow'
-    addressEle='#mat-input-14'
+    addressEle='#mat-input-3'//14
     zipfindphramacyelement=':nth-child(4) > .mat-focus-indicator > .mat-button-wrapper'
     AddressfindpharmacyELe='.form-field-container-col2 > :nth-child(3) > .mat-focus-indicator'
-    distanceele='#mat-input-12'
-    AddressphramcynameEle='#mat-input-11'
-    selecttheziphistoryele='#mat-option-20 > .mat-option-text'
+    distanceele='#mat-input-1'//12
+    phramcynameEle='#mat-input-0'//11
+    selecttheziphistoryele='#mat-option-0 > .mat-option-text'//20
     nextpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-next'
     lastpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-last'
     periviouspageBtnEle='.mat-paginator-navigation-previous'
@@ -60,7 +60,7 @@ class PharmacyPage{
         cy.get(this.distanceele).clear().type(miles)
     }
     enterPharmacyname(nameofpharmacy){
-        cy.get(this.AddressphramcynameEle).type(nameofpharmacy)
+        cy.get(this.phramcynameEle).type(nameofpharmacy)
     }
     clickNextpageBtn(){
         cy.get(this.nextpageBtnEle).click({ multiple: true })

@@ -7,8 +7,9 @@ import planselectionPage from '../pages/PlanselectionPage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 
 describe("Automation of test cases for PlanSelection Page PDP",()=> {
-    
+    const planselectionpage=new planselectionPage();
     beforeEach("Login to PlanSelectionPage",()=>{
+        cy.session("Pharmacy session",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
         const lPage = new LoginPage();
         const recPage = new LandingPage();
@@ -65,16 +66,21 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            pharmacypage.clickfarmacyOne();
            cy.wait(100);
            pharmacypage.clickfarmacyTwo();
-           cy.wait(100);
+           cy.wait(2000);
            pharmacypage.clicknextpharmacy();
+           cy.wait(2000);
 
         });
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection')
+    })
 
         
            it('Test1, verify the "PDP Button" functionality on the plan-selection page',() => {
             
             const planselectionpage=new planselectionPage();
+            cy.wait(1000)
             planselectionpage.clickPdpBtn();
+            cy.wait(100)
 
            });
 
@@ -83,7 +89,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(6000);
             planselectionpage.verifyRemaningYears();
             cy.wait(1000);
 
@@ -338,6 +344,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             cy.wait(1000);
             planselectionpage.selectNextExpandBtn();
             cy.wait(1000);
+            planselectionpage.clickFirstPageBtn();
             planselectionpage.itemPerPage();
             
             });
