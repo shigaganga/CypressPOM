@@ -88,7 +88,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         planselctPg.planWellCaresimpleClick();
         cy.wait(100);
-        planselctPg.DoneplanSelectionClick();
+        planselctPg.donePlanSelectionClick();
         cy.wait(100);
         planselctPg.tickClick();
         cy.wait(100);
@@ -110,7 +110,7 @@ describe('Home Flow Test', () => {
         cy.wait(100);
         longtermPg.backLongTermToPlanSelectionClick();
         cy.wait(100);
-        planselctPg.AivanteImagClick();
+        planselctPg.aivanteImagClick();
         cy.wait(100);
       
      

@@ -3,94 +3,69 @@ import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
 import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
-import LongTermPage from '../pages/LongTermPage.js';
-import MedicareAdvantagepage from '../pages/MedicarePage.js';
-import PharmacyPage from '../pages/PharmacyPage.js';
+import PlanSelectionPage from '../pages/PlanselectionPage.js';
 
-describe('PreferenceTest', () => {
-
+describe('Preference Test Suite', () => {
+    const loginPage = new LoginPage();
+    const landingPage = new LandingPage();
+    const homePage = new HomePage();
+    const preferencePage = new PreferencePage();
+    const prescriptionPage = new PrescriptionPage();
     beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
+        cy.session('Preference session',()=>{
         cy.fixture('LoginFixture').then((data) => {
-            const lPage = new LoginPage();
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin(); 
+            cy.visit(data.baseUrl); 
+            loginPage.setUserName(data.username);
+            loginPage.setPassword(data.password);
+            loginPage.clickLoginBtn();
+            landingPage.clickCreateRecommendation();
+            homePage.enterEmail(data.email);  
+            homePage.clickhealthArrow();
+            homePage.clickGoodHealth();
+            homePage.enterName(data.name);  
+            homePage.enterLifeexpectancy(data.lifeexpectancy);  
+            homePage.datePickerclick();
+            homePage.year1957click();
+            homePage.month1957click();
+            homePage.enterZip(data.zip);  
+            homePage.clickSearch();
+            homePage.nextHomeClick();
         });
-
-
-        const recPage = new LandingPage();
-        recPage.clickCreateRecommendation();
-        const homepage = new HomePage();
-        
-        homepage.enterEmail("ShigaPOM@gmail.com");
-        
-        homepage.clickhealthArrow();
-        
-        homepage.clickGoodHealth();
-        
-        homepage.enterName("Shigapage");
-        
-        homepage.enterLifeexpectancy("86");
-        
-        homepage.datePickerclick();
-        
-        homepage.year1957click();
-        
-        homepage.month1957click();
-        
-        homepage.enterZip("27529");
-        
-        homepage.clickSearch();
-        
-        homepage.nextHomeClick();
-        
     });
+    // Always start from Preferences page for all tests
+    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
+    });
+    function setPreference(option) {
+        if (option === 'yes') {
+            preferencePage.clickyesRadioDrugCost();
+            preferencePage.verifyGreatText();
+        } else if (option === 'no') {
+            preferencePage.clicknoRadioDrugCost();
+            preferencePage.verifyAreUSureText();
+        }
+        preferencePage.clickNextPrefPage();
+    }
 
     it('test1,should test search preference with YES', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clickyesRadioDrugCost();  
-        
-        prefPage.verifyGreatText();
-        prefPage.clickNextPrefPage();  
-        
-        prefPage.verifyManagePrescriptionurl();
+        setPreference('yes');
+        preferencePage.verifyManagePrescriptionurl();
     });
 
-    it('test2,should test search preference with No', () => {
-        const prefPage = new PreferencePage();
-        
-        prefPage.clicknoRadioDrugCost();  
-        
-        prefPage.verifyAreUSureText();
-        prefPage.clickNextPrefPage();  
-        
-        prefPage.verifyPlanSelectionUrl();
+    it('test2,should test search preference with NO', () => {
+        setPreference('no');
+        preferencePage.verifyPlanSelectionUrl();
     });
 
-    it('test3,should test search preference with back', () => {
-        const prefPage = new PreferencePage();
+    it('test3,should test search preference with back navigation', () => {
+        setPreference('yes');
+        preferencePage.verifyManagePrescriptionurl();
         
-        prefPage.clickyesRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
-        
-        prefPage.verifyManagePrescriptionurl();
-        const drugpage=new PrescriptionPage();
-        cy.wait(500);
-        drugpage.clickGobackPreference();
-        prefPage.verifyPreferencePageUrl();
-    
+        prescriptionPage.clickGobackPreference();
+        preferencePage.verifyPreferencePageUrl();
     });
-    
-    it('should test next button on view recommendation with yes, navigationTesting', () => {
-        const prefPage = new PreferencePage();
-        const planselctPg=new planselectionPage()
-        prefPage.clickyesRadioDrugCost();  
-        prefPage.clickNextPrefPage();  
-         prefPage.verifyManagePrescriptionurl();
-    })
+
+    it('test4,should test navigation from preference to plan selection', () => {
+        setPreference('yes');
+        preferencePage.verifyManagePrescriptionurl();
+    });
 });
