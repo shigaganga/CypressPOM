@@ -33,8 +33,17 @@ class PrescriptionPage {
     reviewPrescriptionList = "//span[normalize-space()='Review prescription list']";
 
     enterDrugSearchBox(drugName) {
-        cy.xpath(this.drugSearchBox).first().type(drugName, { force: true });
-    }
+        cy.wait(3000);
+        cy.xpath(this.drugSearchBox)
+          .first() // Make sure to select the first matched element
+          .scrollIntoView()
+          .should('be.visible')
+          .click({ force: true }) // Ensure input is activated
+          .clear()
+          .type(drugName, { force: true });
+          cy.wait(3000);
+      }
+      
 
     selectDrug() {
         cy.xpath(this.clickDrugDropDown).should('be.visible').click({ force: true });

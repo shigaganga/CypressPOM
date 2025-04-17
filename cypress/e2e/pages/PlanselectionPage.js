@@ -3,7 +3,7 @@ class PlanselectionPage{
 medicareAdv=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
 tick=".mat-checkbox-inner-container";
 medicare=".button-container > :nth-child(1) > .mat-button-wrapper";
-longterm=".button-container > :nth-child(2) > .mat-button-wrapper";
+longterm="(//span[normalize-space()='Long Term'])[1]";
 AivanteImg="img";
 prescriptionbtn="div[class='button-wrapper ng-star-inserted'] button:nth-child(1) span:nth-child(1)";
 WellcareSimple="#mat-checkbox-28 > .mat-checkbox-layout > .mat-checkbox-inner-container";
@@ -56,7 +56,9 @@ wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-
     cy.get(this.medicare).click();
     }
 longtermClick(){
-  cy.get(this.longterm).should('be.visible').click( { force: true});
+  cy.wait(5000);  // Wait for 2 seconds to ensure element is loaded
+  cy.xpath(this.longterm).click({ force: true });
+  
  // cy.xpath(this.longterm).click();
 }
 aivanteImagClick(){
