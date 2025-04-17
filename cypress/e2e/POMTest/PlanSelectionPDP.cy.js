@@ -11,85 +11,82 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
     beforeEach("Login to PlanSelectionPage",()=>{
         cy.session("Pharmacy session",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
-        const lPage = new LoginPage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const prefPage = new PreferencePage();
-        const prescriptionpage=new PrescriptionPage();
-        const pharmacypage=new PharmacyPage();
-    
+        
         cy.fixture('LoginFixture').then((data) => {
-            
+            const lPage = new LoginPage();
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
             lPage.clickLoginBtn();
             lPage.verifyLogin(); // Ensure login was successful
         })
+           const recPage = new LandingPage();
            recPage.clickCreateRecommendation();
-           cy.wait(100);
+           cy.wait(1000);
+           const homepage = new HomePage();
            homepage.enterEmail("siri21@gmail.com");
-           cy.wait(100);
+           cy.wait(1000);
            homepage.clickhealthArrow();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.clickGoodHealth();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.enterName("sneha");
-           cy.wait(100);
+           cy.wait(1000);
            homepage.enterLifeexpectancy("80");
-           cy.wait(100);
+           cy.wait(1000);
            homepage.datePickerclick();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.year1957click();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.month1957click();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.enterZip("80109")
-           cy.wait(100);
+           cy.wait(1000);
            homepage.clickSearch();
-           cy.wait(100);
+           cy.wait(1000);
            homepage.nextHomeClick();
-           cy.wait(100);
+           cy.wait(1000);
+           const prefPage = new PreferencePage();
            prefPage.clickyesRadioDrugCost();
-           cy.wait(100);
+           cy.wait(1000);
            prefPage.clickNextPrefPage();
-           cy.wait(100);
+           cy.wait(1000);
+           const prescriptionpage=new PrescriptionPage();
            prescriptionpage.enterDrugSearchBox("Gabapentin");
-           cy.wait(100);
+           cy.wait(1000);
            prescriptionpage.selectDrug();
-           cy.wait(100);
+           cy.wait(1000);
            prescriptionpage.clickAddToDrug();
-           cy.wait(100);
+           cy.wait(1000);
+           const pharmacypage=new PharmacyPage();
            prescriptionpage.doneAddDrugClick();
-           cy.wait(100);
+           cy.wait(1000);
            pharmacypage.clickFindFarmacy();
-           cy.wait(100);
+           cy.wait(1000);
            pharmacypage.clickfarmacyOne();
-           cy.wait(100);
+           cy.wait(1000);
            pharmacypage.clickfarmacyTwo();
-           cy.wait(2000);
+           cy.wait(1000);
            pharmacypage.clicknextpharmacy();
-           cy.wait(2000);
+           cy.wait(1000);
 
         });
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection')
     })
 
-        
            it('Test1, verify the "PDP Button" functionality on the plan-selection page',() => {
             
             const planselectionpage=new planselectionPage();
-            cy.wait(1000)
+            cy.wait(2000)
             planselectionpage.clickPdpBtn();
             cy.wait(100)
 
            });
 
-
            it('Test2,verify the message displays about duration of all expences ',() => {
 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(6000);
+            cy.wait(3000);
             planselectionpage.verifyRemaningYears();
             cy.wait(1000);
 
@@ -183,7 +180,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-
            it('Test10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
@@ -197,7 +193,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             planselectionpage.selectAARP()
             cy.log('Maximum 3 plans allowed. Remove previous plan to add new plan')
            
-            
            });
 
            it('Test11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
@@ -229,7 +224,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             planselectionpage.clickResetBtn()
 
            });
-
 
            it('Test13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
             const planselectionpage=new planselectionPage();
