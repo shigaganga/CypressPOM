@@ -9,7 +9,7 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 describe('Recommendation Flow Test', () => {
     beforeEach(() => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
+//To test
         cy.fixture('LoginFixture').then((data) => {
             const loginpage = new LoginPage();
             loginpage.setUserName(data.username);
