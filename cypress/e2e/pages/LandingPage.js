@@ -1,7 +1,7 @@
 
 class LandingPage{
     
-    recommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
+    createRecommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
     edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
     Tsign = "//span[@id='userInitial']";
     logOut = "//button[normalize-space(text())='Logout']";
@@ -83,12 +83,9 @@ class LandingPage{
   deleteDrugIcon = ":nth-child(1) > .cdk-column-actions > :nth-child(3)";
   deleteDrugBut = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-warn";
   cancelDeleteDrug = "//span[normalize-space()='Cancel']";
-  createRecommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
-
-   
     clickCreateRecommendation() {
 
-            cy.get(this.createRecommendation).first().should('exist').should('be.visible').click();
+            cy.get(this.recommendation).first().should('exist').should('be.visible').click();
         }
         clickTsign() {
             cy.xpath(this.Tsign).click();

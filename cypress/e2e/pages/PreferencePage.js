@@ -1,14 +1,14 @@
 class PreferencePage {
-YesRadioDrugcost='#mat-radio-11 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle';
-NoRadioDrugcost='#mat-radio-12> .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle';
+YesRadioDrugcost="(//span[@class='mat-radio-outer-circle'])[1]";
+NoRadioDrugcost="(//span[@class='mat-radio-outer-circle'])[2]";
 NextPrefPage="/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-preference/div[2]/div[2]/button/span[1]";
 greatText="//h2[normalize-space()='Great!']";
 Areyousuretext="//h2[normalize-space()='Are you sure?']"
 clickyesRadioDrugCost(){
-    cy.get(this.YesRadioDrugcost).should('be.visible').click( { force: true});
+    cy.xpath(this.YesRadioDrugcost).should('be.visible').click( { force: true});
 }
 clicknoRadioDrugCost(){
-    cy.get(this.NoRadioDrugcost).should('be.visible').click( { force: true});
+    cy.xpath(this.NoRadioDrugcost).should('be.visible').click( { force: true});
 }
 clickNextPrefPage(){
     cy.xpath(this.NextPrefPage, { timeout: 1000 })  

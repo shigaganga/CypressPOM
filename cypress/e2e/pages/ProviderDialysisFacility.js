@@ -5,10 +5,10 @@ class ProviderDialysisFacility {
     zipcodeEle='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[3]/input';
     zipsearchEle ='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[4]/button/span[1]';
     cityDropDownEle ='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[4]/div/div[1]/div[3]'; 
-    cityNameEle = '#mat-option-123 > .mat-option-text'; 
-    radiusinEle = ('#mat-input-18');
+    cityNameEle = '/html/body/div[2]/div[2]/div/div/div/mat-option[3]'; 
+    radiusinEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[1]/mat-form-field[3]/div/div[1]/div[3]/input');
     searchEle = ('.display-flex > .mat-focus-indicator > .mat-button-wrapper');
-    providerfilterEle = ('#mat-expansion-panel-header-2 > .mat-expansion-indicator');
+    providerfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header');
     distanceEle = ('#distance');
    // ratingEle = (' #rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow');
    // ratingfiveEle = ('#mat-option-136');
@@ -39,20 +39,21 @@ class ProviderDialysisFacility {
         cy.xpath(this.cityDropDownEle, {force:true}).click();
     }
     clickCityName() {
-        cy.get(this.cityNameEle, {force:true}).click();
+        cy.xpath(this.cityNameEle, {force:true}).click();
     }
     clickRadiusIn() {
-        cy.get(this.radiusinEle).click();
+        cy.xpath(this.radiusinEle).click();
     }
 
     clickSearch() {
         cy.get(this.searchEle).click();
     }
     clickProviderFilter() {
-        cy.get(this.providerfilterEle).click();
+        cy.xpath(this.providerfilterEle).click();
     }
     enterDistance(distance) {
-        cy.get(this.distanceEle).type(distance);
+        cy.get(this.distanceEle,{ timeout: 10000 },{force:true}).should('exist').and('be.visible').type(distance);
+        console.log('#distance:', this.distanceEle);
     }
 
    // clickRating() {
