@@ -85,7 +85,7 @@ class LandingPage{
   cancelDeleteDrug = "//span[normalize-space()='Cancel']";
     clickCreateRecommendation() {
 
-            cy.get(this.recommendation).first().should('exist').should('be.visible').click();
+            cy.get(this.createRecommendation).first().should('exist').should('be.visible').click();
         }
         clickTsign() {
             cy.xpath(this.Tsign).click();

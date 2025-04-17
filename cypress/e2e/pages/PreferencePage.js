@@ -5,6 +5,8 @@ NextPrefPage="/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-c
 greatText="//h2[normalize-space()='Great!']";
 Areyousuretext="//h2[normalize-space()='Are you sure?']"
 clickyesRadioDrugCost(){
+    cy.wait(3000);
+    
     cy.xpath(this.YesRadioDrugcost).should('be.visible').click( { force: true});
 }
 clicknoRadioDrugCost(){
