@@ -83,7 +83,6 @@ class LandingPage{
   deleteDrugIcon = ":nth-child(1) > .cdk-column-actions > :nth-child(3)";
   deleteDrugBut = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-warn";
   cancelDeleteDrug = "//span[normalize-space()='Cancel']";
-     
     clickCreateRecommendation() {
 
             cy.get(this.recommendation).first().should('exist').should('be.visible').click();
