@@ -3,7 +3,6 @@
 
 // describe("Provider Long Term Care Hospital Page Tests", () => {
 //   const loginPage = new LoginPage();
-  
 //   before(() => {
 //     cy.fixture('LoginFixture').then((data) => {
 //       // Log the request and response to debug
