@@ -12,7 +12,8 @@ class ProviderMedicalEquipment {
     providerfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header');
     providerfilterdistanceEle = ('#distance');
     applyfilterEle = (':nth-child(2) > [type="submit"] > .mat-button-wrapper');
-    clearfilterEle = ('.ng-submitted > :nth-child(2) > [type="button"] > .mat-button-wrapper');
+    providerfiltercollapse = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header')
+    clearfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/div/div/app-provider-filter-form/form/div[2]/button[1]');
     backbtnEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
    // backbuttontopEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
 
@@ -63,8 +64,11 @@ class ProviderMedicalEquipment {
     clickApplyFilter() {
         cy.get(this.applyfilterEle).click();
     }
+    clickProviderFilterCollapse(){
+        cy.xpath(this.providerfiltercollapse,{multiple:true}).click();
+    }
     clickClearFilter() {
-        cy.get(this.clearfilterEle).click();
+        cy.xpath(this.clearfilterEle,{force:true,multiple:true}).should('exist').and('be.visible').click();
     }
     clickBackBtn() {
         cy.get(this.backbtnEle).click();
