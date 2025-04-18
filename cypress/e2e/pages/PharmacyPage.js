@@ -32,7 +32,10 @@ class PharmacyPage{
     backbtnEle='.button-wrapper > .mat-focus-indicator'
     errormessageEle="(//mat-error[@id='mat-error-0'])[1]"
     errormessageindistance='#mat-error-2'
-
+    pharmacy3="//label[@for='mat-checkbox-3-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']";
+    clickPharmacy3(){
+        cy.xpath(this.pharmacy3).click();
+    }
 
     clickZipcoderadio(){
         cy.get(this.zipcodebtn).click({force:true})
