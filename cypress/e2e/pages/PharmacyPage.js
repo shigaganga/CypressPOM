@@ -37,7 +37,7 @@ class PharmacyPage{
     clickPharmacy3(){
         cy.xpath(this.pharmacy3).click();
     }
-    
+    ////
     clickZipcoderadio(){
         cy.get(this.zipcodebtn).click({force:true})
     }
