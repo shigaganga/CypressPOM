@@ -99,6 +99,7 @@ describe('Providermedicalequipment', () => {
             cy.wait(1000);
             // providerMedicalEquipment.clickCountyState();
             providerMedicalEquipment.clickCity();
+            cy.wait(1000);
             providerMedicalEquipment.clickCityName();
 
         });
@@ -106,22 +107,46 @@ describe('Providermedicalequipment', () => {
         it('TC-3 Click Radius ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
             cy.wait(1000);
+            providerMedicalEquipment.enterZipCode("80112");
+            cy.wait(1000);
+            providerMedicalEquipment.clickZipSearch();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCity();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCityName();
+            cy.wait(1000);
             providerMedicalEquipment.enterRadiusin("10");
             cy.wait(1000);
             providerMedicalEquipment.clickSearchProvider();
 
         });
 
+
         it('TC-4 provider filter ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
+           // cy.wait(1000);
+           providerMedicalEquipment.enterZipCode("80112");
+            cy.wait(1000);
+            providerMedicalEquipment.clickZipSearch();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCity();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCityName();
+            cy.wait(1000);
             providerMedicalEquipment.enterRadiusin("10");
+            cy.wait(1000);
             providerMedicalEquipment.clickSearchProvider();
+            cy.wait(1000);
             providerMedicalEquipment.clickProviderFilter();
             cy.wait(1000);
             providerMedicalEquipment.typeProviderFilterDistance("10");
             cy.wait(1000);
             providerMedicalEquipment.clickApplyFilter();
+            cy.wait(1000);
+            providerMedicalEquipment.clickProviderFilterCollapse();
+            cy.wait(1000);
             providerMedicalEquipment.clickClearFilter();
+            cy.wait(1000);
             providerMedicalEquipment.clickBackBtn();
             //providerMedicalEquipment.clickBackButtonToP();
 
