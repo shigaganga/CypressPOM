@@ -8,7 +8,7 @@ class HomePage{
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     nexthome=".form-wrapper > .mat-raised-button";
     email="#mat-input-3";
-    healthProfile=".mat-select-arrow.ng-tns-c216-10";
+  healthProfile=".mat-select-arrow.ng-tns-c216-10";
     bestHealth = "#mat-option-4 > .mat-option-text";
     goodHealth = "#mat-option-5 > .mat-option-text";
     moderateHealth = "#mat-option-6 > .mat-option-text";
