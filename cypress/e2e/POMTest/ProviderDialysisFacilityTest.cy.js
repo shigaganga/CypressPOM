@@ -117,6 +117,12 @@ describe("ProviderDialysisFacility Testing", () => {
     });
 
     it('TC-6 dialysisfacility clickproviderfilter', () => {
+        providerDialysisFacility.enterZipCode("80113");
+        providerDialysisFacility.clickZipSearch();
+        cy.wait(1000);
+        providerDialysisFacility.clickCity();
+        cy.wait(1000);
+        providerDialysisFacility.clickCityName();
         //Search to get to next page.
         providerDialysisFacility.clickRadiusIn();
         providerDialysisFacility.clickSearch();
@@ -126,7 +132,7 @@ describe("ProviderDialysisFacility Testing", () => {
         cy.wait(1000);
         providerDialysisFacility.enterDistance(10);
         cy.wait(1000);
-        //These fields are not on the test app.
+        //These fields are not on the test app. (optional)
         //providerDialysisFacility.clickRating();
         //cy.wait(1000);
         //providerDialysisFacility.selectRatingFive();
