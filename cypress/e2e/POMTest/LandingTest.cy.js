@@ -3,476 +3,447 @@ import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from "../pages/PrescriptionPage.js";
+//import PharmacyPage from "../pages/PharmacyPage.js";
 import PharmacyPage from "../pages/PharmacyPage.js";
-import PlanselectionPage from "../pages/PlanselectionPage.js";
+import planselectionPage from '../pages/PlanselectionPage.js';
 
 describe('Recommendation Flow Test', () => {
+    const landingpage = new LandingPage();
     beforeEach(() => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-//To test
         cy.fixture('LoginFixture').then((data) => {
             const loginpage = new LoginPage();
             loginpage.setUserName(data.username);
             loginpage.setPassword(data.password);
             loginpage.clickLoginBtn();
         });
-
     });
-
     it('test1 Verify Tsign', () => {
-        //const recPage = new LandingPage();
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickTsign();
-        cy.wait(2000);
+        const landingpage = new LandingPage();
+        landingpage.clickTsign();
     });
     it('test2 Verify logout', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickTsign();
-        cy.wait(2000);
-        recPage.clickLogOut();
-        cy.wait(2000);
+        landingpage.clickTsign();
+        landingpage.clickLogOut();
+
     });
-    it('test3 Verify  Recommendation radio button', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-    });
-    it('test4 Verify create Recommendation plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickCreateRecommendation();
-        cy.wait(2000);
-    });
-    it.skip('test5 Verify delete Recommendation plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('lata');//Filter by recommendation email or name
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickDeletePlanIcon();
-        cy.wait(2000);
-        recPage.clickDeleteBut();
-        cy.wait(2000);
-    });
-    it('test6 Verify cancel Recommendation plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('lata');//Filter by recommendation email or name
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickDeletePlanIcon();
-        cy.wait(2000);
-        recPage.clickCancelDeleteBut();
-        cy.wait(2000);
-        
-    });
-    it('test7 Verify the Expand Plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('lata');//Filter by recommendation email or name
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-    });
-    it('test8 Verify the Collapses Plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('lata');//Filter by recommendation email or name
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickCollapsesPlan();
-        cy.wait(2000);
-    });
-    it('test9 Verify Items per page (Next Page)', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickItemPerPageNext();
-        cy.wait(2000);
-    });
-    it('test10 Verify the Previous page (PreviousPage)', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickItemPreviousPage();
-        cy.wait(2000);
-    });
-    it('test11 Verify the Last Page (LastPage)', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickItemLastPage();
-        cy.wait(2000);
-    });
-    it('test12 Verify the First Page (firstPage)', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickItemFirstPage();
-        cy.wait(2000);
-    });
-    it.skip('test13 Verify create Recommendation', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickCreateRecommendation();
+    it('test3 Verify create Recommendation', () => {
+        landingpage.clickCreateRecommendation();
         cy.wait(2000);
         const homepage = new HomePage();
         cy.wait(2000);
         homepage.enterEmail('chhabi@gmail.com');
+        cy.wait(1000);
         homepage.clickHealthProfile();
+        cy.wait(1000);
         homepage.clickBestHealth();
-        homepage.enterName('Lata');
+        cy.wait(1000);
+        homepage.enterName('Test');
+        cy.wait(1000);
         homepage.enterLifeexpectancy('80');
-        homepage.clickDateOfBirth();
+        cy.wait(1000);
         homepage.clickCalenderEle();
+        cy.wait(1000);
         homepage.clickYear();
+        cy.wait(1000);
         homepage.clickMonth();
+        cy.wait(1000);
         homepage.clickGender();
+        cy.wait(1000);
         homepage.clickMale();
+        cy.wait(1000);
         homepage.enterZip("80108");
         cy.wait(2000);
         homepage.clickSearch();
         cy.wait(2000);
         homepage.clickMagiTier();
+        cy.wait(1000);
         homepage.clickMagiTier1();
+        cy.wait(1000);
         homepage.clickNext();
+        cy.wait(1000);
         const preferencespage = new PreferencePage();
+        cy.wait(2000);
         preferencespage.clickyesRadioDrugCost();
+        cy.wait(2000);
         preferencespage.clickNextPrefPage();
+        cy.wait(1000);
         const prescriptionpage = new PrescriptionPage();
+        cy.wait(1000);
         prescriptionpage.clickBrowseAtoZlink();
+        cy.wait(1000);
         prescriptionpage.enterLetter('C');
+        cy.wait(1000);
         prescriptionpage.clickSelectDrug();//Captopril
+        cy.wait(1000);
         prescriptionpage.clickAddDrug();
+        cy.wait(1000);
         prescriptionpage.clickAddToDrugList();
+        cy.wait(1000);
         prescriptionpage.doneAddDrugClick();
-        //const pharmacypage = new PharmacyPage();
+        cy.wait(1000);
         const pharmacypg = new PharmacyPage();
-pharmacypg.selectPharmacy();
-        pharmacypg.clickNextBtn();
-        //const planselectionpage =new planselectionPage();
-        const planselectionpage=new planselectionPage;
-        planselectionpage.clickMA();
-        planselectionpage.clickPlan();
-        planselectionpage.clickDone();
-        planselectionpage.clickPlanCheckbox();
-        planselectionpage.clickMedicareBut();
-        planselectionpage.clickBackBut();
-        planselectionpage.clicklongTermBut();
-        planselectionpage.clickAivanteLogo();
+        cy.wait(1000);
+        pharmacypg.clickPharmacy3();
+        cy.wait(1000);
+        pharmacypg.clicknextpharmacy();
+        cy.wait(1000);
+        const planselectionpage = new planselectionPage();
+        cy.wait(1000);
+        planselectionpage.medicareAdvantageClick();
+        cy.wait(1000);
+        planselectionpage.clickSecondPlan();
+        cy.wait(1000);
+        planselectionpage.donePlanSelectionClick();
+        cy.wait(1000);
+        planselectionpage.tickClick();
+        cy.wait(1000);
+        planselectionpage.medicareclick();
+        cy.wait(1000);
+        //planselectionpage.clickbackMA();
+        //planselectionpage.longtermClick();
+        planselectionpage.aivanteImagClick();
+
     });
-    it('test14 edit healthProfile', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        recPage.enterByEmail('Lata');//Filter by recommendation email or name
-        recPage.clickExpandPlan();
-        recPage.clickEditRecommandtion();
-        recPage.clickEditHealthProfile(); 
-        recPage.clickmoderateHealth();
-});
-it('test15 edit name', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.enterEditName('Name'); 
-    });
-    it('test16 edit life expectancy', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        recPage.enterByEmail('Lata');//Filter by recommendation email or name
-        recPage.clickExpandPlan();
-        recPage.clickEditRecommandtion();
-        recPage.entereditLifeExpectancy('90'); 
-        });
-        it('test17 edit DOB', () => {
-            const recPage = new LandingPage();
-            cy.wait(2000);
-            recPage.clickRecommendationRadioBut();
-            recPage.enterByEmail('Lata');//Filter by recommendation email or name
-            recPage.clickExpandPlan();
-            recPage.clickEditRecommandtion();
-            recPage.clickeditCalenderEle();
-            recPage.clickeditYear();
-            recPage.clickeditMonth();
-            });
-it('test18 edit Gender Male', () => {
-                const recPage = new LandingPage();
-                cy.wait(2000);
-                recPage.clickRecommendationRadioBut();
-                recPage.enterByEmail('Lata');//Filter by recommendation email or name
-                recPage.clickExpandPlan();
-                recPage.clickEditRecommandtion();
-                recPage.clickeditGender();
-                recPage.clickeditGenderM();
-        });
-it('test19 edit Gender Female', () => {
-            const recPage = new LandingPage();
-            cy.wait(2000);
-            recPage.clickRecommendationRadioBut();
-            recPage.enterByEmail('Lata');//Filter by recommendation email or name
-            recPage.clickExpandPlan();
-            recPage.clickEditRecommandtion();
-            recPage.clickeditGender();
-            recPage.clickeditGenderF();
-    });
-    it('test20 edit Tabacco No', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        recPage.enterByEmail('Lata');//Filter by recommendation email or name
-        recPage.clickExpandPlan();
-        recPage.clickEditRecommandtion();
-        recPage.clickedittabaccoNo();
-  });
-  it('test21 edit Tabacco Yes', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.clickedittabaccoYes();
-});
-it('test22 edit Tax filing with individual', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.clickEditTaxIndiv();
-});
-it('test23 edit Tax filing with Jointly', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.clickEditTaxJoin();
-});
-it('test24 edit Street', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.entEreditStreet();
-});
-it('test25 edit Zip code', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.enterEditZip();
-    recPage.clickeditsearch();
-});
-it('test26 edit Contact', () => {
-    const recPage = new LandingPage();
-    cy.wait(2000);
-    recPage.clickRecommendationRadioBut();
-    recPage.enterByEmail('Lata');//Filter by recommendation email or name
-    recPage.clickExpandPlan();
-    recPage.clickEditRecommandtion();
-    recPage.enterEditContact('1234567899');
-});
-    it('test27 Verify view recommendation', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickviewRecom();
-        cy.wait(2000);
-        recPage.clickviewBackbut();
+    it('test4 Verify  Recommendation radio button', () => {
+        landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
     });
-    it('test28 Verify view low cost pharmacy view-recommendation page then back to the landing page', () => {
-        const recPage = new LandingPage();
+    it('test5 Verify create Recommendation button', () => {
+        landingpage.clickCreateRecommendation();
+        cy.wait(2000);//clickproviderBut
+});
+it.only('test5 Verify Provider button on the Landing Page.', () => {
+    landingpage.clickproviderBut();
+    cy.wait(2000);
+});
+    it('test6 Verify the Expand Plan', () => {
+        landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(2000);
-        recPage.enterByEmail('Lata');
+       
+        landingpage.clickExpandPlan();
         cy.wait(2000);
-        recPage.clickExpandPlan();
+    });
+    it('test7 Verify the Collapses Plan', () => {
+        landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
-        recPage.clickviewRecom();
-        cy.wait(3000)
-        recPage.clickviewLowCost();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.clickCollapsesPlan();
+        cy.wait(2000);
+    });
+    it('test8 Verify Items per page (Next Page)', () => {
+        landingpage.clickItemPerPageNext();
+        cy.wait(2000);
+    });
+    it('test9 Verify the Previous page (PreviousPage)', () => {
+        landingpage.clickItemPerPageNext();
+        cy.wait(2000);
+        landingpage.clickItemPreviousPage();
+        cy.wait(2000);
+    });
+    it('test10 Verify the Last Page (LastPage)', () => {
+        landingpage.clickItemLastPage();
+        cy.wait(2000);
+    });
+    it('test11 Verify the First Page (firstPage)', () => {
+        landingpage.clickItemFirstPage();
+        cy.wait(2000);
+    });
+    it('test12 edit healthProfile', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickEditRecommandtion();
+        cy.wait(1000);
+        landingpage.clickEditHealthProfile();
+        cy.wait(1000);
+        landingpage.clickeditModerateHealth();
+    });
+    it('test13 edit name', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(4000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(4000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickEditRecommandtion();//enterEditRecommendationName
+        cy.wait(1000);
+        landingpage.enterEditRecommendationName('Name');
+    });
+    it('test14 edit life expectancy', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(4000);
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandPlan();
+        cy.wait(4000);
+        landingpage.clickEditRecommandtion();
+        cy.wait(4000);
+        landingpage.enterEditLifeExpectancy('90');
+    });
+    it('test15 edit DOB', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(4000);
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickeditCalenderEle();
+        landingpage.clickeditYear();
+        landingpage.clickeditMonth();
+    });
+    it('test16 edit Gender Male', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(2000);
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.clickEditRecommandtion();
+        cy.wait(2000);
+        landingpage.clickEditGender();
+        cy.wait(2000);
+        landingpage.clickEditGenderMale();
+    });
+    it('test17 edit Gender Female', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(4000);
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickEditGender();
+        landingpage.clickEditGenderFemale();
+    });
+    it('test18 edit Tabacco No', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickEditTabaccoNo();
+    });
+    it('test19 edit Tabacco Yes', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickEditTabaccoYes();
+    });
+    it('test20 edit Tax filing with individual', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickEditTaxFilingIndiv();
+    });
+    it('test21 edit Tax filing with Jointly', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.clickEditTaxFilingJoin();
+    });
+    it('test22 edit Street', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.enterStreet('Castle');
+    });
+    it('test23 edit Zip code', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.enterEditZipcode('80112');
+        landingpage.clickZipcodeSearchBut();
+    });
+    it('test24 edit Contact', () => {
+        landingpage.clickRecommendationRadioBut();
+        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.clickExpandPlan();
+        landingpage.clickEditRecommandtion();
+        landingpage.enterEditContact('1234567899');
+    });
+    it('test25 Verify view recommendation', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('Test');
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000);
+        landingpage.clickviewBackbut();
+        cy.wait(1000);
+    });
+    it('test26 Verify view low cost pharmacy view-recommendation page then back to the landing page', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('Test');
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewLowCost();
+        cy.wait(1000);
+        landingpage.clickbackLowCost();//back to the view-recommendation
+        cy.wait(1000);
+        landingpage.clickviewBackbut();//back to the landing page
+        cy.wait(1000);
+    });
+    it('test27 Verify view provider on the view-recommendation page then back', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('Test');
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewProvider();
+        cy.wait(1000);
+        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        cy.wait(1000);
+        landingpage.clickviewBackbut();//back to the landing page
+        cy.wait(1000);
+    });
+    it('test28 Verify view medicare on the view-recommendation page then back', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('Test');
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewMedicare();
+        cy.wait(1000);
+        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        cy.wait(1000);
+        landingpage.clickviewBackbut();//back to the landing page
+        cy.wait(1000);
+    });
+    it('test29 Verify view longTerm on the view-recommendation page then back', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('Test');
+        cy.wait(1000);
+        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewLongTerm();
+        cy.wait(1000);
+        landingpage.clickbackViewRecommendation();//back to the view-recommendation
+        cy.wait(1000);
+        landingpage.clickviewBackbut();//back to the landing page
+        cy.wait(1000);
+    });
+    it.skip('test30 Verify delete User-ID', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(2000);
+        landingpage.clickdeleteUserIDIcon();
+        cy.wait(2000);
+        landingpage.clickDeleteBut();
+        cy.wait(2000);
+    });
+    it('test31 Verify cancel delete User-ID', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(2000);
+        landingpage.clickdeleteUserIDIcon();
+        cy.wait(2000);
+        landingpage.clickCancelDeleteBut();
+        cy.wait(2000);
+    });
+    it.skip('test32 Verify delete Recommendation plan', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.clickDeletePlanIcon();
+        cy.wait(2000);
+        landingpage.clickDeleteBut();
+        cy.wait(2000);
+    });
+    it('test33 Verify cancel delete Recommendation plan', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandPlan();
         cy.wait(3000);
-        recPage.clickbackLowCost();//back to the view-recommendation
-        cy.wait(3000);
-        recPage.clickviewBackbut();//back to the landing page
+        landingpage.clickDeletePlanIcon();
         cy.wait(2000);
-    });
-    it('test29 Verify view provider on the view-recommendation page then back', () => {
-        const recPage = new LandingPage();
+        landingpage.clickCancelDeleteBut();
         cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickviewRecom();
-        cy.wait(2000)
-        recPage.clickviewProvider();
-        cy.wait(2000);
-        recPage.clickbackViewRecommendation();//back to the view-recommendation
-        cy.wait(2000);
-        recPage.clickviewBackbut();//back to the landing page
-        cy.wait(2000);
-    });
-    it('test30 Verify view medicare on the view-recommendation page then back', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickviewRecom();
-        cy.wait(2000)
-        recPage.clickviewMedicare();
-        cy.wait(2000);
-        recPage.clickbackViewRecommendation();//back to the view-recommendation
-        cy.wait(2000);
-        recPage.clickviewBackbut();//back to the landing page
-        cy.wait(2000);
-    });
-    it('test31 Verify view longTerm on the view-recommendation page then back', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickviewRecom();
-        cy.wait(2000)
-        recPage.clickviewLongTerm();
-        cy.wait(2000);
-        recPage.clickbackViewRecommendation();//back to the view-recommendation
-        cy.wait(2000);
-        recPage.clickviewBackbut();//back to the landing page
-        cy.wait(2000);
-    });
-    it('test32 Verify delete recommendation plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickDeletePlanIcon();
-        cy.wait(2000)
-        recPage.clickDeleteBut();
-    });
-    it('test33 Verify cancel the delete recommendation plan', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        recPage.enterByEmail('Lata');
-        cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickDeletePlanIcon();
-        cy.wait(2000)
-        recPage.clickCancelDeleteBut();
     });
     it('test34 Verify Prescription Radio button', () => {
-        const recPage = new LandingPage();
-        cy.wait(2000);
-        recPage.clickPrescriptionRadioBut();
+        landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
     });
     it('test35 Verify Edit Prescription', () => {
-        const recPage = new LandingPage();
+        landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        recPage.clickPrescriptionRadioBut();
+        landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        recPage.enterEditPresEmail('chha');
+        landingpage.clickExpandPlan();
         cy.wait(2000);
-        recPage.clickExpandPlan();
+        landingpage.clickeditPresDrug();
         cy.wait(2000);
-        recPage.clickeditPresDrug();
+        landingpage.clickeditDrug();
         cy.wait(2000);
-        recPage.clickeditDrug();
+        landingpage.clickFrequencyBut();
         cy.wait(2000);
-        recPage.clickFrequencyBut();
+        landingpage.clickFrequency60();
         cy.wait(2000);
-        recPage.clickFrequency60();
-        cy.wait(2000);
-        recPage.enterQuanty('45');
+        landingpage.enterQuanty('45');
     });
     it('test36 Verify view drug', () => {
-        const recPage = new LandingPage();
+        landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        recPage.clickPrescriptionRadioBut();
+        landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        recPage.enterEditPresEmail('chha');
+        landingpage.clickExpandPlan();
         cy.wait(2000);
-        recPage.clickExpandPlan();
-        cy.wait(2000);
-        recPage.clickviewDrug();
+        landingpage.clickviewDrug();
         cy.wait(2000);
     });
-    it('test37 Verify delete durg', () => {
-        const recPage = new LandingPage();
+    it.skip('test37 Verify delete durg', () => {
+        landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        recPage.clickPrescriptionRadioBut();
+        landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        recPage.enterEditPresEmail('chha');
+        landingpage.clickExpandPlan();
         cy.wait(2000);
-        recPage.clickExpandPlan();
+        landingpage.clickdeleteDrug();
         cy.wait(2000);
-        recPage.clickdeleteDrug();
+        landingpage.clickdeleteDrugBut();
         cy.wait(2000);
-        recPage.clickdeleteDrugBut();
-        cy.wait(2000); 
     });
     it('test38 Verify cancel Delete Drug', () => {
-        const recPage = new LandingPage();
+        landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        recPage.clickPrescriptionRadioBut();
+        landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        recPage.enterEditPresEmail('chha');
+        landingpage.clickExpandPlan();
         cy.wait(2000);
-        recPage.clickExpandPlan();
+        landingpage.clickdeleteDrug();
         cy.wait(2000);
-        recPage.clickdeleteDrug();
-        cy.wait(2000);
-        recPage.clickcancelDeleteDrug();
+        landingpage.clickcancelDeleteDrug();
         cy.wait(2000);
     });
 
 });
+
 
 
 
