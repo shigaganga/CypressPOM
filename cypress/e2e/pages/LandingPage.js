@@ -1,10 +1,10 @@
 
-class LandingPage{
-providerBut=".button-container > :nth-child(2) > .mat-button-wrapper";
+class LandingPage {
+    providerBut = ".button-container > :nth-child(2) > .mat-button-wrapper";
     createRecommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
     edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
     //Tsign = "//span[@id='userInitial']";
-    Tsign="//span[@id='userInitial']"
+    Tsign = "//span[@id='userInitial']"
     logOut = "//button[normalize-space(text())='Logout']";//Xpath locator
     //logOut=".mat-menu-content > :nth-child(2)"//cypress locator
     recommendationRadioBut = "#mat-radio-2 > .mat-radio-label";//Recommendation Radio Button
@@ -15,7 +15,7 @@ providerBut=".button-container > :nth-child(2) > .mat-button-wrapper";
     itemPreviousPage = ".mat-paginator-navigation-previous";
     itemLastPage = ".mat-paginator-navigation-last";
     itemFirstPage = ".mat-paginator-navigation-first";
-    editRecommandtion=":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
+    editRecommandtion = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
     backBut = ".button-wrapper > .mat-focus-indicator";
     editHealthProfile = "#mat-select-value-5";
     editBestHealth = "#mat-option-8 > .mat-option-text";
@@ -25,10 +25,10 @@ providerBut=".button-container > :nth-child(2) > .mat-button-wrapper";
     editSickHealth = "#mat-option-12 > .mat-option-text";
     editRecommendationName = "#mat-input-4";
     editLifeExpectancy = "#mat-input-5";
-    editCalenderEle =".mat-datepicker-toggle > .mat-focus-indicator";
-    editYear=":nth-child(6) > [data-mat-col='1']";//1958
-    editMonth=":nth-child(3) > [data-mat-col='0']";//May
-    editGender ="#mat-select-value-25";// "#mat-select-value-5";
+    editCalenderEle = ".mat-datepicker-toggle > .mat-focus-indicator";
+    editYear = ":nth-child(6) > [data-mat-col='1']";//1958
+    editMonth = ":nth-child(3) > [data-mat-col='0']";//May
+    editGender = "#mat-select-value-25";// "#mat-select-value-5";
     editGenderMale = "#mat-option-49 > .mat-option-text";
     editGenderFemale = "#mat-option-50 > .mat-option-text";
     editTabaccoNo = "#mat-radio-6 > .mat-radio-label";
@@ -64,9 +64,9 @@ providerBut=".button-container > :nth-child(2) > .mat-button-wrapper";
     editMABut = ":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";//MA buttn
     editPlan = "#mat-checkbox-14 > .mat-checkbox-layout > .mat-checkbox-inner-container";
     doneBut = ".button-container > .mat-focus-indicator";
-    selectMAPlan = ".mat-checkbox-inner-container"; 
-     //VIEW PLAN:
-     viewRecom=":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(2)";
+    selectMAPlan = ".mat-checkbox-inner-container";
+    //VIEW PLAN:
+    viewRecom = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(2)";
     viewBackbut = ".button-container > :nth-child(1)";
     viewLowCost = ".view-button-container > :nth-child(1)";
     backLowCost = ".location-container > .button-wrapper > .mat-focus-indicator";
@@ -75,43 +75,39 @@ providerBut=".button-container > :nth-child(2) > .mat-button-wrapper";
     viewMedicare = ".view-button-container > :nth-child(3)";
     viewLongTerm = ".view-button-container > :nth-child(4)";
     backBut = "button[class='mat-focus-indicator mat-raised-button mat-button-base mat-primary'] span[class='mat-button-wrapper']";
-//DELETE RECOMMENDATION PLAN:
-deleteUserIDIcon=":nth-child(1) > .cdk-column-actions > :nth-child(2)";
-deletePlanIcon=":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(2) > .cdk-column-actions > :nth-child(3)";
-  deleteBut = ".mat-warn > .mat-button-wrapper";
-  cancelDeleteBut=".mat-dialog-actions > .mat-primary > .mat-button-wrapper";
-  //PRESCRIPTION RADIO BUTTON:
-  presRadioBut = "#mat-radio-3 > .mat-radio-label";//Prescription Radio Button
-  editPresEmail = "#mat-input-3";
-  editPrescription = ".inner-table > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
-  editDrug = "[style='bottom: -10px; position: relative;'] > :nth-child(1) > u";
-  viewDrug = ":nth-child(1) > .cdk-column-actions > :nth-child(2)";
-  deleteDrugIcon = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .mat-table > tbody > .mat-row > .cdk-column-actions > :nth-child(3)";//:nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .mat-table > tbody > .mat-row > .cdk-column-actions > :nth-child(3)
-  deleteDrugBut = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-warn";
-  cancelDeleteDrug = "//span[normalize-space()='Cancel']";
+    //DELETE RECOMMENDATION PLAN:
+    deleteUserIDIcon = ":nth-child(1) > .cdk-column-actions > :nth-child(2)";
+    deletePlanIcon = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(2) > .cdk-column-actions > :nth-child(3)";
+    deleteBut = ".mat-warn > .mat-button-wrapper";
+    cancelDeleteBut = ".mat-dialog-actions > .mat-primary > .mat-button-wrapper";
+    //PRESCRIPTION RADIO BUTTON:
+    presRadioBut = "#mat-radio-3 > .mat-radio-label";//Prescription Radio Button
+    editPresEmail = "#mat-input-3";
+    editPrescription = ".inner-table > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
+    editDrug = "[style='bottom: -10px; position: relative;'] > :nth-child(1) > u";
+    viewDrug = ":nth-child(1) > .cdk-column-actions > :nth-child(2)";
+    deleteDrugIcon = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .mat-table > tbody > .mat-row > .cdk-column-actions > :nth-child(3)";//:nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .mat-table > tbody > .mat-row > .cdk-column-actions > :nth-child(3)
+    deleteDrugBut = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-warn";
+    cancelDeleteDrug = "//span[normalize-space()='Cancel']";
 
-   clickproviderBut(){
-    cy.get(this.providerBut).click();
-   }
+    clickproviderBut() {
+        cy.get(this.providerBut).click();
+    }
     clickCreateRecommendation() {
         cy.get(this.createRecommendation).should('exist').should('be.visible').click();
-      }
+    }
     editRecommendationClick() {
         cy.get(this.edit).should('exist').should('be.visible').click();
         cy.wait(2000);
     }
-    
-    clickTsign() {
+clickTsign() {
         cy.xpath(this.Tsign, { timeout: 6000 })
-  .should('be.visible')
-  .click();
-        /*cy.xpath("//span[@id='userInitial']", { timeout: 10000 })
-        .should('be.visible')
-        .click();*/
-    }
+            .should('be.visible')
+            .click();
+}
     clickLogOut() {
         cy.xpath(this.logOut).should('be.visible').click();
-       }
+    }
     clickRecommendationRadioBut() {
         cy.get(this.recommendationRadioBut).click();
     }
@@ -120,8 +116,6 @@ deletePlanIcon=":nth-child(2) > .inner-table-wrap > .example-element-detail > .i
     }
     clickExpandPlan() {
         cy.get(this.expandPlan).first().click();
-        //cy.get(this.expandPlan).click();
-
     }
     clickCollapsesPlan() {
         cy.get(this.collapsesPlan).click();
@@ -168,13 +162,13 @@ deletePlanIcon=":nth-child(2) > .inner-table-wrap > .example-element-detail > .i
     enterEditLifeExpectancy(editLifeExpectancy) {
         cy.get(this.editLifeExpectancy).clear().type(editLifeExpectancy);
     }
-    clickeditCalenderEle(){
+    clickeditCalenderEle() {
         cy.get(this.editCalenderEle).click();
     }
-    clickeditYear(){
+    clickeditYear() {
         cy.get(this.editYear).click();
     }
-    clickeditMonth(){
+    clickeditMonth() {
         cy.get(this.editMonth).click();
     }
     clickEditGender() {
@@ -309,7 +303,7 @@ deletePlanIcon=":nth-child(2) > .inner-table-wrap > .example-element-detail > .i
     clickViewBackBut() {
         cy.get(this.backBut).wait(3000).click();
     }
-    clickdeleteUserIDIcon(){
+    clickdeleteUserIDIcon() {
         cy.get(this.deleteUserIDIcon).click();
     }
     clickDeletePlanIcon() {
