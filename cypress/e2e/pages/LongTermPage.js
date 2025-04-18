@@ -77,6 +77,22 @@ class LongTermPage {
     generatepdfLongtermBtnEle = ".ng-star-inserted > .mat-button-wrapper";
     backbtnEle = ".button-wrapper > :nth-child(1) > .mat-button-wrapper";
     aivanteLogoEle = "img";
+    retirementAge=":nth-child(4) > span";
+healthProfile=".personal-info > :nth-child(2) > span"
+retirementYear=":nth-child(5) > span";
+lifeExpectancy=".personal-info > :nth-child(3) > span";
+clickretirementAge(){
+    cy.get(this.retirementAge).click();
+}
+clickhealthProfile(){
+    cy.get(this.healthProfile).click();
+}
+clickretirementYear(){
+    cy.get(this.retirementYear).click();
+}
+clicklifeExpectancy(){
+    cy.get(this.lifeExpectancy).click();
+}
     
     clickLongtermBtn(){
         cy.get(this.longtermBtnEle).click()};

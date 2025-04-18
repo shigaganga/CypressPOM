@@ -295,5 +295,28 @@ it('TC-24 Verify that clicking the Back button on the Long Term Care page naviga
     longtermpage.clickLongtermBtn();
 });
 
-
+it('TC -42 Verify the health Profile', () => {
+    cy.wait(2000);
+    longtermpage.clickLongtermBtn();
+    cy.wait(2000);
+    longtermpage.clickhealthProfile();
+});
+it('TC -43 Verify the life Expectancy', () => {
+    cy.wait(2000);
+    longtermpage.clickLongtermBtn();
+    cy.wait(2000);
+    longtermpage.clicklifeExpectancy();
+});
+it('TC -44 Verify the Retirement Age', () => {
+    cy.wait(2000);
+    longtermpage.clickLongtermBtn();
+    cy.wait(2000);
+    longtermpage.clickretirementAge();
+});
+it('TC -45 Verify the Retirement Year', () => {
+    cy.wait(2000);
+    longtermpage.clickLongtermBtn();
+    cy.wait(2000);
+    longtermpage.clickretirementYear();
+});
 });
