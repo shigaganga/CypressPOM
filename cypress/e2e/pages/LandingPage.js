@@ -1,7 +1,7 @@
 
 class LandingPage{
     
-    recommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
+    createrecommendation = ".mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary.ng-star-inserted";
     edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
     Tsign = "//span[@id='userInitial']";
     logOut = "//button[normalize-space(text())='Logout']";
@@ -86,7 +86,7 @@ class LandingPage{
 
    
     clickCreateRecommendation() {
-        cy.get(this.recommendation).should('exist').should('be.visible').click();
+        cy.get(this.createrecommendation).should('exist').should('be.visible').click();
 
     }
     editRecommendationClick() {

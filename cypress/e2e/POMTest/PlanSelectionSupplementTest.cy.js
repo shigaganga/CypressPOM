@@ -71,6 +71,7 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
 })
 
 
+
 it("Test1:To verify functionality of supplement button on plan-selection/plan-list/SUPPLEMENT page and to verify that user can select max 3 plans",()=>{
     planselectionpage.setSupplementButtn()
     cy.wait(10000)

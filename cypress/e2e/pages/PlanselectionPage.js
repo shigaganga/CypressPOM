@@ -17,6 +17,8 @@ donePdp='.button-container > .mat-focus-indicator > .mat-button-wrapper';
 aetenaMedicarePremier="#mat-checkbox-25 > .mat-checkbox-layout > .mat-checkbox-inner-container";
 wellcaregiveback="#mat-checkbox-29 > .mat-checkbox-layout > .mat-checkbox-inner-container";
 
+ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
+
 
     planWellCaresimpleClick(){
         cy.get(this.WellcareSimple).click();
@@ -80,12 +82,36 @@ setSupplementButtn()
   cy.get(this.SupplementButtn).click();
 } 
 
+
 ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
 setProviderButtn()
 {
   cy.get(this.ProviderButtn).click();
 }
-ProfileButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(1)';
+
+//clickProviderButton()
+//{
+  //cy.get('.ng-star-inserted > :nth-child(2) > .mat-button-wrapper')
+  //.should('exist')
+  //.should('be.visible').contains('Provider')
+  //.click({ force: true });
+
+//}
+//providerbtnEle = ('.button-wrapper.ng-star-inserted > :nth-child(2) > .mat-button-wrapper');
+     
+//clickProviderBtn(){
+  //  cy.get(this.providerbtnEle).click();
+
+//}
+
+providerbtnEle = ('.ng-star-inserted > :nth-child(2) > .mat-button-wrapper'); // .ng-star-inserted > :nth-child(2) > .mat-button-wrapper
+
+
+clickProviderBtn(){
+     cy.get(this.providerbtnEle).click();
+ }
+
+
 setProfileButtn()
 {
   cy.get(this.ProfileButtn).click();
