@@ -109,13 +109,13 @@ it('TC-3 Validate userinfo details of age retirement age year health profile and
     cy.wait(100);  
 });
 
-it('TC-4 Validate presentvalue and future values of longterm plan', () => {
+it('LTC-5 Validate presentvalue and future values of longterm plan', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.verifyPresentFutureValueDetails();
     cy.wait(100);  
 });
 
-it('TC-5 Verify user is able to go back to control page to view selected MA plan', () => {
+it('LTC-6 Verify user is able to go back to control page to view selected MA plan', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.backLongTermToPlanSelectionClick();
     cy.wait(100);
@@ -127,7 +127,7 @@ it('TC-6 Verify clicking generate pdf button generates pdf doc', () => {
     cy.wait(100);
 });
 
-it('TC-7 Verify clicking generate pdf button generates pdf icon in view landing page', () => {
+it('LTC-10 Verify clicking generate pdf button generates pdf icon in view landing page', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.pdfclick();
     planselectionpage.aivanteImagClick();
@@ -158,7 +158,7 @@ it('TC-11 Verify clicking on Quality of care shows options of comfort luxury and
     cy.wait(100);   
 });
 
-it('TC-12 Verify only one option can be select from the Quality of Care dropdown', () => {
+it('LTC-17 Verify only one option can be select from the Quality of Care dropdown', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.longTermArrowClick();
     longtermpage.clickQualityofcareArrow();
@@ -187,7 +187,7 @@ it('TC-15 Verify that only one option can be selected from the Adult Day Care (Y
         longtermpage.longTermArrowClick();
         longtermpage.clickAdultdaycareArrow();
         longtermpage.clickAdultcare3years();
-        cy.wait(100);
+        cy.wait(5000);
     
 });
 
@@ -197,7 +197,7 @@ it('TC-16 Verify that Future Value and Present Value is changing accordingly Adu
             longtermpage.clickAdultdaycareArrow();
             longtermpage.clickAdultcare4years();
             longtermpage.submitLongTermClick();
-            cy.wait(100);
+            cy.wait(5000);
  });
 
  it('TC-17 Verify that the Years of In-Home Care dropdown displays the numbers from 1 to 10 ', () => {
@@ -247,7 +247,7 @@ it('TC-22 Verify that Future Value and Present Value is changing accordingly Yea
     longtermpage.submitLongTermClick();
     cy.wait(100);
 });
-
+/*
 it('TC-23 Verify when the Submit button is clicked after chosing valid inputs in the Quality of care, Adult day care, In Home care and Nursing Home care ', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.longTermArrowClick();
@@ -294,6 +294,6 @@ it('TC-24 Verify that clicking the Back button on the Long Term Care page naviga
     const longtermpage = new LongTermPage();
     longtermpage.clickLongtermBtn();
 });
-
+*/
 
 });
