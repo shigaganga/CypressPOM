@@ -48,16 +48,16 @@ class LongTermPage {
     adultdaycareArrowEle = ("(//div[contains(@class,'mat-select-arrow-wrapper')])[2]");
     adultcare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[2]");
     adultcare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[2]");
-    adultcare2yearsEle = ("(//span[normalize-space()='2'])[2]");
+    adultcare2yearsEle = ("(//span[normalize-space()='2'])");
     adultcare3yearsEle = ("(//span[normalize-space()='3'])");
-    adultcare4yearsEle = ("(//span[normalize-space()='4'])[2]");
+    adultcare4yearsEle = ("(//span[normalize-space()='4'])");
     adultcare5yearsEle = ("(//span[normalize-space()='5'])[2]");
 
    
     inhomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[3]");
     inhomecare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[3]");
     inhomecare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[3]");
-    inhomecare2yearsEle = ("(//span[normalize-space()='2'])[3]");
+    inhomecare2yearsEle = ("(//span[normalize-space()='2'])");
     inhomecare3yearsEle = ("(//span[normalize-space()='3'])");
     inhomecare4yearsEle = ("(//span[normalize-space()='4'])[3]");
     inhomecare5yearsEle = ("(//span[normalize-space()='5'])[3]");
@@ -66,7 +66,7 @@ class LongTermPage {
     nursinghomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[4]");
     nursinghomecare0yearsEle = ("//span[normalize-space()='0'])[4]");
     nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1'][4]");
-    nursinghomecare2yearsEle = ("//span[normalize-space()='2'][4]");
+    nursinghomecare2yearsEle = ("//span[normalize-space()='2']");
     nursinghomecare3yearsEle = ("//span[normalize-space()='3']");
     nursinghomecare4yearsEle = ("//span[normalize-space()='4'][4]");
     nursinghomecare5yearsEle = ("//span[normalize-space()='5'][4]");
@@ -133,7 +133,7 @@ clicklifeExpectancy(){
         cy.xpath(this.adultcare3yearsEle).click({force:true})}    
     
     clickAdultcare4years(){
-        cy.xpath(this.adultcare4yearsEle).click({force:true})}
+        cy.xpath(this.adultcare4yearsEle).click({force:true, multiple: true})}
     
     clickAdultcare5years(){
         cy.xpath(this.adultcare5yearsEle).click({force:true})}
@@ -149,7 +149,7 @@ clicklifeExpectancy(){
         cy.xpath(this.inhomecare1yearsEle).click()}
     
     clickInhomecare2years(){
-        cy.xpath(this.inhomecare2yearsEle).click()}
+        cy.xpath(this.inhomecare2yearsEle).click({force: true, multiple: true})}
     
     clickInhomecare3years(){
         cy.xpath(this.inhomecare3yearsEle).click()}
@@ -171,7 +171,7 @@ clicklifeExpectancy(){
         cy.xpath(this.nursinghomecare1yearsEle).click()}
     
     clickNursinghomecare2years(){
-        cy.xpath(this.nursinghomecare2yearsEle).click({force:true})}
+        cy.xpath(this.nursinghomecare2yearsEle).click({force: true, multiple: true})}
     
     clickNursinghomecare3years(){
         cy.xpath(this.nursinghomecare3yearsEle).click()}
