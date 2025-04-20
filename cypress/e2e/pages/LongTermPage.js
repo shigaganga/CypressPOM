@@ -32,8 +32,9 @@ class LongTermPage {
     retirementageele=(":nth-child(4) > span");
     retirementyearele=(":nth-child(5) > span");
 
-    futurevalueEle= ':nth-child(2) > .cdk-column-adultdaycare'//"//td[normalize-space()='Future Value']";  
-    presentvalueEle= ':nth-child(3) > .cdk-column-adultdaycare' //td[normalize-space()='Present Value']"  
+    futurevalueEle= "//td[normalize-space()='Future Value']";
+    presentvalueEle= "//td[normalize-space()='Present Value']";
+ 
     
     //comfortEle= "(//span[@class='mat-option-text'][normalize-space()='Comfort'])[1])";
     //luxuryEle= "(//span[normalize-space()='Luxury'])[1]";
@@ -41,22 +42,22 @@ class LongTermPage {
 
     qualityofcareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[1]");
     comfortEle = "//span[@class='mat-option-text'][normalize-space()='Comfort']" ; 
-    luxuryEle = '#mat-select-value-3';//"//span[normalize-space()='Luxury']";
+    luxuryEle = "//span[normalize-space()='Luxury']";
     premiumLuxuryEle = "//span[normalize-space()='Premium Luxury']";
 
-    adultdaycareArrowEle = '#mat-select-value-5'//("(//div[contains(@class,'mat-select-arrow-wrapper')])[2]");
+    adultdaycareArrowEle = ("(//div[contains(@class,'mat-select-arrow-wrapper')])[2]");
     adultcare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[2]");
     adultcare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[2]");
-    adultcare2yearsEle = '#mat-select-value-131';//("(//span[normalize-space()='2'])[2]");
+    adultcare2yearsEle = ("(//span[normalize-space()='2'])");
     adultcare3yearsEle = ("(//span[normalize-space()='3'])");
-    adultcare4yearsEle = '#mat-option-10 > .mat-option-text';
+    adultcare4yearsEle = ("(//span[normalize-space()='4'])");
     adultcare5yearsEle = ("(//span[normalize-space()='5'])[2]");
-    //#mat-select-value-121
-    //("(//span[normalize-space()='4'])[2]");
-    inhomecareArrowEle = '#mat-select-6 > .mat-select-trigger > .mat-select-arrow-wrapper'//("(//div[contains(@class, 'mat-select-arrow-wrapper')])[3]");
+
+   
+    inhomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[3]");
     inhomecare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[3]");
-    inhomecare1yearsEle = '.mat-option-text';//("(//span[@class='mat-option-text'][normalize-space()='1'])[3]");
-    inhomecare2yearsEle = '#mat-option-18 > .mat-option-text'; //("(//span[normalize-space()='2'])[3]");
+    inhomecare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[3]");
+    inhomecare2yearsEle = ("(//span[normalize-space()='2'])");
     inhomecare3yearsEle = ("(//span[normalize-space()='3'])");
     inhomecare4yearsEle = ("(//span[normalize-space()='4'])[3]");
     inhomecare5yearsEle = ("(//span[normalize-space()='5'])[3]");
@@ -64,8 +65,8 @@ class LongTermPage {
     
     nursinghomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[4]");
     nursinghomecare0yearsEle = ("//span[normalize-space()='0'])[4]");
-    nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1'][4]");//'#mat-select-134';
-    nursinghomecare2yearsEle = '#mat-select-value-9';//("//span[normalize-space()='2'][4]");
+    nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1'][4]");
+    nursinghomecare2yearsEle = ("//span[normalize-space()='2']");
     nursinghomecare3yearsEle = ("//span[normalize-space()='3']");
     nursinghomecare4yearsEle = ("//span[normalize-space()='4'][4]");
     nursinghomecare5yearsEle = ("//span[normalize-space()='5'][4]");
@@ -92,7 +93,7 @@ class LongTermPage {
         }
     
     clickLuxury(){
-        cy.get(this.luxuryEle).click( { force : true});
+        cy.xpath(this.luxuryEle).click( { force : true});
         }
     
     clickPremiumLuxury(){
@@ -101,7 +102,7 @@ class LongTermPage {
 
     
     clickAdultdaycareArrow(){
-        cy.get(this.adultdaycareArrowEle).click({force:true})}
+        cy.xpath(this.adultdaycareArrowEle).click({force:true})}
     
     clickAdultcare0years(){
         cy.xpath(this.adultcare0yearsEle).click({force:true})}    
@@ -110,46 +111,30 @@ class LongTermPage {
         cy.xpath(this.adultcare1yearsEle).click({force:true})}    
     
     clickAdultcare2years(){
-        cy.get(this.adultcare2yearsEle).contains('2').click({force:true})}
+        cy.xpath(this.adultcare2yearsEle).click({force:true})}
     
     clickAdultcare3years(){
         cy.xpath(this.adultcare3yearsEle).click({force:true})}    
     
     clickAdultcare4years(){
-
-          //cy.xpath(this.adultcare4yearsEle).click({force:true})
-          
-         cy.get(this.adultcare4yearsEle).click({ force : true })  
-                    
-    }
-
-    getInitialFutureValue()
-    {
-        return cy.get(this.futurevalueEle);
-    }
-
-    getInitialPresentValue()
-    {
-       return cy.get(this.presentvalueEle);
-    }
+        cy.xpath(this.adultcare4yearsEle).click({force:true, multiple: true})}
     
     clickAdultcare5years(){
         cy.xpath(this.adultcare5yearsEle).click({force:true})}
     
     
     clickInhomecareArrow(){
-        cy.get(this.inhomecareArrowEle).click({ force : true })}
+        cy.xpath(this.inhomecareArrowEle).click()}
     
     clickInhomecare0years(){
-        cy.get(this.inhomecare0yearsEle).contains('0', { timeout: 5000 }).should('be.visible').click({ force : true })}
+        cy.xpath(this.inhomecare0yearsEle).click()}
     
     clickInhomecare1years(){
-        cy.get(this.inhomecare1yearsEle).contains('1', { timeout: 5000 }).should('be.visible').click({ force: true })}
+        cy.xpath(this.inhomecare1yearsEle).click()}
     
     clickInhomecare2years(){
-        cy.get(this.inhomecare2yearsEle).click({ force : true });
-        //cy.xpath(this.inhomecare2yearsEle).click()}
-    }
+        cy.xpath(this.inhomecare2yearsEle).click({force: true, multiple: true})}
+    
     clickInhomecare3years(){
         cy.xpath(this.inhomecare3yearsEle).click()}
     
@@ -167,10 +152,10 @@ class LongTermPage {
         cy.xpath(this.nursinghomecare0yearsEle).click()}
     
     clickNursinghomecare1years(){
-        cy.get(this.nursinghomecare1yearsEle).contains('1', { timeout: 5000 }).should('be.visible').click({ force: true })}
+        cy.xpath(this.nursinghomecare1yearsEle).click()}
     
     clickNursinghomecare2years(){
-        cy.get(this.nursinghomecare2yearsEle).click({force:true})}
+        cy.xpath(this.nursinghomecare2yearsEle).click({force: true, multiple: true})}
     
     clickNursinghomecare3years(){
         cy.xpath(this.nursinghomecare3yearsEle).click()}
