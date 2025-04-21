@@ -9,25 +9,25 @@ describe('Login Test Suite', () => {
         });
     });
 
-    it('Test1: Verify URL is correct', () => {
+    it('TC_01: Verify URL is correct', () => {
         cy.fixture('LoginFixture').then((data) => {
             cy.url().should('eq', data.baseUrl); 
         });
     });
 
-    it('Test2: Verify username field is present and accepts input', () => {
+    it('TC_02: Verify username field is present and accepts input', () => {
         cy.fixture('LoginFixture').then((data) => {
             loginPage.setUserName(data.username);
         });
     });
 
-    it('Test3: Verify password field is present and accepts input', () => {
+    it('TC_03: Verify password field is present and accepts input', () => {
         cy.fixture('LoginFixture').then((data) => {
             loginPage.setPassword(data.password);
         });
     });
 
-    it('Test4: Verify login button is present and clickable', () => {
+    it('TC_04: Verify login button is present and clickable', () => {
         loginPage.clickLoginBtn();
     });
 });

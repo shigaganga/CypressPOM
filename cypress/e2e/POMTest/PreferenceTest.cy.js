@@ -46,25 +46,26 @@ describe('Preference Test Suite', () => {
         preferencePage.clickNextPrefPage();
     }
 
-    it('test1,should test search preference with YES', () => {
+    it('TC_01,should test search preference with YES', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
     });
 
-    it('test2,should test search preference with NO', () => {
+    it('TC_02,should test search preference with NO', () => {
         setPreference('no');
         preferencePage.verifyPlanSelectionUrl();
     });
 
-    it('test3,should test search preference with back navigation', () => {
+    it('TC_03,should test search preference with back navigation', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
         
         prescriptionPage.clickGobackPreference();
         preferencePage.verifyPreferencePageUrl();
     });
+    //TC_04 not needed
 
-    it('test4,should test navigation from preference to plan selection', () => {
+    it('TC_05,next button,should test navigation from preference to plan selection', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
     });
