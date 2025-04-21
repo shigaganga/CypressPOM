@@ -9,7 +9,7 @@ import PharmacyPage from '../pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Page PDP",()=> {
     const planselectionpage=new planselectionPage();
     beforeEach("Login to PlanSelectionPage",()=>{
-        cy.session("Pharmacy session",()=>{
+        cy.session("PlanSelection session",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
         
         cy.fixture('LoginFixture').then((data) => {
@@ -21,68 +21,68 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
         })
            const recPage = new LandingPage();
            recPage.clickCreateRecommendation();
-           cy.wait(1000);
+           cy.wait(2000);
            const homepage = new HomePage();
            homepage.enterEmail("siri21@gmail.com");
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.clickhealthArrow();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.clickGoodHealth();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.enterName("sneha");
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.enterLifeexpectancy("80");
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.datePickerclick();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.year1957click();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.month1957click();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.enterZip("80109")
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.clickSearch();
-           cy.wait(1000);
+           cy.wait(2000);
            homepage.nextHomeClick();
-           cy.wait(1000);
+           cy.wait(2000);
            const prefPage = new PreferencePage();
            prefPage.clickyesRadioDrugCost();
-           cy.wait(1000);
+           cy.wait(2000);
            prefPage.clickNextPrefPage();
-           cy.wait(1000);
+           cy.wait(2000);
            const prescriptionpage=new PrescriptionPage();
            prescriptionpage.enterDrugSearchBox("Gabapentin");
-           cy.wait(1000);
+           cy.wait(2000);
            prescriptionpage.selectDrug();
-           cy.wait(1000);
+           cy.wait(2000);
            prescriptionpage.clickAddToDrug();
-           cy.wait(1000);
+           cy.wait(2000);
            const pharmacypage=new PharmacyPage();
            prescriptionpage.doneAddDrugClick();
-           cy.wait(1000);
+           cy.wait(2000);
            pharmacypage.clickFindFarmacy();
-           cy.wait(1000);
+           cy.wait(2000);
            pharmacypage.clickfarmacyOne();
-           cy.wait(1000);
+           cy.wait(2000);
            pharmacypage.clickfarmacyTwo();
-           cy.wait(1000);
+           cy.wait(2000);
            pharmacypage.clicknextpharmacy();
-           cy.wait(1000);
+           cy.wait(3000);
 
         });
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection')
     })
 
-           it('Test1, verify the "PDP Button" functionality on the plan-selection page',() => {
+           it('TC_01, verify the "PDP Button" functionality on the plan-selection page',() => {
             
-            const planselectionpage=new planselectionPage();
-            cy.wait(2000)
+            //const planselectionpage=new planselectionPage();
+            cy.wait(3000)
             planselectionpage.clickPdpBtn();
-            cy.wait(100)
+            cy.wait(3000)
 
            });
 
-           it('Test2,verify the message displays about duration of all expences ',() => {
+           it('TC_02,verify the message displays about duration of all expences ',() => {
 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
@@ -92,110 +92,110 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test3, Verify Location Information Display',() => {
+           it('TC_03, Verify Location Information Display',() => {
             
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(3000);
             planselectionpage.verifyLocationSelector()
             cy.wait(1000);
 
            });
 
-           it('Test4,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
+           it('TC_04,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(3000);
             planselectionpage.verifyInnetworkPharmacy()
             cy.wait(1000);
 
            })
 
-           it('Test5,Verify selected Drugs are Covered by Insurance Plan message display',() => { 
+           it('TC_05,Verify selected Drugs are Covered by Insurance Plan message display',() => { 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(3000);
             planselectionpage.verifyCoveragemessage();
             cy.wait(1000);
 
            });
 
 
-           it('Test6,verify the PDP PlanDetails',() => {
+           it('TC_06,verify the PDP PlanDetails',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(3000);
             planselectionpage.clickPlandetailsBtn()
             
            });
 
-           it('Test7,verify the "Select PDP Plan" functionality ',() => {
+           it('TC_07,verify the "Select PDP Plan" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickDoneBtn()
-            cy.wait(1000);
+            cy.wait(2000);
     
            });
 
-           it('Test8,verify the "Deselect PDP Plan" functionality ',() => {
+           it('TC_08,verify the "Deselect PDP Plan" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
+            cy.wait(2000);
 
            });
 
-           it('Test9,verify the message displays after selecting a PDP plan on plan-selection page',() => {
+           it('TC_09,verify the message displays after selecting a PDP plan on plan-selection page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickDoneBtn()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectPdpPlanatPlanselectionPage()
             cy.log('Maximum 1 MA with/without 1 PDP or 1 PDP with 1 Supplement plan are allowed')
 
            });
 
-           it('Test10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
+           it('TC_10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectWellcarePlan()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectCignahealthCare()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectHumanaBasic()
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectAARP()
             cy.log('Maximum 3 plans allowed. Remove previous plan to add new plan')
            
            });
 
-           it('Test11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
+           it('TC_11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -211,7 +211,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            });
 
 
-           it('Test12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
+           it('TC_12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -225,7 +225,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
+           it('TC_13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -234,7 +234,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test14,Filter Plans By Inurance Carrier',() => {
+           it('TC_14,Filter Plans By Inurance Carrier',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -247,7 +247,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test15,Filter Plans By Star Rating',() => {
+           it('TC_15,Filter Plans By Star Rating',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -260,7 +260,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test16,Filter Plans with Drug Coverage',() => {
+           it('TC_16,Filter Plans with Drug Coverage',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -273,7 +273,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test17,Sort plan functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
+           it('TC_17,Sort plan functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -282,7 +282,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test18,Sort Plans with Lowest monthly premium functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
+           it('TC_18,Sort Plans with Lowest monthly premium functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -294,7 +294,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('Test19, Sort Plan with Lowest drug + Premium cost',() => {
+           it('TC_19, Sort Plan with Lowest drug + Premium cost',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -306,44 +306,44 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test20,verify the "Next page" functionality',() => {
+            it('TC_20,verify the "Next page" functionality',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectNextExpandBtn()
                 
             });
 
-            it('Test21, verify the "last page" functionality ',() => {
+            it('TC_21, verify the "last page" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickLastPageBtn();
            
             });
 
-            it('Test22, verify the "Previous page" functionality ',() => {    
+            it('TC_22, verify the "Previous page" functionality ',() => {    
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickLastPageBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickPerivousPageBtn()
                
             });
 
-            it('Test23, verify the "First page" functionality ',() => {
+            it('TC_23, verify the "First page" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.selectNextExpandBtn();
-            cy.wait(1000);
+            cy.wait(2000);
             planselectionpage.clickFirstPageBtn();
             planselectionpage.itemPerPage();
             
             });
 
-            it('Test24, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
+            it('TC_24, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -352,7 +352,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test25, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
+            it('TC_25, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -361,29 +361,29 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test26,Expand Drug Information in PDP plandetails',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickExpandDrugInfo()
-
-            });
-
-            it('Test27,close Drug Information in PDP plandetails',() => {
+            it('TC_26,Expand Drug Information in PDP plandetails',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
             planselectionpage.clickPlandetailsBtn()
             cy.wait(1000);
             planselectionpage.clickExpandDrugInfo()
+
+            });
+
+            it('TC_27,close Drug Information in PDP plandetails',() => {
+            const planselectionpage=new planselectionPage();
+            planselectionpage.clickPdpBtn();
+            cy.wait(1000);
+            planselectionpage.clickPlandetailsBtn()
+            cy.wait(1000);
+            planselectionpage.clickExpandDrugInfo()
             cy.wait(1000);
             planselectionpage.clickExpandDrugInfo()
 
             });
 
-            it('Test28,Expand Remaining year Drug & OOP Costin plan details',() => {
+            it('TC_28,Expand Remaining year Drug & OOP Costin plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -394,7 +394,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             
             });
 
-            it('Test29,close Remaining year Drug & OOP Cost in plan details',() => {
+            it('TC_29,close Remaining year Drug & OOP Cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -406,7 +406,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test30,Expand Estimated total drug + premium cost in plan details',() => {
+            it('TC_30,Expand Estimated total drug + premium cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -417,7 +417,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test31,close Estimated total drug + premium cost in plan details',() => {
+            it('TC_31,close Estimated total drug + premium cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -430,7 +430,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test32,Expand Estimated total monthly drug cost in plan details',() => {
+            it('TC_32,Expand Estimated total monthly drug cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -440,7 +440,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test33,Close Estimated total monthly drug cost in plan details',() => {
+            it('TC_33,Close Estimated total monthly drug cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -452,7 +452,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test34, verify the BACK Button functionality in plan details',() => {
+            it('TC_34, verify the BACK Button functionality in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -462,7 +462,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test35, verify the Done Button functionality ',() => {
+            it('TC_35, verify the Done Button functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -472,7 +472,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('Test36, verify the Cancle Button functionality ',() => {
+            it('TC_36, verify the Cancle Button functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);

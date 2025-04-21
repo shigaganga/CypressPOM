@@ -205,7 +205,56 @@ class LongTermPage {
     }
     clickAivanteLogo(){
         cy.get(this.aivanteLogoEle).click()}    
-    
+
+
+
+        adultDayCareYear ="//td[normalize-space()='2042']"
+    inHomeCareYear ="//td[normalize-space()='2043']"
+    nursingCareYear ="//td[normalize-space()='2044']"
+
+
+    verifyAdultDayCareYear() {
+        cy.xpath(this.adultDayCareYear).should('contain.text',2042);
+    }
+
+    verifyInHomeCareYear() {
+        cy.xpath(this.inHomeCareYear).should('contain.text',2043);
+    }
+
+    verifyNursingCareYear() {
+        cy.xpath(this.nursingCareYear).should('contain.text',2044);
+    }
+
+    adultdaycareinchart="(//*[name()='rect'][@class='highcharts-point'])[1]"
+    inhomecareinchart="(//*[name()='rect'][@class='highcharts-point'])[2]"
+    nursingcareinchart="(//*[name()='rect'][@class='highcharts-point'])[3]"
+
+    verifyaAdultdayInchart(){
+        cy.xpath(this.adultdaycareinchart).click()
+    }
+    verifyInHomecareInchart(){
+        cy.xpath(this.inhomecareinchart).click()
+    }
+    verifyNurisngcareInchart(){
+        cy.xpath(this.nursingcareinchart).click()
     }
     
-    export default LongTermPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+    
+
+
+export default LongTermPage;

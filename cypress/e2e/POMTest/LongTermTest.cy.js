@@ -296,4 +296,98 @@ it('TC-24 Verify that clicking the Back button on the Long Term Care page naviga
 });
 */
 
+/*
+it('TC-28 Verify that the panel calculates the expenses for Adult Day Care,Home care and Nursing Home care correctly for one year',() => {
+    longtermpage.clickLongtermBtn();
+    longtermpage.longTermArrowClick();
+    longtermpage.clickQualityofcareArrow();
+    cy.wait(10000);
+    longtermpage.clickComfort();
+    cy.wait(6000);
+    longtermpage.clickAdultdaycareArrow();
+    cy.wait(6000);
+    longtermpage.clickAdultcare1years()
+    cy.wait(6000);
+    longtermpage.clickInhomecareArrow();
+    cy.wait(6000);
+    longtermpage.clickInhomecare1years();
+    cy.wait(6000);
+    longtermpage.clickNursinghomecareArrow();
+    cy.wait(6000);
+    longtermpage.clickNursinghomecare1years();
+    longtermpage.submitLongTermClick();
+    cy.wait(100);
+});
+
+it('TC-29 Verify that the panel calculates the expenses for Adult Day Care,In Home care and Nursing Home care correctly for two or more years chosen',() => {
+    longtermpage.clickLongtermBtn();
+    longtermpage.longTermArrowClick();
+    longtermpage.clickQualityofcareArrow();
+    cy.wait(2000);
+    longtermpage.clickComfort();
+    cy.wait(5000);
+    longtermpage.clickAdultdaycareArrow();
+    cy.wait(5000);
+    longtermpage.clickAdultcare2years();
+    cy.wait(5000);
+    longtermpage.clickInhomecareArrow();
+    cy.wait(5000);
+    longtermpage.clickInhomecare2years();
+    cy.wait(5000);
+    longtermpage.clickNursinghomecareArrow();
+    cy.wait(5000);
+    longtermpage.clickNursinghomecare2years();
+    cy.wait(2500);
+    longtermpage.submitLongTermClick();
+    cy.wait(1000);
+});
+*/
+it('TC-30 Verify for every option chosen in Quality of Care dropdown the Price increase or decrease in the Long term care Panel for Adult day care,In home care and Nursing Home',() => {
+    longtermpage.clickLongtermBtn();
+    longtermpage.longTermArrowClick();
+    cy.wait(1000)
+    longtermpage.clickQualityofcareArrow();
+    cy.wait(2000);
+    longtermpage.clickComfort();
+    cy.wait(2000);
+    longtermpage.submitLongTermClick();
+    cy.wait(2000);
+    longtermpage.clickQualityofcareArrow();
+    cy.wait(2000);
+    longtermpage.clickLuxury();
+    cy.wait(2000);
+    longtermpage.submitLongTermClick();
+    cy.wait(2000);
+    longtermpage.clickQualityofcareArrow();
+    cy.wait(2000);
+    longtermpage.clickPremiumLuxury();
+    cy.wait(2000);
+    longtermpage.submitLongTermClick();
+    cy.wait(2000);
+
+});
+
+
+it('TC-31 Verify that the Care Begin Years are reserved correctly based on the user present age and life expectancy and the number of years reserved for each care',() => {
+    longtermpage.clickLongtermBtn();
+    longtermpage.verifyAdultDayCareYear('2042')
+    cy.wait(1000)
+    longtermpage.verifyInHomeCareYear('2043')
+    cy.wait(1000)
+    longtermpage.verifyNursingCareYear('2044')
+});
+
+it('TC-32 Verify that the Bar Chart displays the correct years on the X-axis based on the Care Begin Years and Future costs on Y-axis',() => {
+    longtermpage.clickLongtermBtn();
+    cy.wait(1000)
+    longtermpage.verifyaAdultdayInchart()
+    cy.wait(3000)
+    longtermpage.verifyInHomecareInchart()
+    cy.wait(3000)
+    longtermpage.verifyNurisngcareInchart()
+    
+});
+
+
+
 });
