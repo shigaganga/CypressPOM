@@ -247,7 +247,7 @@ it('TC-22 Verify that Future Value and Present Value is changing accordingly Yea
     longtermpage.submitLongTermClick();
     cy.wait(100);
 });
-/*
+
 it('TC-23 Verify when the Submit button is clicked after chosing valid inputs in the Quality of care, Adult day care, In Home care and Nursing Home care ', () => {
     longtermpage.clickLongtermBtn();
     longtermpage.longTermArrowClick();
@@ -294,6 +294,6 @@ it('TC-24 Verify that clicking the Back button on the Long Term Care page naviga
     const longtermpage = new LongTermPage();
     longtermpage.clickLongtermBtn();
 });
-*/
+
 
 });

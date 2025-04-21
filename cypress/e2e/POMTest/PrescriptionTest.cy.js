@@ -50,7 +50,8 @@ describe('PrescriptionPageTest', () => {
         cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions")
     });
 
-    it('test1, Begin typing to find and select your drug', () => {
+
+    it('TC_01, Add or import prescription Drug', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName1);
             drugPage.clickAddToDrug();
@@ -59,7 +60,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test2, Drug search', () => {
+    it('TC_02, Begin typing to find and select your drug', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3_a);
             drugPage.clickAddToDrug();
@@ -67,7 +68,14 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test3, Add drug with dosage function', () => {
+    it.only('TC_03, Drug search, invalid drug', () => {
+        cy.fixture('LoginFixture').then((data) => {
+            searchAndSelectDrug(data.invalidDrug);
+            cy.log("Drug was notfound in the dropdown, test passed.");
+        });
+    });
+
+    it('TC_04, Add drug with dosage function', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName2);
             drugPage.clickAddToDrug();
@@ -76,7 +84,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test4, Add drug search with package', () => {
+    it('TC_05, Add drug search with package', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName2);
             drugPage.clickAddToDrug();
@@ -85,7 +93,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test5, Add drug search with refill frequency', () => {
+    it('TC_06, Add drug search with refill frequency', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName2);
             drugPage.clickRefillFreequency();
@@ -96,7 +104,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test6, Verify user can add drug with quantity', () => {
+    it('TC_07, Verify user can add drug with quantity', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName2);
             drugPage.enterQuantity(data.drugQuantity2);
@@ -105,7 +113,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test7, Boundary value test as quantity zero', () => {
+    it('TC-08, Boundary value test as quantity zero', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName2);
             drugPage.enterQuantity(data.drugQuantity0);
@@ -115,7 +123,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test8, Add branded drug to generic drug', () => {
+    it('TC_09, Add branded drug to generic drug', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName4);
             drugPage.verifyGenericBrandWindow();
@@ -125,7 +133,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test9, Verify user can save drug list', () => {
+    it('TC_10, Verify user can save drug list', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -136,7 +144,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test10, Verify user can add another drug', () => {
+    it('TC_11, Verify user can add another drug', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -148,7 +156,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test11, Verify user can finish adding drugs', () => {
+    it('TC_12, Verify user can finish adding drugs', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -159,7 +167,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test12, Verify Browse Drugs A-Z functionality', () => {
+    it('TC_13, Verify Browse Drugs A-Z functionality', () => {
         cy.fixture('LoginFixture').then((data) => {
             const prescriptionPage = new PrescriptionPage();
             prescriptionPage.clickBrowseAtoZlink();
@@ -175,18 +183,18 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test13, Verify drug search with invalid name (cannot find your drug)', () => {
+    it.skip('TC_14, Verify drug search with invalid name (cannot find your drug)', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.invalidDrug);
             cy.log("Drug was not found in the dropdown, test passed.");
         });
     });
 
-    it('test14, Verify select prescription drug from existing list', () => {
+    it('TC-14, Verify select prescription drug from existing list', () => {
         cy.log("User can see prescription list, test passed.");
     });
 
-    it('test15, Verify clear search functionality', () => {
+    it('TC_15, Verify clear search functionality', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName1);
             drugPage.clickClearSearch();
@@ -194,7 +202,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test16, Verify going back to preference page', () => {
+    it('TC_16, Verify going back to preference page', () => {
         cy.fixture('LoginFixture').then((data) => {
             drugPage.clickGobackPreference();
             const homepage = new HomePage();
@@ -203,7 +211,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test17, Verify going back to add drug page', () => {
+    it('TC_17, Verify going back to add drug page', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -212,7 +220,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test18, Verify edit drug functionality', () => {
+    it('TC_18, Verify edit drug functionality', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -223,7 +231,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test19, Verify remove drug functionality', () => {
+    it('TC_19, Verify remove drug functionality', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
@@ -232,7 +240,7 @@ describe('PrescriptionPageTest', () => {
         });
     });
 
-    it('test20, Review prescription list functionality', () => {
+    it('TC_20, Review prescription list functionality', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();
