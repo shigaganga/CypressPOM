@@ -6,9 +6,9 @@ class ProviderLongTermCareHospitalPage{
     longTermCareHeading = "body > app-root > div > div.main-content > mat-sidenav-container > mat-sidenav-content > app-provider > app-search-providers > div:nth-child(2) > mat-card > div.provider-form > div";
     providerButton=".button-container > :nth-child(2) > .mat-button-wrapper";
     longTermCareCategory=":nth-child(7) > .category-name";
-    LongTermCareRadius='#mat-input-7';
-    LongTermCareHospitalName="#mat-input-3";
-    Zipcode='#mat-input-5';
+    LongTermCareRadius='input[formcontrolname="radius"]';
+    LongTermCareHospitalName='input[formcontrolname="searchKeyword"]';
+    Zipcode='input[formcontrolname="zipcode"]';
     SearchField='.mat-button-wrapper > .mat-icon';
     SearchProviderButton='.display-flex > .mat-focus-indicator > .mat-button-wrapper';
     searchProvider='Search Provider';
