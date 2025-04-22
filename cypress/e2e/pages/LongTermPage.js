@@ -34,7 +34,8 @@ class LongTermPage {
 
     futurevalueEle= "//td[normalize-space()='Future Value']";
     presentvalueEle= "//td[normalize-space()='Present Value']";
- 
+
+
     
     //comfortEle= "(//span[@class='mat-option-text'][normalize-space()='Comfort'])[1])";
     //luxuryEle= "(//span[normalize-space()='Luxury'])[1]";
@@ -48,16 +49,16 @@ class LongTermPage {
     adultdaycareArrowEle = ("(//div[contains(@class,'mat-select-arrow-wrapper')])[2]");
     adultcare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[2]");
     adultcare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[2]");
-    adultcare2yearsEle = ("(//span[normalize-space()='2'])[2]");
+    adultcare2yearsEle = ("(//span[normalize-space()='2'])");
     adultcare3yearsEle = ("(//span[normalize-space()='3'])");
-    adultcare4yearsEle = ("(//span[normalize-space()='4'])[2]");
+    adultcare4yearsEle = ("(//span[normalize-space()='4'])");
     adultcare5yearsEle = ("(//span[normalize-space()='5'])[2]");
 
    
     inhomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[3]");
     inhomecare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[3]");
     inhomecare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[3]");
-    inhomecare2yearsEle = ("(//span[normalize-space()='2'])[3]");
+    inhomecare2yearsEle = ("(//span[normalize-space()='2'])");
     inhomecare3yearsEle = ("(//span[normalize-space()='3'])");
     inhomecare4yearsEle = ("(//span[normalize-space()='4'])[3]");
     inhomecare5yearsEle = ("(//span[normalize-space()='5'])[3]");
@@ -66,7 +67,7 @@ class LongTermPage {
     nursinghomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[4]");
     nursinghomecare0yearsEle = ("//span[normalize-space()='0'])[4]");
     nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1'][4]");
-    nursinghomecare2yearsEle = ("//span[normalize-space()='2'][4]");
+    nursinghomecare2yearsEle = ("//span[normalize-space()='2']");
     nursinghomecare3yearsEle = ("//span[normalize-space()='3']");
     nursinghomecare4yearsEle = ("//span[normalize-space()='4'][4]");
     nursinghomecare5yearsEle = ("//span[normalize-space()='5'][4]");
@@ -114,17 +115,17 @@ class LongTermPage {
         cy.xpath(this.adultcare2yearsEle).click({force:true})}
     
     clickAdultcare3years(){
-        cy.xpath(this.adultcare3yearsEle).click({force:true})}    
+        cy.xpath(this.adultcare3yearsEle).click({force:true, multiple: true})}    
     
     clickAdultcare4years(){
-        cy.xpath(this.adultcare4yearsEle).click({force:true})}
+        cy.xpath(this.adultcare4yearsEle).click({force:true, multiple: true})}
     
     clickAdultcare5years(){
         cy.xpath(this.adultcare5yearsEle).click({force:true})}
     
     
     clickInhomecareArrow(){
-        cy.xpath(this.inhomecareArrowEle).click()}
+        cy.xpath(this.inhomecareArrowEle).click({force:true})}
     
     clickInhomecare0years(){
         cy.xpath(this.inhomecare0yearsEle).click()}
@@ -133,7 +134,7 @@ class LongTermPage {
         cy.xpath(this.inhomecare1yearsEle).click()}
     
     clickInhomecare2years(){
-        cy.xpath(this.inhomecare2yearsEle).click()}
+        cy.xpath(this.inhomecare2yearsEle).click({force: true, multiple: true})}
     
     clickInhomecare3years(){
         cy.xpath(this.inhomecare3yearsEle).click()}
@@ -146,7 +147,7 @@ class LongTermPage {
     
     
     clickNursinghomecareArrow(){  
-        cy.xpath(this.nursinghomecareArrowEle).click()}   
+        cy.xpath(this.nursinghomecareArrowEle).click({force:true})}   
     
     clickNursinghomecare0years(){
         cy.xpath(this.nursinghomecare0yearsEle).click()}
@@ -155,7 +156,7 @@ class LongTermPage {
         cy.xpath(this.nursinghomecare1yearsEle).click()}
     
     clickNursinghomecare2years(){
-        cy.xpath(this.nursinghomecare2yearsEle).click({force:true})}
+        cy.xpath(this.nursinghomecare2yearsEle).click({force: true, multiple: true})}
     
     clickNursinghomecare3years(){
         cy.xpath(this.nursinghomecare3yearsEle).click()}
@@ -201,11 +202,100 @@ class LongTermPage {
     verifyPresentFutureValueDetails() {
         cy.xpath(this.presentvalueEle).should('exist').should('be.visible');
         cy.xpath(this.futurevalueEle).should('exist').should('be.visible');
-        
+          
     }
+
     clickAivanteLogo(){
         cy.get(this.aivanteLogoEle).click()}    
-    
+
+
+
+    adultDayCareYear ="//td[normalize-space()='2042']"
+    inHomeCareYear ="//td[normalize-space()='2043']"
+    nursingCareYear ="//td[normalize-space()='2044']"
+
+
+    verifyAdultDayCareYear() {
+        cy.xpath(this.adultDayCareYear).should('contain.text',2042);
+    }
+
+    verifyInHomeCareYear() {
+        cy.xpath(this.inHomeCareYear).should('contain.text',2043);
+    }
+
+    verifyNursingCareYear() {
+        cy.xpath(this.nursingCareYear).should('contain.text',2044);
+    }
+
+    adultdaycareinchart="(//*[name()='rect'][@class='highcharts-point'])[1]"
+    inhomecareinchart="(//*[name()='rect'][@class='highcharts-point'])[2]"
+    nursingcareinchart="(//*[name()='rect'][@class='highcharts-point'])[3]"
+
+    verifyaAdultdayInchart(){
+        cy.xpath(this.adultdaycareinchart).click()
+    }
+    verifyInHomecareInchart(){
+        cy.xpath(this.inhomecareinchart).click()
+    }
+    verifyNurisngcareInchart(){
+        cy.xpath(this.nursingcareinchart).click()
     }
     
-    export default LongTermPage;
+    adultDayCareYear2038 ="//td[normalize-space()='2038']"
+    adultDayCareYear2039 ="//td[normalize-space()='2039']"
+
+    adultdaycareinchartbar1="(//*[name()='rect'][@class='highcharts-point'])[1]"
+    adultdaycareinchartbar2="(//*[name()='rect'][@class='highcharts-point'])[2]"
+    adultdaycareinchartbar3="(//*[name()='rect'][@class='highcharts-point'])[3]"
+
+   verifyAdultDayCareYear2038() {
+       cy.xpath(this.adultDayCareYear2038).should('be.visible');
+   }   
+   verifyAdultDayCareYear2039() {
+    cy.xpath(this.adultDayCareYear2039).should('be.visible');
+}   
+   verifyadultdaycarinchartbar1() {
+       cy.xpath(this.adultdaycareinchartbar1).click({force:true});
+   }   
+   
+   verifyadultdaycarinchartbar2() {
+       cy.xpath(this.adultdaycareinchartbar2).click({force:true});
+   }
+   verifyadultdaycarinchartbar3() {
+       cy.xpath(this.adultdaycareinchartbar3).click({force:true});
+   }   
+  
+   inhomeCareYear2041 = "(//td[normalize-space()='2041'])"
+   inhomeCarechartbar1= "(//*[name()='rect'][@class='highcharts-point'])[5]"
+   inhomeCarechartbar2 ="(//*[name()='rect'][@class='highcharts-point'])[4]"
+
+   verifyInHomeCareYear2041() {
+       cy.xpath(this.inhomeCareYear2041).should('be.visible');
+   }
+   verifyinhomeCarechartbar1() {
+       cy.xpath(this.inhomeCarechartbar1).click({force:true});
+   }
+   verifyinhomeCarechartbar2() {
+       cy.xpath(this.inhomeCarechartbar2).click({force:true});
+   }   
+
+
+    nursingCareYear2043 = "(//td[normalize-space()='2043'])"
+    nursingCarechartbar1 = "(//*[name()='rect'][@class='highcharts-point'])[6]"
+    nursingCarechartbar2 = "(//*[name()='rect'][@class='highcharts-point'])[7]"
+
+    verifyNursingCareYear2043() {
+        cy.xpath(this.nursingCareYear2043).should('be.visible');
+    }
+    verifyNursingCarechartbar1() {
+        cy.xpath(this.nursingCarechartbar1).click({force:true});
+    }
+    verifyNursingCarechartbar2() {
+        cy.xpath(this.nursingCarechartbar2).click({force:true});
+    }
+
+}
+    
+
+
+export default LongTermPage;
