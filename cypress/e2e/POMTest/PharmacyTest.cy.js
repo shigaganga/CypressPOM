@@ -26,40 +26,40 @@ describe('PharmacyTest', () => {
         const homepage = new HomePage();
         
         homepage.enterEmail('siri21@gmail.com');
-        
+        cy.wait(1000)
         homepage.clickhealthArrow();
-        
+        cy.wait(1000)
         homepage.clickGoodHealth();
-        
+        cy.wait(1000)
         homepage.enterName('sneha');
-        
+        cy.wait(1000)
         homepage.enterLifeexpectancy('80');
-        
+        cy.wait(1000)
         homepage.datePickerclick();
-        
+        cy.wait(1000)
         homepage.year1957click();
-        
+        cy.wait(1000)
         homepage.month1957click();
-        
+        cy.wait(1000)
         homepage.enterZip('80109');
-        
+        cy.wait(1000)
         homepage.clickSearch();
-        
+        cy.wait(1000)
         homepage.nextHomeClick();
         cy.wait(2000)
 
         const prefPage=new PreferencePage();
         
         prefPage.clickyesRadioDrugCost();
-        
+        cy.wait(1000)
         prefPage.clickNextPrefPage();
-        
+        cy.wait(1000)
         const drugpage=new PrescriptionPage();
         
         drugpage.enterDrugSearchBox("Gabapentin");
-        
+        cy.wait(1000)
         drugpage.selectDrug();
-        
+        cy.wait(1000)
         drugpage.clickAddToDrug();
         cy.wait(100);
     });
@@ -68,14 +68,14 @@ describe('PharmacyTest', () => {
     
 })
 
-        it('TC_01,Select Zip code radio button',() => {
+        it('TC_PDP_ZIP_RADIO_01,Select Zip code radio button',() => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio();
             
         })
 
-        it('TC_02,Find Pharmacy By Zipcode',() => {
+        it('TC_PDP_ZIP_RADIO_02,Find Pharmacy By Zipcode',() => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio();
@@ -88,7 +88,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_03,Find Pharmacy By zipcode,Boundary Value tetsing', () => {
+        it('TC_PDP_FP_ZC_03,Find Pharmacy By zipcode,Boundary Value tetsing', () => {
             
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio();
@@ -101,7 +101,7 @@ describe('PharmacyTest', () => {
          
         });
 
-        it('TC_04,Find Pharmacy By zipcode,leave the zipcode empty,Boundary Value tetsing', () => {
+        it('TC_PDP_FP_ZC_04,Find Pharmacy By zipcode,leave the zipcode empty,Boundary Value tetsing', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio();
@@ -115,7 +115,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_05,Find Pharmacy By zipcode,Give Invalid Zipcode', () => {
+        it('TC_PDP_FP_ZC_05,Find Pharmacy By zipcode,Give Invalid Zipcode', () => {
         
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -128,7 +128,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_06,Find Pharmacy By zipcode,give Invalid Zipcode', () => {
+        it('TC_PDP_FP_ZC_06,Find Pharmacy By zipcode,give Invalid Zipcode', () => {
    
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -141,7 +141,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_07,Find Pharmacy By zipcode,give Invalid zipcode', () => {
+        it('TC_PDP_FP_ZC_07,Find Pharmacy By zipcode,give Invalid zipcode', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -153,7 +153,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_08,Find Pharmacy By Zip', () => {
+        it('TC_PDP_FP_ZC_08,Find Pharmacy By Zip', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -167,7 +167,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_09,Find Pharmacy By Zip', () => {
+        it('TC_PDP_FP_ZC_09,Find Pharmacy By Zip', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -179,12 +179,12 @@ describe('PharmacyTest', () => {
             pharmacypg.clickFindPahramcyinzipcode()
         });
 
-        it('TC_10,Select Address radio button', () => {
+        it('TC_PDP_FP_ZC_10,Select Address radio button', () => {
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
         });
 
-        it('TC_11,Find Pharmacy By Address', () => {
+        it('TC_PDP_FP_ADDR_RADIO_11,Find Pharmacy By Address', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
@@ -194,7 +194,7 @@ describe('PharmacyTest', () => {
         
         });
 
-        it('TC_12,Search Pharmacy By Invalid Address', () => {
+        it('TC_PDP_FP_ADDR_RADIO_12,Search Pharmacy By Invalid Address', () => {
             
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
@@ -207,7 +207,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_13,Find Pharmacy By blank Address', () => {
+        it('TC_PDP_FP_ADDR_RADIO_13,Find Pharmacy By blank Address', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickAddressradio()
@@ -220,7 +220,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_14,Find Pharmacy By Name', () => {
+        it('TC_PDP_FP_NM_14,Find Pharmacy By Name', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -233,7 +233,7 @@ describe('PharmacyTest', () => {
             pharmacypg.clickFindPahramcyinzipcode()
         });
 
-        it('TC_15,Find Pharmacy By invalid Name', () => {
+        it('TC_PDP_FP_NM_15,Find Pharmacy By invalid Name', () => {
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -248,7 +248,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_16,Zip code history', () => {
+        it('TC_PDP_FP_ZCH_16,Zip code history', () => {
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
             cy.wait(1000)
@@ -260,7 +260,7 @@ describe('PharmacyTest', () => {
             cy.wait(3000)
         });
 
-        it('TC_17,zip code history feature with incorrect zip code', () => {
+        it('TC_PDP_FP_ZCH_17,zip code history feature with incorrect zip code', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -275,7 +275,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_18,select any zip code from the zip code history dropdown', () => {
+        it('TC_PDP_FP_ZCH_18,select any zip code from the zip code history dropdown', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -290,7 +290,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_19,Find Pharmacies By Default Distance', () => {
+        it('TC_PDP_FP_DIST_19,Find Pharmacies By Default Distance', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -301,7 +301,7 @@ describe('PharmacyTest', () => {
         
         });
 
-        it('TC_20,Find Pharmacy By Distance', () => {
+        it('TC_PDP_FP_DIST_20,Find Pharmacy By Distance', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -315,7 +315,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_21, pharmacies with blank values in the Distance field ', () => {
+        it('TC_PDP_FP_DIST_21, pharmacies with blank values in the Distance field ', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -328,7 +328,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_22, pharmacies with "character" in the Distance field  ', () => {
+        it('TC_PDP_FP_DIST_22, pharmacies with "character" in the Distance field  ', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -342,7 +342,7 @@ describe('PharmacyTest', () => {
                 
         });
         
-        it('TC_23, Expand Pharmacies List Next page ', () => {
+        it('TC_PDP_EXPA_PHAR_23, Expand Pharmacies List Next page ', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -357,7 +357,7 @@ describe('PharmacyTest', () => {
         
         });
         
-        it('TC_24, Expand Pharmacies List last page ', () => {
+        it('TC_PDP_EXPA_PHAR_24, Expand Pharmacies List last page ', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -372,7 +372,7 @@ describe('PharmacyTest', () => {
             
         });
         
-        it('TC_25, Expand Pharmacies List previous page"  ', () => {
+        it('TC_PDP_EXPA_PHAR_25, Expand Pharmacies List previous page"  ', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -388,7 +388,7 @@ describe('PharmacyTest', () => {
             pharmacypg.clickPerivousPageBtn()
         });
 
-        it('TC_26, Expand Pharmacies List First page', () => {
+        it('TC_PDP_EXPA_PHAR_26, Expand Pharmacies List First page', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -405,7 +405,7 @@ describe('PharmacyTest', () => {
 
         });
 
-        it('TC_27,verify the Item per page', () => {
+        it('TC_PDP_ITEM_PER_PAGE_27,verify the Item per page', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -420,7 +420,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_28,Select Pharmacies', () => {
+        it('TC_PDP_SEL_PHAR_28,Select Pharmacies', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -443,7 +443,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_29,DeSelect Pharmacies', () => {
+        it('TC_PDP_DESEL_PHAR_29,DeSelect Pharmacies', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -471,7 +471,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_30,Google map radio button', () => {
+        it('TC_PDP_PHAR_GM_RB_30,Google map radio button', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -488,7 +488,7 @@ describe('PharmacyTest', () => {
             
         });
 
-        it('TC_31,verify Back button', () => {
+        it('TC_PDP_PHAR_BACK_31,verify Back button', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
@@ -503,7 +503,7 @@ describe('PharmacyTest', () => {
             pharmacypg.clickBackBtn()
             
         });
-        it('TC_32,verify "Next button', () => {
+        it('TC_PDP_PHAR_NEXT_32,verify "Next button', () => {
 
             const pharmacypg = new PharmacyPage();
             pharmacypg.clickZipcoderadio()
