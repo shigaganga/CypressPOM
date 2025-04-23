@@ -27,7 +27,6 @@ describe('Providermedicalequipment', () => {
                 lPage.verifyLogin();
             });
 
-
             //Steps to go to the dialysis page
             //cy.wait(3000);
             recPage.clickCreateRecommendation();
@@ -78,21 +77,20 @@ describe('Providermedicalequipment', () => {
         }); 
            
             cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/manage-providers');
-        });
-
-
-           // cy.log("Entering MedicalProviderEquipmentPage");
+        });           // cy.log("Entering MedicalProviderEquipmentPage");
            // cy.wait(3000)
-       
-
-        it('TC-1 Enter Medical Facility Name', () => {
+        it('TC-01 Enter Medical Facility Name', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
+            cy.wait(1000);
             providerMedicalEquipment.clickMedcial()
+            cy.wait(1000);
             providerMedicalEquipment.typeEquipmentname("Nebulizer");
+            cy.wait(1000);
             providerMedicalEquipment.typeStreet("Holly")
         });
-        it('TC-2 Click City ', () => {
+        it('TC-02 Click City ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
+            cy.wait(1000);
             providerMedicalEquipment.enterZipCode("80112");
             cy.wait(1000);
             providerMedicalEquipment.clickZipSearch();
@@ -104,7 +102,7 @@ describe('Providermedicalequipment', () => {
 
         });
 
-        it('TC-3 Click Radius ', () => {
+        it('TC-03 Click Radius ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
             cy.wait(1000);
             providerMedicalEquipment.enterZipCode("80112");
@@ -118,11 +116,9 @@ describe('Providermedicalequipment', () => {
             providerMedicalEquipment.enterRadiusin("10");
             cy.wait(1000);
             providerMedicalEquipment.clickSearchProvider();
-
         });
 
-
-        it('TC-4 provider filter ', () => {
+        it('TC-04 provider filter ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
            // cy.wait(1000);
            providerMedicalEquipment.enterZipCode("80112");
@@ -148,8 +144,6 @@ describe('Providermedicalequipment', () => {
             providerMedicalEquipment.clickClearFilter();
             cy.wait(1000);
             providerMedicalEquipment.clickBackBtn();
-            //providerMedicalEquipment.clickBackButtonToP();
-
+            //providerMedicalEquipment.clickBackButtonToP()
         });
-
     }); 
