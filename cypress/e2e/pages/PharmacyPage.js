@@ -7,16 +7,16 @@ class PharmacyPage{
     nextFarmacy='.button-wrapper > .mat-button-wrapper';
 //snehacode
 
-    zipcodebtn='#mat-radio-14 > .mat-radio-label > .mat-radio-container > .mat-radio-inner-circle'
-    addressbtn='#mat-radio-15 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
-    zipele='#mat-input-13'
+    zipcodebtn='#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'//14
+    addressbtn='#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'//15
+    zipele='#mat-input-2'//13
     Ziphistoryarrow='.mat-select-arrow'
-    addressEle='#mat-input-14'
+    addressEle='#mat-input-3'//14
     zipfindphramacyelement=':nth-child(4) > .mat-focus-indicator > .mat-button-wrapper'
-    AddressfindpharmacyELe='.form-field-container-col2 > :nth-child(3) > .mat-focus-indicator'
-    distanceele='#mat-input-12'
-    AddressphramcynameEle='#mat-input-11'
-    selecttheziphistoryele='#mat-option-20 > .mat-option-text'
+    AddressfindpharmacyELe="(//span[normalize-space()='Find Pharmacy'])[1]"
+    distanceele='#mat-input-1'//12
+    phramcynameEle='#mat-input-0'//11
+    selecttheziphistoryele='#mat-option-0 > .mat-option-text'//20
     nextpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-next'
     lastpageBtnEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-last'
     periviouspageBtnEle='.mat-paginator-navigation-previous'
@@ -30,7 +30,12 @@ class PharmacyPage{
     itemperPageEle=':nth-child(2) > .paginator-wrapper > .mat-paginator > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-page-size'
     nextbtnEle='.selected-pharmacy > .button-wrapper'
     backbtnEle='.button-wrapper > .mat-focus-indicator'
-
+    errormessageEle="(//mat-error[@id='mat-error-0'])[1]"
+    errormessageindistance='#mat-error-2'
+    pharmacy3="//label[@for='mat-checkbox-3-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']";
+    clickPharmacy3(){
+        cy.xpath(this.pharmacy3).click();
+    }
 
     clickZipcoderadio(){
         cy.get(this.zipcodebtn).click({force:true})
@@ -41,6 +46,9 @@ class PharmacyPage{
     enterZipcode(zip){
         cy.get(this.zipele).clear().type(zip)
     }
+    enterZipcodeEle(){
+        cy.get(this.zipele).clear()
+    }
     clickAddressradio(){
         cy.get(this.addressbtn).click({force:true})
     }
@@ -50,17 +58,23 @@ class PharmacyPage{
     enterAddress(address){
        cy.get(this.addressEle,{ timeout: 10000 }).type(address)
     }
+    enterAddressEle(){
+        cy.get(this.addressEle,{ timeout: 10000 }).click({ froce:true })
+     }
     clickFindPahramcyinzipcode(){
         cy.get(this.zipfindphramacyelement).click()
     }
     clickAddressFindPhramacy(){
-        cy.get(this.AddressfindpharmacyELe,{ timeout: 10000 }).click()
+        cy.xpath(this.AddressfindpharmacyELe,{ timeout: 20000 }).click({ froce:true })
     }
     enterDistance(miles){
         cy.get(this.distanceele).clear().type(miles)
     }
+    enterDistanceEle(){
+        cy.get(this.distanceele).clear()
+    }
     enterPharmacyname(nameofpharmacy){
-        cy.get(this.AddressphramcynameEle).type(nameofpharmacy)
+        cy.get(this.phramcynameEle).type(nameofpharmacy)
     }
     clickNextpageBtn(){
         cy.get(this.nextpageBtnEle).click({ multiple: true })
@@ -107,6 +121,19 @@ class PharmacyPage{
     selectZiphistoryZipcode(){
         cy.get(this.selecttheziphistoryele).click()
     }
+
+    verifyErrorMessage(expectedMsg){
+        cy.xpath(this.errormessageEle).should('be.visible').and('have.text', expectedMsg);
+    }
+    verifyErrorMessageinDistance(expectedMsg){
+        cy.get(this.errormessageindistance).should('be.visible').and('have.text', expectedMsg);
+    }
+
+    pharmacy3="//label[@for='mat-checkbox-3-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']";
+    clickPharmacy3(){
+    cy.xpath(this.pharmacy3).click();
+    }
+
 
 //end
 clickFindFarmacy(){

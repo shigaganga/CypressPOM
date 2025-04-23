@@ -10,6 +10,7 @@ import PharmacyPage from '../pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
     const planselectionpage= new PlanselectionPage();
      beforeEach("Login to PlanSelectionPage",()=>{
+        cy.session("Plan Select session",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
         const lPage = new LoginPage();
         const recPage = new LandingPage();
@@ -67,14 +68,14 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
         pharmacypage.clickfarmacyTwo();
         cy.wait(100);
         pharmacypage.clicknextpharmacy();
-
+    })
+    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
 })
 
 
-
-it("Test1:To verify functionality of supplement button on plan-selection/plan-list/SUPPLEMENT page and to verify that user can select max 3 plans",()=>{
+it("TC01:To verify functionality of supplement button on plan-selection/plan-list/SUPPLEMENT page and to verify that user can select max 3 plans",()=>{
     planselectionpage.setSupplementButtn()
-    cy.wait(10000)
+    
     planselectionpage.setPlanSelectionCheckBox(1);
     planselectionpage.setPlanSelectionCheckBox(2);
     planselectionpage.setPlanSelectionCheckBox(3);
@@ -103,7 +104,7 @@ it("Test3:To verify the functionality of Medigap plan N ,filter button",()=>{
    planselectionpage.setSupplementButtn();
    cy.wait(10000)
    planselectionpage.setFilterButton() 
-   planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
+   planselectionpage.filterByInsuranceCarrier("HUMANA GRP (60052)")
       
 })
 
@@ -113,7 +114,7 @@ it("Test4:To verify the functionality of Medigap plan N ,reset button",()=>{
   planselectionpage.setSupplementButtn();
   cy.wait(10000)
   planselectionpage.setFilterButton() 
-   planselectionpage.filterByInsuranceCarrier("CIGNA HLTH GRP (61727)")
+   planselectionpage.filterByInsuranceCarrier("HUMANA GRP (60052)")
    planselectionpage.setResetButton(); //reset button validation
 
 })
