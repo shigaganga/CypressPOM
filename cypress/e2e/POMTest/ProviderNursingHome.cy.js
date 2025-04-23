@@ -39,7 +39,7 @@ describe('ProviderNursingHomeTabTest', () => {
         cy.wait(1000);
     });
 
-    it('test1: Validate the functionality of Category', () => {
+    it('TC_PDP_PRV_NUR_150 : Validate the functionality of Category', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         //User should be able to see the heading "Find nursing homes including rehab services near me" below the "Hospital near me" heading.
         ProviderNursingHomePage.verifyNursingHometitle();
@@ -57,7 +57,7 @@ describe('ProviderNursingHomeTabTest', () => {
 
     });
 
-    it('test2: validate the functionality of Search button ', () => {
+    it('TC_PDP_PRV_NUR_151: validate the functionality of Search button ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
         ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
@@ -72,7 +72,7 @@ describe('ProviderNursingHomeTabTest', () => {
         ProviderNursingHomePage.CheckProviderListPageNavFirst();
     });
 
-    it('test3: validate the functionality of Search Provider Dropdown arrow ', () => {
+    it('TC_PDP_PRV_NUR_152: validate the functionality of Search Provider Dropdown arrow ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
         ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
@@ -90,7 +90,7 @@ describe('ProviderNursingHomeTabTest', () => {
         ProviderNursingHomePage.checkSearchProviderbyLabel('City');
     });
 
-    it('test4: validate the functionality of Provider Filter down arrow', () => {
+    it('TC_PDP_PRV_NUR_153: validate the functionality of Provider Filter down arrow', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
         ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
@@ -104,7 +104,7 @@ describe('ProviderNursingHomeTabTest', () => {
         ProviderNursingHomePage.checkProviderfilters('Clear filter');
     });
 
-    it('test5: verify the functionality of Distance text box ', () => {
+    it('TC_PDP_PRV_NUR_154: verify the functionality of Distance text box ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
         ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
@@ -119,7 +119,7 @@ describe('ProviderNursingHomeTabTest', () => {
         cy.wait(200);
     });
 
-    it('test6: validate that the Overall rating dropdown  ', () => {
+    it('TC_PDP_PRV_NUR_155: validate that the Overall rating dropdown  ', () => {
         cy.wait(200);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
@@ -133,7 +133,7 @@ describe('ProviderNursingHomeTabTest', () => {
         ProviderNursingHomePage.CheckRatingforallFivestarDropdown();
     });
 
-    it('test7: validate functionality of Overall rating rating', () => {
+    it('TC_PDP_PRV_NUR_156: validate functionality of Overall rating rating', () => {
 
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
@@ -149,7 +149,7 @@ describe('ProviderNursingHomeTabTest', () => {
         ProviderNursingHomePage.CheckThreeStarRatingofFirstResult();
     });
 
-    it('test8: validate the functionality of Clear filter button', () => {
+    it('TC_PDP_PRV_NUR_157: validate the functionality of Clear filter button', () => {
         cy.wait(1000);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
