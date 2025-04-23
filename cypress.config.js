@@ -1,16 +1,31 @@
 const { defineConfig } = require("cypress");
-const mochawesome = require("cypress-mochawesome-reporter/plugin");
+const { beforeRunHook, afterRunHook } = require("cypress-mochawesome-reporter/lib");
 
 module.exports = defineConfig({
-  reporter: "cypress-mochawesome-reporter", // Use Mochawesome for HTML reports
-  video: false, // Disable video recordings to save execution time
-  screenshotOnRunFailure: true, // Capture screenshots on failure
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: "Medicare Regression Report",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+  },
+  video: false,
+  screenshotOnRunFailure: true,
+
   e2e: {
-   // baseUrl: "http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage", // Define base URL
     setupNodeEvents(on, config) {
-      mochawesome(on); // Register Mochawesome
+      on("before:run", async (details) => {
+        console.log(">>> [Mochawesome] before:run");
+        await beforeRunHook(details);
+      });
+
+      on("after:run", async () => {
+        console.log(">>> [Mochawesome] after:run");
+        await afterRunHook();
+      });
+
       return config;
     },
-    specPattern: "cypress/e2e/POMTest/**/*.cy.js", // Automatically run all tests in the POMTest folder
+    specPattern: "cypress/e2e/POMTest/**/*.cy.js",
   },
 });
