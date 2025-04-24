@@ -1,17 +1,17 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Install Dependencies') {
-      steps {
-        sh 'npm ci'
-      }
-    }
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
 
-    stage('Run Cypress Tests') {
-      steps {
-        sh 'npx cypress run'
-      }
+        stage('Run Cypress Tests') {
+            steps {
+                bat 'npx cypress run'
+            }
+        }
     }
-  }
 }
