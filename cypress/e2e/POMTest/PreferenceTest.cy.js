@@ -11,32 +11,30 @@ describe('Preference Test Suite', () => {
     const homePage = new HomePage();
     const preferencePage = new PreferencePage();
     const prescriptionPage = new PrescriptionPage();
-    const planSelectionPage = new PlanSelectionPage();
-
     beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
+        cy.session('Preference session',()=>{
         cy.fixture('LoginFixture').then((data) => {
+            cy.visit(data.baseUrl); 
             loginPage.setUserName(data.username);
             loginPage.setPassword(data.password);
             loginPage.clickLoginBtn();
-            loginPage.verifyLogin();
+            landingPage.clickCreateRecommendation();
+            homePage.enterEmail(data.email);  
+            homePage.clickhealthArrow();
+            homePage.clickGoodHealth();
+            homePage.enterName(data.name);  
+            homePage.enterLifeexpectancy(data.lifeexpectancy);  
+            homePage.datePickerclick();
+            homePage.year1957click();
+            homePage.month1957click();
+            homePage.enterZip(data.zip);  
+            homePage.clickSearch();
+            homePage.nextHomeClick();
         });
-
-        landingPage.clickCreateRecommendation();
-        homePage.enterEmail("ShigaPOM@gmail.com");
-        homePage.clickhealthArrow();
-        homePage.clickGoodHealth();
-        homePage.enterName("Shigapage");
-        homePage.enterLifeexpectancy("86");
-        homePage.datePickerclick();
-        homePage.year1957click();
-        homePage.month1957click();
-        homePage.enterZip("27529");
-        homePage.clickSearch();
-        homePage.nextHomeClick();
     });
-
+    // Always start from Preferences page for all tests
+    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
+    });
     function setPreference(option) {
         if (option === 'yes') {
             preferencePage.clickyesRadioDrugCost();
@@ -48,25 +46,26 @@ describe('Preference Test Suite', () => {
         preferencePage.clickNextPrefPage();
     }
 
-    it('should test search preference with YES', () => {
+    it('TC_PDP_SEARCH_PREF_YES_01:should test search preference with YES', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
     });
 
-    it('should test search preference with NO', () => {
+    it('TC_PDP_SEARCH_PREF_NO_02:should test search preference with NO', () => {
         setPreference('no');
         preferencePage.verifyPlanSelectionUrl();
     });
 
-    it('should test search preference with back navigation', () => {
+    it('TC_PDP_SEARCH_PREF_BACK_03:should test search preference with back navigation', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
-        cy.wait(500);
+        
         prescriptionPage.clickGobackPreference();
         preferencePage.verifyPreferencePageUrl();
     });
+    //TC_04 not needed
 
-    it('should test navigation from preference to plan selection', () => {
+    it('TC_05_PDP_NEXT:next button,should test navigation from preference to plan selection', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
     });

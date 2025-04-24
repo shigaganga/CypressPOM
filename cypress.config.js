@@ -1,16 +1,31 @@
 const { defineConfig } = require("cypress");
+const { beforeRunHook, afterRunHook } = require("cypress-mochawesome-reporter/lib");
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter', // For HTML report
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: "Medicare Regression Report",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+  },
+  video: false,
+  screenshotOnRunFailure: true,
+
   e2e: {
     setupNodeEvents(on, config) {
-      // Enable screenshot on failure
-      config.screenshotOnRunFailure = true;
-      
-      // Integrate the Mochawesome reporter
-      require('cypress-mochawesome-reporter/plugin')(on);
+      on("before:run", async (details) => {
+        console.log(">>> [Mochawesome] before:run");
+        await beforeRunHook(details);
+      });
+
+      on("after:run", async () => {
+        console.log(">>> [Mochawesome] after:run");
+        await afterRunHook();
+      });
 
       return config;
     },
+    specPattern: "cypress/e2e/POMTest/**/*.cy.js",
   },
 });
