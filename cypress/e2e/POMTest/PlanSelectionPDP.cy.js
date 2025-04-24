@@ -7,7 +7,7 @@ import planselectionPage from '../pages/PlanselectionPage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 
 describe("Automation of test cases for PlanSelection Page PDP",()=> {
-    const planselectionpage=new planselectionPage();
+    //const planselectionpage=new planselectionPage();
     beforeEach("Login to PlanSelectionPage",()=>{
         cy.session("PlanSelection session",()=>{
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
@@ -26,7 +26,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            homepage.enterEmail("siri21@gmail.com");
            cy.wait(2000);
            homepage.clickhealthArrow();
-           cy.wait(2000);
+           cy.wait(1000);
            homepage.clickGoodHealth();
            cy.wait(2000);
            homepage.enterName("sneha");
@@ -73,16 +73,15 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection')
     })
 
-           it('TC_01, verify the "PDP Button" functionality on the plan-selection page',() => {
+           it('TC_PDP_PLAN_01, verify the "PDP Button" functionality on the plan-selection page',() => {
             
-            //const planselectionpage=new planselectionPage();
-            cy.wait(3000)
+            const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(3000)
 
            });
 
-           it('TC_02,verify the message displays about duration of all expences ',() => {
+           it('TC_PDP_PLAN_02,verify the message displays about duration of all expences ',() => {
 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
@@ -92,7 +91,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_03, Verify Location Information Display',() => {
+           it('TC_PDP_PLAN_03, Verify Location Information Display',() => {
             
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
@@ -102,7 +101,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_04,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
+           it('TC_PDP_PLAN_04,Verify selected Pharmacy is In-Network or out-Network detail msg should display under each plan',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(3000);
@@ -111,7 +110,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            })
 
-           it('TC_05,Verify selected Drugs are Covered by Insurance Plan message display',() => { 
+           it('TC_PDP_PLAN_05,Verify selected Drugs are Covered by Insurance Plan message display',() => { 
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(3000);
@@ -121,7 +120,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            });
 
 
-           it('TC_06,verify the PDP PlanDetails',() => {
+           it('TC_PDP_PLAN_06,verify the PDP PlanDetails',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(3000);
@@ -129,7 +128,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             
            });
 
-           it('TC_07,verify the "Select PDP Plan" functionality ',() => {
+           it('TC_PDP_PLAN_07,verify the "Select PDP Plan" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -144,7 +143,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
     
            });
 
-           it('TC_08,verify the "Deselect PDP Plan" functionality ',() => {
+           it('TC_PDP_PLAN_08,verify the "Deselect PDP Plan" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -163,7 +162,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_09,verify the message displays after selecting a PDP plan on plan-selection page',() => {
+           it('TC_PDP_PLAN_09,verify the message displays after selecting a PDP plan on plan-selection page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -180,7 +179,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
+           it('TC_PDP_PLAN_10,verify if warning message gets displayed when selecting more than 3 PDP plans using the Select PDP Plan functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -195,7 +194,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            
            });
 
-           it('TC_11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
+           it('TC_PDP_PLAN_11,verify the selected pdp plans information displays correctly on the plan-selection page ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -211,7 +210,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            });
 
 
-           it('TC_12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
+           it('TC_PDP_PLAN_12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -225,7 +224,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
+           it('TC_PDP_PLAN_13,verify the "Filter Icon" functionality on the plan-selection/plan-list/PDP page within the PDP application.',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -234,7 +233,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_14,Filter Plans By Inurance Carrier',() => {
+           it('TC_PDP_PLAN_14,Filter Plans By Inurance Carrier',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -247,7 +246,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_15,Filter Plans By Star Rating',() => {
+           it('TC_PDP_PLAN_15,Filter Plans By Star Rating',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -260,7 +259,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_16,Filter Plans with Drug Coverage',() => {
+           it('TC_PDP_PLAN_16,Filter Plans with Drug Coverage',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -273,7 +272,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_17,Sort plan functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
+           it('TC_PDP_PLAN_17,Sort plan functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -282,7 +281,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_18,Sort Plans with Lowest monthly premium functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
+           it('TC_PDP_PLAN_18,Sort Plans with Lowest monthly premium functionality on the plan-selection/plan-list/PDP page within the PDP application',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -294,7 +293,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
            });
 
-           it('TC_19, Sort Plan with Lowest drug + Premium cost',() => {
+           it('TC_PDP_PLAN_19, Sort Plan with Lowest drug + Premium cost',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -306,7 +305,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_20,verify the "Next page" functionality',() => {
+            it('TC_PDP_PLAN_20,verify the "Next page" functionality',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -314,7 +313,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
                 
             });
 
-            it('TC_21, verify the "last page" functionality ',() => {
+            it('TC_PDP_PLAN_21, verify the "last page" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -322,7 +321,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
            
             });
 
-            it('TC_22, verify the "Previous page" functionality ',() => {    
+            it('TC_PDP_PLAN_22, verify the "Previous page" functionality ',() => {    
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -332,7 +331,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
                
             });
 
-            it('TC_23, verify the "First page" functionality ',() => {
+            it('TC_PDP_PLAN_23, verify the "First page" functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(2000);
@@ -343,7 +342,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             
             });
 
-            it('TC_24, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
+            it('TC_PDP_PLAN_24, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -352,7 +351,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_25, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
+            it('TC_PDP_PLAN_25, verify the "PDP Plan Details" functionality on the plan-selection/plan-list/PDP page',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -361,29 +360,29 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_26,Expand Drug Information in PDP plandetails',() => {
-            const planselectionpage=new planselectionPage();
-            planselectionpage.clickPdpBtn();
-            cy.wait(1000);
-            planselectionpage.clickPlandetailsBtn()
-            cy.wait(1000);
-            planselectionpage.clickExpandDrugInfo()
-
-            });
-
-            it('TC_27,close Drug Information in PDP plandetails',() => {
+            it('TC_PDP_PLAN_26,Expand Drug Information in PDP plandetails',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
             planselectionpage.clickPlandetailsBtn()
             cy.wait(1000);
             planselectionpage.clickExpandDrugInfo()
+
+            });
+
+            it('TC_PDP_PLAN_27,close Drug Information in PDP plandetails',() => {
+            const planselectionpage=new planselectionPage();
+            planselectionpage.clickPdpBtn();
+            cy.wait(1000);
+            planselectionpage.clickPlandetailsBtn()
+            cy.wait(1000);
+            planselectionpage.clickExpandDrugInfo()
             cy.wait(1000);
             planselectionpage.clickExpandDrugInfo()
 
             });
 
-            it('TC_28,Expand Remaining year Drug & OOP Costin plan details',() => {
+            it('TC_PDP_PLAN_28,Expand Remaining year Drug & OOP Costin plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -394,7 +393,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             
             });
 
-            it('TC_29,close Remaining year Drug & OOP Cost in plan details',() => {
+            it('TC_PDP_PLAN_29,close Remaining year Drug & OOP Cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -406,7 +405,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_30,Expand Estimated total drug + premium cost in plan details',() => {
+            it('TC_PDP_PLAN_30,Expand Estimated total drug + premium cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -417,7 +416,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_31,close Estimated total drug + premium cost in plan details',() => {
+            it('TC_PDP_PLAN_31,close Estimated total drug + premium cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -430,7 +429,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_32,Expand Estimated total monthly drug cost in plan details',() => {
+            it('TC_PDP_PLAN_32,Expand Estimated total monthly drug cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -440,7 +439,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_33,Close Estimated total monthly drug cost in plan details',() => {
+            it('TC_PDP_PLAN_33,Close Estimated total monthly drug cost in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -452,7 +451,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_34, verify the BACK Button functionality in plan details',() => {
+            it('TC_PDP_PLAN_34, verify the BACK Button functionality in plan details',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -462,7 +461,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_35, verify the Done Button functionality ',() => {
+            it('TC_PDP_PLAN_35, verify the Done Button functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
@@ -472,7 +471,7 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
 
             });
 
-            it('TC_36, verify the Cancle Button functionality ',() => {
+            it('TC_PDP_PLAN_36, verify the Cancle Button functionality ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
             cy.wait(1000);
