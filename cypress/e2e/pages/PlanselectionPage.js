@@ -271,15 +271,15 @@ sortplanarrowele='.mat-select-arrow'
 pdpplanatplanselectionEle='#mat-checkbox-13 > .mat-checkbox-layout > .mat-checkbox-inner-container'//37
 Lowestmonthlypremiumele='#mat-option-4 > .mat-option-text'
 LowestdrugPremiumcostele='#mat-option-3 > .mat-option-text'
-selectwellcareplanele='#mat-checkbox-1 > .mat-checkbox-layout > .mat-checkbox-inner-container'//25
-selectcignahealthEle='#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container'//26
-selecthumanabasciEle='#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container'//27
+selectwellcareplanele="//label[@for='mat-checkbox-1-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"
+selectcignahealthEle="//label[@for='mat-checkbox-2-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"
+selecthumanabasciEle="//label[@for='mat-checkbox-3-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"
 selectaarpEle='#mat-checkbox-8 > .mat-checkbox-layout > .mat-checkbox-inner-container'//32
 nextexpandBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-next'
 lastpageBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-last'
 perivouspageBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-previous'
 firstpageBtnEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-range-actions > .mat-paginator-navigation-first'
-doneele='.button-container > .mat-focus-indicator'
+doneele="//button[@class='mat-focus-indicator mat-raised-button mat-button-base ng-star-inserted']"
 canclebtnele='.right-container > .mat-raised-button'
 itemperpageEle=':nth-child(1) > .mat-paginator-outer-container > .mat-paginator-container > .mat-paginator-page-size > .mat-paginator-page-size-label'
 expandgruginfoEle='#mat-expansion-panel-header-1 > .mat-expansion-indicator'
@@ -351,13 +351,13 @@ selectLowestdrugPremium(){
  cy.get(this.LowestdrugPremiumcostele).click()
 }
 selectWellcarePlan(){
- cy.get(this.selectwellcareplanele).click()
+ cy.xpath(this.selectwellcareplanele).click()
 }
 selectCignahealthCare(){
-cy.get(this.selectcignahealthEle).click()
+cy.xpath(this.selectcignahealthEle).click()
 }
 selectHumanaBasic(){
-cy.get(this.selecthumanabasciEle).click()
+cy.xpath(this.selecthumanabasciEle).click()
 }
 selectPdpPlanatPlanselectionPage(){
 cy.get(this.pdpplanatplanselectionEle).click()
@@ -396,7 +396,7 @@ clickBackBtn(){
  cy.get(this.BackBtnEle).click()
 }
 clickDoneBtn(){
- cy.get(this.doneele).click()
+ cy.xpath(this.doneele).click()
 }
 clickCancleBtn(){
  cy.get(this.canclebtnele).click()

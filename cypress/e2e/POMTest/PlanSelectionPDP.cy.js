@@ -209,7 +209,6 @@ describe("Automation of test cases for PlanSelection Page PDP",()=> {
             
            });
 
-
            it('TC_PDP_PLAN_12,Verify the Reset button on the plan-selection/plan-list/PDP page ',() => {
             const planselectionpage=new planselectionPage();
             planselectionpage.clickPdpBtn();
