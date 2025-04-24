@@ -250,7 +250,7 @@ setCancelButton()
 
 //sneha  code  starts for Planselection PDP
 
-pdpelement='.selected-container > :nth-child(1) > .mat-focus-indicator'
+pdpelement="//span[normalize-space()='PDP']"
 filterplanEle='[mattooltip="Filter Plan"]'
 insurancecarrierele='#mat-select-value-3 > .mat-select-placeholder'//16
 Humanaplanfromfilterele='#mat-option-7 > .mat-option-text'
@@ -289,7 +289,7 @@ expandtotalmonthlydrugcost='#mat-expansion-panel-header-3'
 BackBtnEle='.button-wrapper > .mat-focus-indicator > .mat-button-wrapper'
 
 clickPdpBtn(){
- cy.get(this.pdpelement,{ timeout: 120000 }).click({force:true})
+ cy.xpath(this.pdpelement,{ timeout: 12000 }).click({force:true})
 }
 clickFilterplanBtn(){
  cy.get(this.filterplanEle).click()
