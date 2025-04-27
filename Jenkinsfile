@@ -4,13 +4,31 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                script {
+                    // Ensure clean npm install
+                    sh 'npm ci' // or use 'npm install' if you prefer
+                }
             }
         }
 
-        stage('Run Cypress Tests Fast') {
+        stage('Run Cypress Tests') {
             steps {
-                bat 'npx cypress run --browser chrome --headless --record false'
+                script {
+                    // Run the appropriate Cypress tests
+                    if (params.TEST_TYPE == 'critical') {
+                        sh 'npm run test:critical'
+                    } else {
+                        sh 'npm test'
+                    }
+                }
+            }
+        }
+
+        stage('Generate Mochawesome Report') {
+            steps {
+                script {
+                    sh 'npm run report'
+                }
             }
         }
     }
