@@ -2,8 +2,18 @@ pipeline {
     agent any
 
     parameters {
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Select the browser to run the tests')
-        choice(name: 'TEST_TYPE', choices: ['critical', 'smoke', 'regression'], description: 'Select the test type to run')
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'firefox', 'edge'],
+            description: 'Select the browser to run the tests',
+            defaultValue: 'chrome'
+        )
+        choice(
+            name: 'TEST_TYPE',
+            choices: ['critical', 'smoke', 'regression'],
+            description: 'Select the test type to run',
+            defaultValue: 'critical'
+        )
     }
 
     environment {
