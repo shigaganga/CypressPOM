@@ -139,7 +139,7 @@ describe('PrescriptionPageTest', () => {
             cy.log("User added another drug to the list.");
         });
     });
-    it('TC_PDP_ADD_DRUG_12: Verify user can finish adding drugs', () => {
+    it('TC_PDP_ADD_DRUG_12: Verify user can finish adding drugs @critical', () => {
         cy.fixture('LoginFixture').then((data) => {
             searchAndSelectDrug(data.drugName3);
             drugPage.addMyDrugListClick();

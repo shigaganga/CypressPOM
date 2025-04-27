@@ -1,6 +1,14 @@
 pipeline {
     agent any
 
+    parameters {
+        // Parameter for selecting test type
+        choice(name: 'TEST_TYPE', choices: ['critical', 'smoke', 'regression'], description: 'Select the test type to run')
+
+        // Parameter for selecting browser
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Select the browser to run the tests')
+    }
+
     environment {
         REPORT_DIR = 'cypress/reports'
         FINAL_REPORT_DIR = 'cypress/final-report'
@@ -26,8 +34,28 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    // Run Cypress tests
-                    bat 'npx cypress run --reporter mochawesome'
+                    // Choose the browser for Cypress
+                    def browserFlag = ''
+                    if (params.BROWSER == 'chrome') {
+                        browserFlag = '--browser chrome'
+                    } else if (params.BROWSER == 'firefox') {
+                        browserFlag = '--browser firefox'
+                    } else if (params.BROWSER == 'edge') {
+                        browserFlag = '--browser edge'
+                    }
+
+                    // Choose which tests to run based on the selected parameter
+                    def testCommand = ''
+                    if (params.TEST_TYPE == 'critical') {
+                        testCommand = "npx cypress run --env grep=@critical ${browserFlag} --reporter mochawesome"
+                    } else if (params.TEST_TYPE == 'smoke') {
+                        testCommand = "npx cypress run --env grep=smoke ${browserFlag} --reporter mochawesome"
+                    } else {
+                        testCommand = "npx cypress run ${browserFlag} --reporter mochawesome"
+                    }
+                    
+                    // Run Cypress tests with the selected browser and test type
+                    bat testCommand
                 }
             }
         }
