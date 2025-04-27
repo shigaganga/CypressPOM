@@ -1,12 +1,24 @@
 pipeline {
     agent any
 
+    environment {
+        REPORT_DIR = 'cypress/reports'
+        FINAL_REPORT_DIR = 'cypress/final-report'
+        REPORT_FILE = 'mochawesome.json'
+    }
+
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Ensure clean npm install
-                    sh 'npm ci' // or use 'npm install' if you prefer
+                    // Install npm dependencies
+                    bat 'npm install'
                 }
             }
         }
@@ -14,12 +26,8 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    // Run the appropriate Cypress tests
-                    if (params.TEST_TYPE == 'critical') {
-                        sh 'npm run test:critical'
-                    } else {
-                        sh 'npm test'
-                    }
+                    // Run Cypress tests
+                    bat 'npx cypress run --reporter mochawesome'
                 }
             }
         }
@@ -27,9 +35,24 @@ pipeline {
         stage('Generate Mochawesome Report') {
             steps {
                 script {
-                    sh 'npm run report'
+                    // Merge Mochawesome reports and generate a final report
+                    bat 'mochawesome-merge cypress/reports/*.json > mochawesome.json'
+                    bat 'marge mochawesome.json --reportDir cypress/final-report'
                 }
             }
+        }
+
+        stage('Archive Report') {
+            steps {
+                archiveArtifacts artifacts: "${FINAL_REPORT_DIR}/**/*", allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up if necessary
+            cleanWs()
         }
     }
 }
