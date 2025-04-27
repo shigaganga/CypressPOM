@@ -14,6 +14,9 @@ module.exports = defineConfig({
 
   e2e: {
     setupNodeEvents(on, config) {
+      // 👇 ADD THIS LINE for cypress-grep support
+      require('cypress-grep/src/plugin')(config);
+
       on("before:run", async (details) => {
         console.log(">>> [Mochawesome] before:run");
         await beforeRunHook(details);

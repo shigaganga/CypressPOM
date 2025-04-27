@@ -27,3 +27,4 @@
 /// <reference types="cypress" /> 
 /// <reference types="cypress-xpath" />
 import 'cypress-xpath';
+require('cypress-grep')()
