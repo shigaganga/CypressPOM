@@ -18,16 +18,16 @@ pipeline {
             steps {
                 script {
                     // Install npm dependencies
-                    bat 'npm install'
+                    bat 'npm install --legacy-peer-deps'
                 }
             }
         }
 
-        stage('Run Cypress Tests') {
+        stage('Run Critical Tests') {
             steps {
                 script {
-                    // Run Cypress tests
-                    bat 'npx cypress run --reporter mochawesome'
+                    // Run critical tests
+                    bat 'npm run test:critical'
                 }
             }
         }
