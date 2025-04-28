@@ -27,7 +27,8 @@ pipeline {
             steps {
                 script {
                     // Run critical tests
-                    bat 'npm run test:critical'
+                    //bat 'npm run test:critical'
+                      bat 'npm run test:critical --env grep=@critical'
                 }
             }
         }
