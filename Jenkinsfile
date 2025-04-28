@@ -36,8 +36,9 @@ pipeline {
             steps {
                 script {
                     // Merge Mochawesome reports and generate a final report
-                    bat 'mochawesome-merge cypress/reports/*.json > mochawesome.json'
-                    bat 'marge mochawesome.json --reportDir cypress/final-report'
+                    bat 'mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json',
+                    bat 'marge cypress/reports/mochawesome.json --reportDir cypress/final-report'
+
                 }
             }
         }
