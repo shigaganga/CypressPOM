@@ -27,8 +27,7 @@ pipeline {
             steps {
                 script {
                     // Run critical tests
-                    //bat 'npm run test:critical'
-                      bat 'npm run test:critical --env grep=@critical'
+                    bat 'npm run test:critical --env grep=@critical'
                 }
             }
         }
@@ -37,9 +36,8 @@ pipeline {
             steps {
                 script {
                     // Merge Mochawesome reports and generate a final report
-                    bat 'mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json',
+                    bat 'mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json'
                     bat 'marge cypress/reports/mochawesome.json --reportDir cypress/final-report'
-
                 }
             }
         }
