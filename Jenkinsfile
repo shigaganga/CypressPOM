@@ -2,24 +2,16 @@ pipeline {
     agent any
 
     parameters {
-        activeChoiceParam('BROWSER') {
-            description('Select the browser to run the tests')
-            filterable()
-            choiceType('SINGLE_SELECT')
-            groovyScript {
-                script('return ["chrome", "firefox", "edge"]')
-                fallbackScript('return ["chrome"]')
-            }
-        }
-        activeChoiceParam('TEST_TYPE') {
-            description('Select the test type to run')
-            filterable()
-            choiceType('SINGLE_SELECT')
-            groovyScript {
-                script('return ["critical", "smoke", "regression"]')
-                fallbackScript('return ["critical"]')
-            }
-        }
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'firefox', 'edge'],
+            description: 'Select the browser to run the tests'
+        )
+        choice(
+            name: 'TEST_TYPE',
+            choices: ['critical', 'smoke', 'regression'],
+            description: 'Select the test type to run'
+        )
     }
 
     environment {
