@@ -83,9 +83,9 @@ pipeline {
                 reportDir: "${FINAL_REPORT_DIR}",   // Folder where HTML report exists
                 reportFiles: 'index.html',          // The main report file
                 reportName: 'Cypress Mochawesome Report', // Name shown in Jenkins UI
-                keepAll: true,
-                alwaysLinkToLastBuild: true,
-                allowMissing: true
+                keepAll: true,                      // Retain all reports for previous builds
+                alwaysLinkToLastBuild: true,        // Always link to last successful build's report
+                allowMissing: true                  // Allow missing reports, but log a warning
             ])
 
             echo 'Cleaning up workspace...'
