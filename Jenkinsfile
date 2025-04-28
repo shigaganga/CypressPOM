@@ -35,6 +35,17 @@ pipeline {
             }
         }
 
+        stage('Run Non-Critical Tests') {
+            steps {
+                script {
+                    echo 'Running non-critical tests...'
+                    catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                        bat 'npm run test:non-critical --env grep=@non-critical'
+                    }
+                }
+            }
+        }
+
         stage('Generate Mochawesome Report') {
             steps {
                 script {
