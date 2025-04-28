@@ -49,6 +49,7 @@ describe('Preference Test Suite', () => {
     it('TC_PDP_SEARCH_PREF_YES_01:should test search preference with YES @critical', () => {
         setPreference('yes');
         preferencePage.verifyManagePrescriptionurl();
+        cy.log("critical test completed");
     });
 
     it('TC_PDP_SEARCH_PREF_NO_02:should test search preference with NO', () => {

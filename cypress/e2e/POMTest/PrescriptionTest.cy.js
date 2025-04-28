@@ -147,6 +147,7 @@ describe('PrescriptionPageTest', () => {
             const homepage = new HomePage();
             homepage.verifyUrl(data.managePharmacy_url);
             cy.log("User successfully finished adding drugs.");
+            cy.log("critical test completed");
         });
     });
     it('TC_PDP_ADD_DRUG_13: Verify Browse Drugs A-Z functionality', () => {
