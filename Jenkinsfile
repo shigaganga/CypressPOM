@@ -1,23 +1,15 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'TEST_TYPE', defaultValue: 'all', description: 'Specify which tests to run (e.g., all, critical)')
+        booleanParam(name: 'INSTALL_DEPENDENCIES', defaultValue: true, description: 'Install npm dependencies')
+    }
+
     environment {
         REPORT_DIR = 'cypress/reports'
         FINAL_REPORT_DIR = 'cypress/final-report'
         REPORT_FILE = 'mochawesome.json'
-    }
-
-    parameters {
-        choice(
-            name: 'BROWSER',
-            choices: ['chrome', 'firefox', 'edge'],
-            description: 'Select the browser to run the tests'
-        )
-        choice(
-            name: 'TEST_TYPE',
-            choices: ['critical', 'smoke', 'regression'],
-            description: 'Select the test type to run'
-        )
     }
 
     stages {
@@ -28,10 +20,13 @@ pipeline {
         }
 
         stage('Install Dependencies') {
+            when {
+                expression { return params.INSTALL_DEPENDENCIES }
+            }
             steps {
                 script {
                     // Install npm dependencies
-                    bat 'npm ci' // Use 'npm ci' for a clean install
+                    bat 'npm install'
                 }
             }
         }
@@ -39,16 +34,12 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    def browserFlag = "--browser ${params.BROWSER}"
-                    def testCommand = "npx cypress run --env grep=${params.TEST_TYPE} ${browserFlag} --reporter mochawesome"
-                    // Run Cypress tests based on the test type
+                    // Run Cypress tests based on TEST_TYPE parameter
                     if (params.TEST_TYPE == 'critical') {
-                        bat 'npm run test:critical'
+                        bat 'npx cypress run --spec "cypress/integration/critical/*.js" --reporter mochawesome'
                     } else {
-                        bat 'npm test'
+                        bat 'npx cypress run --reporter mochawesome'
                     }
-                    // Running the Cypress tests
-                    bat testCommand
                 }
             }
         }
