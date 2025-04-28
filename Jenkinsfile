@@ -30,7 +30,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    bat 'npm install'
+                    // Ensure clean npm install
+                    bat 'npm ci' // or use 'npm install' if you prefer
                 }
             }
         }
@@ -38,9 +39,18 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
+                    // Set the browser flag based on the selected parameter
                     def browserFlag = "--browser ${params.BROWSER}"
-                    def testCommand = "npx cypress run --env grep=${params.TEST_TYPE} ${browserFlag} --reporter mochawesome"
-                    bat testCommand
+
+                    // Run the appropriate Cypress tests based on TEST_TYPE
+                    if (params.TEST_TYPE == 'critical') {
+                        bat "npm run test:critical ${browserFlag}"
+                    } else {
+                        bat "npm test ${browserFlag}"
+                    }
+
+                    // Run Cypress tests with the chosen browser
+                    bat "npx cypress run ${browserFlag} --reporter mochawesome"
                 }
             }
         }
@@ -48,6 +58,7 @@ pipeline {
         stage('Generate Mochawesome Report') {
             steps {
                 script {
+                    // Merge Mochawesome reports and generate a final report
                     bat 'mochawesome-merge cypress/reports/*.json > mochawesome.json'
                     bat 'marge mochawesome.json --reportDir cypress/final-report'
                 }
@@ -63,6 +74,7 @@ pipeline {
 
     post {
         always {
+            // Clean up workspace after the build
             cleanWs()
         }
     }
