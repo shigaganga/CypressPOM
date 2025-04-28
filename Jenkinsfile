@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'TEST_TYPE', defaultValue: 'all', description: 'Specify which tests to run (e.g., all, critical)')
-        booleanParam(name: 'INSTALL_DEPENDENCIES', defaultValue: true, description: 'Install npm dependencies')
-    }
-
     environment {
         REPORT_DIR = 'cypress/reports'
         FINAL_REPORT_DIR = 'cypress/final-report'
@@ -20,9 +15,6 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            when {
-                expression { return params.INSTALL_DEPENDENCIES }
-            }
             steps {
                 script {
                     // Install npm dependencies
@@ -34,12 +26,8 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    // Run Cypress tests based on TEST_TYPE parameter
-                    if (params.TEST_TYPE == 'critical') {
-                        bat 'npx cypress run --spec "cypress/integration/critical/*.js" --reporter mochawesome'
-                    } else {
-                        bat 'npx cypress run --reporter mochawesome'
-                    }
+                    // Run Cypress tests
+                    bat 'npx cypress run --reporter mochawesome'
                 }
             }
         }
