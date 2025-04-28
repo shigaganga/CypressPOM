@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        REPORT_DIR = 'cypress/reports'
+        FINAL_REPORT_DIR = 'cypress/final-report'
+        REPORT_FILE = 'mochawesome.json'
+    }
+
     parameters {
         choice(
             name: 'BROWSER',
@@ -14,12 +20,6 @@ pipeline {
         )
     }
 
-    environment {
-        REPORT_DIR = 'cypress/reports'
-        FINAL_REPORT_DIR = 'cypress/final-report'
-        REPORT_FILE = 'mochawesome.json'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -30,8 +30,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Ensure clean npm install
-                    bat 'npm ci' // or use 'npm install' if you prefer
+                    // Install npm dependencies
+                    bat 'npm ci' // Use 'npm ci' for a clean install
                 }
             }
         }
@@ -39,18 +39,16 @@ pipeline {
         stage('Run Cypress Tests') {
             steps {
                 script {
-                    // Set the browser flag based on the selected parameter
                     def browserFlag = "--browser ${params.BROWSER}"
-
-                    // Run the appropriate Cypress tests based on TEST_TYPE
+                    def testCommand = "npx cypress run --env grep=${params.TEST_TYPE} ${browserFlag} --reporter mochawesome"
+                    // Run Cypress tests based on the test type
                     if (params.TEST_TYPE == 'critical') {
-                        bat "npm run test:critical ${browserFlag}"
+                        bat 'npm run test:critical'
                     } else {
-                        bat "npm test ${browserFlag}"
+                        bat 'npm test'
                     }
-
-                    // Run Cypress tests with the chosen browser
-                    bat "npx cypress run ${browserFlag} --reporter mochawesome"
+                    // Running the Cypress tests
+                    bat testCommand
                 }
             }
         }
@@ -74,7 +72,7 @@ pipeline {
 
     post {
         always {
-            // Clean up workspace after the build
+            // Clean up if necessary
             cleanWs()
         }
     }
