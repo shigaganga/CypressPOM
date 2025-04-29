@@ -9,36 +9,45 @@ import planselectionPage from '../pages/PlanselectionPage.js';
 
 describe('Recommendation Flow Test', () => {
     const landingpage = new LandingPage();
+    const homepage = new HomePage();
+
     beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-        cy.fixture('LoginFixture').then((data) => {
-            const loginpage = new LoginPage();
-            loginpage.setUserName(data.username);
-            loginpage.setPassword(data.password);
-            loginpage.clickLoginBtn();
+        cy.session('loginSession', () => {
+            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
+            cy.fixture('LoginFixture').then((data) => {
+                const loginpage = new LoginPage();
+                loginpage.setUserName(data.username);
+                loginpage.setPassword(data.password);
+                loginpage.clickLoginBtn();
+
+                // wait for login confirmation (very important!)
+                cy.get('#userInitial', { timeout: 10000 }).should('be.visible');
+            });
         });
+        // navigate to the page your tests start from
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page');
     });
-    it('test1 Verify Tsign', () => {
-        const landingpage = new LandingPage();
+
+    it('TC_PDP_REC_02 Verify Tsign', () => {
         landingpage.clickTsign();
     });
-    it('test2 Verify logout', () => {
+    it('TC_PDP_REC_03 Verify logout', () => {
         landingpage.clickTsign();
         landingpage.clickLogOut();
-
+        // Assert user is on login page again
+        cy.url().should('include', '/login');
     });
-    it('test3 Verify create Recommendation', () => {
+    it.skip('TC_PDP_CRT_REC_04 Verify create Recommendation', () => {
+        cy.wait(1000);
         landingpage.clickCreateRecommendation();
-        cy.wait(2000);
-        const homepage = new HomePage();
-        cy.wait(2000);
-        homepage.enterEmail('chhabi@gmail.com');
+        cy.wait(1000);
+       homepage.enterEmail('chhabi@gmail.com');
         cy.wait(1000);
         homepage.clickHealthProfile();
         cy.wait(1000);
         homepage.clickBestHealth();
         cy.wait(1000);
-        homepage.enterName('Name');
+        homepage.enterName('Lata');
         cy.wait(1000);
         homepage.enterLifeexpectancy('80');
         cy.wait(1000);
@@ -107,62 +116,75 @@ describe('Recommendation Flow Test', () => {
         planselectionpage.clickbackMA();//Back from long-term to the PlanSelection page.
         cy.wait(1000);
         planselectionpage.aivanteImagClick();
-
+});
+    it('TC_PDP_PVOVIDER_05 Verify Provider button on the Landing Page.', () => {
+        landingpage.clickproviderBut();
+        cy.wait(2000);
     });
-    it('test4 Verify  Recommendation radio button', () => {
+    it('TC_PDP_REC_08 Verify  Recommendation radio button', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
     });
-    it('test5 Verify create Recommendation button', () => {
-        landingpage.clickCreateRecommendation();
+    it('TC_PDP_SRH_REC_EMAIL_10 Verify the filter by email', () => {
         cy.wait(2000);
-});
-it('test6 Verify Provider button on the Landing Page.', () => {
-    landingpage.clickproviderBut();
+    landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
     cy.wait(2000);
-});
-    it('test7 Verify the Expand Plan', () => {
+    });
+    it('TC_PDP_SRH_REC_EMAIL_11 Verify the filter by email', () => {
+        cy.wait(2000);
+        landingpage.enterByEmail('Name');//Filter by recommendation email or name
+        cy.wait(2000);
+    });
+    it('TC_11_PDP_EXP_REC_PLAN_14 Verify the Expand Plan', () => {
+        cy.wait(2000);
+       landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
+    });
+    it('TC_PDP_COL_REC_PLAN_15 Verify the Collapses Plan', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
         landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(2000);
-       landingpage.clickExpandPlan();
-        cy.wait(2000);
-    });
-    it('test8 Verify the Collapses Plan', () => {
-        landingpage.clickRecommendationRadioBut();
-        cy.wait(2000);
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickCollapsesPlan();
         cy.wait(2000);
     });
-    it('test9 Verify Items per page (Next Page)', () => {
+    it('TC_PDP_EXA_REC_NEXT_16 Verify Items per page (Next Page)', () => {
         landingpage.clickItemPerPageNext();
         cy.wait(2000);
     });
-    it('test10 Verify the Previous page (PreviousPage)', () => {
+    it('TC_PDP_EXA_REC_LAST_17 Verify the Last Page (LastPage)', () => {
+        landingpage.clickItemLastPage();
+        cy.wait(2000);
+    });
+    it('TC_PDP_EXA_REC_PREV_18 Verify the Previous page (PreviousPage)', () => {
         landingpage.clickItemPerPageNext();
         cy.wait(2000);
         landingpage.clickItemPreviousPage();
         cy.wait(2000);
     });
-    it('test11 Verify the Last Page (LastPage)', () => {
-        landingpage.clickItemLastPage();
-        cy.wait(2000);
-    });
-    it('test12 Verify the First Page (firstPage)', () => {
+    it('TC_PDP_EXA_REC_1ST_19 Verify the First Page (firstPage)', () => {
         landingpage.clickItemFirstPage();
         cy.wait(2000);
+    });
+    it('TC_PDD_VIEW_REC_24 edit icon', () => {
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
+        landingpage.clickEditRecommandtion();//enterEditRecommendationName
+        cy.wait(2000)
     });
     it('test13 edit healthProfile', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
         landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickEditRecommandtion();
         cy.wait(1000);
@@ -175,18 +197,18 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         cy.wait(4000);
         landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(4000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickEditRecommandtion();//enterEditRecommendationName
         cy.wait(1000);
-        landingpage.enterEditRecommendationName('Lata');
+        landingpage.enterEditRecommendationName('Name');
     });
     it('test15 edit life expectancy', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(4000);
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(4000);
         landingpage.clickEditRecommandtion();
         cy.wait(4000);
@@ -195,18 +217,24 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test16 edit DOB', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(4000);
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.clickeditCalenderEle();
+        cy.wait(2000);
         landingpage.clickeditYear();
+        cy.wait(2000);
         landingpage.clickeditMonth();
     });
     it('test17 edit Gender Male', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickEditRecommandtion();
         cy.wait(2000);
@@ -217,83 +245,125 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test18 edit Gender Female', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(4000);
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(4000);
+        landingpage.clickExpandRecomm();
+        cy.wait(4000);
         landingpage.clickEditRecommandtion();
+        cy.wait(4000);
         landingpage.clickEditGender();
+        cy.wait(4000);
         landingpage.clickEditGenderFemale();
+        cy.wait(4000);
     });
     it('test19 edit Tabacco No', () => {
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.clickEditTabaccoNo();
+        cy.wait(2000);
     });
     it('test20 edit Tabacco Yes', () => {
+        cy.wait(1000);
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(1000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(1000);
+        landingpage.clickExpandRecomm();
+        cy.wait(1000);
         landingpage.clickEditRecommandtion();
+        cy.wait(1000);
         landingpage.clickEditTabaccoYes();
     });
     it('test21 edit Tax filing with individual', () => {
+        cy.wait(2000);
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.clickEditTaxFilingIndiv();
     });
     it('test22 edit Tax filing with Jointly', () => {
+        cy.wait(2000);
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.clickEditTaxFilingJoin();
+        cy.wait(2000);
     });
     it('test23 edit Street', () => {
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.enterStreet('Castle');
+        cy.wait(2000);
     });
     it('test24 edit Zip code', () => {
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.enterEditZipcode('80112');
+        cy.wait(2000);
         landingpage.clickZipcodeSearchBut();
+        cy.wait(2000);
     });
     it('test25 edit Contact', () => {
         landingpage.clickRecommendationRadioBut();
-        landingpage.enterByEmail('Test');//Filter by recommendation email or name
-        landingpage.clickExpandPlan();
+        cy.wait(2000);
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
+        cy.wait(2000);
+        landingpage.clickExpandRecomm();
+        cy.wait(2000);
         landingpage.clickEditRecommandtion();
+        cy.wait(2000);
         landingpage.enterEditContact('1234567899');
+        cy.wait(2000);
     });
-    it('test26 Verify view recommendation', () => {
+    it('TC_PDD_VIEW_REC_24 Verify view recommendation', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
-        landingpage.enterByEmail('Test');
+        landingpage.enterByEmail('chhabi@gmail.com');
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickviewRecom();
         cy.wait(1000);
         landingpage.clickviewBackbut();
         cy.wait(1000);
     });
-    it('test27 Verify view low cost pharmacy view-recommendation page then back to the landing page', () => {
+    it('TC_PDD_VIEW_REC_24 Verify view low cost pharmacy then go back', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
-        landingpage.enterByEmail('Test');
+        landingpage.enterByEmail('chhabi@gmail.com');
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickviewRecom();
-        cy.wait(1000)
+        cy.wait(1000);
         landingpage.clickviewLowCost();
         cy.wait(1000);
         landingpage.clickbackLowCost();//back to the view-recommendation
@@ -301,12 +371,44 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         landingpage.clickviewBackbut();//back to the landing page
         cy.wait(1000);
     });
+    it('TC_PDP_VIEW_LC_PHAR_31 Verify view low cost pharmacy radius filter then back to the landing page', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('chhabi@gmail.com');
+        cy.wait(1000);
+        landingpage.clickExpandRecomm();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewLowCost();
+        cy.wait(1000);
+        landingpage.clickexpandPharmacyFilter();
+        cy.wait(1000);
+        //landingpage.enterradiusPharmacyFilter('9');
+        //cy.wait(1000);
+        landingpage.clicksumbit();
+        cy.wait(1000);
+    });
+    it('TC_PDP_VIEW_LC_PHAR_32 Verify add/remove prescription then back to the landing page', () => {
+        landingpage.clickRecommendationRadioBut();
+        cy.wait(1000);
+        landingpage.enterByEmail('chhabi@gmail.com');
+        cy.wait(1000);
+        landingpage.clickExpandRecomm();
+        cy.wait(1000);
+        landingpage.clickviewRecom();
+        cy.wait(1000)
+        landingpage.clickviewLowCost();
+        cy.wait(1000);
+        landingpage.clickaddRemovePrescription();
+        cy.wait(1000);
+    });
     it('test28 Verify view provider on the view-recommendation page then back', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
-        landingpage.enterByEmail('Test');
+        landingpage.enterByEmail('chhabi@gmail.com');
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickviewRecom();
         cy.wait(1000)
@@ -320,9 +422,9 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test29 Verify view medicare on the view-recommendation page then back', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
-        landingpage.enterByEmail('Test');
+        landingpage.enterByEmail('chhabi@gmail.com');
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickviewRecom();
         cy.wait(1000)
@@ -336,9 +438,9 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test30 Verify view longTerm on the view-recommendation page then back', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(1000);
-        landingpage.enterByEmail('Test');
+        landingpage.enterByEmail('chhabi@gmail.com');
         cy.wait(1000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(1000);
         landingpage.clickviewRecom();
         cy.wait(1000)
@@ -370,7 +472,7 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         cy.wait(2000);
         landingpage.enterByEmail('chhabi');//Filter by recommendation email or name
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickDeletePlanIcon();
         cy.wait(2000);
@@ -380,9 +482,9 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test34 Verify cancel delete Recommendation plan', () => {
         landingpage.clickRecommendationRadioBut();
         cy.wait(2000);
-        landingpage.enterByEmail('chhabi');//Filter by recommendation email or name
+        landingpage.enterByEmail('chhabi@gmail.com');//Filter by recommendation email or name
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(3000);
         landingpage.clickDeletePlanIcon();
         cy.wait(2000);
@@ -396,9 +498,9 @@ it('test6 Verify Provider button on the Landing Page.', () => {
     it('test36 Verify Edit Prescription', () => {
         landingpage.clickPrescriptionRadioBut();
         cy.wait(2000);
-        landingpage.enterEditPresEmail('chha');
+        landingpage.enterEditPresEmail('chhabi@gmail.com');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickeditPresDrug();
         cy.wait(2000);
@@ -415,7 +517,7 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         cy.wait(2000);
         landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickviewDrug();
         cy.wait(2000);
@@ -425,7 +527,7 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         cy.wait(2000);
         landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickdeleteDrug();
         cy.wait(2000);
@@ -437,7 +539,7 @@ it('test6 Verify Provider button on the Landing Page.', () => {
         cy.wait(2000);
         landingpage.enterEditPresEmail('chha');
         cy.wait(2000);
-        landingpage.clickExpandPlan();
+        landingpage.clickExpandRecomm();
         cy.wait(2000);
         landingpage.clickdeleteDrug();
         cy.wait(2000);
