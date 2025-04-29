@@ -1,4 +1,3 @@
-//import { beforeEach } from "mocha";
 import ProviderInpatientRehabilitationPage from "../pages/ProviderInpatientRehabilitationPage.js";
 import LoginPage from "../pages/LoginPage";
 import LandingPage from "../pages/LandingPage";
