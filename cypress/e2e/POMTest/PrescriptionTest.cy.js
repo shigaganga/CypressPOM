@@ -7,6 +7,20 @@ import PreferencePage from '../pages/PreferencePage.js';
 describe('PrescriptionPageTest', () => {
     let prefPage;
     let drugPage;
+    let loginData; // Variable to hold CSV data
+    const csvPath = 'C:\\Users\\shiga\\CypressFolder\\CypressPOM\\data.csv'; // Variable for CSV file path
+
+    beforeEach(() => {
+        // Load the CSV data before running the tests using the csvPath variable
+        cy.task('csv:parse', csvPath).then((data) => {
+            loginData = {};
+            // Assuming each row in the CSV contains 'key' and 'value' columns
+            // You can adjust the logic here if your CSV has a different structure
+            data.forEach(item => {
+                loginData[item.key] = item.value;
+            });
+        });
+    });
     function searchAndSelectDrug(drugName) {
         drugPage.enterDrugSearchBox(drugName);
         drugPage.selectDrug();
@@ -147,7 +161,6 @@ describe('PrescriptionPageTest', () => {
             const homepage = new HomePage();
             homepage.verifyUrl(data.managePharmacy_url);
             cy.log("User successfully finished adding drugs.");
-            cy.log("critical test completed");
         });
     });
     it('TC_PDP_ADD_DRUG_13: Verify Browse Drugs A-Z functionality', () => {
