@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 const { beforeRunHook, afterRunHook } = require("cypress-mochawesome-reporter/lib");
+const fs = require('fs');  // fs is fine
 
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
@@ -14,8 +15,16 @@ module.exports = defineConfig({
 
   e2e: {
     setupNodeEvents(on, config) {
-      // 👇 ADD THIS LINE for cypress-grep support
       require('cypress-grep/src/plugin')(config);
+
+      on('task', {
+        async 'csv:parse'(filePath) {
+          const neatCSV = (await import('neat-csv')).default;  // 👈 dynamic import
+          const csvContent = fs.readFileSync(filePath);
+          const parsed = await neatCSV(csvContent);
+          return parsed;
+        }
+      });
 
       on("before:run", async (details) => {
         console.log(">>> [Mochawesome] before:run");

@@ -11,30 +11,45 @@ describe('Preference Test Suite', () => {
     const homePage = new HomePage();
     const preferencePage = new PreferencePage();
     const prescriptionPage = new PrescriptionPage();
+    const csvPath = 'C:\\Users\\shiga\\CypressFolder\\CypressPOM\\data.csv'; // CSV file path
+    let testData; // Variable to hold CSV data
+
+    before(() => {
+        // Load CSV data before running the tests
+        cy.task('csv:parse', csvPath).then((data) => {
+            testData = {};
+            data.forEach(item => {
+                testData[item.key] = item.value; // Convert CSV rows into an object
+            });
+        });
+    });
+
     beforeEach(() => {
-        cy.session('Preference session',()=>{
-        cy.fixture('LoginFixture').then((data) => {
-            cy.visit(data.baseUrl); 
-            loginPage.setUserName(data.username);
-            loginPage.setPassword(data.password);
+        // Start a session for each test case
+        cy.session('Preference session', () => {
+            // Use data from the CSV file
+            cy.visit(testData.baseUrl);
+            loginPage.setUserName(testData.username);
+            loginPage.setPassword(testData.password);
             loginPage.clickLoginBtn();
             landingPage.clickCreateRecommendation();
-            homePage.enterEmail(data.email);  
+            homePage.enterEmail(testData.email);
             homePage.clickhealthArrow();
             homePage.clickGoodHealth();
-            homePage.enterName(data.name);  
-            homePage.enterLifeexpectancy(data.lifeexpectancy);  
+            homePage.enterName(testData.name);
+            homePage.enterLifeexpectancy(testData.lifeexpectancy);
             homePage.datePickerclick();
             homePage.year1957click();
             homePage.month1957click();
-            homePage.enterZip(data.zip);  
+            homePage.enterZip(testData.zip);
             homePage.clickSearch();
             homePage.nextHomeClick();
         });
+
+        // Always start from Preferences page for all tests
+        cy.visit(testData.preferencePage_url);
     });
-    // Always start from Preferences page for all tests
-    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/preferences");
-    });
+
     function setPreference(option) {
         if (option === 'yes') {
             preferencePage.clickyesRadioDrugCost();
@@ -64,7 +79,6 @@ describe('Preference Test Suite', () => {
         prescriptionPage.clickGobackPreference();
         preferencePage.verifyPreferencePageUrl();
     });
-    //TC_04 not needed
 
     it('TC_05_PDP_NEXT:next button,should test navigation from preference to plan selection', () => {
         setPreference('yes');
