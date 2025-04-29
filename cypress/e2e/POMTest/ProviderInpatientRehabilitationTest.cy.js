@@ -1,4 +1,4 @@
-import { beforeEach } from "mocha";
+//import { beforeEach } from "mocha";
 import ProviderInpatientRehabilitationPage from "../pages/ProviderInpatientRehabilitationPage.js";
 import LoginPage from "../pages/LoginPage";
 import LandingPage from "../pages/LandingPage";
@@ -10,51 +10,39 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 describe('providerTest' , ()=>
 {
     beforeEach(() => {
-       cy.session("ProviderInPatientRehab Page",()=>{
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
-        cy.fixture('LoginFixture').then((data) => {
+        cy.session("ProviderInPatientRehab Page", () => {
+          cy.fixture('LoginFixture').then((data) => {
+            cy.visit(data.baseUrl);
+      
             const lPage = new LoginPage();
             lPage.setUserName(data.username);
             lPage.setPassword(data.password);
             lPage.clickLoginBtn();
-            lPage.verifyLogin(); 
-           
+            lPage.verifyLogin();
+      
+            const recPage = new LandingPage();
+            recPage.clickCreateRecommendation();
+            const homepage = new HomePage();
+            const preferencePage = new PreferencePage();
+      
+            homepage.enterEmail(data.email);
+            homepage.clickhealthArrow();
+            homepage.clickGoodHealth();
+            homepage.enterName(data.name);
+            homepage.enterLifeexpectancy(data.lifeexpectancy);
+            homepage.datePickerclick();
+            homepage.year1957click();
+            homepage.month1957click();
+            homepage.enterZip(data.zip);
+            homepage.clickSearch();
+            homepage.nextHomeClick();
+            
+            preferencePage.clickNextPrefPage();
+          });
         });
-
-        const recPage = new LandingPage();
-        recPage.clickCreateRecommendation();
-        const homepage = new HomePage();
-        const preferencePage=new PreferencePage();
-       
-
-        homepage.enterEmail("darsh@gmail.com");
-        
-        homepage.clickhealthArrow();
-        
-        homepage.clickGoodHealth();
-        
-        homepage.enterName("darshana");
-        
-        homepage.enterLifeexpectancy("86");
-        
-        homepage.datePickerclick();
-        
-        homepage.year1957click();
-        
-        homepage.month1957click();
-        
-        homepage.enterZip("76248");
-        
-        homepage.clickSearch();
-        
-        homepage.nextHomeClick();
-
-        preferencePage.clickNextPrefPage();
-        
-    });
-    cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');
-});
+      
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');
+      });
 
     it('TC_PDP_PRV_IRF_196: test1 , Should click on provider link' ,()=>
     {
