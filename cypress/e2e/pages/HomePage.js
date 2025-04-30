@@ -1,73 +1,87 @@
-class HomePage{
-    AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
-    healtharrow=".mat-select-arrow.ng-tns-c216-10";
-    datePicker=".mat-datepicker-toggle-default-icon.ng-star-inserted";
-    year1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-    month1957=".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
-    zip="#mat-input-8";
-    search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    nexthome=".form-wrapper > .mat-raised-button";
-    email="#mat-input-3";
-  healthProfile=".mat-select-arrow.ng-tns-c216-10";
-    bestHealth = "#mat-option-4 > .mat-option-text";
-    goodHealth = "#mat-option-5 > .mat-option-text";
-    moderateHealth = "#mat-option-6 > .mat-option-text";
-    poorHealth = "#mat-option-7 > .mat-option-text";
-    sickHealth = "#mat-option-8 > .mat-option-text";
-    recommendationName="#mat-input-4";
-    lifeExpectancy="#mat-input-5";
-    dateOfBirth="#mat-input-6";
-    calenderEle =".mat-datepicker-toggle > .mat-focus-indicator";
-    year1959="td[aria-label='1959'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    month1959="td[aria-label='1959-02-01T00:00:00-07:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
-    year = ":nth-child(6) > [data-mat-col='2']";
-    month="//div[normalize-space()='APR']";
-    gender="#mat-select-value-5";
-    genderM="#mat-option-9 > .mat-option-text";//Gender Male
-    genderF="//span[@class='mat-option-text'][normalize-space()='Female']";
-    taboccoNo="#mat-radio-6 > .mat-radio-label";
-    taboccoYes="#mat-radio-7 > .mat-radio-label";
-    taxFilingJoin="#mat-radio-8 > .mat-radio-label";//Tax filing jointly
-    taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//Tax filing individual
-    tobacoUserLink='mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
-    street="#mat-input-7";
-    zipCode="#mat-input-8";
-    searchNew=".mat-form-field-suffix > .mat-focus-indicator";
-    search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    magiT16="#mat-option-13 > .mat-option-text";//Magitier 3
-    emailCom="#mat-input-9";
-    contact="#mat-input-10";
-    nextButt=".form-wrapper > .mat-raised-button";
-    healthProfileMSG=":nth-child(2) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    countyState="#mat-select-value-7";
-    city='#mat-select-value-9';
-    city1="#mat-option-18 > .mat-option-text";
-    city2 ="#mat-option-19 > .mat-option-text";
-    lifeExpectancyMSG=":nth-child(4) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    magiTier = "#mat-select-value-11";
-    magiTier1 = "#mat-option-11 > .mat-option-text";
-    magiTier2 = "#mat-option-12 > .mat-option-text";
-    magiTier3 = "#mat-option-13 > .mat-option-text";
-    magiTier4 = "#mat-option-14 > .mat-option-text";
-    magiTier5 = "#mat-option-15 > .mat-option-text";
-    communicationEmail = "#mat-input-9";
-    contact = "#mat-input-10";
+class HomePage {
+    healtharrow = ".mat-select-arrow.ng-tns-c216-10";
+    datePicker = ".mat-datepicker-toggle-default-icon.ng-star-inserted";
+    dateOfBirth = "#mat-input-6";
+    year1957 = ".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
+    month1957 = ".mat-calendar-body-cell-content.mat-focus-indicator.mat-calendar-body-selected";
+    zip = "#mat-input-8";
+    search = ".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+    nexthome = ".form-wrapper > .mat-raised-button";
+    magiT16 = "#mat-option-13 > .mat-option-text";//Magitier 3
+    emailCom = "#mat-input-9";
+    year1959 = "td[aria-label='1959'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
+    month1959 = "td[aria-label='1959-02-01T00:00:00-07:00'] div[class='mat-calendar-body-cell-content mat-focus-indicator']";
+
+
+
+//Chhabi Code
+    AiVanteLogo = "img[src='assets/images/Aivante-logo.png']";
+    email = "//*[@id='mat-input-0']" 
+    healthProfile = "//*[@id='mat-select-value-1']" 
+    bestHealth = "//*[@id='mat-option-0']/span" 
+    goodHealth = "//*[@id='mat-option-1']/span" 
+    moderateHealth = "//*[@id='mat-option-2']/span" 
+    poorHealth = "//*[@id='mat-option-3']/span" 
+    sickHealth = "//*[@id='mat-option-4']/span" 
+    healthProfileMSG = ":nth-child(2) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+    recommendationName = "//*[@id='mat-input-1']" 
+    lifeExpectancy = "#mat-input-5";
+    calenderEle = ".mat-datepicker-toggle > .mat-focus-indicator";
+   year = ":nth-child(6) > [data-mat-col='2']";
+    month = "//div[normalize-space()='APR']";
+    gender = "//*[@id='mat-select-value-3']" 
+    genderM = "//*[@id='mat-option-5']" 
+    genderF = "//span[@class='mat-option-text'][normalize-space()='Female']";
+    taboccoNo = "#mat-radio-6 > .mat-radio-label";
+    taboccoYes = "#mat-radio-7 > .mat-radio-label";
+    taxFilingJoin = "#mat-radio-8 > .mat-radio-label";
+    taxFilingIndiv = "#mat-radio-9 > .mat-radio-label";
+    tobacoUserLink = 'mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
+    street = "#mat-input-7";
+    zipCode = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[9]/mat-form-field/div/div[1]/div[3]/input"; //"#mat-input-8";
+    searchIcon = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[9]/mat-form-field/div/div[1]/div[4]/button/span[1]/mat-icon"; //".mat-form-field-suffix > .mat-focus-indicator";
+   countyState = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[11]/div[1]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span"; //"#mat-select-value-7";
+    city = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[11]/div[2]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]/span";
+    city1 = "//*[@id='mat-option-14']/span" 
+    city2 = "//*[@id='mat-option-15']/span" 
+    lifeExpectancyMSG = ":nth-child(4) > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+    magiTier = "//*[@id='mat-select-value-9']"
+    magiTier1 = "//span[@class='mat-option-text'][normalize-space()='< $ 212K']" 
+    magiTier2 = "//span[normalize-space()='$ 212K to $ 266K']"
+    magiTier3 = "//span[normalize-space()='$ 266K to $ 334K']" 
+    magiTier4 = "//span[normalize-space()='$ 334K to $ 400K']" 
+    magiTier5 = "//span[normalize-space()='$ 400K to $ 750K']" 
+    magiTier6 = "//span[normalize-space()='> $750K']";
+    communicationEmail = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[13]/mat-form-field/div/div[1]/div[3]/input"; //"//*[@id='mat-input-17']" //"#mat-input-9";
+    contact = "#mat-input-8" 
     nextButt = ".form-wrapper > .mat-raised-button";
 
-    clickAiVanteLogo(){
+    clickAiVanteLogo() {
         cy.get(this.AiVanteLogo).should('be.visible').click();
     }
-    enterEmail(email){
-        cy.get(this.email).should('be.visible').type(email);
+    enterEmail(email) {
+        cy.xpath(this.email).should('be.visible').type(email);
     }
-    clickHealthProfile(){
-        cy.get(this.healthProfile).should('be.visible').click();
+    clickHealthProfile() {
+        cy.xpath(this.healthProfile).should('be.visible').click();
     }
-    clickSick(){
-        cy.get(this.sickHealth).should('be.visible').wait(1000).click();
+    clickBestHealth() {
+        cy.xpath(this.bestHealth).should('be.visible').click();
+    }
+    clickGoodHealth() {
+        cy.xpath(this.goodHealth).should('be.visible').click();
     }
     clickModerateHealth() {
-        cy.get(this.moderateHealth).should('be.visible').click();
+        cy.xpath(this.moderateHealth).should('be.visible').click();
+    }
+    clickPoorHealth() {
+        cy.xpath(this.poorHealth).should('be.visible').click();
+    }
+    clickSickHealth() {
+        cy.xpath(this.sickHealth).should('be.visible').wait(1000).click();
+    }
+    clickHealthProfileMSG() {
+        cy.get(this.healthProfileMSG).should('be.visible').click();
     }
     clickYear() {
         cy.get(this.year).should('be.visible').wait(2000).click();
@@ -76,10 +90,10 @@ class HomePage{
         cy.xpath(this.month).should('be.visible').wait(2000).click();
     }
     enterName(name) {
-        cy.get(this.recommendationName).should('be.visible').type(name);
+        cy.xpath(this.recommendationName).should('be.visible').type(name);
     }
     clickCountyState() {
-        cy.get(this.countyState).should('be.visible').click();
+        cy.xpath(this.countyState).should('be.visible').click();
     }
     enterLifeexpectancy(lifeExpectancy) {
         cy.get(this.lifeExpectancy).should('be.visible').clear().type(lifeExpectancy).wait(1000);
@@ -103,10 +117,10 @@ class HomePage{
         cy.get(this.dateOfBirth).should('be.visible').click();
     }
     clickGender() {
-        cy.get(this.gender).should('be.visible').click();
+        cy.xpath(this.gender).should('be.visible').click();
     }
     clickMale() {
-        cy.get(this.genderM).should('be.visible').click();
+        cy.xpath(this.genderM).should('be.visible').click();
     }
     clickFemale() {
         cy.xpath(this.genderF).should('be.visible').click();
@@ -115,7 +129,7 @@ class HomePage{
         cy.get(this.taboccoNo).should('be.visible').click();
     }
     clickTabaccoYes() {
-       cy.get(this.taboccoYes).should('be.visible').click();
+        cy.get(this.taboccoYes).should('be.visible').click();
     }
     clickTaxIndiv() {
         cy.get(this.taxFilingIndiv).should('be.visible').click();
@@ -127,10 +141,10 @@ class HomePage{
         cy.get(this.street).should('be.visible').type(street);
     }
     enterZip(zipCode) {
-        cy.get(this.zipCode).should('be.visible').type(zipCode).wait(1000);
+        cy.xpath(this.zipCode).should('be.visible').type(zipCode).wait(1000);
     }
-    clickSearchNew() {
-        cy.get(this.searchNew).should('be.visible').click();
+    clickSearchIcon() {
+        cy.xpath(this.searchIcon).should('be.visible').click();
     }
     clickMagitier() {
         cy.get(this.magiTier).should('be.visible').click();
@@ -150,18 +164,6 @@ class HomePage{
     clickhealthArrow() {
         cy.get(this.healtharrow).should('be.visible').click();
     }
-    clickGoodHealth() {
-        cy.get(this.goodHealth).should('be.visible').click();
-    }
-    clickPoorHealth() {
-        cy.get(this.poorHealth).should('be.visible').click();
-    }
-    clickSickHealth() {
-        cy.get(this.sickHealth).should('be.visible').click();
-    }
-    clickBestHealth() {
-        cy.get(this.bestHealth).should('be.visible').click();
-    }
     datePickerclick() {
         cy.get(this.datePicker).should('be.visible').click();
     }
@@ -175,43 +177,43 @@ class HomePage{
         cy.get(this.search).should('be.visible').click();
     }
     nextHomeClick() {
-        cy.get(this.nexthome, { timeout: 1000 }) 
+        cy.get(this.nexthome, { timeout: 1000 })
             .should('be.visible')
             .and('be.enabled')
             .click({ force: true });
     }
-    clickHealthProfileMSG() {
-        cy.get(this.healthProfileMSG).should('be.visible').click();
-    }
     clickCity() {
-        cy.get(this.city).should('be.visible').click({ force: true });
+        cy.xpath(this.city).should('be.visible').click({ force: true });
     }
     clickCity1() {
-        cy.get(this.city1).should('be.visible').click();
+        cy.xpath(this.city1).should('be.visible').click();
     }
     clickCity2() {
-        cy.get(this.city2).should('be.visible').click();
+        cy.xpath(this.city2).should('be.visible').click();
     }
     clickMagiTier() {
-        cy.get(this.magiTier).should('be.visible').click();
+        cy.xpath(this.magiTier).should('be.visible').click();
     }
     clickMagiTier1() {
-        cy.get(this.magiTier1).should('be.visible').click().wait(1000);
+        cy.xpath(this.magiTier1).should('be.visible').click().wait(1000);
     }
     clickMagiTier2() {
-        cy.get(this.magiTier2).should('be.visible').click().wait(1000);
+        cy.xpath(this.magiTier2).should('be.visible').click().wait(1000);
     }
     clickMagiTier3() {
-        cy.get(this.magiTier3).should('be.visible').click().wait(1000);
+        cy.xpath(this.magiTier3).should('be.visible').click().wait(1000);
     }
     clickMagiTier4() {
-        cy.get(this.magiTier4).should('be.visible').click().wait(1000);
+        cy.xpath(this.magiTier4).should('be.visible').click().wait(1000);
     }
     clickMagiTier5() {
-        cy.get(this.magiTier5).should('be.visible').click().wait(1000);
+        cy.xpath(this.magiTier5).should('be.visible').click().wait(1000);
+    }
+    clickmagiTier6() {
+        cy.xpath(this.magiTier6).click();
     }
     entercommunicationEmail(communicationEmail) {
-        cy.get(this.communicationEmail).should('be.visible').type(communicationEmail);
+        cy.xpath(this.communicationEmail).should('be.visible').type(communicationEmail);
     }
     enterContact(contact) {
         cy.get(this.contact).should('be.visible').type(contact).wait(1000);
