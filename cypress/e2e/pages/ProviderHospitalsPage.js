@@ -6,119 +6,104 @@ class ProviderHospitalsPage {
  userInitEle='.mat-focus-indicator.mat-menu-trigger.user-initial.mat-fab.mat-button-base.mat-accent';
  backbtnEle="div[class='button-wrapper'] button[class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']";
  headingEle='.heading';
- //SearchProvHeadEle='body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > mat-sidenav-container:nth-child(1) > mat-sidenav-content:nth-child(5) > app-provider:nth-child(3) > app-search-providers:nth-child(2) > div:nth-child(2) > mat-card:nth-child(1) > div:nth-child(3) > app-provider-search-form:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)';
  searchProvHeadEle=':nth-child(1) > .heading-text';
- 
  userAddHeadEle='body > app-root:nth-child(1) > div:nth-child(1) > div:nth-child(2) > mat-sidenav-container:nth-child(1) > mat-sidenav-content:nth-child(5) > app-provider:nth-child(3) > app-search-providers:nth-child(2) > div:nth-child(2) > mat-card:nth-child(1) > div:nth-child(3) > app-provider-search-form:nth-child(2) > form:nth-child(1) > div:nth-child(1) > div:nth-child(3) > span:nth-child(1)';
  hospitalNameEle='#mat-input-0';
  displayHosNameEle='[style="width: 65%;"] > .mat-tooltip-trigger';
  radiusEle='#mat-input-4';
-
  streetEle='mat-input-6';
  zipcodeEle='#mat-input-7';
  searchiconEle='.mat-form-field-suffix > .mat-focus-indicator';
  countyEle='#mat-select-value-5';
  cityEle='#mat-select-value-7';
- //searchProvBtnEle='button.mat-raised-button.mat-primary';
  searchProvBtnEle='.display-flex > .mat-focus-indicator';
  providerDownArrowEle='#mat-expansion-panel-header-1';
- //distanceEle='[style="display: flex; justify-content: flex-start; flex-wrap: wrap;"] > .mat-form-field-type-mat-input > .mat-form-field-wrapper > .mat-form-field-flex';
  distanceEle='input#distance';
  valueMustBeErrorEle='#mat-error-1';//'#mat-error-13'
  hospitalTypeEle='#hospitalType > .mat-select-trigger > .mat-select-arrow-wrapper';
  hosTypePanelEle='#hospitalType-panel';
- acuteCareHospitalsEle='#mat-option-15 > .mat-option-text';
- displayAcuteCareHosEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- acuteCareVeteransAdminEle='#mat-option-16 > .mat-option-text';
- displayAcuteCareVetAdminEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- criticalAccessHospitalsEle='#mat-option-17 > .mat-option-text';
- displaycriticAccHosEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- childHosEle = '#mat-option-18 > .mat-option-text';
- displaychildHosEle='[style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- psychiatricHospitalsEle='#mat-option-19 > .mat-option-text';
- displayPsychiatricHosEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- acuteCareDeptEle='#mat-option-20 > .mat-option-text';
- displayacuteCareDeptEle='[style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
- hosTypeEle='#mat-option-21 > .mat-option-text';
+ hosTypeDropDownEle='.mat-option-text';
+   acuteCareHospitalsEle='Acute Care Hospitals'//'#mat-option-15 > .mat-option-text';
+    displayAcuteCareHosEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+   acuteCareVeteransAdminEle=' Acute Care - Veterans Administration '//'#mat-option-16 > .mat-option-text';
+    displayAcuteCareVetAdminEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+   criticalAccessHospitalsEle=' Critical Access Hospitals ';
+    displaycriticAccHosEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+   childHosEle = ' Childrens ';
+    displaychildHosEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+    //displaychildHosEle='[style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+   psychiatricHospitalsEle=' Psychiatric ';
+    displayPsychiatricHosEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+   acuteCareDeptEle=' Acute Care - Department of Defense ';
+    displayacuteCareDeptEle='[style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(1)';
+ hosTypeEle=' Hospital Type ';
  overallRatingEle='#rating_overall > .mat-select-trigger > .mat-select-arrow-wrapper';
- displayOverallRatePanelEle='.cdk-overlay-container';
- overallRatFiveEle='#mat-option-22 > .mat-option-text';
- overallRatFourEle='#mat-option-23 > .mat-option-text';
- overallRatThreeEle='#mat-option-24 > .mat-option-text';
- displayOverRateThreeEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(3)';
- overallRatTwoEle='#mat-option-25 > .mat-option-text';
- overallRatOneEle='#mat-option-26 > .mat-option-text';
+   displayOverallRatePanelEle='.cdk-overlay-container';
+   overallRatFiveEle='#mat-option-22 > .mat-option-text';
+   overallRatFourEle='#mat-option-23 > .mat-option-text';
+   overallRatThreeEle='#mat-option-24 > .mat-option-text';
+   displayOverRateThreeEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > :nth-child(3)';
+   overallRatTwoEle='#mat-option-25 > .mat-option-text';
+   overallRatOneEle='#mat-option-26 > .mat-option-text';
  patientSurveyRatEle='#rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper';
- displaypatientSurRatEle='#rating_patient-panel';
- patientSurveyRatFiveEle='#mat-option-27 > .mat-option-text';
-  patientSurveyRatFourEle='#mat-option-28 > .mat-option-text';
-  patientSurveyRatThreeEle='#mat-option-29 > .mat-option-text';
-  patientSurveyRatTwoEle='#mat-option-30 > .mat-option-text';
-  //displaypatientSurRatTwoEle=
-  patientSurveyRatOneEle='#mat-option-31 > .mat-option-text';
-  //emergenyBothEle="label[for='mat-radio-4-input'] span[class='mat-radio-outer-circle']";        
-// emergenyBothEle='#mat-radio-16 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle';
+   displaypatientSurRatEle='#rating_patient-panel';
+   patientSurveyRatFiveEle='#mat-option-27 > .mat-option-text';
+   patientSurveyRatFourEle='#mat-option-28 > .mat-option-text';
+   patientSurveyRatThreeEle='#mat-option-29 > .mat-option-text';
+   patientSurveyRatTwoEle='#mat-option-30 > .mat-option-text';
+   patientSurveyRatOneEle='#mat-option-31 > .mat-option-text';
  emergenyBothEle='#mat-radio-4 > .mat-radio-label > .mat-radio-container > .mat-radio-inner-circle'//'span.mat-radio-label-content';
- displayEmergBothEle=':nth-child(4) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
+   displayEmergBothEle=':nth-child(4) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
  emergencyYesEle='#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle';
- displayEmergYesEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
+   displayEmergYesEle=':nth-child(1) > .ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
  emergencyNoEle='#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle';
- displayEmergNoEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
+   displayEmergNoEle=':nth-child(1) > app-hospital-card.ng-star-inserted > .mat-card > .mat-card-content > [style="display: flex; justify-content: space-between;"] > :nth-child(1) > [style="font-size: 14px; font-weight: 500;"]';
  clearFilterEle='form.ng-dirty > :nth-child(2) > [type="button"]';
- 
- 
  applyFilterEle=':nth-child(2) > [type="submit"]';
  disabledapplyfilEle='form.ng-dirty > :nth-child(2) > .mat-button-disabled';
- 
- 
  providerListEle='#mat-expansion-panel-header-2 > .mat-expansion-indicator';
  noproviderfoundEle='#cdk-accordion-child-2 > .mat-expansion-panel-body > .ng-star-inserted';
  disabledSearchProvBtnEle='.display-flex > .mat-focus-indicator';
-
-clickHospitalCat(){
+clickHospitalCat()
+{
   cy.get(this.HospitalCatEle).click();
 }
- verifyUrl()
- {
+verifyUrl()
+{
   cy.url().should('eq','http://169.61.105.110/medicareAdvantage_sandbox/manage-providers');
- }
-
- getpageHeading()
- {
+}
+getpageHeading()
+{
   cy.get(this.pageheadingEle).should('have.text','Your Medicare Options');
- }
-
- getUserInitial()
- {
+}
+getUserInitial()
+{
   cy.get(this.userInitEle).should('have.text','T');
-
- }
- getBackBtn()
- {
+}
+getBackBtn()
+{
   cy.get(this.backbtnEle).should('have.text','Back');
- }
- 
- 
- getUserAddressHead()
- {
+}
+getUserAddressHead()
+{
   cy.get(this.userAddHeadEle).should('have.text','User Address');
- }
- setRadius(Radius)
- {
+}
+setRadius(Radius)
+{
   cy.get(this.radiusEle).clear();
   cy.get(this.radiusEle).type(Radius).should('have.value', Radius);
   cy.log('Radius value :' ,Radius);
- }
- setZipcode(zipcode)
- {  
+}
+setZipcode(zipcode)
+{  
   cy.get(this.zipcodeEle).type(zipcode);
- }
- clickSearchIcon()
- {
+}
+clickSearchIcon()
+{
   cy.get(this.searchiconEle).click();
-
- }
- ClickSearchProv(Radius) {
+}
+ClickSearchProv(Radius)
+{
   const radiusValue = Number(Radius); 
 
   // Intercept the API request and modify the request body
@@ -133,78 +118,48 @@ clickHospitalCat(){
 
   // Click the search provider button
   cy.get(this.searchProvBtnEle).click();
-
-  
   cy.wait('@searchProviders', { timeout: 15000 }); 
   return cy.get('body')
   //find("span[class='ng-star-inserted']",{ timeout: 0 })
   .then(($body) => {
     const providerList = $body.find('[style="display: flex; flex-wrap: wrap;"]');
-    
-
     if (providerList.length > 0) {cy.log(`Providers found: ${providerList.length}`);
     return cy.wrap(true); 
   }
 
-const noProviderElement = $body.find("span[class='ng-star-inserted']");
-      if (noProviderElement.length > 0) {
-      return cy.wrap(noProviderElement).then(($el) => {
-      //cy.log('Element found.');
-      const text = $el.text();
-      cy.log(`Text of "No Provider Found" element: ${text}`);
-      if (text.includes('No Provider found with given search criteria.')) {
-        cy.log('Assertion found: No Provider found. Ending the test case.');
-        //throw new Error('No Provider found with given search criteria. - Test terminated.');
-        return;
-      } 
-    });
-    } 
-    else { // Element does not exist
-      cy.log('Text of "No Provider Found" element: ${text}');
-      return cy.wrap(false);
-      
-    }
-  });
+   });
 }
- 
-
-
- 
- getHeading()
- {
+getHeading()
+{
   cy.get(this.headingEle).should('have.text','Find hospitals near me');
-  
- }
- clickProviderDownArrow()
- {
+}
+clickProviderDownArrow()
+{
   cy.get(this.providerDownArrowEle).click({force:true});
   cy.wait(4000);
-  
-
- }
-  setDistance(Distance)
-  {
-   //cy.get(this.distanceEle).type(Distance).type('{enter}');
-   cy.get(this.distanceEle).type(Distance).blur();
-  }
-  displayError()
-  {
-      cy.get(this.valueMustBeErrorEle).should('have.text',' Value must be at less than 25. ');
-  }
-  getHospitalType()
-  {
-   cy.get(this.hospitalTypeEle).click();
-  }
-  setAcuteCareHospitals()
-  {
-   cy.get(this.acuteCareHospitalsEle).click();
-  }
-  displayAcuteCareHos()
-  {
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
+}
+setDistance(Distance)
+{
+  cy.get(this.distanceEle).type(Distance).blur();
+}
+displayError()
+{
+  cy.get(this.valueMustBeErrorEle).should('have.text',' Value must be at less than 25. ');
+}
+getHospitalType()
+{
+  cy.get(this.hospitalTypeEle).click();
+}
+setAcuteCareHospitals()
+{
+  cy.get(this.hosTypeDropDownEle).contains(this.acuteCareHospitalsEle).click();    
+}
+displayAcuteCareHos()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+        const text = $el.text();
           if (text.includes('No Provider found with given search criteria.')) {
             cy.log('Assertion found: Ending the test case.');
             //throw new Error('Stopping test due to - No Provider found with given search criteria.');
@@ -218,21 +173,19 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
         cy.get(this.displayAcuteCareHosEle).should('have.text','Acute Care Hospitals');
       }
     });
-    //cy.get(this.displayAcuteCareHosEle).should('be.visible').should('have.text','Acute Care Hospitals');
-  }
-  setAcuteCareVeteransAdmin()
-  {
-   cy.get(this.acuteCareVeteransAdminEle).click();
-  }
-  displayAcuteCareVeteransAdmin()
-  {
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
+}
+setAcuteCareVeteransAdmin()
+{
+  cy.get(this.hosTypeDropDownEle).contains(this.acuteCareVeteransAdminEle).click();
+}
+displayAcuteCareVeteransAdmin()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+        const text = $el.text();
           if (text.includes('No Provider found with given search criteria.')) {
             cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
-          //throw new Error('Stopping test due to - No Provider found with given search criteria.');
           return;
           }
         });
@@ -243,20 +196,19 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
         cy.get(this.displayAcuteCareVetAdminEle).should('have.text', 'Acute Care - Veterans Administration');
       }
     });
-    //cy.get(this.displayAcuteCareVetAdminEle).should('be.visible').should('have.text','Acute Care - Veterans Administration');
-  }
-  setCriticalAccessHospitals()
-  {
-   cy.get(this.criticalAccessHospitalsEle).click();
-  }   
-  displayCriticalAccessHos(){
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
+}
+setCriticalAccessHospitals()
+{
+  cy.get(this.hosTypeDropDownEle).contains(this.criticalAccessHospitalsEle).click();
+}   
+displayCriticalAccessHos()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+        const text = $el.text();
           if (text.includes('No Provider found with given search criteria.')) {
             cy.log('Assertion found: Ending the test case.');
-            //throw new Error('Stopping test due to - No Provider found with given search criteria.');
             return;
           }
         });
@@ -267,20 +219,19 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
         cy.get(this.displaycriticAccHosEle).should('have.text','Critical Access Hospitals');
       }
     });
-  }
-  setChildrenHospitals()
-  {
-   cy.get(this.childHosEle).click();
-  }   
-  displaychildHos()
-  {
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
-          if (text.includes('No Provider found with given search criteria.')) {
-            cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
-          //throw new Error('Stopping test due to - No Provider found with given search criteria.');
+}
+setChildrenHospitals()
+{
+  cy.get(this.hosTypeDropDownEle).contains(this.childHosEle).click();
+}   
+displaychildHos()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+        const text = $el.text();
+        if (text.includes('No Provider found with given search criteria.')) {
+          cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
           return;
           }
         });
@@ -291,21 +242,19 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
         cy.get(this.displaychildHosEle).should('have.text', 'Childrens');
       }
     });
-    //cy.get(this.displaychildHosEle).should('be.visible').should('have.text','Childrens');
-  }
-  setPsychiatricHospitals()
-  {
-   cy.get(this.psychiatricHospitalsEle).click();
-  }
-  displayPsychiatricHos()
-  {
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
-          if (text.includes('No Provider found with given search criteria.')) {
-            cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
-          //throw new Error('Stopping test due to - No Provider found with given search criteria.');
+}
+setPsychiatricHospitals()
+{
+ cy.get(this.hosTypeDropDownEle).contains(this.psychiatricHospitalsEle).click();
+}
+displayPsychiatricHos()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+        const text = $el.text();
+        if (text.includes('No Provider found with given search criteria.')) {
+          cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
           return;
           }
         });
@@ -316,20 +265,20 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
         cy.get(this.displayPsychiatricHosEle).should('have.text', 'Psychiatric');
       }
     });
-    //cy.get(this.displayPsychiatricHosEle).should('be.visible').should('have.text','Psychiatric');
-  }
-  setAcuteCareDept()
-  {
-   cy.get(this.acuteCareDeptEle).click();
-  }
-  displayAcuteCareDept(){
-    cy.get("body").then(($body) => {
-      if ($body.find("span[class='ng-star-inserted']").length) {
-        cy.get("span[class='ng-star-inserted']").then(($el) => {
-          const text = $el.text();
-          if (text.includes('No Provider found with given search criteria.')) {
-            cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
-          //throw new Error('Stopping test due to - No Provider found with given search criteria.');
+    
+}
+setAcuteCareDept()
+{
+ cy.get(this.hosTypeDropDownEle).contains(this.acuteCareDeptEle).click();
+}
+displayAcuteCareDept()
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+       const text = $el.text();
+        if (text.includes('No Provider found with given search criteria.')) {
+          cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
           return;
           }
         });
@@ -341,156 +290,132 @@ const noProviderElement = $body.find("span[class='ng-star-inserted']");
       }
     });
 
-  }
-  setHosType()
-  {
-   cy.get(this.hosTypeEle).click();
-  }
-  displayHosType() 
-  {
-    cy.get(this.hosTypePanelEle).should('be.visible');
-  }
-
-  getOverallRating()
-  {
-   cy.get(this.overallRatingEle).click();
-  }
-  displayOverallRatePanel()
-  {
-    cy.get(this.displayOverallRatePanelEle).should('be.visible');
-  }
-  getOverallRatFive()
-  {
-   cy.get(this.overallRatFiveEle).click();
-  }
-  getOverallRatFour()
-  {
-   cy.get(this.overallRatFourEle).click();
-  }
-  getOverallRatThree()
-  {
-   cy.get(this.overallRatThreeEle).click();
-  }
-  displayOverRateThree()
-  {
-    cy.get(this.displayOverRateThreeEle) 
-.each(($card) => {
-    
-    cy.wrap($card)
+}
+setHosType()
+{
+  cy.get(this.hosTypeDropDownEle).contains(this.hosTypeEle).click();
+}
+displayHosType() 
+{
+  cy.get(this.hosTypePanelEle).should('be.visible');
+}
+getOverallRating()
+{
+  cy.get(this.overallRatingEle).click();
+}
+displayOverallRatePanel()
+{
+  cy.get(this.displayOverallRatePanelEle).should('be.visible');
+}
+getOverallRat(rating)
+{
+  cy.get(this.hosTypeDropDownEle).contains(String(rating)).parents('mat-option').click();
+}
+displayOverRateThree()
+{
+  cy.get(this.displayOverRateThreeEle).each(($card) => {
+  cy.wrap($card)
       .find('svg') 
       .its('length')
       .should('be.gte', 3); 
-});
-    
-  }
-  getOverallRatTwo()
-  {
-   cy.get(this.overallRatTwoEle).click();
-  }
-  getOverallRatOne()
-  {
-   cy.get(this.overallRatOneEle).click();
-  }
-  getPatientSurveyRating()
-  {
-   cy.get(this.patientSurveyRatEle).click();
-  }
-  displayPatientSurRat()
-  {
-    cy.get(this.displaypatientSurRatEle).should('be.visible');
-  }
-  getPatientSurveyRatFive()
-  {
-   cy.get(this.patientSurveyRatFiveEle).click();
-  }
-  getPatientSurveyRatFour()
-  {
-   cy.get(this.patientSurveyRatFourEle).click();
-  }
-  getPatientSurveyRatThree()
-  {
-   cy.get(this.patientSurveyRatThreeEle).click();
-  }
-  getPatientSurveyRatTwo()
-  {
-   cy.get(this.patientSurveyRatTwoEle).click();
-  }
-  getPatientSurveyRatOne()
-  {
-   cy.get(this.patientSurveyRatOneEle).click();
-  }
-  getEmergencyBoth()
-  {
-   cy.get(this.emergenyBothEle).click({force:true});
-  }
-  displayEmergBoth()
-  {
-    cy.get(this.displayEmergBothEle).should('be.visible').invoke('text').should('be.oneOf', ['Emergency : Yes', 'Emergency : No']);
-  }
-  getEmergencyYes()
-  {
-   cy.get(this.emergencyYesEle).click({force:true});
-  }
-  displayEmergYes()
-  {
-    cy.get(this.displayEmergYesEle).should('be.visible').should('have.text','Emergency : Yes');
-  }
-  getEmergencyNo()
-  {
-   cy.get(this.emergencyNoEle).click({force:true});
-  }
-  displayEmergNo()
-  {
-    cy.get(this.displayEmergNoEle).should('be.visible').should('have.text','Emergency : No');
-  }
-  clickClearFilter()
-  {
-   cy.get(this.clearFilterEle).click();
-  }
-  setFiltertoDefault()
-  {
-    
-    cy.get('span.mat-select-placeholder').contains('Select Hospital Types');
-    cy.get('span.mat-select-placeholder').contains('Select Overall Rating');
-    //cy.get(':nth-child(6) > [data-layer="Content"]').contains('Select Overall Rating');
-    cy.get('span.mat-select-placeholder').contains('Select Patient Survey Rating');
-    cy.get('span.mat-radio-label-content').contains('Both').parents('.mat-radio-button').find('input[type="radio"]').should('be.checked');
-  }
-  clickApplyFilter()
-  {
-   cy.get(this.applyFilterEle).click({force:true});
-  }
-  disabledapplyfilter()
-  {cy.wait(5000);
-    
-    cy.get(this.disabledapplyfilEle).should('have.class', 'mat-button-disabled');
-  }
-  clickProviderList()
-  {
-   cy.get(this.providerListEle).click();
-  }
-  getNoProviderFound()
-  {
-   cy.get(this.noproviderfoundEle).should('have.text',' No Provider found with given search criteria.');
-  }
-  setHospitalName(HospitalName)
-  {
-    cy.get(this.hospitalNameEle).type(HospitalName);
-    cy.wait(2000);
-  }
-  displayHosName(HospitalName)
-  {
+});    
+}
+getPatientSurveyRating()
+{
+  cy.get(this.patientSurveyRatEle).click();
+}
+displayPatientSurRat()
+{
+  cy.get(this.displaypatientSurRatEle).should('be.visible');
+}
+getPatientSurveyRat(patientrate)
+{
+  cy.get(this.hosTypeDropDownEle).contains(String(patientrate)).parents('mat-option').click();
+}
+ 
+getEmergencyBoth()
+{
+  cy.get(this.emergenyBothEle).click({force:true});
+}
+displayEmergBoth()
+{
+  cy.get(this.displayEmergBothEle).should('be.visible').invoke('text').should('be.oneOf', ['Emergency : Yes', 'Emergency : No']);
+}
+getEmergencyYes()
+{
+  cy.get(this.emergencyYesEle).click({force:true});
+}
+displayEmergYes()
+{
+  cy.get(this.displayEmergYesEle).should('be.visible').should('have.text','Emergency : Yes');
+}
+getEmergencyNo()
+{
+  cy.get(this.emergencyNoEle).click({force:true});
+}
+displayEmergNo()
+{
+  cy.get(this.displayEmergNoEle).should('be.visible').should('have.text','Emergency : No');
+}
+clickClearFilter()
+{
+  cy.get(this.clearFilterEle).click();
+}
+setFiltertoDefault()
+{
+  cy.get('span.mat-select-placeholder').contains('Select Hospital Types');
+  cy.get('span.mat-select-placeholder').contains('Select Overall Rating');
+  cy.get('span.mat-select-placeholder').contains('Select Patient Survey Rating');
+  cy.get('span.mat-radio-label-content').contains('Both').parents('.mat-radio-button').find('input[type="radio"]').should('be.checked');
+}
+clickApplyFilter()
+{
+  cy.get(this.applyFilterEle).click({force:true});
+}
+disabledapplyfilter()
+{
+  cy.wait(5000);
+  cy.get(this.disabledapplyfilEle).should('have.class', 'mat-button-disabled');
+}
+clickProviderList()
+{
+  cy.get(this.providerListEle).click();
+}
+getNoProviderFound()
+{
+  cy.get(this.noproviderfoundEle).should('have.text',' No Provider found with given search criteria.');
+}
+setHospitalName(HospitalName)
+{
+  cy.get(this.hospitalNameEle).type(HospitalName);
+  cy.wait(2000);
+}
+displayHosName(HospitalName)
+{
+  cy.get("body").then(($body) => {
+    if ($body.find("span[class='ng-star-inserted']").length) {
+      cy.get("span[class='ng-star-inserted']").then(($el) => {
+       const text = $el.text();
+        if (text.includes('No Provider found with given search criteria.')) {
+          cy.log('Stopping test due to - No Provider found with given search criteria: Ending the test case.');
+          return;
+          }
+        });
+      }
+    else {
     cy.get(this.displayHosNameEle)
     .invoke('text')
-.then((text) => {
-    expect(text.trim()).to.equal(HospitalName);
-});
-    
-  }
-  disabledSearchProvBtn(){
-    cy.get(this.disabledSearchProvBtnEle).should('have.class','mat-button-disabled');
-    
-  } 
+    .then((text) => {
+     expect(text.trim()).to.equal(HospitalName);
+    })
+   }
+  });
+}
+disabledSearchProvBtn()
+{
+  cy.get(this.disabledSearchProvBtnEle).should('have.class','mat-button-disabled');    
+}  
+
 }
 
 
