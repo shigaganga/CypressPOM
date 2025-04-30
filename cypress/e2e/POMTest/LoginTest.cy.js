@@ -3,11 +3,10 @@ import LoginPage from '../pages/LoginPage.js';
 describe('Login Test Suite', () => {
     const loginPage = new LoginPage();
     let loginData; // Variable to hold CSV data
-    const csvPath = 'C:\\Users\\shiga\\CypressFolder\\CypressPOM\\data.csv'; // Variable for CSV file path
 
     before(() => {
-        // Load the CSV data before running the tests using the csvPath variable
-        cy.task('csv:parse', csvPath).then((data) => {
+        // Load the CSV data from Dropbox before running the tests using the csv:parseFromDropbox task
+        cy.task('csv:parseFromDropbox').then((data) => {
             loginData = {};
             // Assuming each row in the CSV contains 'key' and 'value' columns
             // You can adjust the logic here if your CSV has a different structure
