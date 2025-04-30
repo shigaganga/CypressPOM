@@ -5,17 +5,28 @@ class LandingPage {
     edit = ".inner-table > .mat-table > tbody > .highlight > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon"
     //Tsign = "//span[@id='userInitial']";
     Tsign = "//span[@id='userInitial']"
+<<<<<<< Updated upstream
     logOut = "//button[normalize-space(text())='Logout']";//Xpath locator
     //logOut=".mat-menu-content > :nth-child(2)"//cypress locator
     recommendationRadioBut = "#mat-radio-2 > .mat-radio-label";//Recommendation Radio Button
     filterByEmail = "#mat-input-2";    //Filter by recommendation email or name
     expandPlan = ".cdk-column-expand > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+=======
+    logOut = "//button[normalize-space(text())='Logout']";
+    recommendationRadioBut = "#mat-radio-2 > .mat-radio-label";
+    filterByEmail = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-landing/div/app-recomndations/div/div/mat-form-field/div/div[1]/div/input" //"#mat-input-0" //"#mat-input-2";    //Filter by recommendation email or name
+    expandRecommPlan = ".cdk-column-expand > .mat-focus-indicator";
+>>>>>>> Stashed changes
     collapsesPlan = ".example-expanded-row > .cdk-column-expand > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     itemPerPageNext = ".mat-paginator-navigation-next";
     itemPreviousPage = ".mat-paginator-navigation-previous";
     itemLastPage = ".mat-paginator-navigation-last";
     itemFirstPage = ".mat-paginator-navigation-first";
+<<<<<<< Updated upstream
     editRecommandtion = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
+=======
+    editRecommandtion = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-landing/div/app-recomndations/div/table/tbody/tr[2]/td/div/div/app-inner-table/table/tbody/tr/td[3]/button[1]/span[1]/mat-icon" //".inner-table > .ng-tns-c275-1 > .mat-table > tbody > .mat-row > .cdk-column-actions > :nth-child(1)";
+>>>>>>> Stashed changes
     backBut = ".button-wrapper > .mat-focus-indicator";
     editHealthProfile = "#mat-select-value-5";
     editBestHealth = "#mat-option-8 > .mat-option-text";
@@ -23,6 +34,7 @@ class LandingPage {
     editModerateHealth = "#mat-option-10 > .mat-option-text";
     editPoorHealth = "#mat-option-11 > .mat-option-text";
     editSickHealth = "#mat-option-12 > .mat-option-text";
+<<<<<<< Updated upstream
     editRecommendationName = "#mat-input-4";
     editLifeExpectancy = "#mat-input-5";
     editCalenderEle = ".mat-datepicker-toggle > .mat-focus-indicator";
@@ -35,17 +47,35 @@ class LandingPage {
     editTabaccoYes = "#mat-radio-7 > .mat-radio-label";
     editTaxFilingJoin = "#mat-radio-8 > .mat-radio-label";//Tax filing jointly
     editTaxFilingIndiv = "#mat-radio-9 > .mat-radio-label";//Tax filing individual
+=======
+    editRecommendationName = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[3]/mat-form-field/div/div[1]/div[3]/input"; //"#mat-input-4";
+    editLifeExpectancy = "#mat-input-5";
+    editCalenderEle = ".mat-datepicker-toggle > .mat-focus-indicator";
+    editYear = ":nth-child(6) > [data-mat-col='1']";
+    editMonth = ":nth-child(3) > [data-mat-col='0']";
+    editGender = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[5]/div[2]/mat-form-field/div/div[1]/div[3]/mat-select/div/div[1]";
+    editGenderMale = "#mat-option-13 > .mat-option-text";
+    editGenderFemale = "#mat-option-14 > .mat-option-text";
+    editTabaccoNo = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[6]/div/mat-radio-group/mat-radio-button[1]/label/span[1]/span[2]"; //"#mat-radio-6 > .mat-radio-label";
+    editTabaccoYes = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[6]/div/mat-radio-group/mat-radio-button[2]/label/span[1]/span[1]"; //"#mat-radio-7 > .mat-radio-label";
+    editTaxFilingJoin = "#mat-radio-8 > .mat-radio-label";
+    editTaxFilingIndiv = "#mat-radio-9 > .mat-radio-label";
+>>>>>>> Stashed changes
     editStreet = "#mat-input-7";
     editZipcode = "#mat-input-8";
     zipcodeSearchBut = ".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     editMagiTier = "#mat-select-value-11";
-    editMagiTier1 = "#mat-option-11 > .mat-option-text";//Magitier 1
-    editMagiTier2 = "#mat-option-12 > .mat-option-text";//Magitier 2
-    editMagiTier3 = "#mat-option-13 > .mat-option-text";//Magitier 3
-    editMagiTier4 = "#mat-option-14 > .mat-option-text";//Magitier 4
-    editMagiTier5 = "#mat-option-15 > .mat-option-text";//Magitier 5
+    editMagiTier1 = "#mat-option-11 > .mat-option-text";
+    editMagiTier2 = "#mat-option-12 > .mat-option-text";
+    editMagiTier3 = "#mat-option-13 > .mat-option-text";
+    editMagiTier4 = "#mat-option-14 > .mat-option-text";
+    editMagiTier5 = "#mat-option-15 > .mat-option-text";
     editCommunicationEmail = "#mat-input-9";
+<<<<<<< Updated upstream
     editContact = "#mat-input-10";
+=======
+    editContact = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-recom/div[2]/div/form/div/div[15]/mat-form-field/div/div[1]/div[3]/input"; //"#mat-input-10";
+>>>>>>> Stashed changes
     editNextBut = ".form-wrapper > .mat-raised-button > .mat-button-wrapper";
     searchPrefNo = "#mat-radio-27 > .mat-radio-label";
     searchPrefYes = "#mat-radio-11 > .mat-radio-label";
@@ -61,7 +91,7 @@ class LandingPage {
     doneAddingdrugs = ".ng-star-inserted > .mat-focus-indicator";
     editAddPharmacy = "#mat-checkbox-2 > .mat-checkbox-layout >";
     pharmacyNextButt = ".selected-pharmacy > .button-wrapper";
-    editMABut = ":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";//MA buttn
+    editMABut = ":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
     editPlan = "#mat-checkbox-14 > .mat-checkbox-layout > .mat-checkbox-inner-container";
     doneBut = ".button-container > .mat-focus-indicator";
     selectMAPlan = ".mat-checkbox-inner-container";
@@ -69,6 +99,13 @@ class LandingPage {
     viewRecom = ":nth-child(2) > .inner-table-wrap > .example-element-detail > .inner-table > .ng-tns-c278-3 > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(2)";
     viewBackbut = ".button-container > :nth-child(1)";
     viewLowCost = ".view-button-container > :nth-child(1)";
+<<<<<<< Updated upstream
+=======
+    expandPharmacyFilter = "/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-low-cost/div[2]/app-pharmacy-filter/mat-accordion/mat-expansion-panel/mat-expansion-panel-header/span[2]";
+    radiusPharmacyFilter = "#mat-input-3']";
+    sumbit = ".form-field-container-col2 > :nth-child(2) > .mat-focus-indicator > .mat-button-wrapper";
+    addRemovePrescription = "//span[normalize-space()='Add/Remove Prescription']";
+>>>>>>> Stashed changes
     backLowCost = ".location-container > .button-wrapper > .mat-focus-indicator";
     viewProvider = ".view-button-container > :nth-child(2)";
     backViewRecommendation = ".button-wrapper > .mat-focus-indicator";
@@ -82,7 +119,10 @@ class LandingPage {
     cancelDeleteBut = ".mat-dialog-actions > .mat-primary > .mat-button-wrapper";
     //PRESCRIPTION RADIO BUTTON:
     presRadioBut = "#mat-radio-3 > .mat-radio-label";//Prescription Radio Button
+<<<<<<< Updated upstream
     editPresEmail = "#mat-input-3";
+=======
+>>>>>>> Stashed changes
     editPrescription = ".inner-table > .mat-table > tbody > :nth-child(1) > .cdk-column-actions > :nth-child(1)";
     editDrug = "[style='bottom: -10px; position: relative;'] > :nth-child(1) > u";
     viewDrug = ":nth-child(1) > .cdk-column-actions > :nth-child(2)";
@@ -100,11 +140,11 @@ class LandingPage {
         cy.get(this.edit).should('exist').should('be.visible').click();
         cy.wait(2000);
     }
-clickTsign() {
+    clickTsign() {
         cy.xpath(this.Tsign, { timeout: 6000 })
             .should('be.visible')
             .click();
-}
+    }
     clickLogOut() {
         cy.xpath(this.logOut).should('be.visible').click();
     }
@@ -285,6 +325,21 @@ clickTsign() {
     clickviewLowCost() {
         cy.get(this.viewLowCost).wait(2000).click();
     }
+<<<<<<< Updated upstream
+=======
+    clickexpandPharmacyFilter() {
+        cy.xpath(this.expandPharmacyFilter).click();
+    }
+    enterradiusPharmacyFilter(radiusPharmacyFilter) {
+        cy.get(this.radiusPharmacyFilter).type(radiusPharmacyFilter);
+    }
+    clicksumbit() {
+        cy.get(this.sumbit).click();
+    }
+    clickaddRemovePrescription() {
+        cy.xpath(this.addRemovePrescription).click();
+    }
+>>>>>>> Stashed changes
     clickbackLowCost() {
         cy.get(this.backLowCost).click();
     }
@@ -324,6 +379,12 @@ clickTsign() {
     clickeditPresDrug() {
         cy.get(this.editPrescription).click({ force: true });
     }
+<<<<<<< Updated upstream
+=======
+    clickexpandPres() {
+        cy.xpath(this.expandPres).click()
+    }
+>>>>>>> Stashed changes
     clickeditDrug() {
         cy.get(this.editDrug).click();
     }
