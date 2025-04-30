@@ -7,10 +7,14 @@ const axios = require('axios');
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
+    reportDir: "cypress/reports/html",
+    overwrite: false,
+    html: false,
+    json: true, // required to generate .json files
     charts: true,
     reportPageTitle: "Aivante Regression Report",
     embeddedScreenshots: true,
-    inlineAssets: true,
+    inlineAssets: true
   },
   video: false,
   screenshotOnRunFailure: true,
