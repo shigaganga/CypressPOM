@@ -79,7 +79,7 @@ describe('Providermedicalequipment', () => {
             cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/manage-providers');
         });           // cy.log("Entering MedicalProviderEquipmentPage");
            // cy.wait(3000)
-        it('TC-01 Enter Medical Facility Name', () => {
+        it('TC_PDP_PRV_ME_01 Verify "Medical equipment & suppliers" Category is Visible and Clickable on the Provider Page and facility name, ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
             cy.wait(1000);
             providerMedicalEquipment.clickMedcial()
@@ -88,7 +88,7 @@ describe('Providermedicalequipment', () => {
             cy.wait(1000);
             providerMedicalEquipment.typeStreet("Holly")
         });
-        it('TC-02 Click City ', () => {
+        it('TC_PDP_PRV_ME_02 Verify the Zip code Search icon for  "Medical equipment & suppliers" Category on the Provider Page., ' ,() => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
             cy.wait(1000);
             providerMedicalEquipment.enterZipCode("80112");
@@ -102,7 +102,7 @@ describe('Providermedicalequipment', () => {
 
         });
 
-        it('TC-03 Click Radius ', () => {
+        it('TC_PDP_PRV_ME_03 Verify the Distance and search provider for  "Medical equipment & suppliers" Category on the Provider Page. ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
             cy.wait(1000);
             providerMedicalEquipment.enterZipCode("80112");
@@ -118,7 +118,7 @@ describe('Providermedicalequipment', () => {
             providerMedicalEquipment.clickSearchProvider();
         });
 
-        it('TC-04 provider filter ', () => {
+        it('TC_PDP_PRV_ME_04 Verify "Apply Filter" and clear,back Button Functionality in the " Medical equipment" Category on the Provider Page,  ', () => {
             const providerMedicalEquipment = new ProviderMedicalEquipment();
            // cy.wait(1000);
            providerMedicalEquipment.enterZipCode("80112");

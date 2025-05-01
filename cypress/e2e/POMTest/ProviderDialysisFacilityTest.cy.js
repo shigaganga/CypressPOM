@@ -78,24 +78,24 @@ describe("ProviderDialysisFacility Testing", () => {
 
         cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
     })
-    
-	//Test Cases
-    it('TC-01 dialysisfacility clickdialysis', () => {
+
+    it('TC_PDP_PRV_DF_01 Verify "Dialysis facilities" Category ', () => {
         providerDialysisFacility.clickDialysis();
+
     });
 
-    it('TC-02 Enter Dialysis Facility Name', () => {
+    it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page',() => {
         providerDialysisFacility.clickDialysis();
         providerDialysisFacility.enterDialysisFacilityName("Davita Englewood Dialysis Center");
         cy.log("Dialysis Facility Name - Passed");
     });
 
-    it('TC-03 dialysisfacility street', () => {
+    it(' TC_PDP_PRV_DF_03,dialysisfacility street', () => {
         cy.wait(1000);
         providerDialysisFacility.enterStreet("Girard");
     });
 
-    it('TC-04 dialysisfacility enterzipcode', () => {
+    it('TC_PDP_PRV_DF_04 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
         cy.wait(1000);
         providerDialysisFacility.enterZipCode("80113");
         providerDialysisFacility.clickZipSearch();
@@ -105,12 +105,12 @@ describe("ProviderDialysisFacility Testing", () => {
         providerDialysisFacility.clickCityName();
     });
 
-    it('TC-05 dialysisfacility clickradius', () => {
+    it('TC_PDP_PRV_DF_05 verify the distance and click search provider', () => {
         providerDialysisFacility.clickRadiusIn();
         providerDialysisFacility.clickSearch();
     });
 
-    it('TC-06 dialysisfacility clickproviderfilter', () => {
+    it('TC_PDP_PRV_DF_06 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
         providerDialysisFacility.enterZipCode("80113");
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
@@ -136,7 +136,7 @@ describe("ProviderDialysisFacility Testing", () => {
         providerDialysisFacility.clickClearFilter();
     });
 
-    it('TC-07 dialysisfacility clickback button', () => {
+    it('TC_PDP_PRV_DF_07 This is to verify "Back button"', () => {
         //Search to get to next page.
         providerDialysisFacility.clickRadiusIn();
         cy.wait(1000);
