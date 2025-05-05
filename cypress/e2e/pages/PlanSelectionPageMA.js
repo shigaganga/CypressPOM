@@ -2,9 +2,6 @@ class PlanSelectionMA {
     MedicareadvantageEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[2]/div[3]/button')
     filterplans = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[1]/div/div[2]/button[1]')
     insurancecarrierEle=('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[1]/div/div[1]/div/mat-select/div/div[2]/div')
-
-
-
     cignahealthEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option[17]')
     starratingEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[2]/div/div[1]/div/mat-select')
     ratingfourEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option[5]')
@@ -115,8 +112,6 @@ class PlanSelectionMA {
     clickPlanDetails() {
         cy.get(this.plandetailsEle).scrollIntoView().click({ force: true, multiple: true });
     }
-
-
     //clickReset(){
     // cy.xpath(this.resetEle).click();
     // }
@@ -212,8 +207,6 @@ class PlanSelectionMA {
     clickCancelButton(){
         cy.get(this.cancelbutton).click();
     }
-
-
 
 //Done Button function
     clickDoneButton() {

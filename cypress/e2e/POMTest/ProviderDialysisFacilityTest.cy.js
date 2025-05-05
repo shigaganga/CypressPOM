@@ -8,9 +8,9 @@ import PharmacyPage from "../pages/PharmacyPage.js"
 import PlanselectionPage from '../pages/PlanselectionPage.js';
 
 describe("ProviderDialysisFacility Testing", () => {
-    const providerDialysisFacility = new ProviderDialysisFacility();
-
-    beforeEach("Login to PlanSelectionPage", () => {
+    const providerDialysisFacility = new ProviderDialysisFacility();    
+	
+	beforeEach("Login to PlanSelectionPage", () => {
         cy.session("Provider session", () => {
             cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
 
@@ -79,29 +79,23 @@ describe("ProviderDialysisFacility Testing", () => {
         cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
     })
 
-
-
-
-
-    
-
-    it('TC-1 dialysisfacility clickdialysis', () => {
+    it('TC_PDP_PRV_DF_01 Verify "Dialysis facilities" Category ', () => {
         providerDialysisFacility.clickDialysis();
 
     });
 
-    it('TC-2 Enter Dialysis Facility Name', () => {
+    it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page',() => {
         providerDialysisFacility.clickDialysis();
         providerDialysisFacility.enterDialysisFacilityName("Davita Englewood Dialysis Center");
         cy.log("Dialysis Facility Name - Passed");
     });
 
-    it('TC-3 dialysisfacility street', () => {
+    it(' TC_PDP_PRV_DF_03,dialysisfacility street', () => {
         cy.wait(1000);
         providerDialysisFacility.enterStreet("Girard");
     });
 
-    it('TC-4 dialysisfacility enterzipcode', () => {
+    it('TC_PDP_PRV_DF_04 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
         cy.wait(1000);
         providerDialysisFacility.enterZipCode("80113");
         providerDialysisFacility.clickZipSearch();
@@ -111,12 +105,12 @@ describe("ProviderDialysisFacility Testing", () => {
         providerDialysisFacility.clickCityName();
     });
 
-    it('TC-5 dialysisfacility clickradius', () => {
+    it('TC_PDP_PRV_DF_05 verify the distance and click search provider', () => {
         providerDialysisFacility.clickRadiusIn();
         providerDialysisFacility.clickSearch();
     });
 
-    it('TC-6 dialysisfacility clickproviderfilter', () => {
+    it('TC_PDP_PRV_DF_06 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
         providerDialysisFacility.enterZipCode("80113");
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
@@ -142,7 +136,7 @@ describe("ProviderDialysisFacility Testing", () => {
         providerDialysisFacility.clickClearFilter();
     });
 
-    it('TC-7 dialysisfacility clickback button', () => {
+    it('TC_PDP_PRV_DF_07 This is to verify "Back button"', () => {
         //Search to get to next page.
         providerDialysisFacility.clickRadiusIn();
         cy.wait(1000);
