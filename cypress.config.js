@@ -39,7 +39,7 @@ module.exports = defineConfig({
 
         // NEW: Dropbox CSV parser
         async 'csv:parseFromDropbox'() {
-          const url = 'https://www.dropbox.com/scl/fi/8z3lcvwa2tf8j57t0vmgf/data.csv?rlkey=450nnot8l12ut4u7qaimnghyo&st=ttwzyiza&dl=1';
+          const url = 'https://www.dropbox.com/scl/fi/o1snurf244l28zllxgwkl/data.csv?rlkey=0qv62hu689vdi96lb06fe3a91&st=janxgon4&dl=1';
           try {
             const response = await axios.get(url);
             const neatCSV = (await import('neat-csv')).default;
