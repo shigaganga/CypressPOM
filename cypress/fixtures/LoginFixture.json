@@ -13,9 +13,15 @@
 
   "email": "ShigaPOM@gmail.com",
   "name": "Shigapage",
-  "lifeexpectancy": "86",
-  "zip": "27529",
-
+  "year":"1957",
+  "month":"JUN",
+  "street":"483 Tucana Street",
+  "lifeExpectancy":"86",
+  "zip": "27591",
+"communicationEmail":"Shigha@gmail.com",
+"contactNumber":"6087652341",
+"healthProfile":"Moderate Health",
+"magiTier":" $ 212K to $ 266K ",
 
   
   "drugName1": "Gabapentin",

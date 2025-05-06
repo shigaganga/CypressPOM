@@ -8,8 +8,8 @@ managePharmacy_url,http://169.61.105.110/medicareAdvantage_sandbox/manage-pharma
 planSelection_url,http://169.61.105.110/medicareAdvantage_sandbox/plan-selection
 username,testuser@gmail.com
 password,user123
-email,ShigaPOM@gmail.com
-name,Shigapage
+Rec_email,ShigaPOM@gmail.com
+name,Shigapage,
 lifeexpectancy,86
 zip,27529
 drugName1,Gabapentin
@@ -21,9 +21,9 @@ drugCategory2,Antibiotics
 drugName3,Ibuprofen
 drugQuantity3,60
 drugCategory3,Pain Relief
-drugName3_a,Ibup
-drugQuantity3_a,60
-drugCategory3_a,Pain Relief
+drugName5,Ibup
+drugQuantity5,60
+drugCategory5,Pain Relief
 drugName4,ATORVALIQ
 drugQuantity4,90
 drugCategory4,Cardiovascular
