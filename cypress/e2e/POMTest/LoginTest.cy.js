@@ -1,43 +1,36 @@
 import LoginPage from '../pages/LoginPage.js';
 
-describe('Login Test Suite', () => {
+describe('Login Test Suite for Single User from CSV', () => {
     const loginPage = new LoginPage();
-    let loginData; // Variable to hold CSV data
+    let loginData = null;
 
     before(() => {
-        // Load the CSV data from Dropbox before running the tests using the csv:parseFromDropbox task
+        // Load the CSV data from Dropbox
         cy.task('csv:parseFromDropbox').then((data) => {
-            loginData = {};
-            // Assuming each row in the CSV contains 'key' and 'value' columns
-            // You can adjust the logic here if your CSV has a different structure
-            data.forEach(item => {
-                loginData[item.key] = item.value;
-            });
+            if (data.length === 0) {
+                throw new Error("CSV file is empty!");
+            }
+            loginData = data[0]; // Get the first (and only) row
         });
     });
 
     beforeEach(() => {
-        // Visit the URL from the CSV file before each test
         cy.visit(loginData.baseUrl);
     });
 
     it('TC_PDP_URL_01: Verify URL is correct', () => {
-        // Verify that the page URL matches the expected URL from CSV
         cy.url().should('eq', loginData.baseUrl);
     });
 
-    it('TC_PDP_LOGIN_UN_02: Verify username field is present and accepts input', () => {
-        // Verify that the username field accepts input from the CSV
+    it('TC_PDP_LOGIN_UN_02: Verify username input field', () => {
         loginPage.setUserName(loginData.username);
     });
 
-    it('TC_PDP_LOGIN_PW_03: Verify password field is present and accepts input', () => {
-        // Verify that the password field accepts input from the CSV
+    it('TC_PDP_LOGIN_PW_03: Verify password input field', () => {
         loginPage.setPassword(loginData.password);
     });
 
-    it('TC_PDP_LOGIN_BUTTON_04: Verify login button is present and clickable', () => {
-        // Verify that the login button is clickable
+    it('TC_PDP_LOGIN_BUTTON_04: Verify login button is clickable', () => {
         loginPage.clickLoginBtn();
     });
 });
