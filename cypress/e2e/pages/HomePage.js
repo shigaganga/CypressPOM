@@ -7,7 +7,7 @@ class HomePage{
     nexthome=".form-wrapper > .mat-raised-button";
     email="#mat-input-3";
     name="#mat-input-4";
-  healthProfile="//span[@class='mat-option-text']";
+     healthProfile="//span[@class='mat-option-text']";
     recommendationName="#mat-input-4";
     lifeExpectancy="//input[@id='mat-input-5']";
     dateOfBirth="#mat-input-6";
@@ -28,7 +28,8 @@ class HomePage{
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     emailCom="#mat-input-9";
     nextButt=".form-wrapper > .mat-raised-button";
-    countyState="#mat-select-value-7";
+    countyState="(//div[@class='mat-select-arrow ng-tns-c216-19'])[1]";
+    
     city="(//div[@id='mat-select-value-9'])[1]";
     city1="#mat-option-18 > .mat-option-text";
     city2 ="#mat-option-19 > .mat-option-text";

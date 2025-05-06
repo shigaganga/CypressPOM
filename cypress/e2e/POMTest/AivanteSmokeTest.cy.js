@@ -1,7 +1,7 @@
 import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
-import planselectionPage from '../pages/PlanselectionPage.js';
+import PlanselectionPage from '../pages/PlanselectionPage.js';
 import longTermPage from '../pages/LongTermPage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
@@ -10,27 +10,31 @@ import MedicarePage from '../pages/MedicarePage.js';
 
 describe('smoke Flow Test', () => {
   it('should log in and create a recommendation', () => {
-    
 
-    // Use CSV test data
     cy.task('csv:parseFromDropbox').then((data) => {
-      const testData = data[0]; // assuming only one row
+      const testData = data[0];
       cy.visit(testData.baseUrl);
+      cy.wait(500);
+
       const lPage = new LoginPage();
       lPage.setUserName(testData.username);
+      cy.wait(500);
       lPage.setPassword(testData.password);
+      cy.wait(500);
       lPage.clickLoginBtn();
+      cy.wait(500);
 
       const recPage = new LandingPage();
       recPage.clickCreateRecommendation();
+      cy.wait(500);
 
       const homepage = new HomePage();
-      cy.wait(500);
       homepage.enterEmail(testData.email);
+      cy.wait(500);
       homepage.enterName(testData.name);
       cy.wait(500);
-
       homepage.clickDatePicker();
+      cy.wait(500);
       homepage.clickYear(testData.year);
       cy.wait(500);
       homepage.clickMonth(testData.month);
@@ -38,6 +42,7 @@ describe('smoke Flow Test', () => {
       homepage.enterStreet(testData.street);
       cy.wait(500);
       homepage.enterZip(testData.zip);
+      cy.wait(500);
       homepage.clickSearch();
       cy.wait(500);
       homepage.entercommunicationEmail(testData.communicationEmail);
@@ -47,23 +52,29 @@ describe('smoke Flow Test', () => {
       homepage.clickhealthArrow();
       cy.wait(500);
       homepage.clickHealthProfile(testData.healthProfile);
+      cy.wait(500);
       homepage.enterLifeexpectancy(testData.lifeExpactancy);
+      cy.wait(500);
       homepage.clickTabaccoNo();
+      cy.wait(500);
       homepage.clickTaxJoin();
+      cy.wait(500);
       homepage.clickMagiTier();
       cy.wait(500);
       homepage.clickMaggiTireOptions(testData.magiTier);
+      cy.wait(500);
       homepage.clickConceirgeNo();
+      cy.wait(500);
       homepage.nextHomeClick();
       cy.wait(500);
+
       const prefPage = new PreferencePage();
-      cy.wait(500);
       prefPage.clickyesRadioDrugCost();
       cy.wait(500);
       prefPage.clickNextPrefPage();
+      cy.wait(500);
 
       const drugpage = new PrescriptionPage();
-      cy.wait(500);
       drugpage.enterDrugSearchBox(testData.drugName1);
       cy.wait(500);
       drugpage.selectDrug();
@@ -71,9 +82,9 @@ describe('smoke Flow Test', () => {
       drugpage.clickAddToDrug();
       cy.wait(500);
       drugpage.doneAddDrugClick();
+      cy.wait(500);
 
       const Pharmacypage = new PharmacyPage();
-      cy.wait(500);
       Pharmacypage.clickFindFarmacy();
       cy.wait(500);
       Pharmacypage.clickfarmacyOne();
@@ -81,8 +92,9 @@ describe('smoke Flow Test', () => {
       Pharmacypage.clickfarmacyTwo();
       cy.wait(500);
       Pharmacypage.clicknextpharmacy();
+      cy.wait(500);
 
-      const planselctPg = new planselectionPage();
+      const planselctPg = new PlanselectionPage();
       const medicarepg = new MedicarePage();
       const longtermPg = new longTermPage();
 
@@ -96,19 +108,24 @@ describe('smoke Flow Test', () => {
       cy.wait(500);
       planselctPg.medicareclick();
       cy.wait(500);
+
       medicarepg.medicarArrowClick();
       cy.wait(500);
       medicarepg.submitMedicareClick();
       cy.wait(500);
       medicarepg.backToplanSelectionClick();
-       cy.wait(1000);
+      cy.wait(1000);
+
       planselctPg.longtermClick();
       cy.wait(500);
+
       longtermPg.submitLongTermClick();
       cy.wait(500);
       longtermPg.backLongTermToPlanSelectionClick();
       cy.wait(500);
+
       planselctPg.aivanteImagClick();
+      cy.wait(500);
     });
   });
 });
