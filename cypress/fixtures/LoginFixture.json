@@ -9,12 +9,13 @@
 
   "username": "testuser@gmail.com",
   "password": "user123",
-
+"tobacco":"No",
 
   "email": "ShigaPOM@gmail.com",
   "name": "Shigapage",
-  "year":"1957",
-  "month":"JUN",
+  "gender":"female",
+  "yearOfBirth":"1957",
+  "monthOfBirth":"JUN",
   "street":"483 Tucana Street",
   "lifeExpectancy":"86",
   "zip": "27591",
@@ -22,6 +23,8 @@
 "contactNumber":"6087652341",
 "healthProfile":"Moderate Health",
 "magiTier":" $ 212K to $ 266K ",
+"taxFilingStatus":"jointly",
+"conceirge":"No",
 
   
   "drugName1": "Gabapentin",

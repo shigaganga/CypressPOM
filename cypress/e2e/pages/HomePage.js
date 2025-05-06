@@ -109,18 +109,51 @@ clickYear(year) {
     clickFemale() {
         cy.xpath(this.genderF).should('be.visible').click();
     }
+    selectGender(gender) {
+        if (gender.toLowerCase() === 'male') {
+          this.clickMale();
+        } else if (gender.toLowerCase() === 'female') {
+          this.clickFemale();
+        }
+      }
+      
     clickTabaccoNo() {
         cy.get(this.taboccoNo).should('be.visible').click();
     }
     clickTabaccoYes() {
        cy.get(this.taboccoYes).should('be.visible').click();
     }
+    selectTobaccoOption(option) {
+        if (option.toLowerCase() === 'Yes') {
+          this.clickTabaccoYes();
+        } else if (option.toLowerCase() === 'No') {
+          this.clickTabaccoNo();
+        }
+      }
+      
     clickTaxIndiv() {
         cy.get(this.taxFilingIndiv).should('be.visible').click();
     }
     clickTaxJoin() {
         cy.get(this.taxFilingJoin).should('be.visible').click();
     }
+    selectTaxFilingStatus(status) {
+        if (!status) {
+          throw new Error('Tax filing status is undefined or null');
+        }
+      
+        const normalizedStatus = status.toLowerCase().trim();
+      
+        if (normalizedStatus === 'individual') {
+          this.clickTaxIndiv();
+        } else if (normalizedStatus === 'jointly') {
+          this.clickTaxJoin();
+        } else {
+          throw new Error(`Invalid tax filing status: ${status}`);
+        }
+      }
+      
+      
     enterStreet(street) {
         cy.get(this.street).should('be.visible').type(street);
     }
@@ -202,10 +235,15 @@ clickYear(year) {
     }
     clickConceirgeNo() {
         cy.get(this.conciergeNo).should('be.visible').click({ force: true });}
+    selectConciergeOption(option) {
+            if (option.toLowerCase() === 'yes') {
+              this.clickConciergeYes();
+            } else if (option.toLowerCase() === 'no') {
+              this.clickConceirgeNo();
+            }
+          }
+          
 
-    clickNext() {
-        cy.xpath(this.nextButt).should('be.visible').click({ force: true });
-    }
     verifyUrl(expectedUrl) {
         cy.url().should('include', expectedUrl);
     }
