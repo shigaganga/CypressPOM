@@ -29,7 +29,6 @@ class HomePage{
     emailCom="#mat-input-9";
     nextButt=".form-wrapper > .mat-raised-button";
     countyState="(//div[@class='mat-select-arrow ng-tns-c216-19'])[1]";
-    
     city="(//div[@id='mat-select-value-9'])[1]";
     city1="#mat-option-18 > .mat-option-text";
     city2 ="#mat-option-19 > .mat-option-text";

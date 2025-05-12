@@ -12,6 +12,8 @@ clickyesRadioDrugCost(){
 clicknoRadioDrugCost(){
     cy.xpath(this.NoRadioDrugcost).should('be.visible').click( { force: true});
 }
+
+  
 clickNextPrefPage(){
     cy.xpath(this.NextPrefPage, { timeout: 1000 })  
     .should('be.visible')
@@ -30,6 +32,27 @@ verifyAreUSureText() {
         .contains('Are you sure?')      
         .should('be.visible');   
 }
+setPreference(option) {
+    if (!option) {
+      throw new Error('Preference option is undefined or null');
+    }
+  
+    const normalized = option.toLowerCase().trim();
+  
+    if (normalized === 'yes') {
+      this.clickyesRadioDrugCost();
+      this.verifyGreatText();
+    } else if (normalized === 'no') {
+      this.clicknoRadioDrugCost();
+      this.verifyAreUSureText();
+    } else {
+      throw new Error(`Invalid preference option: ${option}`);
+    }
+  
+    cy.wait(500);
+    this.clickNextPrefPage();
+  }
+  
 
 verifyPlanSelectionUrl(){
     cy.url().should('include', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');  

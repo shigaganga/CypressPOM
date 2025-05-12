@@ -92,7 +92,19 @@ class PrescriptionPage {
     addGenericClick() {
         cy.get(this.addGeneric).should('be.visible').click();
     }
-
+    selectGenericBrandOption(option) {
+        if (option.toLowerCase() === 'brand') {
+            cy.get(this.addBrand)
+                .should('be.visible')
+                .click();
+        } else if (option.toLowerCase() === 'generic') {
+            cy.get(this.addGeneric)
+                .should('be.visible')
+                .click();
+        } else {
+            throw new Error(`Invalid option: ${option}. Use 'brand' or 'generic'.`);
+        }
+    }
     addMyDrugListClick() {
         cy.xpath(this.addMyDrugList).should('be.visible').click({ force: true });
     }

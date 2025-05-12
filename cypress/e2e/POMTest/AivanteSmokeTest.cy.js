@@ -125,6 +125,8 @@ describe('smoke Flow Test', () => {
 
       longtermPg.submitLongTermClick();
       cy.wait(500);
+       longtermPg.pdfclick();
+       cy.wait(500);
       longtermPg.backLongTermToPlanSelectionClick();
       cy.wait(500);
 
