@@ -4,10 +4,10 @@ import HomePage from '../pages/HomePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 import PreferencePage from '../pages/PreferencePage.js';
 describe('PrescriptionPageTest', () => {
-    let testData = null;
+   
     let prefPage;
     let drugPage;
-
+ let testData = null;
     before(() => {
         cy.task('csv:parseFromDropbox').then((data) => {
             testData = data[0]; // Use only the first row
@@ -22,26 +22,35 @@ describe('PrescriptionPageTest', () => {
             cy.visit(testData.baseUrl);
             const lPage = new LoginPage();
             lPage.setUserName(testData.username);
+            cy.wait(500);
             lPage.setPassword(testData.password);
+            cy.wait(500);
             lPage.clickLoginBtn();
+            cy.wait(500);
       
             const recPage = new LandingPage();
             recPage.clickCreateRecommendation();
+            cy.wait(500);
       
             const homepage = new HomePage();
-            cy.wait(500);
             homepage.enterEmail(testData.email);
+            cy.wait(500);
             homepage.enterName(testData.name);
             cy.wait(500);
-      
             homepage.clickDatePicker();
-            homepage.clickYear(testData.year);
             cy.wait(500);
-            homepage.clickMonth(testData.month);
+            homepage.clickYear(testData.yearOfBirth);
+            cy.wait(500);
+            homepage.clickMonth(testData.monthOfBirth);
+            cy.wait(500);
+            homepage.clickGender();
+            cy.wait(500);
+            homepage.selectGender(testData.gender);
             cy.wait(500);
             homepage.enterStreet(testData.street);
             cy.wait(500);
             homepage.enterZip(testData.zip);
+            cy.wait(500);
             homepage.clickSearch();
             cy.wait(500);
             homepage.entercommunicationEmail(testData.communicationEmail);
@@ -51,14 +60,21 @@ describe('PrescriptionPageTest', () => {
             homepage.clickhealthArrow();
             cy.wait(500);
             homepage.clickHealthProfile(testData.healthProfile);
-            homepage.enterLifeexpectancy(testData.lifeExpactancy);
-            homepage.clickTabaccoNo();
-            homepage.clickTaxJoin();
+            cy.wait(500);
+            homepage.enterLifeexpectancy(testData.lifeExpectancy);
+            cy.wait(500);
+            homepage.selectTobaccoOption(testData.tobacco);
+            cy.wait(500);
+            homepage.selectTaxFilingStatus(testData.taxFilingStatus);
+            cy.wait(500);
             homepage.clickMagiTier();
             cy.wait(500);
             homepage.clickMaggiTireOptions(testData.magiTier);
-            homepage.clickConceirgeNo();
-            homepage.nextHomeClick(); 
+            cy.wait(500);
+            homepage.selectConciergeOption(testData.conceirge);
+            cy.wait(500);
+            homepage.nextHomeClick();
+            cy.wait(500);
         prefPage = new PreferencePage();
         prefPage.clickyesRadioDrugCost();
         prefPage.clickNextPrefPage();
