@@ -129,6 +129,19 @@ cy.get(this.PlanSelectionCheckBox, { timeout: 10000 })
 
 
 }
+setPlanSelectionCheckBoxByPlanName(PlanName)
+{
+  //cy.contains('.mat-tooltip-trigger.header-title', 'PlanName')
+ // .parentsUntil('span') // or adjust to target the correct parent
+ // .find('.mat-checkbox-inner-container-no-side-margin input[type="checkbox"]')
+ // .click();
+ cy.xpath("//span[contains(text(), PlanName) and contains(@class, 'header-title')]/following-sibling::section//input[@type='checkbox']",{timeout:10000}).first()
+ .should('be.visible')
+ .click({force:true});
+
+
+
+}
 
 max3PlanVerifyMsg()
 {
