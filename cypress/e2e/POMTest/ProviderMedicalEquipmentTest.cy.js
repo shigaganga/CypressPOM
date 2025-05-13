@@ -8,61 +8,46 @@ import PharmacyPage from "../pages/PharmacyPage.js"
 import PlanselectionPage from '../pages/PlanselectionPage.js';
 import ProviderMedicalEquipment from "../pages/ProviderMedicalEquipmentPage.js"
 
-describe('ProviderMedicalEquipment-TestSuite', () => {
-    let testData;
-    const lPage = new LoginPage();
-    const recPage = new LandingPage();
-    const homepage = new HomePage();
-    const preferencePage = new PreferencePage();
-    const prescriptionPage = new PrescriptionPage();
-    const pharmacyPage = new PharmacyPage();
-    const planselectionpage = new PlanselectionPage();
+describe('Providermedicalequipment', () => {
     const providerMedicalEquipment = new ProviderMedicalEquipment();
-
-    //Load data fixures before tests.
-    before(() => {
-        cy.fixture('LoginFixture').then((data) => {
-            testData = data;
-        })
-    });
-
-    //Go to home page after all tests.
-    after(() => {
-        cy.visit(testData.homePage_url);
-        cy.wait(2000);
-    })
-
-	//Run this before each test
     beforeEach(() => {
-        cy.session("Provider User Session", () => {
-            cy.visit(testData.baseUrl);
-            cy.wait(1000); 
-
-            lPage.setUserName(testData.username);
-            lPage.setPassword(testData.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin();
+        cy.session("Provider session", () => {
+            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page');
+            const lPage = new LoginPage();
+            const recPage = new LandingPage();
+            const homepage = new HomePage();
+            const preferencePage = new PreferencePage();
+            const prescriptionPage = new PrescriptionPage();
+            const pharmacyPage = new PharmacyPage();
+            const planselectionpage = new PlanselectionPage();
+            cy.fixture('LoginFixture').then((data) => {
+                lPage.setUserName(data.username);
+                lPage.setPassword(data.password);
+                lPage.clickLoginBtn();
+                lPage.verifyLogin();
+            });
 
             //Steps to go to the dialysis page
+            //cy.wait(3000);
             recPage.clickCreateRecommendation();
             cy.wait(100);
-            homepage.enterEmail(testData.email);
+            homepage.enterEmail("ShigaPOM@gmail.com");
             cy.wait(100);
             homepage.clickhealthArrow();
             cy.wait(100);
-            homepage.clickGoodHealth(testData.healthProfile);
+            homepage.clickGoodHealth();
             cy.wait(100);
-            homepage.enterName(testData.name);
+            homepage.enterName("Shigapage");
             cy.wait(100);
-            homepage.enterLifeexpectancy(testData.lifeExpectancy);
+            homepage.enterLifeexpectancy("86");
             cy.wait(100);
             homepage.datePickerclick();
             cy.wait(100);
-            homepage.year1957click(testData.yearOfBirth);
+            homepage.year1957click();
             cy.wait(100);
-            homepage.month1957click(testData.yearOfBirth);
+            homepage.month1957click();
             cy.wait(100);
-            homepage.enterZip(testData.zip)
+            homepage.enterZip("27529")
             cy.wait(100);
             homepage.clickSearch();
             cy.wait(100);
@@ -72,7 +57,7 @@ describe('ProviderMedicalEquipment-TestSuite', () => {
             cy.wait(100);
             preferencePage.clickNextPrefPage();
             cy.wait(100);
-            prescriptionPage.enterDrugSearchBox(testData.drugName1);
+            prescriptionPage.enterDrugSearchBox("Gabapentin");
             cy.wait(100);
             prescriptionPage.selectDrug();
             cy.wait(100);
@@ -89,71 +74,76 @@ describe('ProviderMedicalEquipment-TestSuite', () => {
             pharmacyPage.clicknextpharmacy();
             cy.wait(2000)
             planselectionpage.setProviderButtn();
-        })
-		
-        cy.log("Entering MedicalProviderEquipmentPage...");
-        cy.visit(testData.manageProviders_url);
-        cy.wait(1000);
-    });
+        }); 
+           
+            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/manage-providers');
+        });           // cy.log("Entering MedicalProviderEquipmentPage");
+           // cy.wait(3000)
+        it('TC_PDP_PRV_ME_01 Verify "Medical equipment & suppliers" Category is Visible and Clickable on the Provider Page and facility name, ', () => {
+            const providerMedicalEquipment = new ProviderMedicalEquipment();
+            cy.wait(1000);
+            providerMedicalEquipment.clickMedcial()
+            cy.wait(1000);
+            providerMedicalEquipment.typeEquipmentname("Nebulizer");
+            cy.wait(1000);
+            providerMedicalEquipment.typeStreet("Holly")
+        });
+        it('TC_PDP_PRV_ME_02 Verify the Zip code Search icon for  "Medical equipment & suppliers" Category on the Provider Page., ' ,() => {
+            const providerMedicalEquipment = new ProviderMedicalEquipment();
+            cy.wait(1000);
+            providerMedicalEquipment.enterZipCode("80112");
+            cy.wait(1000);
+            providerMedicalEquipment.clickZipSearch();
+            cy.wait(1000);
+            // providerMedicalEquipment.clickCountyState();
+            providerMedicalEquipment.clickCity();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCityName();
 
-    it('TC_PDP_PRV_ME_01 Verify "Medical equipment & suppliers" Category is Visible and Clickable on the Provider Page and facility name, ', () => {
-        cy.wait(1000);
-        providerMedicalEquipment.clickMedcial()
-        cy.wait(1000);
-        providerMedicalEquipment.typeEquipmentname(testData.medicalequipmentfacilityname);
-        cy.wait(1000);
-        providerMedicalEquipment.typeStreet(testData.medicalequipmentstreet);
-    });
+        });
 
-    it('TC_PDP_PRV_ME_02 Verify the Zip code Search icon for  "Medical equipment & suppliers" Category on the Provider Page., ', () => {
-        providerMedicalEquipment.enterZipCode(testData.medicalequipmentzipcode);
-        cy.wait(1000);
-        providerMedicalEquipment.clickZipSearch();
-        cy.wait(1000);
-        // providerMedicalEquipment.clickCountyState();
-        providerMedicalEquipment.clickCity();
-        cy.wait(1000);
-        providerMedicalEquipment.clickCityName();
+        it('TC_PDP_PRV_ME_03 Verify the Distance and search provider for  "Medical equipment & suppliers" Category on the Provider Page. ', () => {
+            const providerMedicalEquipment = new ProviderMedicalEquipment();
+            cy.wait(1000);
+            providerMedicalEquipment.enterZipCode("80112");
+            cy.wait(1000);
+            providerMedicalEquipment.clickZipSearch();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCity();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCityName();
+            cy.wait(1000);
+            providerMedicalEquipment.enterRadiusin("10");
+            cy.wait(1000);
+            providerMedicalEquipment.clickSearchProvider();
+        });
 
-    });
-
-    it('TC_PDP_PRV_ME_03 Verify the Distance and search provider for  "Medical equipment & suppliers" Category on the Provider Page. ', () => {
-        providerMedicalEquipment.enterZipCode(testData.medicalequipmentzipcode);
-        cy.wait(1000);
-        providerMedicalEquipment.clickZipSearch();
-        cy.wait(1000);
-        providerMedicalEquipment.clickCity();
-        cy.wait(1000);
-        providerMedicalEquipment.clickCityName();
-        cy.wait(1000);
-        providerMedicalEquipment.enterRadiusin(testData.medicalequipmentradius);
-        cy.wait(1000);
-        providerMedicalEquipment.clickSearchProvider();
-    });
-
-    it('TC_PDP_PRV_ME_04 Verify "Apply Filter" and clear,back Button Functionality in the " Medical equipment" Category on the Provider Page,  ', () => {
-        providerMedicalEquipment.enterZipCode(testData.medicalequipmentzipcode);
-        cy.wait(1000);
-        providerMedicalEquipment.clickZipSearch();
-        cy.wait(1000);
-        providerMedicalEquipment.clickCity();
-        cy.wait(1000);
-        providerMedicalEquipment.clickCityName();
-        cy.wait(1000);
-        providerMedicalEquipment.enterRadiusin(testData.medicalequipmentradius);
-        cy.wait(1000);
-        providerMedicalEquipment.clickSearchProvider();
-        cy.wait(1000);
-        providerMedicalEquipment.clickProviderFilter();
-        cy.wait(1000);
-        providerMedicalEquipment.typeProviderFilterDistance(testData.medicalequipmentdistance);
-        cy.wait(1000);
-        providerMedicalEquipment.clickApplyFilter();
-        cy.wait(1000);
-        providerMedicalEquipment.clickProviderFilterCollapse();
-        cy.wait(1000);
-        providerMedicalEquipment.clickClearFilter();
-        cy.wait(1000);
-        providerMedicalEquipment.clickBackBtn();
-    });
-}); 
+        it('TC_PDP_PRV_ME_04 Verify "Apply Filter" and clear,back Button Functionality in the " Medical equipment" Category on the Provider Page,  ', () => {
+            const providerMedicalEquipment = new ProviderMedicalEquipment();
+           // cy.wait(1000);
+           providerMedicalEquipment.enterZipCode("80112");
+            cy.wait(1000);
+            providerMedicalEquipment.clickZipSearch();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCity();
+            cy.wait(1000);
+            providerMedicalEquipment.clickCityName();
+            cy.wait(1000);
+            providerMedicalEquipment.enterRadiusin("10");
+            cy.wait(1000);
+            providerMedicalEquipment.clickSearchProvider();
+            cy.wait(1000);
+            providerMedicalEquipment.clickProviderFilter();
+            cy.wait(1000);
+            providerMedicalEquipment.typeProviderFilterDistance("10");
+            cy.wait(1000);
+            providerMedicalEquipment.clickApplyFilter();
+            cy.wait(1000);
+            providerMedicalEquipment.clickProviderFilterCollapse();
+            cy.wait(1000);
+            providerMedicalEquipment.clickClearFilter();
+            cy.wait(1000);
+            providerMedicalEquipment.clickBackBtn();
+            //providerMedicalEquipment.clickBackButtonToP()
+        });
+    }); 

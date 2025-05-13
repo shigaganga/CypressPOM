@@ -7,51 +7,36 @@ import PharmacyPage from "../pages/PharmacyPage.js"
 import PlanSelectionMA from "../pages/PlanSelectionPageMA.js";
 
 describe('PlanSelectionMA', () => {
-    let testData;
-    const lPage = new LoginPage();
-    const recPage = new LandingPage();
-    const homepage = new HomePage();
-    const preferencePage = new PreferencePage();
-    const prescriptionPage = new PrescriptionPage();
-    const pharmacyPage = new PharmacyPage();
     const planSelectionMA = new PlanSelectionMA();
-
-    //Load data fixures before tests.
-    before(() => {
-        cy.fixture('LoginFixture').then((data) => {
-            testData = data;
-        })
-    })
-
-    //Go to home page after all tests.
-    after(() => {
-        cy.visit(testData.homePage_url);
-        cy.wait(2000);
-    })
-
-    //Run this before each test
     beforeEach("Login to PlanSelectionPage", () => {
         cy.session("Plan Select session", () => {
-            cy.visit(testData.landingPage_url);
-            cy.wait(500)
+            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
 
-            lPage.setUserName(testData.username);
-            lPage.setPassword(testData.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin(); // Ensure login was successful
+            const lPage = new LoginPage();
+            const recPage = new LandingPage();
+            const homepage = new HomePage();
+            const preferencePage = new PreferencePage();
+            const prescriptionPage = new PrescriptionPage();
+            const pharmacyPage = new PharmacyPage();
 
+            cy.fixture('LoginFixture').then((data) => {
+                lPage.setUserName(data.username);
+                lPage.setPassword(data.password);
+                lPage.clickLoginBtn();
+                lPage.verifyLogin(); // Ensure login was successful
+            })
             //Steps to go to the MA Plan
             recPage.clickCreateRecommendation();
             cy.wait(100);
-            homepage.enterEmail(testData.email);
+            homepage.enterEmail("ShigaPOM@gmail.com");
             cy.wait(100);
             homepage.clickhealthArrow();
             cy.wait(100);
             homepage.clickGoodHealth();
             cy.wait(100);
-            homepage.enterName(testData.name);
+            homepage.enterName("Shigapage");
             cy.wait(100);
-            homepage.enterLifeexpectancy(testData.lifeExpectancy);
+            homepage.enterLifeexpectancy("86");
             cy.wait(100);
             homepage.datePickerclick();
             cy.wait(100);
@@ -59,7 +44,7 @@ describe('PlanSelectionMA', () => {
             cy.wait(100);
             homepage.month1957click();
             cy.wait(100);
-            homepage.enterZip(testData.zip)
+            homepage.enterZip("27529")
             cy.wait(100);
             homepage.clickSearch();
             cy.wait(100);
@@ -69,7 +54,7 @@ describe('PlanSelectionMA', () => {
             cy.wait(100);
             preferencePage.clickNextPrefPage();
             cy.wait(100);
-            prescriptionPage.enterDrugSearchBox(testData.drugName1);
+            prescriptionPage.enterDrugSearchBox("Gabapentin");
             cy.wait(100);
             prescriptionPage.selectDrug();
             cy.wait(100);
@@ -87,8 +72,7 @@ describe('PlanSelectionMA', () => {
             cy.wait(1000)
         })
 
-        cy.log("Entering PlanSelectionPage...");
-        cy.visit(testData.planSelection_url)
+        cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
         cy.wait(1000);
     })
 
