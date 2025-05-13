@@ -53,6 +53,7 @@
 
 
 
+
   "pharmacyzipcode1" : "80109",
   "pharmacyzipcode2" : "5000",
   "pharmacyzipcode3": "as1",
@@ -78,5 +79,13 @@
  
  
 
+
+
+  "supplimentPlanG1": "Physicians Mutual (PSIC)",
+  "supplimentPlanG2": "MedMutual Protect",
+  "supplimentPlanG3": "UnitedHealthcare Ins Co" ,
+  "supplimentPlanG4": "Cigna National Health Ins Co",
+  "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
+  "supplimentPlanN1": "Cigna National Health Ins Co"
 
 }
