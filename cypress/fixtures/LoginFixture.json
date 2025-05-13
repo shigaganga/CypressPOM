@@ -49,5 +49,11 @@
    
   "drugQuantity0": "0",
   "anotherDrug": "Cipro",
-  "invalidDrug": "Albuterol HFA"
+  "invalidDrug": "Albuterol HFA",
+  "supplimentPlanG1": "Physicians Mutual (PSIC)",
+  "supplimentPlanG2": "MedMutual Protect",
+  "supplimentPlanG3": "UnitedHealthcare Ins Co" ,
+  "supplimentPlanG4": "Cigna National Health Ins Co",
+  "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
+  "supplimentPlanN1": "Cigna National Health Ins Co"
 }
