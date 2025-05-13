@@ -7,47 +7,60 @@ import LandingPage from "../pages/LandingPage.js";
 import PharmacyPage from "../pages/PharmacyPage.js"
 import PlanselectionPage from '../pages/PlanselectionPage.js';
 
-describe("ProviderDialysisFacility Testing", () => {
-    const providerDialysisFacility = new ProviderDialysisFacility();    
-	
-	beforeEach("Login to PlanSelectionPage", () => {
-        cy.session("Provider session", () => {
-            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
+describe("ProviderDialysisFacility-TestSuite", () => {
+    let testData;
+    const lPage = new LoginPage();
+    const recPage = new LandingPage();
+    const homepage = new HomePage();
+    const preferencePage = new PreferencePage();
+    const prescriptionPage = new PrescriptionPage();
+    const pharmacyPage = new PharmacyPage();
+    const planselectionpage = new PlanselectionPage();
+    const providerDialysisFacility = new ProviderDialysisFacility();
 
-            const lPage = new LoginPage();
-            const recPage = new LandingPage();
-            const homepage = new HomePage();
-            const preferencePage = new PreferencePage();
-            const prescriptionPage = new PrescriptionPage();
-            const pharmacyPage = new PharmacyPage();
-            const planselectionpage = new PlanselectionPage();
+    //Load data fixures before tests.
+    before(() => {
+        cy.fixture('LoginFixture').then((data) => {
+            testData = data;
+        })
+    })
 
-            cy.fixture('LoginFixture').then((data) => {
-                lPage.setUserName(data.username);
-                lPage.setPassword(data.password);
-                lPage.clickLoginBtn();
-                lPage.verifyLogin();
-            });
+    //Go to home page after all tests.
+    after(() => {
+        cy.visit(testData.homePage_url);
+        cy.wait(2000);
+    })
+
+	//Run this before each test
+    beforeEach(() => {
+        cy.session("Provider User Session", () => {
+            cy.visit(testData.baseUrl);
+            cy.wait(500)
+
+            lPage.setUserName(testData.username);
+            lPage.setPassword(testData.password);
+            lPage.clickLoginBtn();
+            lPage.verifyLogin();
 
             recPage.clickCreateRecommendation();
             cy.wait(100);
-            homepage.enterEmail("ShigaPOM@gmail.com");
+            homepage.enterEmail(testData.email);
             cy.wait(100);
             homepage.clickhealthArrow();
             cy.wait(100);
-            homepage.clickGoodHealth();
+            homepage.clickGoodHealth(testData.healthProfile);
             cy.wait(100);
-            homepage.enterName("Shigapage");
+            homepage.enterName(testData.name);
             cy.wait(100);
-            homepage.enterLifeexpectancy("86");
+            homepage.enterLifeexpectancy(testData.lifeExpectancy);
             cy.wait(100);
             homepage.datePickerclick();
             cy.wait(100);
-            homepage.year1957click();
+            homepage.year1957click(testData.yearOfBirth);
             cy.wait(100);
-            homepage.month1957click();
+            homepage.month1957click(testData.yearOfBirth);
             cy.wait(100);
-            homepage.enterZip("27529")
+            homepage.enterZip(testData.zip)
             cy.wait(100);
             homepage.clickSearch();
             cy.wait(100);
@@ -57,7 +70,7 @@ describe("ProviderDialysisFacility Testing", () => {
             cy.wait(100);
             preferencePage.clickNextPrefPage();
             cy.wait(100);
-            prescriptionPage.enterDrugSearchBox("Gabapentin");
+            prescriptionPage.enterDrugSearchBox(testData.drugName1);
             cy.wait(100);
             prescriptionPage.selectDrug();
             cy.wait(100);
@@ -76,7 +89,9 @@ describe("ProviderDialysisFacility Testing", () => {
             planselectionpage.setProviderButtn();
         });
 
-        cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
+        cy.log("Entering MedicalProviderEquipmentPage...");
+        cy.visit(testData.manageProviders_url);
+        cy.wait(2000)
     })
 
     it('TC_PDP_PRV_DF_01 Verify "Dialysis facilities" Category ', () => {
@@ -84,20 +99,18 @@ describe("ProviderDialysisFacility Testing", () => {
 
     });
 
-    it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page',() => {
+    it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page', () => {
         providerDialysisFacility.clickDialysis();
-        providerDialysisFacility.enterDialysisFacilityName("Davita Englewood Dialysis Center");
+        providerDialysisFacility.enterDialysisFacilityName(testData.facilityname);
         cy.log("Dialysis Facility Name - Passed");
     });
 
     it(' TC_PDP_PRV_DF_03,dialysisfacility street', () => {
-        cy.wait(1000);
-        providerDialysisFacility.enterStreet("Girard");
+        providerDialysisFacility.enterStreet(testData.streetname);
     });
 
     it('TC_PDP_PRV_DF_04 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
-        cy.wait(1000);
-        providerDialysisFacility.enterZipCode("80113");
+        providerDialysisFacility.enterZipCode(testData.zipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
         providerDialysisFacility.clickCity();
@@ -111,7 +124,7 @@ describe("ProviderDialysisFacility Testing", () => {
     });
 
     it('TC_PDP_PRV_DF_06 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
-        providerDialysisFacility.enterZipCode("80113");
+        providerDialysisFacility.enterZipCode(testData.zipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
         providerDialysisFacility.clickCity();
@@ -124,7 +137,7 @@ describe("ProviderDialysisFacility Testing", () => {
         //Search Provider Page Test
         providerDialysisFacility.clickProviderFilter();
         cy.wait(1000);
-        providerDialysisFacility.enterDistance(10);
+        providerDialysisFacility.enterDistance(testData.distance);
         cy.wait(1000);
         //These fields are not on the test app. (optional)
         //providerDialysisFacility.clickRating();
