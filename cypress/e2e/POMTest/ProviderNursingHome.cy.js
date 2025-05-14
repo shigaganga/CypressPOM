@@ -14,7 +14,7 @@ describe('ProviderNursingHomeTabTest', () => {
 
     beforeEach(() => {
         cy.session("Provider session", () => {
-            cy.visit(testData.ProvNursingHome_MedicareAdvanUrl);
+            cy.visit(testData.baseUrl);
 
             const lPage = new LoginPage();
             lPage.setUserName(testData.username);
@@ -40,7 +40,7 @@ describe('ProviderNursingHomeTabTest', () => {
             ProviderNursingHomePage.clickProviderPagebtn();
             cy.wait(1000);
         });
-        cy.visit(testData.ProvNursingHome_ProviderUrl);
+        cy.visit(testData.manageProviders_url);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         ProviderNursingHomePage.clickNursingHometabSelector();
         cy.wait(1000);

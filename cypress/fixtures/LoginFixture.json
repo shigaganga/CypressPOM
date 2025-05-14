@@ -86,8 +86,6 @@
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
   "supplimentPlanN1": "Cigna National Health Ins Co",
 
-  "ProvNursingHome_MedicareAdvanUrl":"http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
-  "ProvNursingHome_ProviderUrl":"http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
   "ProvNursingHome_PageEnterEmail": "abc@gmail.com",
   "ProvNursingHome_PageEnterName":"niv",
   "ProvNursingHome_Lifeexpectancy":"85",
