@@ -1,38 +1,62 @@
 import LoginPage from "../pages/LoginPage";
 import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
+
 describe('HomePage test', () => {
-    const homepage = new HomePage();
-    beforeEach(() => {
-        cy.session("Home session", () => {
-            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-            cy.fixture('LoginFixture').then((data) => {
-                const loginpage = new LoginPage();
-                loginpage.setUserName(data.username);
-                loginpage.setPassword(data.password);
-                loginpage.clickLoginBtn();
-            });
+  let testData = null;
+  const loginPage = new LoginPage();
+  const recPage = new LandingPage();
+  const homepage = new HomePage();
 
-            const landingpage = new LandingPage();
-            landingpage.clickCreateRecommendation();
-        });
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/home')
+  before(() => {
+    return cy.fixture('LoginFixture').then((data) => {
+      testData = data;
+    });
+  });
+
+  beforeEach(() => {
+    if (!testData || !testData.username || !testData.password || !testData.baseUrl) {
+      throw new Error('Test data or required fields not loaded!');
+    }
+    cy.session('Home session', () => {
+      cy.visit(testData.baseUrl);
+      loginPage.setUserName(testData.username);
+      loginPage.setPassword(testData.password);
+      loginPage.clickLoginBtn();
+      recPage.clickCreateRecommendation();
+      cy.wait(500);
     });
 
-    it('TC_PDP_AiVante_Logo_01 Verify the functionality of Aivante logo', () => {
-        homepage.clickAiVanteLogo;
-        cy.log('AiVante logo test case passed')
-    });
-    it('TC_PDP_CRT_REC_08, Verify Recommendation email', () => {
+    cy.visit(testData.homePage_url);
+  });
+
+  it('TC_PDP_AiVante_Logo_01 - Verify the functionality of Aivante logo', () => {
+    homepage.clickAiVanteLogo(); 
+    cy.log('AiVante logo test case passed');
+  });
+   it('TC_PDP_CRT_REC_08, Verify Recommendation email', () => {
         cy.wait(2000);
-        homepage.enterEmail("chhabi@gmail.com");
+        homepage.enterEmail(testData.email);
     });
-    it('TC_PDP_CRT_REC_HP_12, Verify the health profile field', () => {
+    it.skip('TC_PDP_CRT_REC_HP_12, Verify the health profile field', () => {
         homepage.clickHealthProfile();
         cy.wait(2000);
         cy.log('health profile test case passed')
     });
-    it('TC_PDP_CRT_REC_BH_13, Verify Best health Profile', () => {
+     it('TC_PDP_CRT_REC_NAME_12, Verify Recommendation Name', () => {
+        cy.wait(1000);
+        homepage.enterName('Lata');
+        cy.wait(1000);
+    });
+    it.only('TC_PDP_CRT_REC_NAME_12, Verify Recommendation Name', () => {
+        cy.wait(1000);
+          homepage.enterEmail(testData.email);
+     homepage.enterZip(testData.zip);
+      cy.wait(500);
+      homepage.clickSearch();
+      homepage.verifyNameBlankText();
+    });
+    it.skip('TC_PDP_CRT_REC_BH_13, Verify Best health Profile', () => {
         homepage.clickHealthProfile();
         cy.wait(2000);
         homepage.clickBestHealth();
@@ -127,7 +151,6 @@ describe('HomePage test', () => {
         cy.wait(1000);
     });
     it('TC_PDP_CRT_REC_JOINTLY_39, Verify tax filing jointly', () => {
-
         homepage.clickTaxJoin();
         cy.wait(1000);
     });
@@ -245,5 +268,6 @@ homepage.enterZip('80108');
     });
 
 
-
 });
+
+

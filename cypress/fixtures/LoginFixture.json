@@ -6,12 +6,13 @@
  "managePrescription_url": "http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions",
 "managePharmacy_url":"http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies",
 "planSelection_url":"http://169.61.105.110/medicareAdvantage_sandbox/plan-selection",
-
+"manageProviders_url": "http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
   "username": "testuser@gmail.com",
   "password": "user123",
 "tobacco":"No",
 "doctername":"bipin",
   "email": "ShigaPOM@gmail.com",
+  "invalidEmail":"sh",
   "name": "Shigapage",
   "gender":"female",
   "yearOfBirth":"1957",
@@ -50,6 +51,34 @@
   "drugQuantity0": "0",
   "anotherDrug": "Cipro",
   "invalidDrug": "Albuterol HFA",
+
+
+
+
+  "pharmacyzipcode1" : "80109",
+  "pharmacyzipcode2" : "5000",
+  "pharmacyInvalidzipcode3": "as1",
+  "pharmacyInvalidzipcode4":"12",
+  "pharmacyInvalidzipcode5":"800108",
+  "pharmacyInvalidzipcode6":"909",
+  "pharmacyzipcode7":"80124",
+  "pharmacyzipcode8":"80108",
+  "pharmacyIncorrectzipcode9":"12345",
+  "pharmacyIncorrectzipcode10":"50000",
+
+  "pharmacyradius1" : "5",
+  "pharmacyradius2" : "10",
+  "pharmacyInvalidradius3" : "ab@",
+  "pharmacyradius4" : "15",
+
+
+
+  "pharmacyaddress1" : "6067 braylin ln, castle pines,co",
+  "pharmacyInvalidaddress2" : "qddff",
+
+  "pharmacyname1":"KING SOOPERS",
+  "pharmacyInvalidname2":"ad232",
+
   "supplimentPlanG1": "Physicians Mutual (PSIC)",
   "supplimentPlanG2": "MedMutual Protect",
   "supplimentPlanG3": "UnitedHealthcare Ins Co" ,
@@ -64,4 +93,14 @@
   "ProvNursingHome_Lifeexpectancy":"85",
   "ProvNursingHome_RadiusinSearchProvider":100,
   "ProvNursingHome_RadiusinProviderSectionDistance":70
+
+    "facilityname": "Davita Englewood Dialysis Center",
+    "streetname": "Girard",
+    "zipcode": "80113",
+    "distance": "10",
+    "medicalequipmentfacilityname": "nebulizer",
+    "medicalequipmentstreet": "holly",
+    "medicalequipmentzipcode": "80112",
+    "medicalequipmentradius": "15",
+    "medicalequipmentdistance": "10"
 }

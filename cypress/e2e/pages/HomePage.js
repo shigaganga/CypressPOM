@@ -2,15 +2,15 @@ class HomePage{
     AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
     healtharrow=".mat-select-arrow.ng-tns-c216-10";
     datePicker="//button[@aria-label='Open calendar']//span[@class='mat-button-wrapper']//*[name()='svg']";
-    zip="#mat-input-8";
-    search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
+    zipCode="//mat-label[normalize-space(.)='Zipcode (Click search for County, State and City)']/ancestor::mat-form-field//input";
+    search="(//mat-icon[normalize-space()='search'])[1]";
     nexthome=".form-wrapper > .mat-raised-button";
-    email="#mat-input-3";
-    name="#mat-input-4";
+    //email="#mat-input-3";
+    email="//mat-label[normalize-space(.)='Recommendation Email']/ancestor::mat-form-field//input";
+    name="//mat-label[normalize-space(.)='Recommendation Name']/ancestor::mat-form-field//input";
+    nameBlankErrortext="//*[text()='Profile Name is required.']";
      healthProfile="//span[@class='mat-option-text']";
-    recommendationName="#mat-input-4";
     lifeExpectancy="//input[@id='mat-input-5']";
-    dateOfBirth="#mat-input-6";
     calenderEle =".mat-datepicker-toggle > .mat-focus-indicator";
     year = "div.mat-calendar-body-cell-content.mat-focus-indicator";
     month=" //div[contains(@class, 'mat-calendar-body-cell-content mat-focus-indicator')]";
@@ -23,12 +23,8 @@ class HomePage{
     taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//Tax filing individual
     tobacoUserLink='mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
     street="#mat-input-7";
-    zipCode="#mat-input-8";
-    searchNew=".mat-form-field-suffix > .mat-focus-indicator";
-    search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
-    emailCom="#mat-input-9";
     nextButt=".form-wrapper > .mat-raised-button";
-    countyState="(//div[@class='mat-select-arrow ng-tns-c216-19'])[1]";
+    countyState="//mat-label[normalize-space(.)='County, State']";
     city="(//div[@id='mat-select-value-9'])[1]";
     city1="#mat-option-18 > .mat-option-text";
     city2 ="#mat-option-19 > .mat-option-text";
@@ -39,8 +35,8 @@ class HomePage{
     magiTier3 = "#mat-option-13 > .mat-option-text";
     magiTier4 = "#mat-option-14 > .mat-option-text";
     magiTier5 = "#mat-option-15 > .mat-option-text";
-    communicationEmail = "#mat-input-9";
-    contact = "#mat-input-11";
+    communicationEmail = "//mat-label[normalize-space(.)='Communication Email']/ancestor::mat-form-field//input";
+    contact = "//mat-label[normalize-space(.)='Contact number']/ancestor::mat-form-field//input";
     conciergeNo="label[for='mat-radio-11-input'] span[class='mat-radio-outer-circle']";
     conciergeYes="label[for='mat-radio-12-input'] span[class='mat-radio-outer-circle']"
    
@@ -49,12 +45,20 @@ class HomePage{
     clickAiVanteLogo(){
         cy.get(this.AiVanteLogo).should('be.visible').click();
     }
-    enterEmail(email){
-        cy.get(this.email).should('be.visible').type(email);
-    }
+  enterEmail(email) {
+    cy.xpath(this.email)
+      .should('be.visible')
+      .type(email, { force: true });
+}
+
     enterName(name){
-        cy.get(this.name).should('be.visible').type(name);
+        cy.xpath(this.name).should('be.visible').type(name);
     }
+     verifyNameBlankErrorText(){
+    cy.xpath(this.verifyNameBlankErrorText)
+      .should('be.visible')
+      .and('contain', 'Profile Name is required.');
+}
     clickDatePicker(){
         cy.xpath(this.datePicker).should('be.visible').click();
     }
@@ -67,10 +71,6 @@ class HomePage{
         .should('be.visible')
         .click();
     }
-    clickModerateHealth() {
-        cy.get(this.moderateHealth).should('be.visible').click();
-    }
-   
 
 clickYear(year) {
   cy.get(this.year)
@@ -81,9 +81,7 @@ clickYear(year) {
     clickMonth(month) {
         cy.xpath(this.month).contains(month).click();
     }
-    enterName(name) {
-        cy.get(this.recommendationName).should('be.visible').type(name);
-    }
+  
     clickCountyState() {
         cy.get(this.countyState).should('be.visible').click();
     }
@@ -157,11 +155,9 @@ clickYear(year) {
         cy.get(this.street).should('be.visible').type(street);
     }
     enterZip(zipCode) {
-        cy.get(this.zipCode).should('be.visible').type(zipCode).wait(1000);
+        cy.xpath(this.zipCode).should('be.visible').type(zipCode).wait(1000);
     }
-    clickSearchNew() {
-        cy.get(this.searchNew).should('be.visible').click();
-    }
+   
     clickMagitier() {
         cy.get(this.magiTier).should('be.visible').click();
     }
@@ -179,7 +175,7 @@ clickYear(year) {
     }
   
     clickSearch() {
-        cy.get(this.search).should('be.visible').click();
+        cy.xpath(this.search).should('be.visible').click();
     }
     nextHomeClick() {
         cy.get(this.nexthome, { timeout: 1000 }) 
@@ -223,10 +219,10 @@ clickYear(year) {
         cy.get(this.magiTier5).should('be.visible').click().wait(1000);
     }
     entercommunicationEmail(communicationEmail) {
-        cy.get(this.communicationEmail).should('be.visible').type(communicationEmail);
+        cy.xpath(this.communicationEmail).should('be.visible').type(communicationEmail);
     }
     enterContact(contact) {
-        cy.get(this.contact).should('be.visible').type(contact).wait(1000);
+        cy.xpath(this.contact).should('be.visible').type(contact).wait(1000);
 
     }
     clickConciergeYes() {
