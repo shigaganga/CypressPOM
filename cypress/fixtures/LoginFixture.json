@@ -57,29 +57,29 @@
 
   "pharmacyzipcode1" : "80109",
   "pharmacyzipcode2" : "5000",
-  "pharmacyzipcode3": "as1",
-  "pharmacyzipcode4":"12",
-  "pharmacyzipcode5":"800108",
-  "pharmacyzipcode6":"909",
+  "pharmacyInvalidzipcode3": "as1",
+  "pharmacyInvalidzipcode4":"12",
+  "pharmacyInvalidzipcode5":"800108",
+  "pharmacyInvalidzipcode6":"909",
   "pharmacyzipcode7":"80124",
   "pharmacyzipcode8":"80108",
-  "pharmacyzipcode9":"12345",
-  "pharmacyzipcode10":"50000",
+  "pharmacyIncorrectzipcode9":"12345",
+  "pharmacyIncorrectzipcode10":"50000",
 
   "pharmacyradius1" : "5",
   "pharmacyradius2" : "10",
-  "pharmacyradius3" : "ab@",
+  "pharmacyInvalidradius3" : "ab@",
   "pharmacyradius4" : "15",
 
 
 
   "pharmacyaddress1" : "6067 braylin ln, castle pines,co",
-  "pharmacyaddress2" : "qddff",
-  "pharmacyname1":"KING SOOPERS",
-  "pharmacyname2":"ad232",
- 
- 
+  "pharmacyInvalidaddress2" : "qddff",
 
+  "pharmacyname1":"KING SOOPERS",
+  "pharmacyInvalidname2":"ad232",
+ 
+ 
 
 
   "supplimentPlanG1": "Physicians Mutual (PSIC)",
