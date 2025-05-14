@@ -55,5 +55,13 @@
   "supplimentPlanG3": "UnitedHealthcare Ins Co" ,
   "supplimentPlanG4": "Cigna National Health Ins Co",
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
-  "supplimentPlanN1": "Cigna National Health Ins Co"
+  "supplimentPlanN1": "Cigna National Health Ins Co",
+
+  "PageUrl":"http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
+  "ManageProviderUrl":"http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
+  "PageEnterEmail": "abc@gmail.com",
+  "PageEnterName":"niv",
+  "Lifeexpectancy":"85",
+  "RadiusinSearchProvider":100,
+  "RadiusinProviderSectionDistance":70
 }

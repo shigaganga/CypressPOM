@@ -7,7 +7,7 @@ describe('ProviderNursingHomeTabTest', () => {
 
     let testData = null;
     before(() => {
-           cy.fixture('ProviderNursingHomeFixture').then((data) => {
+           cy.fixture('LoginFixture').then((data) => {
                testData=data;
         });
     });
