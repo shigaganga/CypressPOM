@@ -136,7 +136,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode3) 
+        pharmacypg.enterZipcode(testData.pharmacyInvalidzipcode3) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.wait(1000)
@@ -149,7 +149,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode4) 
+        pharmacypg.enterZipcode(testData.pharmacyInvalidzipcode4) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.wait(1000)
@@ -162,7 +162,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode5) 
+        pharmacypg.enterZipcode(testData.pharmacyInvalidzipcode5) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.log('The system shouldnt accept more than 5 digit in the zipcode field on the manage pharmacies page')
@@ -174,7 +174,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode6) 
+        pharmacypg.enterZipcode(testData.pharmacyInvalidzipcode6) 
         cy.wait(1000)
         pharmacypg.enterDistance(testData.pharmacyradius1)
         cy.wait(1000)
@@ -215,7 +215,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickAddressradio()
         cy.wait(1000)
-        pharmacypg.enterAddress(testData.pharmacyaddress2)
+        pharmacypg.enterAddress(testData.pharmacyInvalidaddress2)
         cy.wait(1000)
         pharmacypg.clickAddressFindPhramacy()
         cy.wait(1000)
@@ -255,7 +255,7 @@ before(() => {
         cy.wait(1000)
         pharmacypg.enterZipcode(testData.pharmacyzipcode8) 
         cy.wait(1000)
-        pharmacypg.enterPharmacyname(testData.pharmacyname2)
+        pharmacypg.enterPharmacyname(testData.pharmacyInvalidname2)
         cy.wait(1000)
         pharmacypg.enterDistance(testData.pharmacyradius1)
         cy.wait(1000)
@@ -268,7 +268,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode9) 
+        pharmacypg.enterZipcode(testData.pharmacyIncorrectzipcode9) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.wait(1000)
@@ -281,7 +281,7 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode10) 
+        pharmacypg.enterZipcode(testData.pharmacyIncorrectzipcode10) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.wait(1000)
@@ -296,13 +296,13 @@ before(() => {
         const pharmacypg = new PharmacyPage();
         pharmacypg.clickZipcoderadio()
         cy.wait(1000)
-        pharmacypg.enterZipcode(testData.pharmacyzipcode10) 
+        pharmacypg.enterZipcode(testData.pharmacyIncorrectzipcode10) 
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         pharmacypg.clickZiphistoryarrow()
-        cy.wait(3000)
+        cy.wait(1000)
         pharmacypg.selectZiphistoryZipcode()
-        cy.wait(3000)
+        cy.wait(1000)
         
     });
 
@@ -351,7 +351,7 @@ before(() => {
         cy.wait(1000)
         pharmacypg.enterZipcode(testData.pharmacyzipcode8) 
         cy.wait(1000)
-        pharmacypg.enterDistance(testData.pharmacyradius3)
+        pharmacypg.enterDistance(testData.pharmacyInvalidradius3)
         cy.wait(1000)
         pharmacypg.clickFindPahramcyinzipcode()
         cy.log('Pharmacy Details Not Found in AiVante System,Test passed')
