@@ -12,6 +12,7 @@
 "tobacco":"No",
 "doctername":"bipin",
   "email": "ShigaPOM@gmail.com",
+  "invalidEmail":"sh",
   "name": "Shigapage",
   "gender":"female",
   "yearOfBirth":"1957",
@@ -75,7 +76,7 @@
   "pharmacyaddress1" : "6067 braylin ln, castle pines,co",
   "pharmacyaddress2" : "qddff",
   "pharmacyname1":"KING SOOPERS",
-  "pharmacyname2":"ad232"
+  "pharmacyname2":"ad232",
  
  
 
