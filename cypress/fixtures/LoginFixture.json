@@ -57,11 +57,11 @@
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
   "supplimentPlanN1": "Cigna National Health Ins Co",
 
-  "Medicare_advantage_url":"http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
-  "Manage_Provider_Url":"http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
-  "Provider_PageEnterEmail": "abc@gmail.com",
-  "Provider_PageEnterName":"niv",
-  "Provider_Lifeexpectancy":"85",
-  "RadiusinSearchProvider":100,
-  "RadiusinProviderSectionDistance":70
+  "ProvNursingHome_MedicareAdvanUrl":"http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
+  "ProvNursingHome_ProviderUrl":"http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
+  "ProvNursingHome_PageEnterEmail": "abc@gmail.com",
+  "ProvNursingHome_PageEnterName":"niv",
+  "ProvNursingHome_Lifeexpectancy":"85",
+  "ProvNursingHome_RadiusinSearchProvider":100,
+  "ProvNursingHome_RadiusinProviderSectionDistance":70
 }
