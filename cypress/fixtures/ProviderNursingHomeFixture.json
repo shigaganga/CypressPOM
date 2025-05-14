@@ -1,0 +1,13 @@
+{
+    "PageUrl":"http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
+    "ManageProviderUrl":"http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
+
+    "username": "testuser@gmail.com",
+    "password": "user123",
+
+    "PageEnterEmail": "abc@gmail.com",
+    "PageEnterName":"niv",
+    "Lifeexpectancy":"85",
+    "RadiusinSearchProvider":100,
+    "RadiusinProviderSectionDistance":70
+}

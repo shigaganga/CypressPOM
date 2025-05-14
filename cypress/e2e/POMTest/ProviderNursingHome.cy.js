@@ -4,23 +4,30 @@ import HomePage from '../pages/HomePage.js';
 import ProviderNursingHomeAndRehabPage from '../pages/ProviderNursingHomeAndRehabPage.js';
 
 describe('ProviderNursingHomeTabTest', () => {
+
+    let testData = null;
+    before(() => {
+           cy.fixture('ProviderNursingHomeFixture').then((data) => {
+               testData=data;
+        });
+    });
+
     beforeEach(() => {
         cy.session("Provider session", () => {
-            cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
+            cy.visit(testData.PageUrl);
 
-            cy.fixture('LoginFixture').then((data) => {
-                const lPage = new LoginPage();
-                lPage.setUserName(data.username);
-                lPage.setPassword(data.password);
-                lPage.clickLoginBtn();   
-            });
+            const lPage = new LoginPage();
+            lPage.setUserName(testData.username);
+            lPage.setPassword(testData.password);
+            lPage.clickLoginBtn();   
+            
             const homepage = new HomePage();
             const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
-            ProviderNursingHomePage.SpecialHomePageEnterEmail('abc@gmail.com');
+            ProviderNursingHomePage.SpecialHomePageEnterEmail(testData.PageEnterEmail);
             ProviderNursingHomePage.clickhealthArrow();
             ProviderNursingHomePage.clickGoodHealth();
-            ProviderNursingHomePage.enterName("niv");
-            homepage.enterLifeexpectancy("86");
+            ProviderNursingHomePage.enterName(testData.PageEnterName);
+            homepage.enterLifeexpectancy(testData.Lifeexpectancy);
             homepage.clickSearch();
             cy.wait(200)
             homepage.nextHomeClick();
@@ -33,13 +40,13 @@ describe('ProviderNursingHomeTabTest', () => {
             ProviderNursingHomePage.clickProviderPagebtn();
             cy.wait(1000);
         });
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/manage-providers');
+        cy.visit(testData.ManageProviderUrl);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         ProviderNursingHomePage.clickNursingHometabSelector();
         cy.wait(1000);
     });
 
-    it('TC_PDP_PRV_NUR_150 : Validate the functionality of Category', () => {
+    it('TC_PDP_PRV_NUR_150: validate the functionality of Category', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         //User should be able to see the heading "Find nursing homes including rehab services near me" below the "Hospital near me" heading.
         ProviderNursingHomePage.verifyNursingHometitle();
@@ -60,7 +67,7 @@ describe('ProviderNursingHomeTabTest', () => {
     it('TC_PDP_PRV_NUR_151: validate the functionality of Search button ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         ProviderNursingHomePage.checkListofProviders();
         ProviderNursingHomePage.checkProviderSearchArrowClose();
@@ -75,7 +82,7 @@ describe('ProviderNursingHomeTabTest', () => {
     it('TC_PDP_PRV_NUR_152: validate the functionality of Search Provider Dropdown arrow ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         cy.wait(200);
         ProviderNursingHomePage.ClickOpenSearchProverSection();
@@ -93,7 +100,7 @@ describe('ProviderNursingHomeTabTest', () => {
     it('TC_PDP_PRV_NUR_153: validate the functionality of Provider Filter down arrow', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         cy.wait(200);
         // click open prover filter
@@ -107,13 +114,13 @@ describe('ProviderNursingHomeTabTest', () => {
     it('TC_PDP_PRV_NUR_154: verify the functionality of Distance text box ', () => {
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         cy.wait(200);
         //enter 70 and search 
         // click open search prover
         ProviderNursingHomePage.ClickOpenSearchProverSection();
-        ProviderNursingHomePage.EnterRadiusinProviderSectionDistance(70);
+        ProviderNursingHomePage.EnterRadiusinProviderSectionDistance(testData.RadiusinProviderSectionDistance);
         ProviderNursingHomePage.ClickProviderSearchButtoninProviderSection();
         ProviderNursingHomePage.IsProviderListIsLoaded();
         cy.wait(200);
@@ -123,7 +130,7 @@ describe('ProviderNursingHomeTabTest', () => {
         cy.wait(200);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         cy.wait(200);
         ProviderNursingHomePage.ClickOpenProverFilterSection();
@@ -137,7 +144,7 @@ describe('ProviderNursingHomeTabTest', () => {
 
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         ProviderNursingHomePage.ClickOpenProverFilterSection();
         cy.wait(200);
@@ -153,7 +160,7 @@ describe('ProviderNursingHomeTabTest', () => {
         cy.wait(1000);
         const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         cy.wait(500);
-        ProviderNursingHomePage.EnterRadiusinSearchProvider(100);
+        ProviderNursingHomePage.EnterRadiusinSearchProvider(testData.RadiusinSearchProvider);
         ProviderNursingHomePage.clickSearchButtonPresent();
         cy.wait(1000);
         ProviderNursingHomePage.ClickOpenProverFilterSection();
