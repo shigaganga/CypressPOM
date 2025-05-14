@@ -6,7 +6,7 @@
  "managePrescription_url": "http://169.61.105.110/medicareAdvantage_sandbox/manage-prescriptions",
 "managePharmacy_url":"http://169.61.105.110/medicareAdvantage_sandbox/manage-pharmacies",
 "planSelection_url":"http://169.61.105.110/medicareAdvantage_sandbox/plan-selection",
-
+"manageProviders_url": "http://169.61.105.110/medicareAdvantage_sandbox/manage-providers",
   "username": "testuser@gmail.com",
   "password": "user123",
 "tobacco":"No",
@@ -87,6 +87,14 @@
   "supplimentPlanG3": "UnitedHealthcare Ins Co" ,
   "supplimentPlanG4": "Cigna National Health Ins Co",
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
-  "supplimentPlanN1": "Cigna National Health Ins Co"
-
+  "supplimentPlanN1": "Cigna National Health Ins Co",
+    "facilityname": "Davita Englewood Dialysis Center",
+    "streetname": "Girard",
+    "zipcode": "80113",
+    "distance": "10",
+    "medicalequipmentfacilityname": "nebulizer",
+    "medicalequipmentstreet": "holly",
+    "medicalequipmentzipcode": "80112",
+    "medicalequipmentradius": "15",
+    "medicalequipmentdistance": "10"
 }
