@@ -78,9 +78,6 @@
 
   "pharmacyname1":"KING SOOPERS",
   "pharmacyInvalidname2":"ad232",
- 
- 
-
 
   "supplimentPlanG1": "Physicians Mutual (PSIC)",
   "supplimentPlanG2": "MedMutual Protect",
@@ -88,6 +85,13 @@
   "supplimentPlanG4": "Cigna National Health Ins Co",
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
   "supplimentPlanN1": "Cigna National Health Ins Co",
+
+  "ProvNursingHome_PageEnterEmail": "abc@gmail.com",
+  "ProvNursingHome_PageEnterName":"niv",
+  "ProvNursingHome_Lifeexpectancy":"85",
+  "ProvNursingHome_RadiusinSearchProvider":100,
+  "ProvNursingHome_RadiusinProviderSectionDistance":70,
+
     "facilityname": "Davita Englewood Dialysis Center",
     "streetname": "Girard",
     "zipcode": "80113",

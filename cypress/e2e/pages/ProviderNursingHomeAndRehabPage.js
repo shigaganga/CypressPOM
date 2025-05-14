@@ -4,7 +4,7 @@ class ProviderNursingHomeAndRehabPage {
     healthProfile_1 = 'table.mat-table tbody tr.mat-row:nth-child(1) > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon'
     healthProfile_2 = 'table.mat-table tbody tr.mat-row:nth-child(2) > .cdk-column-actions > :nth-child(1) > .mat-button-wrapper > .mat-icon'
     recommendationName = "#mat-input-4";
-    searchPrefNo = "#mat-radio-12 > .mat-radio-label";
+    searchPrefNoRadioGroup = ".mat-radio-group mat-radio-button";
     providerButton = "body > app-root > div > div.main-content > mat-sidenav-container > mat-sidenav-content > app-plan-selection > app-plan-selected > div.button-container > div > div.button-wrapper.ng-star-inserted > button:nth-child(2) > span.mat-button-wrapper";
     ProviderPagebtn = ".location-container > .ng-star-inserted > :nth-child(2)";
     NursingHometabSelector = ":nth-child(3) > .category-name";
@@ -68,7 +68,9 @@ class ProviderNursingHomeAndRehabPage {
         cy.get(this.recommendationName).clear().type(name).wait(300);
     }
     clickSearchPrefNo() {
-        cy.get(this.searchPrefNo).click();
+        cy.get(this.searchPrefNoRadioGroup)
+        .contains('No')
+        .click();
     }
     clickProviderPagebtn() {
         cy.get(this.ProviderPagebtn).click();
