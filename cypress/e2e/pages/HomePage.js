@@ -2,11 +2,13 @@ class HomePage{
     AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
     healtharrow=".mat-select-arrow.ng-tns-c216-10";
     datePicker="//button[@aria-label='Open calendar']//span[@class='mat-button-wrapper']//*[name()='svg']";
-    zip="#mat-input-8";
+    zipCode="//mat-label[normalize-space(.)='Zipcode (Click search for County, State and City)']/ancestor::mat-form-field//input";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     nexthome=".form-wrapper > .mat-raised-button";
-    email="#mat-input-3";
-    name="#mat-input-4";
+    //email="#mat-input-3";
+    email="//mat-label[normalize-space(.)='Recommendation Email']/ancestor::mat-form-field//input";
+    name="//mat-label[normalize-space(.)='Recommendation Name']/ancestor::mat-form-field//input";
+    nameBlankErrortext="//*[text()='Profile Name is required.']";
      healthProfile="//span[@class='mat-option-text']";
     recommendationName="#mat-input-4";
     lifeExpectancy="//input[@id='mat-input-5']";
@@ -23,7 +25,6 @@ class HomePage{
     taxFilingIndiv="#mat-radio-9 > .mat-radio-label";//Tax filing individual
     tobacoUserLink='mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
     street="#mat-input-7";
-    zipCode="#mat-input-8";
     searchNew=".mat-form-field-suffix > .mat-focus-indicator";
     search=".mat-form-field-suffix > .mat-focus-indicator > .mat-button-wrapper > .mat-icon";
     emailCom="#mat-input-9";
@@ -49,12 +50,20 @@ class HomePage{
     clickAiVanteLogo(){
         cy.get(this.AiVanteLogo).should('be.visible').click();
     }
-    enterEmail(email){
-        cy.get(this.email).should('be.visible').type(email);
-    }
+  enterEmail(email) {
+    cy.xpath(this.email)
+      .should('be.visible')
+      .type(email, { force: true });
+}
+
     enterName(name){
-        cy.get(this.name).should('be.visible').type(name);
+        cy.xpath(this.name).should('be.visible').type(name);
     }
+     verifyNameBlankErrorText(){
+    cy.xpath(this.verifyNameBlankErrorText)
+      .should('be.visible')
+      .and('contain', 'Profile Name is required.');
+}
     clickDatePicker(){
         cy.xpath(this.datePicker).should('be.visible').click();
     }
@@ -67,10 +76,6 @@ class HomePage{
         .should('be.visible')
         .click();
     }
-    clickModerateHealth() {
-        cy.get(this.moderateHealth).should('be.visible').click();
-    }
-   
 
 clickYear(year) {
   cy.get(this.year)
@@ -81,9 +86,7 @@ clickYear(year) {
     clickMonth(month) {
         cy.xpath(this.month).contains(month).click();
     }
-    enterName(name) {
-        cy.get(this.recommendationName).should('be.visible').type(name);
-    }
+  
     clickCountyState() {
         cy.get(this.countyState).should('be.visible').click();
     }
@@ -157,7 +160,7 @@ clickYear(year) {
         cy.get(this.street).should('be.visible').type(street);
     }
     enterZip(zipCode) {
-        cy.get(this.zipCode).should('be.visible').type(zipCode).wait(1000);
+        cy.xpath(this.zipCode).should('be.visible').type(zipCode).wait(1000);
     }
     clickSearchNew() {
         cy.get(this.searchNew).should('be.visible').click();
