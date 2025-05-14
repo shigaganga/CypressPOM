@@ -23,11 +23,11 @@ describe('ProviderNursingHomeTabTest', () => {
             
             const homepage = new HomePage();
             const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
-            ProviderNursingHomePage.SpecialHomePageEnterEmail(testData.PageEnterEmail);
+            ProviderNursingHomePage.SpecialHomePageEnterEmail(testData.Provider_PageEnterEmail);
             ProviderNursingHomePage.clickhealthArrow();
             ProviderNursingHomePage.clickGoodHealth();
-            ProviderNursingHomePage.enterName(testData.PageEnterName);
-            homepage.enterLifeexpectancy(testData.Lifeexpectancy);
+            ProviderNursingHomePage.enterName(testData.Provider_PageEnterName);
+            homepage.enterLifeexpectancy(testData.Provider_Lifeexpectancy);
             homepage.clickSearch();
             cy.wait(200)
             homepage.nextHomeClick();
