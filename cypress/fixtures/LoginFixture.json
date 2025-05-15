@@ -27,7 +27,8 @@
 "magiTier":" $ 212K to $ 266K ",
 "taxFilingStatus":"jointly",
 "conceirge":"No",
-
+"radius" : "100",
+"ipname":"'UNIVERSITY OF COLORADO HOSP'",
   
   "drugName1": "Gabapentin",
   "drugQuantity1": "30",

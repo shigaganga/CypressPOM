@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-13T04:27:57.730Z",
+    "end": "2025-05-13T04:29:06.925Z",
+    "duration": 69195,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ae07ec64-b677-436c-971e-d280fb5c17ee",
+      "title": "",
+      "fullFile": "cypress\\e2e\\POMTest\\AivanteSmokeTest.cy.js",
+      "file": "cypress\\e2e\\POMTest\\AivanteSmokeTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "214ae888-95d0-47b0-ad6f-6633261d20d0",
+          "title": "smoke Flow Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should log in and create a recommendation",
+              "fullTitle": "smoke Flow Test should log in and create a recommendation",
+              "timedOut": null,
+              "duration": 66108,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('csv:parseFromDropbox').then(data => {\n  const testData = data[0];\n  cy.visit(testData.baseUrl);\n  cy.wait(500);\n  const lPage = new _LoginPage.default();\n  lPage.setUserName(testData.username);\n  cy.wait(500);\n  lPage.setPassword(testData.password);\n  cy.wait(500);\n  lPage.clickLoginBtn();\n  cy.wait(500);\n  const recPage = new _LandingPage.default();\n  recPage.clickCreateRecommendation();\n  cy.wait(500);\n  const homepage = new _HomePage.default();\n  homepage.enterEmail(testData.email);\n  cy.wait(500);\n  homepage.enterName(testData.name);\n  cy.wait(500);\n  homepage.clickDatePicker();\n  cy.wait(500);\n  homepage.clickYear(testData.yearOfBirth);\n  cy.wait(500);\n  homepage.clickMonth(testData.monthOfBirth);\n  cy.wait(500);\n  homepage.clickGender();\n  cy.wait(500);\n  homepage.selectGender(testData.gender);\n  cy.wait(500);\n  homepage.enterStreet(testData.street);\n  cy.wait(500);\n  homepage.enterZip(testData.zip);\n  cy.wait(500);\n  homepage.clickSearch();\n  cy.wait(500);\n  homepage.entercommunicationEmail(testData.communicationEmail);\n  cy.wait(500);\n  homepage.enterContact(testData.contactNumber);\n  cy.wait(500);\n  homepage.clickhealthArrow();\n  cy.wait(500);\n  homepage.clickHealthProfile(testData.healthProfile);\n  cy.wait(500);\n  homepage.enterLifeexpectancy(testData.lifeExpectancy);\n  cy.wait(500);\n  homepage.selectTobaccoOption(testData.tobacco);\n  cy.wait(500);\n  homepage.selectTaxFilingStatus(testData.taxFilingStatus);\n  cy.wait(500);\n  homepage.clickMagiTier();\n  cy.wait(500);\n  homepage.clickMaggiTireOptions(testData.magiTier);\n  cy.wait(500);\n  homepage.selectConciergeOption(testData.conceirge);\n  cy.wait(500);\n  homepage.nextHomeClick();\n  cy.wait(500);\n  const prefPage = new _PreferencePage.default();\n  prefPage.clickyesRadioDrugCost();\n  cy.wait(500);\n  prefPage.clickNextPrefPage();\n  cy.wait(500);\n  const drugpage = new _PrescriptionPage.default();\n  drugpage.enterDrugSearchBox(testData.drugName1);\n  cy.wait(500);\n  drugpage.selectDrug();\n  cy.wait(500);\n  drugpage.clickAddToDrug();\n  cy.wait(500);\n  drugpage.doneAddDrugClick();\n  cy.wait(500);\n  const Pharmacypage = new _PharmacyPage.default();\n  Pharmacypage.clickFindFarmacy();\n  cy.wait(500);\n  Pharmacypage.clickfarmacyOne();\n  cy.wait(500);\n  Pharmacypage.clickfarmacyTwo();\n  cy.wait(500);\n  Pharmacypage.clicknextpharmacy();\n  cy.wait(500);\n  const planselctPg = new _PlanselectionPage.default();\n  const medicarepg = new _MedicarePage.default();\n  const longtermPg = new _LongTermPage.default();\n  planselctPg.medicareAdvantageClick();\n  cy.wait(500);\n  planselctPg.planWellCaresimpleClick();\n  cy.wait(500);\n  planselctPg.donePlanSelectionClick();\n  cy.wait(500);\n  planselctPg.tickClick();\n  cy.wait(500);\n  planselctPg.medicareclick();\n  cy.wait(500);\n  medicarepg.medicarArrowClick();\n  cy.wait(500);\n  medicarepg.submitMedicareClick();\n  cy.wait(500);\n  medicarepg.backToplanSelectionClick();\n  cy.wait(1000);\n  planselctPg.longtermClick();\n  cy.wait(500);\n  longtermPg.submitLongTermClick();\n  cy.wait(500);\n  longtermPg.pdfclick();\n  cy.wait(500);\n  longtermPg.backLongTermToPlanSelectionClick();\n  cy.wait(500);\n  planselctPg.aivanteImagClick();\n  cy.wait(500);\n});",
+              "err": {},
+              "uuid": "a1856897-4d46-44a5-9a89-d0ae916eeb13",
+              "parentUUID": "214ae888-95d0-47b0-ad6f-6633261d20d0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1856897-4d46-44a5-9a89-d0ae916eeb13"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 66108,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\html\\.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Aivante Regression Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
