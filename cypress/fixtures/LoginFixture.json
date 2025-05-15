@@ -102,10 +102,19 @@
     "medicalequipmentzipcode": "80112",
     "medicalequipmentradius": "15",
     "medicalequipmentdistance": "10",
+feature/Bindu-ProviderHospital
     "ProviderHosRadius":"25",
     "ProviderHosOverAllRat":"4",
     "ProviderHosName":"RALEIGH OAKS BEHAVIORAL HEALTH",
     "ProviderHosExepectName":"RALEIGH OAKS BEHAVIO...",
     "ProviderHosPatSurveyRat":"2"
 
+
+
+
+  "ProviderHomeHealthCareZipCode": "80113",
+  "ProviderHomeHealthCareZip": "8011",
+  "ProviderHomeHealthCareStreet": "Girard",
+  "ProviderHomeHealthName": "CAREBRIDGE"
+ main
 }
