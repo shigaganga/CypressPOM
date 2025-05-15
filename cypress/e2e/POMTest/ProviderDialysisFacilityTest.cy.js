@@ -101,16 +101,16 @@ describe("ProviderDialysisFacility-TestSuite", () => {
 
     it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page', () => {
         providerDialysisFacility.clickDialysis();
-        providerDialysisFacility.enterDialysisFacilityName(testData.facilityname);
+        providerDialysisFacility.enterDialysisFacilityName(testData.providerdialysisfacilityname);
         cy.log("Dialysis Facility Name - Passed");
     });
 
     it(' TC_PDP_PRV_DF_03,dialysisfacility street', () => {
-        providerDialysisFacility.enterStreet(testData.streetname);
+        providerDialysisFacility.enterStreet(testData.providerdialysisstreetname);
     });
 
     it('TC_PDP_PRV_DF_04 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
-        providerDialysisFacility.enterZipCode(testData.zipcode);
+        providerDialysisFacility.enterZipCode(testData.providerdialysiszipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
         providerDialysisFacility.clickCity();
@@ -124,7 +124,7 @@ describe("ProviderDialysisFacility-TestSuite", () => {
     });
 
     it('TC_PDP_PRV_DF_06 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
-        providerDialysisFacility.enterZipCode(testData.zipcode);
+        providerDialysisFacility.enterZipCode(testData.providerdialysiszipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
         providerDialysisFacility.clickCity();
@@ -137,7 +137,7 @@ describe("ProviderDialysisFacility-TestSuite", () => {
         //Search Provider Page Test
         providerDialysisFacility.clickProviderFilter();
         cy.wait(1000);
-        providerDialysisFacility.enterDistance(testData.distance);
+        providerDialysisFacility.enterDistance(testData.providerdialysisdistance);
         cy.wait(1000);
         //These fields are not on the test app. (optional)
         //providerDialysisFacility.clickRating();
