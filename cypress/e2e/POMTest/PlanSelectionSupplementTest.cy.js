@@ -11,8 +11,10 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
     let testData
     const planselectionpage= new PlanselectionPage();
     before(()=>{
-    cy.fixture('LoginFixture').then((data) => {
-        testData = data;
+   // cy.fixture('LoginFixture').then((data) => {
+     //   testData = data;
+     cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     })
 })
         
