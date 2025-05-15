@@ -100,5 +100,11 @@
     "medicalequipmentstreet": "holly",
     "medicalequipmentzipcode": "80112",
     "medicalequipmentradius": "15",
-    "medicalequipmentdistance": "10"
+    "medicalequipmentdistance": "10",
+
+
+  "ProviderHomeHealthCareZipCode": "80113",
+  "ProviderHomeHealthCareZip": "8011",
+  "ProviderHomeHealthCareStreet": "Girard",
+  "ProviderHomeHealthName": "CAREBRIDGE"
 }
