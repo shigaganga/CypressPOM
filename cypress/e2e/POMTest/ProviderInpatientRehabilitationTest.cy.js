@@ -10,34 +10,75 @@ describe('providerTest' , ()=>
 {
     beforeEach(() => {
         cy.session("ProviderInPatientRehab Page", () => {
-          cy.fixture('LoginFixture').then((data) => {
-            cy.visit(data.baseUrl);
-      
-            const lPage = new LoginPage();
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin();
-      
-            const recPage = new LandingPage();
-            recPage.clickCreateRecommendation();
-            const homepage = new HomePage();
-            const preferencePage = new PreferencePage();
-      
-            homepage.enterEmail(data.email);
-            homepage.clickhealthArrow();
-            homepage.clickGoodHealth();
-            homepage.enterName(data.name);
-            homepage.enterLifeexpectancy(data.lifeexpectancy);
-            homepage.datePickerclick();
-            homepage.year1957click();
-            homepage.month1957click();
-            homepage.enterZip(data.zip);
-            homepage.clickSearch();
-            homepage.nextHomeClick();
-            
-            preferencePage.clickNextPrefPage();
-          });
+            cy.task('csv:parseFromDropbox').then((data) => {
+                const testData = data[0];
+                cy.visit(testData.baseUrl);
+                cy.wait(500);
+          
+                const lPage = new LoginPage();
+                lPage.setUserName(testData.username);
+                cy.wait(500);
+                lPage.setPassword(testData.password);
+                cy.wait(500);
+                lPage.clickLoginBtn();
+                cy.wait(500);
+          
+                const recPage = new LandingPage();
+                recPage.clickCreateRecommendation();
+                cy.wait(500);
+          
+                const homepage = new HomePage();
+                homepage.enterEmail(testData.email);
+                cy.wait(500);
+                homepage.enterName(testData.name);
+                cy.wait(500);
+                homepage.clickDatePicker();
+                cy.wait(500);
+                homepage.clickYear(testData.yearOfBirth);
+                cy.wait(500);
+                homepage.clickMonth(testData.monthOfBirth);
+                cy.wait(500);
+                homepage.clickGender();
+                cy.wait(500);
+                homepage.selectGender(testData.gender);
+                cy.wait(500);
+                homepage.enterStreet(testData.street);
+                cy.wait(500);
+                homepage.enterZip(testData.zip);
+                cy.wait(500);
+                homepage.clickSearch();
+                cy.wait(500);
+                homepage.entercommunicationEmail(testData.communicationEmail);
+                cy.wait(500);
+                homepage.enterContact(testData.contactNumber);
+                cy.wait(500);
+                homepage.clickhealthArrow();
+                cy.wait(500);
+                homepage.clickHealthProfile(testData.healthProfile);
+                cy.wait(500);
+                homepage.enterLifeexpectancy(testData.lifeExpectancy);
+                cy.wait(500);
+                homepage.selectTobaccoOption(testData.tobacco);
+                cy.wait(500);
+                homepage.selectTaxFilingStatus(testData.taxFilingStatus);
+                cy.wait(500);
+                homepage.clickMagiTier();
+                cy.wait(500);
+                homepage.clickMaggiTireOptions(testData.magiTier);
+                cy.wait(500);
+                homepage.selectConciergeOption(testData.conceirge);
+                cy.wait(500);
+                homepage.nextHomeClick();
+                cy.wait(500);
+          
+                const prefPage = new PreferencePage();
+                prefPage.clickyesRadioDrugCost();
+                cy.wait(500);
+                prefPage.clickNextPrefPage();
+                cy.wait(500);
+          
+        });
+
         });
       
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');
