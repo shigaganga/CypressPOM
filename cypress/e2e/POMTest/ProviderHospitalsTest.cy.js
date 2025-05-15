@@ -50,7 +50,8 @@ describe('ProviderHospitalTest',()=>{
             homepage.nextHomeClick();
 
         const prefPage=new PreferencePage();
-        
+            prefPage.verifyPreferencePageUrl();
+            prefPage.verifyAreUSureText();
             prefPage.clicknoRadioDrugCost();   
             prefPage.clickNextPrefPage();
 
@@ -352,4 +353,4 @@ describe('ProviderHospitalTest',()=>{
     });
     
     
-//});
+
