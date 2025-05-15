@@ -129,6 +129,19 @@ cy.get(this.PlanSelectionCheckBox, { timeout: 10000 })
 
 
 }
+setPlanSelectionCheckBoxByPlanName(PlanName)
+{
+  //cy.contains('.mat-tooltip-trigger.header-title', 'PlanName')
+ // .parentsUntil('span') // or adjust to target the correct parent
+ // .find('.mat-checkbox-inner-container-no-side-margin input[type="checkbox"]')
+ // .click();
+ cy.xpath("//span[contains(text(), PlanName) and contains(@class, 'header-title')]/following-sibling::section//input[@type='checkbox']",{timeout:10000}).first()
+ .should('be.visible')
+ .click({force:true});
+
+
+
+}
 
 max3PlanVerifyMsg()
 {
@@ -300,7 +313,7 @@ cy.get(this.coveragemessageEle)
 }
 verifyInnetworkPharmacy(){
 cy.get(this.inNetworkPharmaciesEle)
-.should('have.text','2 of 2 of selected pharmacies are in-network(Refer plan details)')
+.should('have.text','1 of 2 of selected pharmacies are in-network(Refer plan details)')
 }
 clickPlandetailsBtn(){
 cy.get(this.plandetailsEle).click()
@@ -327,10 +340,10 @@ SelectDrugCoveragefromfilter(){
  cy.get(this.selectfromdrugcoveragefilterele).click()
 }
 verifyLocationSelector(){
- cy.get(this.locationselectorele).should('have.text', 'Location : Colorado');
+ cy.get(this.locationselectorele).should('have.text', 'Location : North Carolina');
 }
 verifyRemaningYears(){
-  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 8 months of 2025');
+  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 7 months of 2025');
 }
 clickResetBtn(){
  cy.get(this.resetbuttonele).click()

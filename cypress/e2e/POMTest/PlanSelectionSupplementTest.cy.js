@@ -8,67 +8,75 @@ import LongTermPage from '../pages/LongTermPage.js';
 import MedicareAdvantagepage from '../pages/MedicarePage.js';
 import PharmacyPage from '../pages/PharmacyPage.js';
 describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
+    let testData
     const planselectionpage= new PlanselectionPage();
-     beforeEach("Login to PlanSelectionPage",()=>{
-        cy.session("Plan Select session",()=>{
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
+    before(()=>{
+    cy.fixture('LoginFixture').then((data) => {
+        testData = data;
+    })
+})
+        
         const lPage = new LoginPage();
         const recPage = new LandingPage();
         const homepage = new HomePage();
         const prefPage = new PreferencePage();
         const prescriptionpage=new PrescriptionPage();
         const pharmacypage=new PharmacyPage();
-         cy.fixture('LoginFixture').then((data) => {
-            
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
+     beforeEach("Login to PlanSelectionPage",()=>{
+        cy.session("Plan Select session",()=>{
+        cy.visit(testData.baseUrl );
+        cy.wait(500);
+         
+ 
+            lPage.setUserName(testData.username);
+            lPage.setPassword(testData.password);
             lPage.clickLoginBtn();
             lPage.verifyLogin(); // Ensure login was successful
-        })
-           recPage.clickCreateRecommendation();
-           cy.wait(100);
-           homepage.enterEmail("rani@gmail.com");
-           cy.wait(100);
+            recPage.clickCreateRecommendation();
+           cy.wait(500);
+           homepage.enterEmail(testData.email);
+           cy.wait(500);
            homepage.clickhealthArrow();
-           cy.wait(100);
-           homepage.clickGoodHealth();
-           cy.wait(100);
-           homepage.enterName("Shigapage");
-           cy.wait(100);
-           homepage.enterLifeexpectancy("86");
-           cy.wait(100);
-           homepage.datePickerclick();
-           cy.wait(100);
-           homepage.year1957click();
-           cy.wait(100);
-           homepage.month1957click();
-           cy.wait(100);
-           homepage.enterZip("27529")
-           cy.wait(100);
+           cy.wait(500);
+           homepage.clickHealthProfile(testData.healthProfile);
+           cy.wait(500);
+           homepage.enterName(testData.name);
+           cy.wait(500);
+           homepage.enterLifeexpectancy(testData.lifeExpectancy);
+           cy.wait(500);
+           homepage.clickDatePicker();
+           cy.wait(500);
+           homepage.clickYear(testData.yearOfBirth);
+           cy.wait(500);
+           homepage.clickMonth(testData.monthOfBirth);
+           cy.wait(500);
+           homepage.enterZip(testData.zip)
+           cy.wait(500);
            homepage.clickSearch();
-           cy.wait(100);
+           cy.wait(500);
            homepage.nextHomeClick();
-           cy.wait(100);
+           cy.wait(500);
            prefPage.clickyesRadioDrugCost();
-         cy.wait(100);
+         cy.wait(500);
          prefPage.clickNextPrefPage();
-         cy.wait(100);
-         prescriptionpage.enterDrugSearchBox("Gabapentin");
-         cy.wait(100);
+         cy.wait(500);
+         prescriptionpage.enterDrugSearchBox(testData.drugName1);
+         cy.wait(500);
          prescriptionpage.selectDrug();
-         cy.wait(100);
+         cy.wait(500);
          prescriptionpage.clickAddToDrug();
-        cy.wait(100);
+        cy.wait(500);
         prescriptionpage.doneAddDrugClick();
-        cy.wait(100);
+        cy.wait(500);
         pharmacypage.clickFindFarmacy();
-        cy.wait(100);
+        cy.wait(500);
         pharmacypage.clickfarmacyOne();
-        cy.wait(100);
+        cy.wait(500);
         pharmacypage.clickfarmacyTwo();
-        cy.wait(100);
+        cy.wait(500);
         pharmacypage.clicknextpharmacy();
     })
+//})
     cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
 })
 
@@ -82,35 +90,48 @@ it("TC_PDP_SUPL_PLAN_42:This is to verify the 'Suppliment Button' functionality 
 it("TC_PDP_SUPL_PLAN_48:To verify the 'Select Supplement Plans' functionality on the plan-selection/plan-list/SUPPLIMENT page within the PDP application.",()=>{
     planselectionpage.setSupplementButtn()
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
-    planselectionpage.setPlanSelectionCheckBox(2);
-    planselectionpage.setPlanSelectionCheckBox(3);
-    planselectionpage.setPlanSelectionCheckBox(4);
+   // planselectionpage.setPlanSelectionCheckBox(1);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1)
+   // planselectionpage.setPlanSelectionCheckBox(2);
+   // planselectionpage.setPlanSelectionCheckBox(3);
+   // planselectionpage.setPlanSelectionCheckBox(4);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG2)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG3)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG4)
     
     planselectionpage.max3PlanVerifyMsg();
-    planselectionpage.setPlanSelectionCheckBox(1);  
+    //planselectionpage.setPlanSelectionCheckBox(1); 
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1) 
 
 })
 it("TC_PDP_SUPL_PLAN_49:This is to verify the 'Deselect Supplement Plans' functionality on the plan-selection/plan-list/SUPPLIMENT page within the PDP application.",()=>{
     planselectionpage.setSupplementButtn()
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
-    planselectionpage.setPlanSelectionCheckBox(2);
-    planselectionpage.setPlanSelectionCheckBox(3); 
-    planselectionpage.setPlanSelectionCheckBox(4);
-    
+    //planselectionpage.setPlanSelectionCheckBox(1);
+   // planselectionpage.setPlanSelectionCheckBox(2);
+   // planselectionpage.setPlanSelectionCheckBox(3); 
+   // planselectionpage.setPlanSelectionCheckBox(4);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG2)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG3)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG4)
     planselectionpage.max3PlanVerifyMsg();
-    planselectionpage.setPlanSelectionCheckBox(1); 
+    //planselectionpage.setPlanSelectionCheckBox(1); 
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1)
 })
   
 it("TC_PDP_SUPL_PLAN_50:To verify that user can select only one supplement plan from previously selected 3 plans and able to see the plan details",()=>{
     planselectionpage.setSupplementButtn()
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
-    planselectionpage.setPlanSelectionCheckBox(2);
-    planselectionpage.setPlanSelectionCheckBox(3);
+   // planselectionpage.setPlanSelectionCheckBox(1);
+    //planselectionpage.setPlanSelectionCheckBox(2);
+   // planselectionpage.setPlanSelectionCheckBox(3);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG2)
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG3)
     planselectionpage.donePlanSelectionClick();
-    planselectionpage.setPlanSelectionCheckBox(1);
+    //planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1)
     planselectionpage.verifyMsg(); 
     
 })
@@ -128,7 +149,7 @@ it("TC_PDP_SUPL_PLAN_56:To verify the functionality of filter icon",()=>{
    planselectionpage.setSupplementButtn();
    cy.wait(10000)
    planselectionpage.setFilterButton() 
-   planselectionpage.filterByInsuranceCarrier("HUMANA GRP (60052)")
+   planselectionpage.filterByInsuranceCarrier(testData.supplimentInsuranceCarrier)
       
 })
 
@@ -138,7 +159,8 @@ it("TC_PDP_SUPL_PLAN_57:To verify the functionality of reset button",()=>{
   planselectionpage.setSupplementButtn();
   cy.wait(10000)
   planselectionpage.setFilterButton() 
-   planselectionpage.filterByInsuranceCarrier("HUMANA GRP (60052)")
+   planselectionpage.filterByInsuranceCarrier(testData.supplimentInsuranceCarrier)
+   cy.wait(2000)
    planselectionpage.setResetButton(); 
 
 })
@@ -148,7 +170,8 @@ it("TC_PDP_SUPL_PLAN_62:To verify that clicking on the part A Header panel expan
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+    //planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton()         
 
     planselectionpage.verifyHospitalization()  //Hospitalization validation under partA
@@ -167,7 +190,8 @@ it("TC_PDP_SUPL_PLAN_64:Verify that clicking on the Hospitalization should expan
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+   // planselectionpage.setPlanSelectionCheckBox(1);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton() 
     planselectionpage.setHospitalizationClick()
     cy.get(".mat-expansion-panel-body table.mat-table.cdk-table.detail-table tbody", { timeout: 10000 })
@@ -187,7 +211,8 @@ it("TC_PDP_SUPL_PLAN_72:To verify Part B expands and collapse",()=>{
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+    //planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setPartBExpands()   
     planselectionpage.setPartBCollapse()  
@@ -198,7 +223,8 @@ it("TC_PDP_SUPL_PLAN_80:To verify Part A & B expands and collapse",()=>{
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+   // planselectionpage.setPlanSelectionCheckBox(1);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setPartABExpands()
     planselectionpage.setPartABCollapse()
@@ -209,7 +235,8 @@ it("TC_PDP_SUPL_PLAN_86:To verify Other Benefits expands and collapse",()=>{
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+   // planselectionpage.setPlanSelectionCheckBox(1);
+   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setOtherBenefitsExpands()
     planselectionpage.setOtherBenefitsCollapse()
@@ -219,7 +246,8 @@ it("TC_PDP_SUPL_PLAN_86:To verify Other Benefits expands and collapse",()=>{
     planselectionpage.setSelectPlanN()
     planselectionpage.setSupplementButtn();
     cy.wait(10000)
-    planselectionpage.setPlanSelectionCheckBox(1);
+    //planselectionpage.setPlanSelectionCheckBox(1);
+    planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1)
     planselectionpage.setPlanDetailsButton()
     planselectionpage.setBackButton() 
    cy.wait(2000);
