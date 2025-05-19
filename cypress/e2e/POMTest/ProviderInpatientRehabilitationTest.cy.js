@@ -8,9 +8,7 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 
 describe('providerTest' , ()=>
 {
-    const loginPage = new LoginPage();
-    const landingPage = new LandingPage();
-    const homePage = new HomePage();
+   
     const planselectionPage=new PlanselectionPage();
     const providerInRePage=new ProviderInpatientRehabilitationPage();
     let testData = null;

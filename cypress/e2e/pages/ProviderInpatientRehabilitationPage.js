@@ -11,6 +11,7 @@ class ProviderInpatientRehabilitationPage
     dropDown='.mat-option-text';
     applyFilter='.mat-button-wrapper';
     clearFilter='.mat-button-wrapper';
+   //clicking provider button
    
     clickProviderButton()
     {
