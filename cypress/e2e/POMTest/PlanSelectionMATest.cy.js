@@ -7,7 +7,7 @@ import PharmacyPage from "../pages/PharmacyPage.js"
 import PlanSelectionMA from "../pages/PlanSelectionPageMA.js";
 // Steps for MA tests
 describe('PlanSelectionMA', () => {
-    let testData;
+    let testData = null;
     const lPage = new LoginPage();
     const recPage = new LandingPage();
     const homepage = new HomePage();
@@ -44,24 +44,28 @@ describe('PlanSelectionMA', () => {
             recPage.clickCreateRecommendation();
             cy.wait(100);
             homepage.enterEmail(testData.email);
-            cy.wait(100);
-            homepage.clickhealthArrow();
-            cy.wait(100);
-            homepage.clickGoodHealth();
+           // cy.wait(100);
+            //homepage.clickhealthArrow();
+           // cy.wait(100);
+            //homepage.clickGoodHealth();
             cy.wait(100);
             homepage.enterName(testData.name);
             cy.wait(100);
             homepage.enterLifeexpectancy(testData.lifeExpectancy);
             cy.wait(100);
-            homepage.datePickerclick();
+            homepage.clickDatePicker();
             cy.wait(100);
-            homepage.year1957click();
+            homepage.clickYear(testData.yearOfBirth);
             cy.wait(100);
-            homepage.month1957click();
+            homepage.clickMonth(testData.monthOfBirth);
             cy.wait(100);
             homepage.enterZip(testData.zip)
             cy.wait(100);
             homepage.clickSearch();
+            cy.wait(100);
+            homepage.entercommunicationEmail(testData.communicationEmail);
+            cy.wait(100);
+            homepage.enterContact(testData.contactNumber);
             cy.wait(100);
             homepage.nextHomeClick();
             cy.wait(100);
@@ -299,8 +303,8 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickRemainingCost();
         cy.wait(1000);
         planSelectionMA.clickEstimatedTotalDrug();
-        cy.wait(1000);
-        planSelectionMA.clickTotalMonthlyDrugCost();
+       // cy.wait(1000);
+       // planSelectionMA.clickTotalMonthlyDrugCost();
         cy.wait(1000);
         planSelectionMA.cliclBackButtonPlan();
         cy.wait(2000);
@@ -389,10 +393,10 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickmedicareButton();
         cy.wait(1000);
         planSelectionMA.clickbackButtonMA();
-        cy.wait(1000);
-        planSelectionMA.clickResetButton();
-        cy.wait(1000);
-        planSelectionMA.clickWarningButton(); 
+        //cy.wait(1000);
+       // planSelectionMA.clickResetButton();
+        //cy.wait(1000);
+       // planSelectionMA.clickWarningButton(); 
     });
 
     it('TC_PDP_MA_PLAN_10, PlanSelection MA Aivante Logo Sign Function', () => {

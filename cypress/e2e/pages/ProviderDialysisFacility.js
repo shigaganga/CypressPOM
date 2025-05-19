@@ -1,17 +1,17 @@
 class ProviderDialysisFacility {
-    dialysisEle ='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[1]/app-provider-types/div/div[8]/span[2]';
-    dialysisfacilitynameEle='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[1]/mat-form-field[1]/div/div[1]/div[3]'; 
-    streetEle='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[1]/div/div[1]/div[3]/input';
-    zipcodeEle='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[3]/input';
-    zipsearchEle ='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[4]/button/span[1]';
-    cityDropDownEle ='/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[4]/div/div[1]/div[3]'; 
-    cityNameEle = '/html/body/div[2]/div[2]/div/div/div/mat-option[3]'; 
-    radiusinEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[1]/mat-form-field[3]/div/div[1]/div[3]/input');
+    dialysisEle = "//span[normalize-space()='Dialysis facilities']"
+    dialysisfacilitynameEle = "#mat-input-0"
+    streetEle = "//input[@id='mat-input-1']"
+    zipcodeEle = "//input[@id='mat-input-2']"
+    zipsearchEle ="//mat-icon[normalize-space()='search']"
+    cityDropDownEle = "//div[@class='mat-select-arrow-wrapper ng-tns-c216-7']"
+    cityNameEle = "//span[@class='mat-option-text'][normalize-space()='CHERRY HILLS']"
+    radiusinEle = "//input[@id='mat-input-4']"
     searchEle = ('.display-flex > .mat-focus-indicator > .mat-button-wrapper');
-    providerfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header');
+    providerfilterEle = "//span[@class='mat-expansion-indicator ng-tns-c210-14 ng-trigger ng-trigger-indicatorRotate ng-star-inserted']"
     distanceEle = ('#distance');
-   // ratingEle = (' #rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow');
-   // ratingfiveEle = ('#mat-option-136');
+    // ratingEle = (' #rating_patient > .mat-select-trigger > .mat-select-arrow-wrapper > .mat-select-arrow');
+    // ratingfiveEle = ('#mat-option-136');
     applyfilterEle = (' :nth-child(2) > [type="submit"]');
     clearfilterEle = ('form.ng-valid > :nth-child(2) > [type="button"] > .mat-button-wrapper');
     backbtnEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
@@ -21,7 +21,7 @@ class ProviderDialysisFacility {
     }
 
     enterDialysisFacilityName(dialysisfacilityname) {
-        cy.xpath(this.dialysisfacilitynameEle).type(dialysisfacilityname);
+        cy.get(this.dialysisfacilitynameEle ,{ force: true, multiple: true }).type(dialysisfacilityname);
     }
 
     enterStreet(street) {
@@ -36,10 +36,10 @@ class ProviderDialysisFacility {
         cy.xpath(this.zipsearchEle, { force: true, multiple: true }).eq(0).click();
     }
     clickCity() {
-        cy.xpath(this.cityDropDownEle, {force:true}).click();
+        cy.xpath(this.cityDropDownEle, { force: true }).click();
     }
     clickCityName() {
-        cy.xpath(this.cityNameEle, {force:true}).click();
+        cy.xpath(this.cityNameEle, { force: true }).click();
     }
     clickRadiusIn() {
         cy.xpath(this.radiusinEle).click();
@@ -49,18 +49,18 @@ class ProviderDialysisFacility {
         cy.get(this.searchEle).click();
     }
     clickProviderFilter() {
-        cy.xpath(this.providerfilterEle).click();
+        cy.xpath(this.providerfilterEle, { timeout: 10000 }, { force: true, multiple: true }).should('exist').and('be.visible').click();
     }
     enterDistance(distance) {
-        cy.get(this.distanceEle,{ timeout: 10000 },{force:true}).should('exist').and('be.visible').type(distance);
+        cy.get(this.distanceEle, { timeout: 10000 }, { force: true }).should('exist').and('be.visible').type(distance);
         console.log('#distance:', this.distanceEle);
     }
 
-   // clickRating() {
-      //  cy.get(this.ratingEle).click();
-   // }
-   // selectRatingFive() {
-       // cy.get(this.ratingfiveEle).click();
+    // clickRating() {
+    //  cy.get(this.ratingEle).click();
+    // }
+    // selectRatingFive() {
+    // cy.get(this.ratingfiveEle).click();
     //}
 
     clickApplyFilter() {
