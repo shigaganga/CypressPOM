@@ -27,9 +27,9 @@ clickIpRehab()
     cy.wait(200);
 }
 
-searchIpRehabRadius()
+searchIpRehabRadius(radius)
 {
-    cy.get(this.ipRehabRadius, { timeout: 10000 }).should('be.visible').clear().type('100');
+    cy.get(this.ipRehabRadius, { timeout: 10000 }).should('be.visible').clear().type(radius);
        
 }
 
@@ -37,9 +37,9 @@ clickSearchProvider()
 {
     cy.get(this.searchProvider).should('exist').should('be.visible').contains('Search').click({force : true });
 }
-optionalIpName()
+optionalIpName(ipname)
 {
-    cy.get(this.optionalipName, { timeout: 10000 }).should('be.visible').clear().type('UNIVERSITY OF COLORADO HOSP');
+    cy.get(this.optionalipName, { timeout: 10000 }).should('be.visible').clear().type(ipname);
 
 }
 emptyRehabName()

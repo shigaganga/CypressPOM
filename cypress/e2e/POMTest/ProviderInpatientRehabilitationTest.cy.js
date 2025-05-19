@@ -8,11 +8,23 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 
 describe('providerTest' , ()=>
 {
+    const loginPage = new LoginPage();
+    const landingPage = new LandingPage();
+    const homePage = new HomePage();
+    const planselectionPage=new PlanselectionPage();
+    const providerInRePage=new ProviderInpatientRehabilitationPage();
+    let testData = null;
+    before(()=>{
+         cy.fixture('LoginFixture').then((data)=>{
+            testData=data;
+         });
+
+    })
     beforeEach(() => {
-        cy.session("ProviderInPatientRehab Page", () => {
-            cy.task('csv:parseFromDropbox').then((data) => {
-                const testData = data[0];
-                cy.visit(testData.baseUrl);
+      
+               cy.session("ProviderInPatientRehab Page", () => {
+            
+               cy.visit(testData.baseUrl);
                 cy.wait(500);
           
                 const lPage = new LoginPage();
@@ -79,9 +91,9 @@ describe('providerTest' , ()=>
           
         });
 
-        });
+       
       
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/plan-selection');
+        cy.visit(testData.planSelection_url);
       });
 
     it('TC_PDP_PRV_IRF_196: test1 , Should click on provider link' ,()=>
@@ -93,64 +105,58 @@ describe('providerTest' , ()=>
 
     it('TC_PDP_PRV_IRF_197: test2,Inpatient Rehabilitation Facilities is visible' , ()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+        
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
     })
 
     it('TC_PDP_PRV_IRF_198: test3, Inpatient Rehabilitaion Facilities should be searchable in 100 miles radius' , ()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+        
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
     })
 
     it('TC_PDP_PRV_IRF_201 : test4, Check providers by giving Rehabilitaion Name',()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+        
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
-        providerInRePage.optionalIpName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.optionalIpName(testData.ipname);
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
     })
 
     it('TC_PDP_PRV_IRF_202 : test5 , Check provider list is displaying without Rehibiltation Name also' , ()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+        
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
         providerInRePage.emptyRehabName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
     })
 
     it('TC_PDP_PRV_IRF_203 : test6, Ownership dropdown should have all the required values',()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+      
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
         providerInRePage.emptyRehabName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
         providerInRePage.clickProviderFilter();
     })
 
     it('TC_PDP_PRV_IRF_205 : test7 , select Government from ownership dropdown',()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+       
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
         providerInRePage.emptyRehabName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
         providerInRePage.clickProviderFilter();
         providerInRePage.selectDropDown();
@@ -158,12 +164,11 @@ describe('providerTest' , ()=>
 
     it('TC_PDP_PRV_IRF_206 : test8, click on apply filter' ,()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+        
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
         providerInRePage.emptyRehabName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
         providerInRePage.clickProviderFilter();
         providerInRePage.selectDropDown();
@@ -172,17 +177,16 @@ describe('providerTest' , ()=>
 
     it('TC_PDP_PRV_IRF_207 : test9, click clear filter',()=>
     {
-        const planselectionPage=new PlanselectionPage();
-        const providerInRePage=new ProviderInpatientRehabilitationPage();
+      
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
         providerInRePage.emptyRehabName();
-        providerInRePage.searchIpRehabRadius();
+        providerInRePage.searchIpRehabRadius(testData.radius);
         providerInRePage.clickSearchProvider();
         providerInRePage.clickProviderFilter();
         providerInRePage.selectDropDown();
         providerInRePage.clickApplyFilter();
         providerInRePage.clickClearFilter();
     })
-       
-    })
+});  
+    
