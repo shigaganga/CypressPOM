@@ -1,14 +1,15 @@
 class PlanSelectionMA {
-    MedicareadvantageEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[2]/div[3]/button')
-    filterplans = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[1]/div/div[2]/button[1]')
-    insurancecarrierEle=('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[1]/div/div[1]/div/mat-select/div/div[2]/div')
-    cignahealthEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option[17]')
-    starratingEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[2]/div/div[1]/div/mat-select')
-    ratingfourEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option[5]')
-    drugcoverageEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[3]/div/div[1]/div/mat-select')
-    nocoverageEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option')
-    pdpoptionEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field[4]/div/div[1]/div/mat-select')
-    withprescriptionEle = ('/html/body/div[3]/div[2]/div/div/div/mat-option[2]')
+    MedicareadvantageEle ="//div[@class='selected-container mat-elevation-z2']//div[3]//button[1]"
+   // MedicareadvantageEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[2]/div[3]/button')
+    filterplans ="//fa-icon[@class='ng-fa-icon']//*[name()='svg']//*[name()='path' and contains(@fill,'currentCol')]" 
+    insurancecarrierEle="//span[@class='mat-select-placeholder mat-select-min-line ng-tns-c216-53 ng-star-inserted']"
+    cignahealthEle = "//span[normalize-space()='Cigna Healthcare (H7849)']"
+    starratingEle = "//div[@class='mat-select-arrow-wrapper ng-tns-c216-55']"
+    ratingfourEle = "//span[normalize-space()='4.0']"
+    drugcoverageEle = "//div[@class='mat-select-arrow ng-tns-c216-57']"
+    nocoverageEle = "//span[@class='mat-option-text']"
+    pdpoptionEle = "//div[@class='mat-select-arrow ng-tns-c216-59']"
+    withprescriptionEle = "//span[normalize-space()='With Prescription']"
     resetEle = ('.mat-action-row > .mat-focus-indicator')
     cignatruechoicemedicare = (".mat-checkbox-inner-container")
     //resetbuttonEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plandiv[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/mat-action-row/button')
@@ -22,32 +23,32 @@ class PlanSelectionMA {
     //cignatruechoicemedicareEle = ('.mat-checkbox-inner-container')
     // on/app-plan-list/div[2]/div[benefitsEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selecti3]/div/app-ma-card/mat-card/mat-card-actions/button[1]')
     // plandetailsEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[3]/div/app-ma-card/mat-card/mat-card-actions/button[2]')
-    druginformationEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/app-ma-plan-detail/app-prescription-info/div/mat-accordion/mat-expansion-panel/mat-expansion-panel-header/span[2]')
-    remainingyearcostandoopEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/app-ma-plan-detail/app-pharmacy-info/div/mat-accordion/mat-expansion-panel[1]/mat-expansion-panel-header')
-    estimatedtotaldrugpluspremiumcostEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/app-ma-plan-detail/app-pharmacy-info/div/mat-accordion/mat-expansion-panel[1]/mat-expansion-panel-header')
-    estimatedtotalmonthlydrugcostEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/app-ma-plan-detail/app-pharmacy-info/div/mat-accordion/mat-expansion-panel[3]/mat-expansion-panel-header')
-    backbuttonEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/div/div/button')
+    druginformationEle =  ('#mat-expansion-panel-header-2 > .mat-expansion-indicator')
+    remainingyearcostandoopEle = ('#mat-expansion-panel-header-3 > .mat-expansion-indicator')
+    estimatedtotaldrugpluspremiumcostEle = ('#mat-expansion-panel-header-4 > .mat-expansion-indicator')
+    estimatedtotalmonthlydrugcostEle = "//span[@class='mat-expansion-indicator ng-tns-c210-71 ng-trigger ng-trigger-indicatorRotate ng-star-inserted']"
+    backbuttonEle = "//span[normalize-space()='Back']"
     //option to short plan filter
-    shortplanEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[1]/div/div[2]/button[2]/span[1]/mat-icon')
-    shortplanoptionEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/form/mat-accordion/mat-expansion-panel/div/div/div/mat-form-field/div/div[1]/div/mat-select/div/div[1]')
-    lowestmonthlypremiumEle = ('/html/body/div[2]/div[2]/div/div/div/mat-option[2]')
-    HumanagoldplusEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[3]/div/app-ma-card[2]/mat-card/mat-card-header/div/mat-card-title/div/div[1]/section/mat-checkbox')
+    shortplanEle = "//mat-icon[normalize-space()='sort']"
+    shortplanoptionEle = ('.mat-select-arrow-wrapper')
+    lowestmonthlypremiumEle = "//span[@class='mat-option-text'][normalize-space()='Lowest monthly premium']"
+    HumanagoldplusEle = "//label[@for='mat-checkbox-14-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"
     //benefitsshortplanEle = ('#mat-checkbox-39 > .mat-checkbox-layout > .mat-checkbox-inner-container')
   // benefitsboxdisappear = (':nth-child(2) > .mat-card > .mat-card-actions > :nth-child(1)')
     planshortdetails = (':nth-child(2) > .mat-card > .mat-card-actions > :nth-child(2)')
     druginformationone = ('#mat-expansion-panel-header-7 > .mat-expansion-indicator')
     remainingcost = ('#mat-expansion-panel-header-8 > .mat-expansion-indicator')
     estimatedtotaldrug = ('#mat-expansion-panel-header-9 > .mat-expansion-indicator')
-    totalmonthlydrugcost = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-detail/app-ma-plan-detail/app-pharmacy-info/div/mat-accordion/mat-expansion-panel[3]/mat-expansion-panel-header')
+   // totalmonthlydrugcost =  "//mat-expansion-panel-header[@id='mat-expansion-panel-header-4']"
     backbuttonplan = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper')
     cancelbutton = ('.right-container > .mat-raised-button')
     //steps to done button
-    donebuttonEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/app-bottom-plan-list/div/div[2]/button')
+    donebuttonEle = "//span[normalize-space()='Done']"
     cignatruemedicareEle = ('.mat-checkbox-inner-container');
     //Chabbi 
-    medicarebutton = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[4]/app-bottom-nav/div/div[2]/button[1]')
-    backbuttonMA = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-medicare/div[1]/div/button[1]')
-    resetbuttonEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[1]/div/div[1]/button/span[1]')
+    medicarebutton = "//span[normalize-space()='Medicare']"
+    backbuttonMA = "//span[normalize-space()='Back']"
+    resetbuttonEle = "//span[normalize-space()='Reset']"
     warningbuttonEle = ('[type="button"]')
     aivantelogobutton = ('img')
 
@@ -141,15 +142,15 @@ class PlanSelectionMA {
     // }
 
     clickDrugInformation() {
-        cy.xpath(this.druginformationEle).click();
+        cy.get(this.druginformationEle).click();
     }
 
     clickRemainingYearCostAndOOP() {
-        cy.xpath(this.remainingyearcostandoopEle).click();
+        cy.get(this.remainingyearcostandoopEle).click();
     }
 
     clickEstimatedTotalDrugPlusPremiumCost() {
-        cy.xpath(this.estimatedtotaldrugpluspremiumcostEle).click();
+        cy.get(this.estimatedtotaldrugpluspremiumcostEle).click();
     }
 
     clickEstimatedTotalMonthlyDrugCost() {
@@ -166,7 +167,7 @@ class PlanSelectionMA {
     }
 
     clickShortPlanOption() {
-        cy.xpath(this.shortplanoptionEle).click();
+        cy.get(this.shortplanoptionEle).click();
     }
 
     clickLowestMonthlyPremium() {
@@ -197,9 +198,9 @@ class PlanSelectionMA {
     clickEstimatedTotalDrug(){
         cy.get(this.estimatedtotaldrug).click()
     }
-    clickTotalMonthlyDrugCost(){
-        cy.xpath(this.totalmonthlydrugcost).click();
-    }
+   // clickTotalMonthlyDrugCost(){
+       // cy.xpath(this.totalmonthlydrugcost).click();
+   // }
    
     cliclBackButtonPlan(){
         cy.get(this.backbuttonplan).click();

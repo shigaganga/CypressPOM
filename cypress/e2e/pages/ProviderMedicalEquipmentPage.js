@@ -1,19 +1,19 @@
 class ProviderMedicalEquipment {
     medicalELe = (':nth-child(9) > .category-name');
-    equipmentnameEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[1]/mat-form-field[1]/div/div[1]/div[3]/input')
-    streetEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[1]/div/div[1]/div[3]/input')
-    zipcodeEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[3]/input');
-    zipsearchEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[2]/div/div[1]/div[4]/button/span[1]/mat-icon');
+    equipmentnameEle = (':nth-child(1) > .mat-form-field-hide-placeholder > .mat-form-field-wrapper > .mat-form-field-flex');
+    streetEle = (':nth-child(3) > .mat-form-field-hide-placeholder > .mat-form-field-wrapper > .mat-form-field-flex');
+    zipcodeEle = "//input[@id='mat-input-2']"
+    zipsearchEle = "//mat-icon[normalize-space()='search']"
     //countystateEle = ('.mat-select-min-line.ng-tns-c216-117.ng-star-inserted')
-    cityEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[2]/mat-form-field[4]/div/div[1]/div[3]/mat-select');
-    citynameEle = ('/html/body/div[2]/div[2]/div/div/div/mat-option[3]');
-    radiusinEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-search-providers/div[2]/mat-card/div[2]/app-provider-search-form/form/div/div[1]/mat-form-field[3]/div/div[1]/div[3]/input');
+    cityEle = "//div[@class='mat-select-arrow ng-tns-c216-7']"
+    citynameEle = "//span[normalize-space()='GREENWOOD VILLAGE']"
+    radiusinEle = "//input[@id='mat-input-4']"
     searchproviderEle = ('.display-flex > .mat-focus-indicator > .mat-button-wrapper');
-    providerfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header');
+    providerfilterEle = "//span[@class='mat-expansion-indicator ng-tns-c210-14 ng-trigger ng-trigger-indicatorRotate ng-star-inserted']"
     providerfilterdistanceEle = ('#distance');
     applyfilterEle = (':nth-child(2) > [type="submit"] > .mat-button-wrapper');
-    providerfiltercollapse = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/mat-expansion-panel-header')
-    clearfilterEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-provider/app-provider-list/mat-card/mat-accordion/mat-expansion-panel[2]/div/div/app-provider-filter-form/form/div[2]/button[1]');
+    providerfiltercollapse = "//span[@class='mat-expansion-indicator ng-tns-c210-14 ng-trigger ng-trigger-indicatorRotate ng-star-inserted']"
+    clearfilterEle = "//span[normalize-space()='Clear filter']"
     backbtnEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
    // backbuttontopEle = ('.button-wrapper > .mat-focus-indicator > .mat-button-wrapper');
 
@@ -21,12 +21,12 @@ class ProviderMedicalEquipment {
         cy.get(this.medicalELe).click();
     }
     typeEquipmentname(equipmentName) {
-        cy.xpath(this.equipmentnameEle).clear();
-        cy.xpath(this.equipmentnameEle).type(equipmentName);
+       // cy.get(this.equipmentnameEle).clear();
+        cy.get(this.equipmentnameEle).type(equipmentName);
     }
     typeStreet(street) {
-        cy.xpath(this.streetEle).clear();
-        cy.xpath(this.streetEle).type(street);
+       // cy.xpath(this.streetEle).clear();
+        cy.get(this.streetEle).type(street);
     }
     enterZipCode(zipcode) {
         cy.xpath(this.zipcodeEle).clear();
@@ -39,7 +39,7 @@ class ProviderMedicalEquipment {
        // cy.get(this.countystateEle).click();
    // }
     clickCity() {
-        cy.xpath(this.cityEle).click();
+        cy.xpath(this.cityEle,{force:true,multiple:true}).click();
     }
     clickCityName() {
         cy.xpath(this.citynameEle).click();
