@@ -8,7 +8,7 @@ import PharmacyPage from "../pages/PharmacyPage"
 import planselectionPage from '../pages/PlanselectionPage'
 
 
-describe('PharmacyTest', () => {
+describe('PlanselectionPDP Test', () => {
 
     let testData = null;
 
@@ -20,7 +20,7 @@ before(() => {
     const pharmacypg = new PharmacyPage();
     beforeEach(() => {
 
-        cy.session("Pharmacy session",()=>{
+        cy.session("PDP session",()=>{
         cy.visit(testData.baseUrl);
        
         const lPage = new LoginPage();
@@ -149,18 +149,17 @@ before(() => {
         planselectionpage.clickPdpBtn();
         cy.wait(1000);
         planselectionpage.clickPlandetailsBtn()
-        
         });
 
         it('TC_PDP_PLAN_07,verify the "Select PDP Plan" functionality ',() => {
         const planselectionpage=new planselectionPage();
         planselectionpage.clickPdpBtn();
         cy.wait(2000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(2000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(2000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
         planselectionpage.clickDoneBtn()
         cy.wait(2000);
@@ -171,17 +170,17 @@ before(() => {
         const planselectionpage=new planselectionPage();
         planselectionpage.clickPdpBtn();
         cy.wait(2000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(2000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(2000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(2000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(2000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
 
         });
@@ -190,11 +189,11 @@ before(() => {
         const planselectionpage=new planselectionPage();
         planselectionpage.clickPdpBtn();
         cy.wait(2000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(2000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(2000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
         planselectionpage.clickDoneBtn()
         cy.wait(2000);
@@ -207,13 +206,13 @@ before(() => {
         const planselectionpage=new planselectionPage();
         planselectionpage.clickPdpBtn();
         cy.wait(2000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(2000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(2000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
-        planselectionpage.selectAARP()
+        planselectionpage.selectAARP(testData.PDPPlan4)
         cy.log('Maximum 3 plans allowed. Remove previous plan to add new plan')
         
         });
@@ -222,11 +221,11 @@ before(() => {
         const planselectionpage=new planselectionPage();
         planselectionpage.clickPdpBtn();
         cy.wait(1000);
-        planselectionpage.selectWellcarePlan()
+        planselectionpage.selectWellcarePlan(testData.PDPPlan1)
         cy.wait(1000);
-        planselectionpage.selectCignahealthCare()
+        planselectionpage.selectCignahealthCare(testData.PDPPlan2)
         cy.wait(1000);
-        planselectionpage.selectHumanaBasic()
+        planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(1000);
         planselectionpage.clickDoneBtn()
         cy.wait(1000);
@@ -241,7 +240,7 @@ before(() => {
         cy.wait(1000);
         planselectionpage.clickInsuranceCarrierArrow()
         cy.wait(1000); 
-        planselectionpage.selectHumanaPlanfrominsurancefilter()
+        planselectionpage.selectHumanaPlanfrominsurancefilter(testData.PDPPlaninsurancefilter)
         cy.wait(1000); 
         planselectionpage.clickResetBtn()
 
@@ -264,7 +263,7 @@ before(() => {
         cy.wait(1000);
         planselectionpage.clickInsuranceCarrierArrow()
         cy.wait(1000);
-        planselectionpage.selectHumanaPlanfrominsurancefilter()
+        planselectionpage.selectHumanaPlanfrominsurancefilter(testData.PDPPlaninsurancefilter)
         cy.wait(1000);
 
         });
