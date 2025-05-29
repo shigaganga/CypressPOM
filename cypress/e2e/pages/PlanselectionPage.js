@@ -276,7 +276,7 @@ plandetailsEle =':nth-child(1) > .mat-card > .mat-card-actions > .mat-focus-indi
 locationselectorele='.location'    //Assertion for location on PDP plan selection page 
 remaningyearele='.info-message > span'//Assertion for remaning plan years 
 inNetworkPharmaciesEle=':nth-child(1) > .mat-card > .mat-card-content > .card-contant-wrapper > :nth-child(8) > .text-explain > span'
-coveragemessageEle =':nth-child(1) > .mat-card > .mat-card-content > .card-contant-wrapper > [style="color: white; background-color: red;"] > .text-explain > span'
+coveragemessageEle =':nth-child(1) > .mat-card > .mat-card-content > .card-contant-wrapper > [style="color: white; background-color: green;"] > .text-explain > span'
 resetbuttonele='.mat-action-row > .mat-focus-indicator'
 fliterexpansionarrowele='.mat-expansion-indicator'
 sortplanele='.mat-icon'    //this is beside the filter option 
@@ -309,7 +309,7 @@ clickFilterplanBtn(){
 }
 verifyCoveragemessage(){
 cy.get(this.coveragemessageEle)
-.should('have.text','0 of 1 of selected drugs are covered(Refer plan details)')
+.should('have.text','1 of 1 of selected drugs are covered(Refer plan details)')
 }
 verifyInnetworkPharmacy(){
 cy.get(this.inNetworkPharmaciesEle)
