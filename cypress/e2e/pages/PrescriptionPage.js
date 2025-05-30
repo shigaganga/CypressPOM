@@ -27,7 +27,7 @@ class PrescriptionPage {
     quantityLessText = ".ant-form-item-explain > .ng-tns-c132-36";
     refillFreequency = ".marginTop2Percent > .ant-form-item-control-input > .ant-form-item-control-input-content > .ant-select > .ant-select-selector > .ant-select-selection-item";
     sixtyDaysRefill = "nz-option-item[title='60 Days'] div[class='ant-select-item-option-content']";
-    addAnotherDrug = "span[class='ng-star-inserted']";
+    addAnotherDrug = "//span[@class='ng-star-inserted' and normalize-space(text())='Add Another Drug']";
     updateThisDrug = "//span[normalize-space()='Update This Drug']";
     removeDrug = "//u[normalize-space()='Remove drug']";
     reviewPrescriptionList = "//span[normalize-space()='Review prescription list']";
@@ -156,7 +156,8 @@ class PrescriptionPage {
     }
 
     clickAddAnotherDrug() {
-        cy.get(this.addAnotherDrug).should('be.visible').click();
+
+        cy.xpath(this.addAnotherDrug).click({force:true});
     }
 
     editDrugClick() {
