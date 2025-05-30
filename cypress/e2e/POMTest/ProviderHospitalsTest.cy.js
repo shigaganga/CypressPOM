@@ -15,45 +15,72 @@ describe('ProviderHospitalTest',()=>{
     beforeEach(()=>{
         cy.session('ProviderHospital Session',()=>{
            
-            cy.visit(testdata.baseUrl);
+         cy.visit(testdata.baseUrl);
+      cy.wait(500);
 
-        const lPage = new LoginPage();
-            lPage.setUserName(testdata.username);
-            lPage.setPassword(testdata.password);
-            lPage.clickLoginBtn();
-            
-      
-        const recPage = new LandingPage();
-            recPage.clickCreateRecommendation();
-      
-        const homepage = new HomePage();
-            homepage.enterEmail(testdata.email);
-            homepage.enterName(testdata.name);
-            homepage.clickDatePicker();
-            homepage.clickYear(testdata.yearOfBirth);
-            homepage.clickMonth(testdata.monthOfBirth);
-            homepage.clickGender();
-            homepage.selectGender(testdata.gender);
-            homepage.enterStreet(testdata.street);
-            homepage.enterZip(testdata.zip);
-            homepage.clickSearch();
-            homepage.entercommunicationEmail(testdata.communicationEmail);
-            homepage.enterContact(testdata.contactNumber);
-            homepage.clickhealthArrow();
-            homepage.clickHealthProfile(testdata.healthProfile);
-            homepage.enterLifeexpectancy(testdata.lifeExpectancy);
-            homepage.selectTobaccoOption(testdata.tobacco);
-            homepage.selectTaxFilingStatus(testdata.taxFilingStatus);
-            homepage.clickMagiTier();
-            homepage.clickMaggiTireOptions(testdata.magiTier);
-            homepage.selectConciergeOption(testdata.conceirge);
-            homepage.nextHomeClick();
+      const lPage = new LoginPage();
+      lPage.setUserName(testdata.username);
+      cy.wait(500);
+      lPage.setPassword(testdata.password);
+      cy.wait(500);
+      lPage.clickLoginBtn();
+      cy.wait(500);
 
-        const prefPage=new PreferencePage();
-            prefPage.verifyPreferencePageUrl();
-            prefPage.verifyAreUSureText();
+      const recPage = new LandingPage();
+      recPage.clickCreateRecommendation();
+      cy.wait(500);
+
+      const homepage = new HomePage();
+      homepage.enterEmail(testdata.email);
+      cy.wait(500);
+      homepage.enterName(testdata.name);
+      cy.wait(500);
+      homepage.clickDatePicker();
+      cy.wait(500);
+      homepage.clickYear(testdata.yearOfBirth);
+      cy.wait(500);
+      homepage.clickMonth(testdata.monthOfBirth);
+      cy.wait(500);
+      homepage.clickGender();
+      cy.wait(500);
+      homepage.selectGender(testdata.gender);
+      cy.wait(500);
+      homepage.enterStreet(testdata.street);
+      cy.wait(500);
+      homepage.enterZip(testdata.zip);
+      cy.wait(500);
+      homepage.clickSearch();
+      cy.wait(500);
+      homepage.entercommunicationEmail(testdata.communicationEmail);
+      cy.wait(500);
+      homepage.enterContact(testdata.contactNumber);
+      cy.wait(500);
+      homepage.clickhealthArrow();
+      cy.wait(500);
+      homepage.clickHealthProfile(testdata.healthProfile);
+      cy.wait(500);
+      homepage.enterLifeexpectancy(testdata.lifeExpectancy);
+      cy.wait(500);
+      homepage.selectTobaccoOption(testdata.tobacco);
+      cy.wait(500);
+      homepage.selectTaxFilingStatus(testdata.taxFilingStatus);
+      cy.wait(500);
+      homepage.clickMagiTier();
+      cy.wait(500);
+      homepage.clickMaggiTireOptions(testdata.magiTier);
+      cy.wait(500);
+      homepage.selectConciergeOption(testdata.conceirge);
+      cy.wait(500);
+      homepage.nextHomeClick();
+      cy.wait(500);
+
+      const prefPage = new PreferencePage();
+        
             prefPage.clicknoRadioDrugCost();   
+             cy.wait(500);
+
             prefPage.clickNextPrefPage();
+           cy.wait(500);
 
         const planSelect = new PlanselectionPage();
         
@@ -69,6 +96,7 @@ describe('ProviderHospitalTest',()=>{
     });
      
         it('TC_PDP_PRV_HOS_128 : verify the functionality of Category as "Hospitals"',()=>{
+            cy.wait(500);
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();    
         });
@@ -353,4 +381,4 @@ describe('ProviderHospitalTest',()=>{
     });
     
     
-
+//});

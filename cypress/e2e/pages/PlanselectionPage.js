@@ -37,6 +37,14 @@ clickbackMA(){
     humanaGoldPlusPlanClick(){
         cy.get(this.humanGoldPlus).click();
     }
+    humanaGoldPlusPlanClick() {
+  cy.get(this.humanGoldPlus, { timeout: 10000 })
+    .should('exist')
+    .scrollIntoView()
+    .should('be.visible')
+    .click({ force: true });
+}
+
     pdpClick(){
         cy.get(this.pdp).click();
     }

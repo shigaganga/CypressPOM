@@ -5,9 +5,6 @@ import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 
 describe('Preference Test Suite (Single Row from Dropbox CSV)', () => {
-    const loginPage = new LoginPage();
-    const landingPage = new LandingPage();
-    const homePage = new HomePage();
     const preferencePage = new PreferencePage();
     const prescriptionPage = new PrescriptionPage();
 

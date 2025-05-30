@@ -1,7 +1,7 @@
 class PreferencePage {
 YesRadioDrugcost="(//span[@class='mat-radio-outer-circle'])[1]";
 NoRadioDrugcost="(//span[@class='mat-radio-outer-circle'])[2]";
-NextPrefPage="(//span[normalize-space()='Next'])[1]";
+NextPrefPage="//button[contains(@class,'mat-raised-button') and .//span[normalize-space()='Next']]";
 greatText="//h2[normalize-space()='Great!']";
 Areyousuretext="//h2[normalize-space()='Are you sure?']"
 clickyesRadioDrugCost(){

@@ -33,6 +33,29 @@ class PharmacyPage{
     errormessageEle="(//mat-error[@id='mat-error-0'])[1]"
     errormessageindistance='#mat-error-2'
     pharmacy3="//label[@for='mat-checkbox-3-input']//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']";
+
+    //lowcost pharmacy
+    pharmacyFilterarrow="//mat-expansion-panel-header[starts-with(@id, 'mat-expansion-panel-header-')]";
+    lowcostRadius="//mat-label[normalize-space(text())='Search Radius(Miles)']/following::input[1]";
+    lowcostSubmit="div[class='mat-field'] button[class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']";
+    addOrRemovePres="//span[normalize-space()='Add/Remove Prescription']";
+    clickAddOrRemovePrescription(){
+        cy.xpath(this.addOrRemovePres) .scrollIntoView()
+      .should('be.visible')
+      .click({ force: true });
+    }
+clickLowcostSubmit(){
+    cy.get(this.lowcostSubmit).click();
+}
+    enterLowcostRadius(radius){
+        cy.xpath(this.lowcostRadius).should('be.visible')
+ .clear().type(radius);
+ cy.log("user could able to view prescription details and in network lowcost pharmacies")
+    }
+
+    clickpharmacyfilter(){
+        cy.xpath(this.pharmacyFilterarrow).first().click();
+    }
     clickPharmacy3(){
         cy.xpath(this.pharmacy3).click();
     }
