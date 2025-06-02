@@ -1,3 +1,5 @@
+
+
 {
   "baseUrl": "http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage",
   "landingPage_url": "http://169.61.105.110/medicareAdvantage_sandbox/landing-page",
@@ -11,10 +13,10 @@
   "username": "testuser@gmail.com",
   "password": "user123",
 "tobacco":"No",
-"doctername":"bipin",
   "email": "ShigaPOM@gmail.com",
   "invalidEmail":"sh",
   "name": "Shigapage",
+  "editName":"Ananya",
   "gender":"female",
   "yearOfBirth":"1957",
   "monthOfBirth":"JUN",
@@ -22,12 +24,15 @@
   "lifeExpectancy":"86",
   "zip": "27591",
 "communicationEmail":"Shigha@gmail.com",
+"editNumber":"6087654563",
 "contactNumber":"6087652341",
 "healthProfile":"Moderate Health",
 "magiTier":" $ 212K to $ 266K ",
 "taxFilingStatus":"jointly",
+"lowcostPharmacyRadius":"4",
 "conceirge":"No",
-
+"radius" : "100",
+"ipname" : "UNIVERSITY OF COLORADO HOSP",
   
   "drugName1": "Gabapentin",
   "drugQuantity1": "30",
@@ -86,17 +91,15 @@
   "supplimentPlanG4": "Cigna National Health Ins Co",
   "supplimentInsuranceCarrier": "HUMANA GRP (60052)",
   "supplimentPlanN1": "Cigna National Health Ins Co",
-
   "ProvNursingHome_PageEnterEmail": "abc@gmail.com",
   "ProvNursingHome_PageEnterName":"niv",
   "ProvNursingHome_Lifeexpectancy":"85",
   "ProvNursingHome_RadiusinSearchProvider":100,
   "ProvNursingHome_RadiusinProviderSectionDistance":70,
-
-    "facilityname": "Davita Englewood Dialysis Center",
-    "streetname": "Girard",
-    "zipcode": "80113",
-    "distance": "10",
+    "providerdialysisfacilityname": "Davita Englewood Dialysis Center",
+    "providerdialysisstreetname": "Girard",
+    "providerdialysiszipcode": "80113",
+    "providerdialysisdistance": "10",
     "medicalequipmentfacilityname": "nebulizer",
     "medicalequipmentstreet": "holly",
     "medicalequipmentzipcode": "80112",
@@ -111,6 +114,31 @@
     "ProviderHomeHealthCareZipCode": "80113",
   "ProviderHomeHealthCareZip": "8011",
   "ProviderHomeHealthCareStreet": "Girard",
-  "ProviderHomeHealthName": "CAREBRIDGE"
- 
+  "ProviderHomeHealthName": "CAREBRIDGE",
+
+  "PDPPlan1":"Wellcare plan",
+  "PDPPlan2":"CignahealthCare",
+  "PDPPlan3":"HumanaBasic",
+  "PDPPlan4":"AARP",
+  "PDPPlaninsurancefilter":"HumanaPlanfrominsurance",
+
+
+"healthProfileOne":"Best Health",
+"healthProfileTwo":"Good Health",
+"healthProfileThree":"Moderate Health",
+"healthProfileFour":"Poor Health",
+"healthProfileFive":"Sick Health",
+"genderM":"Male",
+"taxFilingStatusIndividual":"Individual",
+"magiTierOne":" $ 212 ",
+"magiTierTwo":" $ 212K to $ 266K ",
+"magiTierThree":" $ 212K to $ 266K ",
+"magiTierFour":" $ 212K to $ 266K ",
+"magiTierFive":" $ 212K to $ 266K ",
+"magiTierSix":" $ 212K to $ 266K ",
+"ConceirgeNo":"No",
+"ConceirgeYes":"Yes",
+"ConceriergeAmount":"300"
+
+
 }

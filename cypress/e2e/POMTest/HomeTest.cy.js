@@ -3,271 +3,232 @@ import LandingPage from "../pages/LandingPage";
 import HomePage from "../pages/HomePage";
 
 describe('HomePage test', () => {
-  let testData = null;
-  const loginPage = new LoginPage();
-  const recPage = new LandingPage();
-  const homepage = new HomePage();
+    let testData = null;
+    const loginPage = new LoginPage();
+    const recPage = new LandingPage();
+    const homepage = new HomePage();
 
-  before(() => {
-    return cy.fixture('LoginFixture').then((data) => {
-      testData = data;
-    });
-  });
-
-  beforeEach(() => {
-    if (!testData || !testData.username || !testData.password || !testData.baseUrl) {
-      throw new Error('Test data or required fields not loaded!');
-    }
-    cy.session('Home session', () => {
-      cy.visit(testData.baseUrl);
-      loginPage.setUserName(testData.username);
-      loginPage.setPassword(testData.password);
-      loginPage.clickLoginBtn();
-      recPage.clickCreateRecommendation();
-      cy.wait(500);
+    before(() => {
+        return cy.fixture('LoginFixture').then((data) => {
+            testData = data;
+        });
     });
 
-    cy.visit(testData.homePage_url);
-  });
+    beforeEach(() => {
+        if (!testData || !testData.username || !testData.password || !testData.baseUrl) {
+            throw new Error('Test data or required fields not loaded!');
+        }
+        cy.session('Home session', () => {
+            cy.visit(testData.baseUrl);
+            loginPage.setUserName(testData.username);
+            loginPage.setPassword(testData.password);
+            loginPage.clickLoginBtn();
+            recPage.clickCreateRecommendation();
+            cy.wait(500);
+        });
 
-  it('TC_PDP_AiVante_Logo_01 - Verify the functionality of Aivante logo', () => {
-    homepage.clickAiVanteLogo(); 
-    cy.log('AiVante logo test case passed');
-  });
-   it('TC_PDP_CRT_REC_08, Verify Recommendation email', () => {
+        cy.visit(testData.homePage_url);
+    });
+
+    it('TC_PDP_AiVante_Logo_01 - Verify the functionality of Aivante logo', () => {
+        homepage.clickAiVanteLogo();
+        cy.log('AiVante logo test case passed');
+    });
+    it('TC_PDP_CRT_REC_02, Verify Recommendation email', () => {
         cy.wait(2000);
         homepage.enterEmail(testData.email);
     });
-    it.skip('TC_PDP_CRT_REC_HP_12, Verify the health profile field', () => {
-        homepage.clickHealthProfile();
-        cy.wait(2000);
-        cy.log('health profile test case passed')
-    });
-     it('TC_PDP_CRT_REC_NAME_12, Verify Recommendation Name', () => {
-        cy.wait(1000);
-        homepage.enterName('Lata');
+    it('TC_PDP_CRT_REC_BH_03, Verify health Profile', () => {
+     cy.wait(1000);
+        homepage.clickHealthProfile(testData.healthProfile);
         cy.wait(1000);
     });
-    it.only('TC_PDP_CRT_REC_NAME_12, Verify Recommendation Name', () => {
-        cy.wait(1000);
-          homepage.enterEmail(testData.email);
-     homepage.enterZip(testData.zip);
-      cy.wait(500);
-      homepage.clickSearch();
-      homepage.verifyNameBlankText();
-    });
-    it.skip('TC_PDP_CRT_REC_BH_13, Verify Best health Profile', () => {
-        homepage.clickHealthProfile();
-        cy.wait(2000);
-        homepage.clickBestHealth();
-    });
-    it('TC_PDP_REC_GH_14, Verify Good health Profile', () => {
+    it('TC_PDP_CRT_REC_BH_04, Verify Best health Profile', () => {
         homepage.clickHealthProfile();
         cy.wait(1000);
-        homepage.clickGoodHealth();
+        homepage.clickBestHealth(testData.healthProfileOne);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MH_15, Verify Moderate health Profile', () => {
+    it('TC_PDP_CRT_REC_BH_05, Verify Good health Profile', () => {
         homepage.clickHealthProfile();
         cy.wait(1000);
-        homepage.clickModerateHealth();
+        homepage.clickGoodHealth(testData.healthProfileTwo);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_PH_16, Verify Poor healthProfile', () => {
+    it('TC_PDP_CRT_REC_MH_06, Verify Moderate health Profile', () => {
         homepage.clickHealthProfile();
         cy.wait(1000);
-        homepage.clickPoorHealth();
+        homepage.clickModerateHealth(testData.healthProfileThree);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_SH_17, Verify Sick health Profile', () => {
+    it('TC_PDP_CRT_REC_PH_07, Verify Poor healthProfile', () => {
         homepage.clickHealthProfile();
         cy.wait(1000);
-        homepage.clickSickHealth();
+        homepage.clickPoorHealth(testData.healthProfileFour);
         cy.wait(1000);
     });
-    it('TC_PDP_REC_HP_MSG_18, Verify the Health Profile msg link.', () => {
+    it('TC_PDP_CRT_REC_SH_08, Verify Sick health Profile', () => {
+        homepage.clickHealthProfile();
+        cy.wait(1000);
+        homepage.clickSickHealth(testData.healthProfileFive);
+        cy.wait(1000);
+    });
+    it('TC_PDP_REC_HP_MSG_09, Verify the Health Profile msg link.', () => {
         homepage.clickHealthProfileMSG();
         cy.wait(1000);
         cy.log('Health Profile msg link test case passed')
     });
-    it('TC_PDP_CRT_REC_NAME_19, Verify Recommendation Name', () => {
+    it('TC_PDP_CRT_REC_NAME_10, Verify Recommendation Name', () => {
         cy.wait(1000);
-        homepage.enterName('Lata');
-        cy.wait(1000);
-    });
-    it('TC_PDP_REC_LE_22, Verify life expectancy', () => {
-        homepage.enterLifeexpectancy('90');
+        homepage.enterName(testData.name);
         cy.wait(1000);
     });
-    it('TC_PDP_REC_LE_MSG_27, Verify life expectancy msg link.', () => {
+    it('TC_PDP_REC_LE_11, Verify life expectancy', () => {
+        homepage.enterLifeexpectancy(testData.lifeExpectancy);
+        cy.wait(1000);
+    });
+    it('TC_PDP_REC_LE_MSG_12, Verify life expectancy msg link.', () => {
         homepage.clicklifeExpectancyMSG();
         cy.wait(1000);
     });
-    it('TC_PDP_REC_DOB_CAL_28, Verify the calender', () => {
+    it('TC_PDP_CRT_REC_DOB_13, Verify the month', () => {
         homepage.clickCalenderEle();
         cy.wait(1000);
+        homepage.clickYear(testData.yearOfBirth);
+        cy.wait(500);
+        homepage.clickMonth(testData.monthOfBirth);
+        cy.wait(500);
     });
-    it('TC_PDP_CRT_REC_DOB_30, Verify the year', () => {
-        homepage.clickCalenderEle();
-        cy.wait(1000);
-        homepage.clickYear();
-        cy.wait(1000);
-    });
-    it('TC_PDP_CRT_REC_DOB_32, Verify the month', () => {
-        homepage.clickCalenderEle();
-        cy.wait(1000);
-        homepage.clickYear();
-        cy.wait(1000);
-        homepage.clickMonth();
-        cy.wait(1000);
-    });
-    it('TC_PDP_CRT_REC_GENDER_33, Verify the Gender', () => {
+    it('TC_PDP_CRT_REC_GENDER_MALE_14, Verify the Female', () => {
         homepage.clickGender();
         cy.wait(1000);
+        homepage.selectGender(testData.gender);
+        cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_GENDER_MALE_34, Verify the male', () => {
+    it('TC_PDP_CRT_REC_GENDER_FEMALE_15, Verify the male', () => {
         homepage.clickGender();
         cy.wait(2000);
-        homepage.clickMale();
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_GENDER_FEMALE_35, Verify the female', () => {
-        homepage.clickGender();
-        cy.wait(2000);
-        homepage.clickFemale();
+        homepage.selectGender(testData.genderM);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_TB_YES_36, Verify TabaccoYes', () => {
+    it('TC_PDP_CRT_REC_TB_YES_16, Verify Tabacco Yes', () => {
         cy.wait(2000);
-        homepage.clickTabaccoYes();
-        cy.wait(1000);
+        homepage.clickTabaccoYes(testData.tobacco);
+        cy.wait(500);
     });
-    it('TC_PDP_CRT_REC_TB_NO_37, Verify TabaccoNo', () => {
-        homepage.clickTabaccoNo();
-        cy.wait(1000);
+    it('TC_PDP_CRT_REC_TB_YES_17, Verify Tabacco No', () => {
+        cy.wait(2000);
+        homepage.clickTabaccoNo(testData.tobaccoNo);
+        cy.wait(500);
     });
-    it('TC_PDP_CRT_REC_TB_MSG_38, Verify the Tabacco user link', () => {
+    it('TC_PDP_CRT_REC_TB_MSG_18, Verify the Tabacco user link', () => {
         homepage.clickTobaccoUserlink();
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_JOINTLY_39, Verify tax filing jointly', () => {
-        homepage.clickTaxJoin();
+    it('TC_PDP_CRT_REC_JOINTLY_19, Verify tax filing jointly', () => {
+        cy.wait(1000);
+        homepage.selectTaxFilingStatus(testData.taxFilingStatus);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_INDIV_40, Verify tax filing individual', () => {
-        homepage.clickTaxIndiv();
+    it('TC_PDP_CRT_REC_INDIV_20, Verify tax filing individual', () => {
+        homepage.selectTaxFilingStatus(testData.taxFilingStatusIndividual);
         cy.wait(1000);
     });
-    it('TC_PDP_STREET_41, Verify the street', () => {
-        homepage.enterStreet('Street');
+    it('TC_PDP_CRT_REC_NAME_21, Verify Zip code', () => {
+        cy.wait(1000);
+        homepage.enterZip(testData.zip);
+        cy.wait(1000);
+        homepage.clickSearch();
+    });
+    it('TC_PDP_STREET_22, Verify the street', () => {
+        homepage.enterStreet(testData.street);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_ZC_42, Verify the Zip Code', () => {
-        homepage.enterZip('80108');
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_ZC_49, Verify the Search icon', () => {
-        homepage.enterZip('80108');
-        cy.wait(2000);
-       homepage.clickSearchIcon();
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_COUNTY_51, Verify the County State', () => {
-        homepage.enterZip('80108');
-        cy.wait(2000);
-        homepage.clickSearchIcon();
-        cy.wait(2000);
-        homepage.clickCountyState();
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_CITY_54, Verify the City', () => {
-        homepage.enterZip('80108');
-        cy.wait(2000);
-        homepage.clickSearchIcon();
-        cy.wait(2000);
-        homepage.clickCountyState();
-        cy.wait(2000);
-        homepage.clickCity();
-        cy.wait(2000);
-       });
-    it('TC_PDP_CRT_REC_CITY_55, Verify the City1', () => {
-        homepage.enterZip('80108');
-        cy.wait(2000);
-        homepage.clickSearchIcon();
-        cy.wait(2000);
-        homepage.clickCountyState();
-        cy.wait(2000);
-        homepage.clickCity();
-        cy.wait(2000);
-        homepage.clickCity1();
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_CITY_56, Verify the City2', () => {
-homepage.enterZip('80108');
-        cy.wait(2000);
-        homepage.clickSearchIcon();
-        cy.wait(2000);
-        homepage.clickCountyState();
-        cy.wait(2000);
-        homepage.clickCity();
-        cy.wait(2000);
-        homepage.clickCity2();
-        cy.wait(2000);
-    });
-    it('TC_PDP_CRT_REC_MT_57, Verify the MagiTier', () => {
+    it('TC_PDP_CRT_REC_MT_23, Verify the MagiTier text field', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT1_58, Verify the MagiTier1', () => {
+    it('TC_PDP_CRT_REC_MT1_24, Verify the MagiTier1', () => {
+        homepage.clickMagiTier();
+        cy.wait(2000);
+        homepage.clickMaggiTireOptions(testData.magiTier);
+        cy.wait(1000);
+    });
+    it('TC_PDP_CRT_REC_MT2_25, Verify the MagiTier one', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
-        homepage.clickMagiTier1();
+        homepage.clickMagiTier1(testData.magiTierOne);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT2_59, Verify the MagiTier2', () => {
+    it('TC_PDP_CRT_REC_MT3_26, Verify the MagiTier two', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
-        homepage.clickMagiTier2();
+        homepage.clickMagiTier2(testData.magiTierTwo);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT3_60, Verify the MagiTier3', () => {
+    it('TC_PDP_CRT_REC_MT4_27, Verify the MagiTier three', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
-        homepage.clickMagiTier3();
+        homepage.clickMagiTier3(testData.magiTierThree);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT4_61, Verify the MagiTier4', () => {
+    it('TC_PDP_CRT_REC_MT5_28, Verify the MagiTier four', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
-        homepage.clickMagiTier4();
+        homepage.clickMagiTier4(testData.magiTierFour);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT5_62, Verify the MagiTier5', () => {
+    it('TC_PDP_CRT_REC_MT5_29, Verify the MagiTier five', () => {
         homepage.clickMagiTier();
         cy.wait(1000);
-        homepage.clickMagiTier5();
+        homepage.clickMagiTier5(testData.magiTierFive);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_MT6_63, Verify the MagiTier6', () => {
+    it('TC_PDP_CRT_REC_MT5_30, Verify the MagiTier six', () => {
         homepage.clickMagiTier();
-        cy.wait(1000)
-        homepage.clickmagiTier6();
-        cy.wait(1000)
-    });
-    it('TC_PDP_CRT_REC_COMM_EMAIL_64, Verify the Communication Email', () => {
-        homepage.entercommunicationEmail('abc@gmail.com');
+        cy.wait(1000);
+        homepage.clickMagiTier6(testData.magiTierSix);
         cy.wait(1000);
     });
-    it('TC_PDP_CRT_REC_CONTACT_67, Verify the Contact', () => {
-        homepage.enterContact('1234567890');
+    it('TC_PDP_CRT_REC_COMM_EMAIL_31, Verify the Communication Email', () => {
+        homepage.entercommunicationEmail(testData.communicationEmail);
         cy.wait(1000);
     });
-    it('TC_PDP_NEXT_68, Verify the Next button in the home page', () => {
-        homepage.clickNext();
+    it('TC_PDP_CRT_REC_CONTACT_32, Verify the Contact', () => {
+        homepage.enterContact(testData.contactNumber);
+        cy.wait(1000);
+    });
+    it('TC_PDP_CRT_REC_CONTACT_33, Verify the Contact', () => {
+        homepage.selectConciergeOption(testData.conceirge);
+        cy.wait(500);
+    });
+    it('TC_PDP_CRT_REC_CONTACT_34, Verify the ConceirgeNo', () => {
+        cy.wait(500);
+        homepage.clickConceirgeNo(testData.ConceirgeNo);
+        cy.wait(500);
+    });
+    it('TC_PDP_CRT_REC_CONTACT_35, Verify the ConceirgeYes', () => {
+        cy.wait(500);
+        homepage.clickConciergeYes(testData.ConceirgeYes);
+        cy.wait(500);
+    });
+    it('TC_PDP_CRT_REC_CONTACT_36, Verify the Concerierge Amount', () => {
+        cy.wait(500);
+        homepage.enterConceriergeAmount(testData.ConceriergeAmount);
+        cy.wait(500);
+    });
+    it('TC_PDP_NEXT_37, Verify the Next button in the home page', () => {
+        cy.wait(1000);
+        homepage.enterEmail(testData.email);
+        cy.wait(1000);
+        homepage.enterName(testData.name);
+        cy.wait(1000);
+        homepage.enterZip(testData.zip);
+        cy.wait(500);
+        homepage.clickSearch();
+        homepage.clicknextButt();
         cy.wait(1000);
     });
 
 
 });
-
-
