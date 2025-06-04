@@ -120,7 +120,25 @@
   "PDPPlan2":"CignahealthCare",
   "PDPPlan3":"HumanaBasic",
   "PDPPlan4":"AARP",
-  "PDPPlaninsurancefilter":"HumanaPlanfrominsurance"
+  "PDPPlaninsurancefilter":"HumanaPlanfrominsurance",
+
+
+"healthProfileOne":"Best Health",
+"healthProfileTwo":"Good Health",
+"healthProfileThree":"Moderate Health",
+"healthProfileFour":"Poor Health",
+"healthProfileFive":"Sick Health",
+"genderM":"Male",
+"taxFilingStatusIndividual":"Individual",
+"magiTierOne":" $ 212 ",
+"magiTierTwo":" $ 212K to $ 266K ",
+"magiTierThree":" $ 212K to $ 266K ",
+"magiTierFour":" $ 212K to $ 266K ",
+"magiTierFive":" $ 212K to $ 266K ",
+"magiTierSix":" $ 212K to $ 266K ",
+"ConceirgeNo":"No",
+"ConceirgeYes":"Yes",
+"ConceriergeAmount":"300"
 
   
 
