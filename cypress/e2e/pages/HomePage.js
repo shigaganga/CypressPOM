@@ -104,10 +104,10 @@ clickBestHealth() {
     clickHealthProfileMSG() {
         cy.xpath(this.healthProfileMSG).click()
     }
-    clickHealthProfile() {
+   // clickHealthProfile() {
         //Click the dropdown to open it.
-        cy.xpath(this.healthProfileDropDown).click();
-    }
+      //  cy.xpath(this.healthProfileDropDown).click();
+   // }
     enterLifeexpectancy(expectancy) {
         cy.xpath(this.lifeExpectancy).should('be.visible').clear({ force: true }).type(expectancy, { force: true });
     }
