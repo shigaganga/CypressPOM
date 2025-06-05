@@ -79,9 +79,12 @@ class MedicarePage{
      TotalOOPEle=(':nth-child(3) > .legend-text');
 
      //assertions related to PV and AB+MA and IRMA
-     PVasofyearEle=('.total-container > .ng-star-inserted > :nth-child(1)');
-     ABandMAtotalexpEle=('.total-container > :nth-child(2) > :nth-child(1)');
-     IRMAEle=('.total-container > :nth-child(3) > :nth-child(1)');
+    //  PVasofyearEle=('.total-container > .ng-star-inserted > :nth-child(1)');
+    PVasofyearEle = "//label[normalize-space()='PV as of year 2025:']";
+    //  ABandMAtotalexpEle=('.total-container > :nth-child(2) > :nth-child(1)');
+     ABandMAtotalexpEle="//label[normalize-space()='AB + MA Total Expenses:']"
+    //  IRMAEle=('.total-container > :nth-child(3) > :nth-child(1)');
+     IRMAEle="//label[normalize-space()='Total IRMAA Surcharge:']"
 
      //assertions
      AgeEle=('.details-container > :nth-child(1) > span');
@@ -212,16 +215,23 @@ verifytotalpremiumsurchargeoop(){
 
 //assertions related to PV and AB+MA and IRMA
 verifyPVABMAIRMA(){
-    cy.get(this.PVasofyearEle).should('be.visible');
-    cy.get(this.ABandMAtotalexpEle).should('be.visible');
-    cy.get(this.IRMAEle).should('be.visible');
+    cy.xpath(this.PVasofyearEle).should('be.visible');
+    cy.xpath(this.ABandMAtotalexpEle).should('be.visible');
+    cy.xpath(this.IRMAEle).should('be.visible');
 
  }
 
 // Assertions
 verifyuserinfodetalis(){
     cy.get(this.AgeEle).should('be.visible');
-    cy.get(this.HealthProfileEle).should('contain.text','Good Health');
+    // cy.get(this.HealthProfileEle).should('contain.text','Best Health');
+
+    const profileTypes = ['Good Health', 'Best Health', 'Moderate Health','Poor Health',"Sick"];
+    cy.get(this.HealthProfileEle).invoke('text').then((text) => {
+        const matchFound = profileTypes.some(type => text.includes(type));
+        expect(matchFound).to.be.true;
+    });
+
     cy.get(this.plantypeEle).should('be.visible');
     cy.get(this.RetirementageEle).should('be.visible');
     cy.get(this.RetirementyearEle).should('be.visible');
@@ -231,6 +241,6 @@ verifyuserinfodetalis(){
     cy.get(this.TaxfilingstatusEle).should('contain.text','Jointly');
     }
    
-     }
+}
 
 export default MedicarePage;

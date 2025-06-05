@@ -10,79 +10,81 @@ import MedicarePage from '../pages/MedicarePage.js';
 
 describe("Automate test cases for Medicare Page",()=>{
 
+    let testData
     const medicarepage = new MedicarePage();
-
-    beforeEach("Login to Medicare Page",()=>{
-        cy.session("Medicare Page",()=>{
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page ');
-        const lPage = new LoginPage();
-        const recPage = new LandingPage();
-        const homepage = new HomePage();
-        const prefPage = new PreferencePage();
-        const prescriptionpage=new PrescriptionPage();
-        //const ConfirmDrugPage=new ConfirmDrug();
-        const pharmacypage=new PharmacyPage();
-       //const planselectionpage=new PdpSuppMA();
-        cy.fixture('LoginFixture').then((data) => {
-            
-            lPage.setUserName(data.username);
-            lPage.setPassword(data.password);
-            lPage.clickLoginBtn();
-            lPage.verifyLogin(); 
-        })
-           recPage.clickCreateRecommendation();
-           cy.wait(100);
-           homepage.enterEmail("Vanaja@gmail.com");
-           cy.wait(100);
-           homepage.clickhealthArrow();
-           cy.wait(100);
-           homepage.clickGoodHealth();
-           cy.wait(100);
-           homepage.enterName("Vanaja");
-           cy.wait(100);
-           homepage.enterLifeexpectancy("95");
-           cy.wait(100);
-           homepage.datePickerclick();
-           cy.wait(100);
-           //homepage.year1957click();
-           homepage.clickYear();
-           cy.wait(100);
-           //homepage.month1957click();
-           homepage.clickMonth();
-           cy.wait(100);
-           homepage.enterZip("18976")
-           cy.wait(100);
-           homepage.clickSearch();
-           cy.wait(100);
-           homepage.nextHomeClick();
-           cy.wait(100);
-           prefPage.clickyesRadioDrugCost();
-         cy.wait(100);
-         prefPage.clickNextPrefPage();
-         cy.wait(100);
-         prescriptionpage.enterDrugSearchBox("Gabapentin");
-         cy.wait(100);
-         prescriptionpage.selectDrug();
-         cy.wait(100);
-         prescriptionpage.clickAddToDrug();
-        cy.wait(100);
-        prescriptionpage.doneAddDrugClick();
-        cy.wait(100);
-        pharmacypage.clickFindFarmacy();
-        cy.wait(100);
-        pharmacypage.clickfarmacyOne();
-        cy.wait(100);
-        pharmacypage.clickfarmacyTwo();
-        cy.wait(100);
-        pharmacypage.clicknextpharmacy();
-              
-        medicarepage.clickMAbtn();
-        medicarepage.wellcaresimpleopenppo();
-        medicarepage.planselectdone();
-        medicarepage.selectplanchkbox();
-        
+    before(()=>{
+        cy.task('csv:parseFromDropbox').then((data) => {
+        testData = data[0];
     })
-    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
+})
+const lPage = new LoginPage();
+     const recPage = new LandingPage();
+     const homepage = new HomePage();
+     const prefPage = new PreferencePage();
+     const prescriptionpage=new PrescriptionPage();
+     const pharmacypage=new PharmacyPage();
+         
+    beforeEach("Login to Medicare Page",()=>{
+    cy.session("Medicare Page",()=>{
+           
+    cy.visit(testData.baseUrl );
+    cy.wait(500);
+     
+       lPage.setUserName(testData.username);
+       lPage.setPassword(testData.password);
+       lPage.clickLoginBtn();
+       lPage.verifyLogin(); 
+       recPage.clickCreateRecommendation();
+       cy.wait(500);
+       homepage.enterEmail(testData.email);
+       cy.wait(500);
+       homepage.clickhealthArrow();
+       cy.wait(500);
+       homepage.clickHealthProfile(testData.healthProfile);
+       cy.wait(500);
+       homepage.enterName(testData.name);
+       cy.wait(500);
+       homepage.enterLifeexpectancy(testData.lifeExpectancy);
+       cy.wait(500);
+       homepage.clickDatePicker();
+       cy.wait(500);
+       homepage.clickYear(testData.yearOfBirth);
+       cy.wait(500);
+       homepage.clickMonth(testData.monthOfBirth);
+       cy.wait(500);
+       homepage.enterZip(testData.zip)
+       cy.wait(500);
+       homepage.clickSearch();
+       cy.wait(500);
+       homepage.nextHomeClick();
+       cy.wait(500);
+       prefPage.clickyesRadioDrugCost();
+       cy.wait(500);
+       prefPage.clickNextPrefPage();
+       cy.wait(500);
+       prescriptionpage.enterDrugSearchBox(testData.drugName1);
+       cy.wait(500);
+       prescriptionpage.selectDrug();
+       cy.wait(500);
+       prescriptionpage.clickAddToDrug();
+       cy.wait(500);
+       prescriptionpage.doneAddDrugClick();
+       cy.wait(500);
+       pharmacypage.clickFindFarmacy();
+       cy.wait(500);
+       pharmacypage.clickfarmacyOne();
+       cy.wait(500);
+       pharmacypage.clickfarmacyTwo();
+       cy.wait(500);
+       pharmacypage.clicknextpharmacy();
+
+    medicarepage.clickMAbtn();
+        medicarepage.wellcaresimpleopenppo();
+         medicarepage.planselectdone();
+         medicarepage.selectplanchkbox();
+})
+
+   cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
     })
 
    it("Test01_Click on medicare button",()=>{
@@ -119,7 +121,7 @@ describe("Automate test cases for Medicare Page",()=>{
         medicarepage.aivanteimgclick();
     })
 
-    it("Test08_Edit recommendation and check for purchase Part A",()=>{
+    it("Test08_Edit recommendation and check the profile details if the user profile is updated",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
         medicarepage.editrecommendation();         
