@@ -7,7 +7,7 @@ class PlanSelectionMA {
     starratingEle = "//div[@class='mat-select-arrow-wrapper ng-tns-c216-55']"
     ratingfourEle = "//span[normalize-space()='4.0']"
     drugcoverageEle = "//div[@class='mat-select-arrow ng-tns-c216-57']"
-    nocoverageEle = "//span[@class='mat-option-text']"
+    nocoverageEle = "//span[@class='mat-option-text'][normalize-space()='No Coverage']"
     pdpoptionEle = "//div[@class='mat-select-arrow ng-tns-c216-59']"
     withprescriptionEle = "//span[normalize-space()='With Prescription']"
     resetEle = ('.mat-action-row > .mat-focus-indicator')
@@ -82,7 +82,7 @@ class PlanSelectionMA {
     }
 
     clickNoCoverage() {
-        cy.xpath(this.nocoverageEle).click();
+        cy.xpath(this.nocoverageEle).click({ multiple: true });
     }
 
     clickPDPOption() {
