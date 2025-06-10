@@ -351,7 +351,7 @@ verifyLocationSelector(){
  cy.get(this.locationselectorele).should('have.text', 'Location : North Carolina');
 }
 verifyRemaningYears(){
-  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 7 months of 2025');
+  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 6 months of 2025');
 }
 clickResetBtn(){
  cy.get(this.resetbuttonele).click()
