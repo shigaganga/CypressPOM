@@ -4,15 +4,20 @@ class ProviderHospiceCarePage{
   hospiceCareName=':nth-child(1) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix';
  searchProviderBtn='.display-flex > .mat-focus-indicator';
     Street='#mat-input-15';
-     zipcode='.mat-form-field.ng-tns-c170-10 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix';
+     //zipcode='.mat-form-field.ng-tns-c170-10 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix';
+     zipcode='//input[@formcontrolname="zipcode" and @maxlength="5" and @required]'
+
      ZipcodeSearch='.mat-button-wrapper > .mat-icon';
      County='#mat-select-value-19';
      City='#mat-select-value-21';
      providerFilter='#mat-expansion-panel-header-1 > .mat-content > .mat-expansion-panel-header-title';
     ownershipDropdown='#ownership > .mat-select-trigger';
-      other='#mat-option-113 > .mat-option-text';
-     nonprofit='#mat-option-114 > .mat-option-text';
-     forporfit='#mat-option-115 > .mat-option-text';
+      //other='#mat-option-113 > .mat-option-text';
+      other='//span[@class="mat-option-text" and normalize-space(text())="Other"]';
+    //nonprofit='#mat-option-114 > .mat-option-text';
+     nonprofit='//span[@class="mat-option-text" and normalize-space(text())="Non-Profit"]';
+     //forporfit='#mat-option-115 > .mat-option-text';
+     forporfit='//span[@class="mat-option-text" and normalize-space(text())="For-Profit"]'
      applyFilterBtn=':nth-child(2) > [type="submit"] > .mat-button-wrapper';
      clearFilterBtn='form.ng-valid > :nth-child(2) > [type="button"] > .mat-button-wrapper';
      backButton='.button-wrapper > .mat-focus-indicator > .mat-button-wrapper';
@@ -31,7 +36,7 @@ class ProviderHospiceCarePage{
    
      enterZipcode(zipcode) {
    
-       cy.get(this.zipcode).type(zipcode); 
+       cy.xpath(this.zipcode).type(zipcode); 
        
      }
      clickzipcode(){
@@ -66,13 +71,13 @@ class ProviderHospiceCarePage{
 
      
      selectother(){
-      cy.get(this.other).click();
+      cy.xpath(this.other).click();
      }
      selecnonprofit(){
-       cy.get(this.nonprofit).click();
+       cy.xpath(this.nonprofit,{timeout:5000}).should('be.visible').click();
     }
      selectforprofit(){
-      cy.get(this.forporfit).click();
+      cy.xpath(this.forporfit,{timeout:5000}).should('be.visible').click();
      }
      clickApplyFilter() {
         cy.get(this.applyFilterBtn).click();
