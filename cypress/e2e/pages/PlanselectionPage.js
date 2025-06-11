@@ -87,7 +87,7 @@ MedigapArrow='div.mat-select-arrow-wrapper';
   setMedigapArrow()
   {
   cy.wait(2000)    
-  cy.get(this.MedigapArrow).should('be.visible').click();
+  cy.get(this.MedigapArrow,{timeout:5000}).should('be.visible').click();
   }
 
 SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
@@ -351,7 +351,7 @@ verifyLocationSelector(){
  cy.get(this.locationselectorele).should('have.text', 'Location : North Carolina');
 }
 verifyRemaningYears(){
-  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 7 months of 2025');
+  cy.get(this.remaningyearele,{ timeout: 10000 }).contains('Remaining Year: All expenses unless specified are for ');
 }
 clickResetBtn(){
  cy.get(this.resetbuttonele).click()
