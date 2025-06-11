@@ -1,73 +1,88 @@
-import ProviderDoctorsCliniciansPage from "../pages/ProviderDoctorsCliniciansPage.js";
-import LoginPage from "../pages/LoginPage.js";
-import HomePage from "../pages/HomePage.js";
-import PreferencePage from "../pages/PreferencePage.js";
-import LandingPage from "../pages/LandingPage.js";
-import PlanselectionPage from "../pages/PlanselectionPage.js";
+import LoginPage from '../pages/LoginPage.js';
+import LandingPage from '../pages/LandingPage.js';
+import HomePage from '../pages/HomePage.js';
+import PlanselectionPage from '../pages/PlanselectionPage.js';
+import longTermPage from '../pages/LongTermPage.js';
+import PharmacyPage from '../pages/PharmacyPage.js';
+import PreferencePage from '../pages/PreferencePage.js';
+import PrescriptionPage from '../pages/PrescriptionPage.js';
+import MedicarePage from '../pages/MedicarePage.js';
+import ProviderDoctorsCliniciansPage from '../pages/ProviderDoctorsCliniciansPage.js';
+ 
 
 describe('ProviderDoctorsClinicianspage Testing', () => {
-
-    beforeEach(() => {
-       cy.session("Provider DoctorsClinicians page session",()=>{
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
-
-        cy.fixture('LoginFixture').then((data) => {
-            const ln = new LoginPage();
-        ln.setUserName(data.username);
-        ln.setPassword(data.password);
-        ln.clickLoginBtn();
-        ln.verifyLogin();
-         });
-        //test user//
-        //const loginpage = new LoginPage();
-          //  loginpage.setUserName(data.username);
-           // loginpage.setPassword(data.password);
-           // loginpage.clickLoginBtn();
-        //});
-
-       // const ln = new LoginPage();
-        //ln.setUserName(data.username);
-        //ln.setPassword(data.password);
-        //ln.clickLoginBtn();
-        //ln.verifyLogin();
-    
+    let testData
+    const planselectionpage= new PlanselectionPage();
+    before(()=>{
+   cy.fixture('LoginFixture').then((data) => {
+       testData = data;
+    // cy.task('csv:parseFromDropbox').then((data) => {
+           //testData = data[0];
+    })
+})
+const providerdoctorscliniciansPage = new ProviderDoctorsCliniciansPage();
+const lPage = new LoginPage();
         const recPage = new LandingPage();
-        recPage.clickCreateRecommendation();
         const homepage = new HomePage();
-        cy.wait(100);
-        homepage.enterEmail("SwathiPOM@gmail.com");
-        cy.wait(100);
-        homepage.clickhealthArrow();
-        cy.wait(100);
-        homepage.clickGoodHealth();
-        cy.wait(100);
-        homepage.enterName("Shigapage");
-        cy.wait(100);
-        homepage.enterLifeexpectancy("86");
-        cy.wait(100);
-        homepage.datePickerclick();
-        cy.wait(100);
-        homepage.year1957click();
-        cy.wait(100);
-        homepage.month1957click();
-        cy.wait(100);
-        homepage.enterZip("80113")
-        cy.wait(100);
-        homepage.clickSearch();
-        cy.wait(100);
-        homepage.nextHomeClick();
-        cy.wait(100);
-        // homepage.verifyUrl("https://analytics.dzeecloud.com/medicareAdvantage_sandbox/preferences");
-
         const prefPage = new PreferencePage();
-        cy.wait(100);
-        prefPage.clicknoRadioDrugCost();
-        cy.wait(100);
-        prefPage.clickNextPrefPage();
+        const prescriptionpage=new PrescriptionPage();
+        const pharmacypage=new PharmacyPage();
         
-      const planselectionPage = new PlanselectionPage();
-        planselectionPage.setProviderButtn();
-      const providerdoctorscliniciansPage = new ProviderDoctorsCliniciansPage();
+    beforeEach(() => {
+        cy.session("Doctors and clinicians seesion",()=>{
+       cy.visit(testData.baseUrl );
+        cy.wait(500);
+         
+ 
+            lPage.setUserName(testData.username);
+            lPage.setPassword(testData.password);
+            lPage.clickLoginBtn();
+            lPage.verifyLogin(); // Ensure login was successful
+            recPage.clickCreateRecommendation();
+           cy.wait(500);
+           homepage.enterEmail(testData.email);
+           cy.wait(500);
+           homepage.clickhealthArrow();
+           cy.wait(500);
+           homepage.clickHealthProfile(testData.healthProfile);
+           cy.wait(500);
+           homepage.enterName(testData.name);
+           cy.wait(500);
+           homepage.enterLifeexpectancy(testData.lifeExpectancy);
+           cy.wait(500);
+           homepage.clickDatePicker();
+           cy.wait(500);
+           homepage.clickYear(testData.yearOfBirth);
+           cy.wait(500);
+           homepage.clickMonth(testData.monthOfBirth);
+           cy.wait(500);
+           homepage.enterZip(testData.zip)
+           cy.wait(500);
+           homepage.clickSearch();
+           cy.wait(500);
+           homepage.nextHomeClick();
+           cy.wait(500);
+           prefPage.clickyesRadioDrugCost();
+         cy.wait(500);
+         prefPage.clickNextPrefPage();
+         cy.wait(500);
+         prescriptionpage.enterDrugSearchBox(testData.drugName1);
+         cy.wait(500);
+         prescriptionpage.selectDrug();
+         cy.wait(500);
+         prescriptionpage.clickAddToDrug();
+        cy.wait(500);
+        prescriptionpage.doneAddDrugClick();
+        cy.wait(500);
+        pharmacypage.clickFindFarmacy();
+        cy.wait(500);
+        pharmacypage.clickfarmacyOne();
+        cy.wait(500);
+        pharmacypage.clickfarmacyTwo();
+        cy.wait(500);
+        pharmacypage.clicknextpharmacy();
+        planselectionpage.setProviderButtn();
+      //const providerdoctorscliniciansPage = new ProviderDoctorsCliniciansPage();
         providerdoctorscliniciansPage.clickDoctorsCliniciansBtn();
     });
    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
@@ -93,39 +108,39 @@ it('TC_PDP_T-SIGN_04 : This is to verify the functionality of the "T-Sign" icon 
 });
 it('TC_PDP_PRV_DOC_05 : Search with Doctor Name', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorName("Markhanna");
+    providerdoctorsclinicians.enterDoctorName(testData.doctorName);
     cy.log("Doctor Name - Passed");
     cy.wait(1000)
  });
 it('TC_PDP_PRV_DOC_06 : Enter DoctorNameOption Verify that the Category Name', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorNameOption("pho");
+    providerdoctorsclinicians.enterDoctorNameOption(testData.doctorNameOption);
     cy.log("DoctorNameOption - Passed");
     cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_07 : Search with Business Name', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterBusinessName("Mark");
+    providerdoctorsclinicians.enterBusinessName(testData.businessName);
     cy.log("DoctorNameOption - Passed");
     cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_07-01 : Search with Street', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorName("Markhanna");
-    providerdoctorsclinicians.enterStreet('143 gavin street');
+    providerdoctorsclinicians.enterDoctorName(testData.doctorName);
+    providerdoctorsclinicians.enterStreet(testData.docter_street);
     cy.log("Street(Optionl) - Passed");
     cy.wait(2000)
     });
 it('TC_PDP_PRV_DOC_08 : Verify Zip Code Field Accepts Valid Zip Codes ', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorName("Mann");
-    providerdoctorsclinicians.enterZipCode2("80113");
+    providerdoctorsclinicians.enterDoctorName(testData.doctorName);
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     cy.log("Zipcode - Passed");
     cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_09 : Verify Zip Code Field with Invalid Zip Code ', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorName("mark")
+    providerdoctorsclinicians.enterDoctorName(testData.doctorName)
     providerdoctorsclinicians.enterInvalidZipCode2("ABC");
     cy.log("InvalidZipcode - Passed");
     cy.wait(2000)
@@ -140,18 +155,18 @@ it('TC_PDP_PRV_DOC_10 : Verify Zip Code Field with Blank Zip Code ', () => {
 });
 it('TC_PDP_PRV_DOC_11 : Verify County, City are Visible in County, State Drop down ', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-   providerdoctorsclinicians.enterZipCode2("80108");
+   providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
-   providerdoctorsclinicians.enterRadius('3');
+   providerdoctorsclinicians.enterRadius(testData.doctor-radius);
    providerdoctorsclinicians.clickCountyState();
    cy.log("clickCountyState - Passed");
    cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_12 : Verify Clicking on County Selects the County Correctly', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
-    providerdoctorsclinicians.enterRadius('3');
+    providerdoctorsclinicians.enterRadius(testData.doctor-radius);
     providerdoctorsclinicians.clickSearchProvider();
     providerdoctorsclinicians.selectCategory();
     cy.log("clickCountyState - Passed");
@@ -159,25 +174,25 @@ it('TC_PDP_PRV_DOC_12 : Verify Clicking on County Selects the County Correctly',
 });
 it('TC_PDP_PRV_DOC_13 : Verify Cities are Visible in the City Dropdown ', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
-   providerdoctorsclinicians.enterRadius('3');
+   providerdoctorsclinicians.enterRadius(testData.doctor-radius);
     providerdoctorsclinicians.clickCitydropdown();
     cy.log("clickCity - Passed");
     cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_14 : Verify Clicking on a City Selects the City Correctly', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-     providerdoctorsclinicians.enterZipCode2("80108");
+     providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
      providerdoctorsclinicians.clickZipSearch();
-     providerdoctorsclinicians.enterRadius('3');
+     providerdoctorsclinicians.enterRadius(testData.doctor-radius);
      providerdoctorsclinicians.clickCity();
      cy.log("clickCity - Passed");
      cy.wait(2000)
 });
 it('TC_PDP_PRV_DOC_15 : Verify Search icon for Category Doctors & clinicians on the manage-provider', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickSearchProvider();
     cy.log("clicksearchprovider - Passed");
@@ -185,7 +200,7 @@ it('TC_PDP_PRV_DOC_15 : Verify Search icon for Category Doctors & clinicians on 
 });
 it('TC_PDP_PRV_CLEAR_16 : Verify the clear button on the manage-providers/provider-list page', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -198,7 +213,7 @@ it('TC_PDP_PRV_CLEAR_16 : Verify the clear button on the manage-providers/provid
 });
 it('TC_PDP_PRV_FILTER_17 : Verify the Apply filter button on the manage-providers/provider-list page', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -213,7 +228,7 @@ it('TC_PDP_PRV_FILTER_17 : Verify the Apply filter button on the manage-provider
 });
 it('TC_PDP_PRV_FILTER_17-1 : Verify the Gender button on the manage-providers/provider-list page', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -228,7 +243,7 @@ it('TC_PDP_PRV_FILTER_17-1 : Verify the Gender button on the manage-providers/pr
 });
 it('TC_PDP_PRV_FILTER_17-2 : Verify the Telehealth button with applyfilter on the manage-providers/provider-list page', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -245,7 +260,7 @@ it('TC_PDP_PRV_FILTER_17-2 : Verify the Telehealth button with applyfilter on th
 });
 it('TC_PDP_PRV_DOC_18 : Verify the Category Dropdown is Visible and Enabled', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("01259");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -255,7 +270,7 @@ it('TC_PDP_PRV_DOC_18 : Verify the Category Dropdown is Visible and Enabled', ()
 });
 it('TC_PDP_PRV_DOC_19 : Verify Available Categories in the Dropdown', () => {   
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("01260");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -266,7 +281,7 @@ it('TC_PDP_PRV_DOC_19 : Verify Available Categories in the Dropdown', () => {
 });
 it('TC_PDP_PRV_DOC_20 : Verify Selection of a Category', () => {    
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("01260");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -276,7 +291,7 @@ it('TC_PDP_PRV_DOC_20 : Verify Selection of a Category', () => {
 })
 it('TC_PDP_PRV_DOC_21 : Verify Filtering Based on Selected Category', () => {    
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("27429");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.clickSearchProvider();
@@ -302,8 +317,8 @@ it('TC_PDP_PRV_DOC_23 : Verify Dropdown Persistence After Page Refresh', () => {
 }); 
 it('TC_PDP_PRV_DOC_SPEC_24 : Verify the Specialty Dropdown is Visible and Enabled', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterDoctorName("Markhanna");
-    providerdoctorsclinicians.enterZipCode2("01259");
+    providerdoctorsclinicians.enterDoctorName(testData.doctorName);
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.selectSpecialtydropdown();
     cy.log("clickSpecialtydropdown - Passed");
@@ -333,7 +348,7 @@ it('TC_PDP_PRV_DOC_SPEC_26 : Verify No Results Message for "Doctor & Clinicians"
 });
 it('TC_PDP_PRV_DOC_SPEC_27 : Verify "Doctor & Clinician" Category with Specialty as "Addiction Medicine"', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.enterSpecialityEle();
@@ -346,7 +361,7 @@ it('TC_PDP_PRV_DOC_SPEC_27 : Verify "Doctor & Clinician" Category with Specialty
  });
  it('TC_PDP_PRV_DOC_SPEC_28 : Verify "Doctor & Clinician" Category with Specialty as "Adult congenital heart disease (ACHD)"', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.enterSpecialityEle();
@@ -359,7 +374,7 @@ it('TC_PDP_PRV_DOC_SPEC_27 : Verify "Doctor & Clinician" Category with Specialty
  });
  it('TC_PDP_PRV_DOC_SPEC_29 : Verify "Doctor & Clinician" Category with Specialty as "Advanced heart failure and transplant cardiology"', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.enterSpecialityEle();
@@ -372,7 +387,7 @@ it('TC_PDP_PRV_DOC_SPEC_27 : Verify "Doctor & Clinician" Category with Specialty
  });
  it('TC_PDP_PRV_DOC_SPEC_30 : Verify "Doctor & Clinician" Category with Specialty as "Allergy/immunology"', () => {
     const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.enterSpecialityEle();
@@ -387,7 +402,7 @@ it('TC_PDP_PRV_DOC_SPEC_27 : Verify "Doctor & Clinician" Category with Specialty
 
 it('TC_PDP_DOC_SPEC_52 : Verify "Doctor & Clinician" Category with Specialty as "General practice"', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-   providerdoctorsclinicians.enterZipCode2("80108");
+   providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.clickRadiusIn('15');
    providerdoctorsclinicians.enterSpecialityEle();
@@ -400,7 +415,7 @@ it('TC_PDP_DOC_SPEC_52 : Verify "Doctor & Clinician" Category with Specialty as 
 });
 it('TC_PDP_DOC_SPEC_120 : Verify "Doctor & Clinician" Category with Specialty as Qualified Speech language "Vascular surgery"', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-    providerdoctorsclinicians.enterZipCode2("80108");
+    providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
     providerdoctorsclinicians.clickZipSearch();
     providerdoctorsclinicians.clickRadiusIn('15');
     providerdoctorsclinicians.enterSpecialityEle();
@@ -425,7 +440,7 @@ it('TC_PDP_PRV_RADIUS_121 : Verify that the "Radius" field refreshes correctly f
 });
 it('TC_PDP_PRV_RADIUS_122 : Verify Default Radius Value is 15 Miles for "Doctors & Clinicians" Category on the Provider Page', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-   providerdoctorsclinicians.enterZipCode2("01262");
+   providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.clickRadiusIn('15');
    providerdoctorsclinicians.clickSearchProvider();
@@ -436,7 +451,7 @@ it('TC_PDP_PRV_RADIUS_122 : Verify Default Radius Value is 15 Miles for "Doctors
 });
 it('TC_PDP_PRV_RADIUS_123 : Verify Presence of Radius Input Field', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-   providerdoctorsclinicians.enterZipCode2("01263");
+   providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.clickRadiusIn("15");
    cy.log("verify the results - Passed");
@@ -444,7 +459,7 @@ it('TC_PDP_PRV_RADIUS_123 : Verify Presence of Radius Input Field', () => {
 })
 it('TC_PDP_PRV_RADIUS_124 : Verify the valid Radius Value', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-   providerdoctorsclinicians.enterZipCode2("01264");
+   providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.enterRadius("3");
    providerdoctorsclinicians.clickSearchProvider();
@@ -453,7 +468,7 @@ it('TC_PDP_PRV_RADIUS_124 : Verify the valid Radius Value', () => {
 });
 it('TC_PDP_PRV_RADIUS_125 : Verify the radius field validation when submitted with an empty value', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-  providerdoctorsclinicians.enterZipCode2("01264");
+  providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.clickEmptyRadius("")
    cy.get('body').click({ force: true });
@@ -464,7 +479,7 @@ it('TC_PDP_PRV_RADIUS_125 : Verify the radius field validation when submitted wi
 });
 it('TC_PDP_PRV_RADIUS_126 : Verify Radius Field with Invalid Character Input', () => {
    const providerdoctorsclinicians = new ProviderDoctorsCliniciansPage();
-  providerdoctorsclinicians.enterZipCode2("01264");
+  providerdoctorsclinicians.enterZipCode2(testData.zipCode2);
    providerdoctorsclinicians.clickZipSearch();
    providerdoctorsclinicians.enteremptyradius("abc");
    cy.log("verify the results - Passed");
