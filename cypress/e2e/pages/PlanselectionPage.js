@@ -372,19 +372,19 @@ selectLowestdrugPremium(){
  cy.get(this.LowestdrugPremiumcostele).click()
 }
 selectWellcarePlan(){
- cy.xpath(this.selectwellcareplanele).click()
+ cy.xpath(this.selectwellcareplanele).click({force:true})
 }
 selectCignahealthCare(){
-cy.xpath(this.selectcignahealthEle).click()
+cy.xpath(this.selectcignahealthEle).click({force:true})
 }
 selectHumanaBasic(){
-cy.xpath(this.selecthumanabasciEle).click()
+cy.xpath(this.selecthumanabasciEle).click({force:true})
 }
 selectPdpPlanatPlanselectionPage(){
 cy.get(this.pdpplanatplanselectionEle).click()
 }
 selectAARP(){
-cy.get(this.selectaarpEle).click()
+cy.get(this.selectaarpEle).click({force:true})
 }
 selectNextExpandBtn(){
  cy.get(this.nextexpandBtnEle).click()
