@@ -22,7 +22,7 @@ describe('smoke Flow Test', () => {
       lPage.setPassword(testData.password);
       cy.wait(500);
       lPage.clickLoginBtn();
-      cy.wait(500);
+      cy.wait(2000);
 
       const recPage = new LandingPage();
       recPage.clickCreateRecommendation();
@@ -63,9 +63,9 @@ describe('smoke Flow Test', () => {
       cy.wait(500);
       homepage.selectTaxFilingStatus(testData.taxFilingStatus);
       cy.wait(500);
-      homepage.clickMagiTier();
+      homepage.clickMagiTier(testData.magiTier);
       cy.wait(500);
-      homepage.clickMaggiTireOptions(testData.magiTier);
+      //homepage.clickMaggiTireOptions(testData.magiTier);
       cy.wait(500);
       homepage.selectConciergeOption(testData.conceirge);
       cy.wait(500);
