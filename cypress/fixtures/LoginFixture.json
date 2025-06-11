@@ -138,9 +138,20 @@
 "magiTierSix":" $ 212K to $ 266K ",
 "ConceirgeNo":"No",
 "ConceirgeYes":"Yes",
-"ConceriergeAmount":"300"
+"ConceriergeAmount":"300",
 
-  
+ "doctorName":"Markhanna" ,
+ "doctorNameOption":"pho",
+ "businessName":"Mark",
+ "docter_street":"143 gavin street",
+ "zipCode2":"80108",
+ "doctor-radius":"3",
+
+ "hospiceCareName": "Lifespring home care",
+"hospiceZip":"80134"
+
+ 
+
 
 
 
