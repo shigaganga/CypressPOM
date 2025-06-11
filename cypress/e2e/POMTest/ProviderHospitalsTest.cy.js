@@ -5,23 +5,23 @@ import PreferencePage from "../pages/PreferencePage";
 import PlanselectionPage from "../pages/PlanselectionPage";
 import ProviderHospitalsPage from "../pages/ProviderHospitalsPage";
 describe('ProviderHospitalTest',()=>{
-    let testdata = null;
+    let testData = null;
     before(()=>{
          cy.fixture('LoginFixture').then((data)=>{
-            testdata=data;
+            testData=data;
          });
 
     })
     beforeEach(()=>{
         cy.session('ProviderHospital Session',()=>{
            
-         cy.visit(testdata.baseUrl);
+         cy.visit(testData.baseUrl);
       cy.wait(500);
 
       const lPage = new LoginPage();
-      lPage.setUserName(testdata.username);
+      lPage.setUserName(testData.username);
       cy.wait(500);
-      lPage.setPassword(testdata.password);
+      lPage.setPassword(testData.password);
       cy.wait(500);
       lPage.clickLoginBtn();
       cy.wait(500);
@@ -31,45 +31,45 @@ describe('ProviderHospitalTest',()=>{
       cy.wait(500);
 
       const homepage = new HomePage();
-      homepage.enterEmail(testdata.email);
+      homepage.enterEmail(testData.email);
       cy.wait(500);
-      homepage.enterName(testdata.name);
+      homepage.enterName(testData.name);
       cy.wait(500);
       homepage.clickDatePicker();
       cy.wait(500);
-      homepage.clickYear(testdata.yearOfBirth);
+      homepage.clickYear(testData.yearOfBirth);
       cy.wait(500);
-      homepage.clickMonth(testdata.monthOfBirth);
+      homepage.clickMonth(testData.monthOfBirth);
       cy.wait(500);
       homepage.clickGender();
       cy.wait(500);
-      homepage.selectGender(testdata.gender);
+      homepage.selectGender(testData.gender);
       cy.wait(500);
-      homepage.enterStreet(testdata.street);
+      homepage.enterStreet(testData.street);
       cy.wait(500);
-      homepage.enterZip(testdata.zip);
+      homepage.enterZip(testData.zip);
       cy.wait(500);
       homepage.clickSearch();
       cy.wait(500);
-      homepage.entercommunicationEmail(testdata.communicationEmail);
+      homepage.entercommunicationEmail(testData.communicationEmail);
       cy.wait(500);
-      homepage.enterContact(testdata.contactNumber);
+      homepage.enterContact(testData.contactNumber);
       cy.wait(500);
       homepage.clickhealthArrow();
       cy.wait(500);
-      homepage.clickHealthProfile(testdata.healthProfile);
+      homepage.clickHealthProfile(testData.healthProfile);
       cy.wait(500);
-      homepage.enterLifeexpectancy(testdata.lifeExpectancy);
+      homepage.enterLifeexpectancy(testData.lifeExpectancy);
       cy.wait(500);
-      homepage.selectTobaccoOption(testdata.tobacco);
+      homepage.selectTobaccoOption(testData.tobacco);
       cy.wait(500);
-      homepage.selectTaxFilingStatus(testdata.taxFilingStatus);
+      homepage.selectTaxFilingStatus(testData.taxFilingStatus);
       cy.wait(500);
-      homepage.clickMagiTier();
+      homepage.clickMagiTier(testData.magiTier);
       cy.wait(500);
-      homepage.clickMaggiTireOptions(testdata.magiTier);
-      cy.wait(500);
-      homepage.selectConciergeOption(testdata.conceirge);
+      //homepage.clickMaggiTireOptions(testData.magiTier);
+      //cy.wait(500);
+      homepage.selectConciergeOption(testData.conceirge);
       cy.wait(500);
       homepage.nextHomeClick();
       cy.wait(500);
@@ -92,7 +92,7 @@ describe('ProviderHospitalTest',()=>{
     });
 
            
-        cy.visit(testdata.manageProviders_url)
+        cy.visit(testData.manageProviders_url)
     });
      
         it('TC_PDP_PRV_HOS_128 : verify the functionality of Category as "Hospitals"',()=>{
@@ -103,21 +103,21 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_129 : verify the functionality of "Search " button.',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
         });
         it('TC_PDP_PRV_HOS_130 : verify the functionality of Provider down arrow',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
             provHos.clickProviderDownArrow();
         });
         it('TC_PDP_PRV_HOS_131 : verify the functionality of Distance filter in Hospital category with valid distance',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
             provHos.clickProviderDownArrow();
             provHos.setDistance('25');
             provHos.clickApplyFilter();
@@ -125,8 +125,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_132 : verify the functionality of Distance filter in Hospital category with invalid distance >num',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
             provHos.clickProviderDownArrow();
             provHos.setDistance('30');
             provHos.displayError(); 
@@ -135,8 +135,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_133 : verify the functionality of Distance filter in Hospital category with invalid distance >alphanumeric',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
             provHos.clickProviderDownArrow();
             provHos.setDistance('@a3');
             provHos.clickApplyFilter();
@@ -145,9 +145,9 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_134 : valiadate the functionality of filter "Hospital types" in Hospital category',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
+            provHos.setRadius(testData.ProviderHosRadius);
             cy.wait(2000);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius);
             provHos.clickProviderDownArrow();
             provHos.getHospitalType();
             provHos.displayHosType();
@@ -155,8 +155,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_135 : validate the functionality of filter "Hospital types" with type "Acute Care Hospitals"',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius).then((providerFound)=>{
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius).then((providerFound)=>{
                 
                      if (!providerFound) {
                      
@@ -176,8 +176,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_136 : validate the functionality of filter "Hospital types" with type "Acute Care - Veterans Administration"',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius)
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius)
             .then((providerFound)=>{
                
                      if (!providerFound) {
@@ -198,8 +198,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_137 : validate the functionality of filter "Hospital types" with type "Critical Access Hospitals"',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius).then((providerFound)=>{
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius).then((providerFound)=>{
                 
                      if (!providerFound) {
                      
@@ -219,8 +219,8 @@ describe('ProviderHospitalTest',()=>{
         it('TC_PDP_PRV_HOS_138 : validate the functionality of filter "Hospital types" with type "Childrens"',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius)
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius)
             .then((providerFound)=>{
                 
                      if (!providerFound) {
@@ -242,8 +242,8 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_139 : validate the functionality of filter "Hospital types" with type "Psychiatric"',()=>{
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius).then((providerFound)=>{
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius).then((providerFound)=>{
                 
                      if (!providerFound) {
                      
@@ -263,8 +263,8 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_140 : validate the functionality of filter "Hospital types" with type "Acute Care - Department of Defense"',()=>{     
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();
-            provHos.setRadius(testdata.ProviderHosRadius);
-            provHos.ClickSearchProv(testdata.ProviderHosRadius).then((providerFound)=>{
+            provHos.setRadius(testData.ProviderHosRadius);
+            provHos.ClickSearchProv(testData.ProviderHosRadius).then((providerFound)=>{
                 
                      if (!providerFound) {
                      
@@ -284,8 +284,8 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_141 : verify the functionality of Overall rating filter dropdown',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getOverallRating();
         provHos.displayOverallRatePanel();
@@ -293,19 +293,19 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_142 : verify the functionality of filter "Overall rating" with 3 star rating',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getOverallRating();
-        provHos.getOverallRat(testdata.ProviderHosOverAllRat);
+        provHos.getOverallRat(testData.ProviderHosOverAllRat);
         provHos.clickApplyFilter();
         provHos.displayOverRateThree();
        });
        it('TC_PDP_PRV_HOS_143 : verify the functionality of filter "Pating rating" drop down',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getPatientSurveyRating();
         provHos.clickApplyFilter();
@@ -314,18 +314,18 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_144 : verify the functionality of filter "Pating rating" with 2 star rating',()=>{     
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getPatientSurveyRating();
-        provHos.getPatientSurveyRat(testdata.ProviderHosPatSurveyRat);
+        provHos.getPatientSurveyRat(testData.ProviderHosPatSurveyRat);
         provHos.clickApplyFilter();
        });
        it('TC_PDP_PRV_HOS_145 : verify the functionality of Yes radio button in Emergency section',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getEmergencyYes();
         provHos.clickApplyFilter();
@@ -334,8 +334,8 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_146 : verify the functionality of No radio button in Emergency section',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getEmergencyNo();
         provHos.clickApplyFilter();
@@ -344,8 +344,8 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_147 : verify the functionality of both radio button in Emergency section',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);    
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);    
         provHos.clickProviderDownArrow();
         provHos.getEmergencyBoth();
         provHos.clickApplyFilter();
@@ -354,21 +354,21 @@ describe('ProviderHospitalTest',()=>{
        it('TC_PDP_PRV_HOS_148 : verify the functionality of clear filter button',()=>{
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
         provHos.clickProviderDownArrow();
         provHos.getOverallRating();
-        provHos.getOverallRat(testdata.ProviderHosOverAllRat);
+        provHos.getOverallRat(testData.ProviderHosOverAllRat);
         provHos.clickClearFilter();
         provHos.setFiltertoDefault();  
        });
        it('TC_PDP_PRV_HOS_149 : verify the functionality of Hospital Name text box',()=>{     
         const provHos = new ProviderHospitalsPage();
         provHos.clickHospitalCat();
-        provHos.setHospitalName(testdata.ProviderHosName);
-        provHos.setRadius(testdata.ProviderHosRadius);
-        provHos.ClickSearchProv(testdata.ProviderHosRadius);
-        provHos.displayHosName(testdata.ProviderHosExepectName);
+        provHos.setHospitalName(testData.ProviderHosName);
+        provHos.setRadius(testData.ProviderHosRadius);
+        provHos.ClickSearchProv(testData.ProviderHosRadius);
+        provHos.displayHosName(testData.ProviderHosExepectName);
         
        });
        it("TC_PDP_PRV_HOS_000 : verify the functionality of Radius if it is above 200 miles",()=>{
