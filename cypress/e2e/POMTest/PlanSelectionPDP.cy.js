@@ -162,7 +162,7 @@ before(() => {
         cy.wait(2000);
         planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
-        planselectionpage.clickDoneBtn()
+        planselectionpage.clickDoneBtn({force:true})
         cy.wait(2000);
 
         });
@@ -196,7 +196,7 @@ before(() => {
         cy.wait(2000);
         planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(2000);
-        planselectionpage.clickDoneBtn()
+        planselectionpage.clickDoneBtn({force:true})
         cy.wait(2000);
         planselectionpage.selectPdpPlanatPlanselectionPage()
         cy.log('Maximum 1 MA with/without 1 PDP or 1 PDP with 1 Supplement plan are allowed')
@@ -228,7 +228,7 @@ before(() => {
         cy.wait(1000);
         planselectionpage.selectHumanaBasic(testData.PDPPlan3)
         cy.wait(1000);
-        planselectionpage.clickDoneBtn()
+        planselectionpage.clickDoneBtn({force:true})
         cy.wait(1000);
         
         });
@@ -490,7 +490,7 @@ before(() => {
         cy.wait(1000);
         planselectionpage.selectWellcarePlan()
         cy.wait(1000);
-        planselectionpage.clickDoneBtn()
+        planselectionpage.clickDoneBtn({force:true})
 
         });
 
