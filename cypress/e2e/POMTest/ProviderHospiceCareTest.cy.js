@@ -9,17 +9,37 @@ import ProviderHospiceCarePage from '../pages/ProviderHospiceCarePage.js';
 
 
 describe('Provider Hospic care', () => {
-    beforeEach(() => {
-        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage');
 
-        cy.fixture('LoginFixture').then((data) => {
-            const loginpage = new LoginPage();
-            loginpage.setUserName(data.username);
-            loginpage.setPassword(data.password);
-            loginpage.clickLoginBtn();
+    let testData
+    const planselectionpage= new PlanselectionPage();
+    before(()=>{
+   cy.fixture('LoginFixture').then((data) => {
+        testData = data;
+    // cy.task('csv:parseFromDropbox').then((data) => {
+           //testData = data[0];
+    })
+})
+
+const lPage = new LoginPage();
+        const recPage = new LandingPage();
+    beforeEach(() => {
+        cy.session("Hospics cae session",()=>{
+            cy.visit(testData.baseUrl );
+        cy.wait(500);
+         
+ 
+            lPage.setUserName(testData.username);
+            lPage.setPassword(testData.password);
+            lPage.clickLoginBtn();
+            lPage.verifyLogin(); // Ensure login was successful
+             cy.wait(500);
+        })
+        cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page');
+
+    
         });
 
-    });
+    
 it('TC_PDP_PRV_HC_167,click provider', () => {
     const landingpage = new LandingPage();
     landingpage.clickproviderBut();
@@ -44,9 +64,9 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                cy.wait(2000);
               HospiceCare.clickHospiceCareCategory();
               cy.wait(2000);
-               HospiceCare.enterHospiceCareName(' Lifespring home care');
+               HospiceCare.enterHospiceCareName(testData.hospiceCareName);
                cy.wait(2000);
-               HospiceCare.enterZipcode(80134);
+               HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
@@ -59,7 +79,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
@@ -73,7 +93,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
@@ -88,7 +108,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
@@ -104,7 +124,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
@@ -120,7 +140,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                cy.wait(2000);
@@ -142,7 +162,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                cy.wait(2000);
@@ -165,7 +185,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                 cy.wait(2000);
                 HospiceCare.clickHospiceCareCategory();
                 cy.wait(3000);
-                HospiceCare.enterZipcode(80108);
+                HospiceCare.enterZipcode(testData.hospiceZip);
                cy.wait(2000);
                HospiceCare.clickzipcode();
                cy.wait(2000);

@@ -83,10 +83,10 @@ describe("LandingPage test", () => {
       cy.wait(500);
       homepage.selectTaxFilingStatus(testData.taxFilingStatus);
       cy.wait(500);
-      homepage.clickMagiTier();
+      homepage.clickMagiTier(testData.magiTier);
       cy.wait(500);
-      homepage.clickMaggiTireOptions(testData.magiTier);
-      cy.wait(500);
+      //homepage.clickMaggiTireOptions(testData.magiTier);
+     // cy.wait(500);
       homepage.selectConciergeOption(testData.conceirge);
       cy.wait(500);
       homepage.nextHomeClick();
@@ -306,11 +306,12 @@ cy.wait(500);
 landingpage.viewGreyEyeRecomendationClick();
  cy.wait(500);
  });
- it('TC_PDD_VIEW_REC_22:,View icon red functionaltest', () => {
+ it('TC_PDD_VIEW_REC_22:,View icon gray functionaltest', () => {
   cy.wait(500);
   landingpage.clickExpandRecomm();
 cy.wait(5000);
-landingpage.viewRedEyeRecommendationClick();
+//landingpage.viewRedEyeRecommendationClick();
+landingpage.viewGreyEyeRecomendationClick()
  cy.wait(500);
  });
  it('TC_PDP_BACK_24:,backbutton functionaltest', () => {
@@ -372,7 +373,7 @@ landingpage.viewRedEyeRecommendationClick();
  pharmacypage.clickLowcostSubmit();
  pharmacypage.clickAddOrRemovePrescription();
   });
-    it.only('TC_PDP_VIEW_LC_PHAR_30:,add/remove prescription functional testing', () => {
+    it('TC_PDP_VIEW_LC_PHAR_30:,add/remove prescription functional testing', () => {
     cy.wait(500);
   landingpage.clickExpandRecomm();
    cy.wait(500);

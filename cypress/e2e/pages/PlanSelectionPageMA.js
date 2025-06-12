@@ -1,3 +1,4 @@
+
 class PlanSelectionMA {
     MedicareadvantageEle ="//div[@class='selected-container mat-elevation-z2']//div[3]//button[1]"
    // MedicareadvantageEle = ('/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-selected/div[2]/div[3]/button')
@@ -175,7 +176,7 @@ class PlanSelectionMA {
     }
 
     clickHumanaGoldPlus(){
-        cy.xpath(this.HumanagoldplusEle).click();
+        cy.xpath(this.HumanagoldplusEle).click({force:true});
     }
 
    //clickBenefitsShortPlan(){

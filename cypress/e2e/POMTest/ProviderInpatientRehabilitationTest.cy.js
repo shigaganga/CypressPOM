@@ -15,8 +15,10 @@ describe('providerTest' , ()=>
     const providerInRePage=new ProviderInpatientRehabilitationPage();
     let testData = null;
     before(()=>{
-         cy.fixture('LoginFixture').then((data)=>{
+        cy.fixture('LoginFixture').then((data)=>{
             testData=data;
+            //cy.task('csv:parseFromDropbox').then((data) => {
+          // testData = data[0];
          });
 
     })
@@ -74,9 +76,10 @@ describe('providerTest' , ()=>
                 cy.wait(500);
                 homepage.selectTaxFilingStatus(testData.taxFilingStatus);
                 cy.wait(500);
-                homepage.clickMagiTier();
-                cy.wait(500);
-                homepage.clickMaggiTireOptions(testData.magiTier);
+                //homepage.clickMagiTier();
+                //cy.wait(500);
+               // homepage.clickMaggiTireOptions(testData.magiTier);
+               homepage.clickMagiTier(testData.magiTier);
                 cy.wait(500);
                 homepage.selectConciergeOption(testData.conceirge);
                 cy.wait(500);

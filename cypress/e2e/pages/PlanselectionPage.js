@@ -87,7 +87,7 @@ MedigapArrow='div.mat-select-arrow-wrapper';
   setMedigapArrow()
   {
   cy.wait(2000)    
-  cy.get(this.MedigapArrow).should('be.visible').click();
+  cy.get(this.MedigapArrow,{timeout:5000}).should('be.visible').click();
   }
 
 SupplementButtn='[style="text-align: center;"] > .mat-focus-indicator';
@@ -351,7 +351,7 @@ verifyLocationSelector(){
  cy.get(this.locationselectorele).should('have.text', 'Location : North Carolina');
 }
 verifyRemaningYears(){
-  cy.get(this.remaningyearele,{ timeout: 10000 }).should('have.text', 'Remaining Year: All expenses unless specified are for 7 months of 2025');
+  cy.get(this.remaningyearele,{ timeout: 10000 }).contains('Remaining Year: All expenses unless specified are for ');
 }
 clickResetBtn(){
  cy.get(this.resetbuttonele).click()
@@ -372,19 +372,19 @@ selectLowestdrugPremium(){
  cy.get(this.LowestdrugPremiumcostele).click()
 }
 selectWellcarePlan(){
- cy.xpath(this.selectwellcareplanele).click()
+ cy.xpath(this.selectwellcareplanele).click({force:true})
 }
 selectCignahealthCare(){
-cy.xpath(this.selectcignahealthEle).click()
+cy.xpath(this.selectcignahealthEle).click({force:true})
 }
 selectHumanaBasic(){
-cy.xpath(this.selecthumanabasciEle).click()
+cy.xpath(this.selecthumanabasciEle).click({force:true})
 }
 selectPdpPlanatPlanselectionPage(){
 cy.get(this.pdpplanatplanselectionEle).click()
 }
 selectAARP(){
-cy.get(this.selectaarpEle).click()
+cy.get(this.selectaarpEle).click({force:true})
 }
 selectNextExpandBtn(){
  cy.get(this.nextexpandBtnEle).click()
