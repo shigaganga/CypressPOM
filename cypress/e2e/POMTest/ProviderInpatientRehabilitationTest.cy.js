@@ -8,9 +8,7 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 
 describe('providerTest' , ()=>
 {
-    const loginPage = new LoginPage();
-    const landingPage = new LandingPage();
-    const homePage = new HomePage();
+   
     const planselectionPage=new PlanselectionPage();
     const providerInRePage=new ProviderInpatientRehabilitationPage();
     let testData = null;
@@ -99,21 +97,21 @@ describe('providerTest' , ()=>
         cy.visit(testData.planSelection_url);
       });
 
-    it('TC_PDP_PRV_IRF_196: test1 , Should click on provider link' ,()=>
+    it('TC_PDP_PRV_IRF_212: test1 , Should click on provider link' ,()=>
     {
          const planselectionPage=new PlanselectionPage();
          planselectionPage.clickProviderButton();
 
     })
 
-    it('TC_PDP_PRV_IRF_197: test2,Inpatient Rehabilitation Facilities is visible' , ()=>
+    it('TC_PDP_PRV_IRF_212: test2,Inpatient Rehabilitation Facilities is visible' , ()=>
     {
         
         planselectionPage.clickProviderButton();
         providerInRePage.clickIpRehab();
     })
 
-    it('TC_PDP_PRV_IRF_198: test3, Inpatient Rehabilitaion Facilities should be searchable in 100 miles radius' , ()=>
+    it('TC_PDP_PRV_IRF_213: test3, Inpatient Rehabilitaion Facilities should be searchable in 100 miles radius' , ()=>
     {
         
         planselectionPage.clickProviderButton();
@@ -122,7 +120,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickSearchProvider();
     })
 
-    it('TC_PDP_PRV_IRF_201 : test4, Check providers by giving Rehabilitaion Name',()=>
+    it('TC_PDP_PRV_IRF_216: test4, Check providers by giving Rehabilitaion Name',()=>
     {
         
         planselectionPage.clickProviderButton();
@@ -132,7 +130,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickSearchProvider();
     })
 
-    it('TC_PDP_PRV_IRF_202 : test5 , Check provider list is displaying without Rehibiltation Name also' , ()=>
+    it('TC_PDP_PRV_IRF_217 : test5 , Check provider list is displaying without Rehibiltation Name also' , ()=>
     {
         
         planselectionPage.clickProviderButton();
@@ -142,7 +140,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickSearchProvider();
     })
 
-    it('TC_PDP_PRV_IRF_203 : test6, Ownership dropdown should have all the required values',()=>
+    it('TC_PDP_PRV_IRF_219 : test6, Ownership dropdown should have all the required values',()=>
     {
       
         planselectionPage.clickProviderButton();
@@ -153,7 +151,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickProviderFilter();
     })
 
-    it('TC_PDP_PRV_IRF_205 : test7 , select Government from ownership dropdown',()=>
+    it('TC_PDP_PRV_IRF_221: test7 , select Government from ownership dropdown',()=>
     {
        
         planselectionPage.clickProviderButton();
@@ -165,7 +163,7 @@ describe('providerTest' , ()=>
         providerInRePage.selectDropDown();
     })
 
-    it('TC_PDP_PRV_IRF_206 : test8, click on apply filter' ,()=>
+    it('TC_PDP_PRV_IRF_222 : test8, click on apply filter' ,()=>
     {
         
         planselectionPage.clickProviderButton();
@@ -178,7 +176,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickApplyFilter();
     })
 
-    it('TC_PDP_PRV_IRF_207 : test9, click clear filter',()=>
+    it('TC_PDP_PRV_IRF_223 : test9, click clear filter',()=>
     {
       
         planselectionPage.clickProviderButton();
