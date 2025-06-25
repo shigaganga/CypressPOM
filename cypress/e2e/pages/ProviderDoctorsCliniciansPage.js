@@ -1,4 +1,4 @@
-class ProviderDoctorsCliniciansPage{
+class ProviderdoctorscliniciansPage{
     AiVanteLogo="img[src='assets/images/Aivante-logo.png']";
 
     backBut = ".button-wrapper > .mat-focus-indicator > .mat-button-wrapper";
@@ -26,8 +26,8 @@ class ProviderDoctorsCliniciansPage{
     distanceEle = ('#distance');
     genderEle = ('[style="display: flex; justify-content: flex-start; flex-wrap: wrap;"] > .mat-form-field-type-mat-select > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix');//('#mat-select-value-23');//('#mat-select-value-35');
     allEle = ('mat-option');//('#mat-select-value-9');
-    maleEle = 'mat-option'//('#mat-option-210 > .mat-option-text');
-    femaleEle = 'mat-option'//('#mat-option-211 > .mat-option-text');
+    maleEle = ('mat-option');//('#mat-option-210 > .mat-option-text');
+    femaleEle = ('mat-option');//('#mat-option-211 > .mat-option-text');
     telehealthEle = ('.mat-radio > mat-label'); 
     bothEle = ('#mat-radio-4 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle');
     applyfilterEle = (':nth-child(2) > [type="submit"] > .mat-button-wrapper');
@@ -166,13 +166,13 @@ clickSearchProvider() {
     cy.get(this.searchproviderEle).click(({ force: true }));
 }
 selectCategorydropdown(){
-    cy.get(this.categoryName).should('be.visible').click();
+    cy.get('.mat-form-field-infix.ng-tns-c170-24').should('be.visible').click(); 
 }
 selectHospitaldropdown(){
     cy.get(this.categoryName).clear().type('Hospitals').click({ force: true });
 }
 clickHospital(){
-    cy.get('#mat-option-105 > .mat-option-text').click();
+     cy.get('.mat-option-text').contains('Hospitals').click();
 }
 clickHospicecare(){
     cy.get('#mat-option-4 > .mat-option-text').click();
@@ -226,4 +226,4 @@ cy.get(this.bothEle).click({ force: true });
     }
 
 }
-export default ProviderDoctorsCliniciansPage;
+export default ProviderdoctorscliniciansPage;
