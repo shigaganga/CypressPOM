@@ -20,12 +20,12 @@ describe('Provider Hospic care', () => {
         });
 
     });
-it('TC_PDP_PRV_HC_167,click provider', () => {
+it('TC_PDP_PRV_HC_167,click provider', () => {  //TC_PDP_PRV_HC_167
     const landingpage = new LandingPage();
     landingpage.clickproviderBut();
     cy.wait(2000);
     });
-    it('TC_PDP_PRV_HC_168,Verify "Hospice care" Category is Visible and Clickable on the Provider Page', () => {
+    it('TC_PDP_PRV_HC_193,Verify "Hospice care" Category is Visible and Clickable on the Provider Page', () => {
         const landingpage = new LandingPage();
         landingpage.clickproviderBut();
         cy.wait(2000);
@@ -36,7 +36,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
              HospiceCare.clickHospiceCareCategory();
              cy.wait(2000);
          });
-         it('TC_PDP_PRV_HC_169,Verify functionality of "Hospice care name (Optional)" field',()=>{
+         it('TC_PDP_PRV_HC_194,Verify functionality of "Hospice care name (Optional)" field',()=>{
             const landingpage = new LandingPage();
             landingpage.clickproviderBut();
             cy.wait(2000);
@@ -51,7 +51,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.clickzipcode();
                HospiceCare.clickSearchProvider();
               });
-              it('TC_PDP_PRV_HC_170,enter zipcode and click on search provider', () => {
+              it('TC_PDP_PRV_HC_196,enter zipcode and click on search provider', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -65,7 +65,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.clickSearchProvider();
                 
                });
-               it('TC_PDP_PRV_HC_171,Verify search with "Hospice Care" category and ownership dropdown options', () => {
+               it('TC_PDP_PRV_HC_204,Verify search with "Hospice Care" category and ownership dropdown options', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -80,7 +80,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.clickproviderFilter();
                HospiceCare.selectOwnership();
                });
-               it('TC_PDP_PRV_HC_172,selecting other from ownershipdropdown', () => {
+               it('TC_PDP_PRV_HC_206,selecting other from ownershipdropdown', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -96,7 +96,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.selectOwnership();
                HospiceCare.selectother();
                });
-               it('TC_PDP_PRV_HC_173,selecting Non-profit from ownershipdropdown', () => {
+               it('TC_PDP_PRV_HC_207,selecting Non-profit from ownershipdropdown', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -112,7 +112,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.selectOwnership();
                HospiceCare.selecnonprofit();
                });
-               it('TC_PDP_PRV_HC_174,selecting For-profit from ownershipdropdown and apply filter', () => {
+               it('TC_PDP_PRV_HC_208,selecting For-profit from ownershipdropdown and apply filter', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -134,7 +134,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                cy.wait(2000);
                HospiceCare.clickApplyFilter();
                });
-               it('TC_PDP_PRV_HC_175,Clear filter', () => {
+               it('TC_PDP_PRV_HC_210,Clear filter', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
@@ -157,7 +157,7 @@ it('TC_PDP_PRV_HC_167,click provider', () => {
                HospiceCare.clickClearFilter();
                });
                
-               it('TC_PDP_PRV_HC_176,Back button', () => {
+               it('TC_PDP_PRV_HC_211,Back button', () => {
                 const landingpage = new LandingPage();
                 landingpage.clickproviderBut();
                 cy.wait(2000);
