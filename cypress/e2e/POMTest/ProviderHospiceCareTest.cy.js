@@ -38,7 +38,6 @@ const lPage = new LoginPage();
 
     
         });
-
     
 it('TC_PDP_PVOVIDER_05,click provider', () => {
     const landingpage = new LandingPage();
