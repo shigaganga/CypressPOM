@@ -39,9 +39,7 @@ const lPage = new LoginPage();
     
         });
     
-
-it('TC_PDP_PRV_HC_167,click provider', () => {  //TC_PDP_PRV_HC_167
-
+it('TC_PDP_PVOVIDER_05,click provider', () => {
     const landingpage = new LandingPage();
     landingpage.clickproviderBut();
     cy.wait(2000);

@@ -9,7 +9,7 @@ module.exports = defineConfig({
   reporterOptions: {
     reportDir: "cypress/reports/html",
     overwrite: true,
-    html: false,
+    html: true,
     json: true, // required to generate .json files
     charts: true,
     reportPageTitle: "Aivante Regression Report",
@@ -76,8 +76,29 @@ module.exports = defineConfig({
         await afterRunHook();
       });
 
-      return config;
+
+const filePath = path.resolve(__dirname, 'allowedTests.json');
+      let allowedTests = [];
+
+      if (fs.existsSync(filePath)) {
+        try {
+          const raw = fs.readFileSync(filePath, 'utf8');
+          allowedTests = JSON.parse(raw);
+        } catch (e) {
+          console.error('❌ Failed to parse allowedTests.json:', e.message);
+        }
+      }
+
+      config.env.allowedTests = allowedTests;
+
+
+
+
+
+     return config;
     },
     specPattern: "cypress/e2e/POMTest/**/*.cy.js",
   },
+
+
 });

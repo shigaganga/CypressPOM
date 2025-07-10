@@ -94,7 +94,7 @@ cy.xpath(this.viewRecom)
       cy.log("red eye clicked");
     }
 
-    if (greyEyeIcon) {
+    else if (greyEyeIcon) {
       cy.wrap(greyEyeIcon).should('be.visible'); // or any action
     }
   });

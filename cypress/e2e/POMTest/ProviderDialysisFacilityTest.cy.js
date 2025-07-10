@@ -98,22 +98,22 @@ describe("ProviderDialysisFacility-TestSuite", () => {
         cy.wait(2000)
     })
 
-    it('TC_PDP_PRV_DF_01 Verify "Dialysis facilities" Category ', () => {
+    it('TC_PDP_PRV_DF_239 Verify "Dialysis facilities" Category ', () => {
         providerDialysisFacility.clickDialysis();
 
     });
 
-    it('TC_PDP_PRV_DF_02 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page', () => {
+    it('TC_PDP_PRV_DF_243 Verify Functionality of the Optional "Dialysis facilities Name (Optional)" Field on the Provider Page', () => {
         providerDialysisFacility.clickDialysis();
         providerDialysisFacility.enterDialysisFacilityName(testData.providerdialysisfacilityname);
         cy.log("Dialysis Facility Name - Passed");
     });
 
-    it(' TC_PDP_PRV_DF_03,dialysisfacility street', () => {
+    it(' TC_PDP_PRV_DF_245,dialysisfacility street', () => {
         providerDialysisFacility.enterStreet(testData.providerdialysisstreetname);
     });
 
-    it('TC_PDP_PRV_DF_04 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
+    it('TC_PDP_PRV_DF_246 to verify the dialysisfacility enterzipcode and search zipcode button', () => {
         providerDialysisFacility.enterZipCode(testData.providerdialysiszipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
@@ -122,12 +122,12 @@ describe("ProviderDialysisFacility-TestSuite", () => {
         providerDialysisFacility.clickCityName();
     });
 
-    it('TC_PDP_PRV_DF_05 verify the distance and click search provider', () => {
+    it('TC_PDP_PRV_DF_247 verify the distance and click search provider', () => {
         providerDialysisFacility.clickRadiusIn();
         providerDialysisFacility.clickSearch();
     });
 
-    it('TC_PDP_PRV_DF_06 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
+    it('TC_PDP_PRV_DF_251 verify Distance Filter Options for "Dialysis facilities" Category on the Provider Page', () => {
         providerDialysisFacility.enterZipCode(testData.providerdialysiszipcode);
         providerDialysisFacility.clickZipSearch();
         cy.wait(1000);
@@ -153,7 +153,7 @@ describe("ProviderDialysisFacility-TestSuite", () => {
         providerDialysisFacility.clickClearFilter();
     });
 
-    it('TC_PDP_PRV_DF_07 This is to verify "Back button"', () => {
+    it('TC_PDP_PRV_DF_253 This is to verify "Back button"', () => {
         //Search to get to next page.
         providerDialysisFacility.clickRadiusIn();
         cy.wait(1000);
