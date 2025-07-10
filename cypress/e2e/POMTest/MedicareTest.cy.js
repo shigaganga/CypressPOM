@@ -122,7 +122,7 @@ const lPage = new LoginPage();
         medicarepage.aivanteimgclick();
     })
 
-    it("TC_PDP_MC_07: Edit recommendation and check the profile details if the user profile is updated",()=>{
+    it("TC_PDP_MC_09: Edit recommendation and check the profile details if the user profile is updated",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
         medicarepage.editrecommendation();         
