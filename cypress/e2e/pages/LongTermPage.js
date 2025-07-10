@@ -1,11 +1,30 @@
 class LongTermPage {
-
-    longtermBtnEle = ".button-container > :nth-child(2) > .mat-button-wrapper";
-
+    //Ranjana steps
+    medicareadvantagebutton = "//span[normalize-space()='Medicare Advantage']"
+    humanagoldplusplan = '/html/body/app-root/div/div[2]/mat-sidenav-container/mat-sidenav-content/app-plan-selection/app-plan-list/div[2]/div[2]/div/app-ma-card[2]/mat-card/mat-card-header/div/mat-card-title/div/div[1]/section/mat-checkbox'
+    donebutton= "//span[normalize-space()='Done']"
+    Humanagoldcheckmark = "//span[@class='mat-checkbox-inner-container mat-checkbox-inner-container-no-side-margin']"
+//Ranjana elements ends
+    longtermBtnEle = "//span[normalize-space()='Long Term']"
+//".button-container > :nth-child(2) > .mat-button-wrapper";
     longtermArrow=".mat-expansion-indicator";
     submitLongTerm=":nth-child(5) > .mat-focus-indicator > .mat-button-wrapper";
     backLongTermToPlanSelection=".button-wrapper > :nth-child(1) > .mat-button-wrapper";
     pdf=".ng-star-inserted > .mat-button-wrapper";
+
+    clickMedicareAdvantageButton(){
+        cy.xpath(this.medicareadvantagebutton).click();
+    }
+    clickHumanaGoldPlusPlan(){
+        cy.xpath(this.humanagoldplusplan,{force:true}).should('be.visible').click();
+    }
+    clickDoneButton(){
+        cy.xpath(this.donebutton).click();
+ }
+ clickHumanaGoldCheckMark(){
+    cy.xpath(this.Humanagoldcheckmark).click();
+ }
+
     longTermArrowClick(){
         cy.get(this.longtermArrow).click();
     }
@@ -56,16 +75,17 @@ class LongTermPage {
    
     inhomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[3]");
     inhomecare0yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='0'])[3]");
-    inhomecare1yearsEle = ("(//span[@class='mat-option-text'][normalize-space()='1'])[3]");
+    inhomecare1yearsEle =("//span[@class='mat-option-text'][normalize-space()='1']");
     inhomecare2yearsEle = ("(//span[normalize-space()='2'])");
     inhomecare3yearsEle = ("(//span[normalize-space()='3'])");
     inhomecare4yearsEle = ("(//span[normalize-space()='4'])[3]");
+   // inhomecare4yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1']");
     inhomecare5yearsEle = ("(//span[normalize-space()='5'])[3]");
     
     
     nursinghomecareArrowEle = ("(//div[contains(@class, 'mat-select-arrow-wrapper')])[4]");
     nursinghomecare0yearsEle = ("//span[normalize-space()='0'])[4]");
-    nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1'][4]");
+    nursinghomecare1yearsEle = ("//span[@class='mat-option-text'][normalize-space()='1']");
     nursinghomecare2yearsEle = ("//span[normalize-space()='2']");
     nursinghomecare3yearsEle = ("//span[normalize-space()='3']");
     nursinghomecare4yearsEle = ("//span[normalize-space()='4'][4]");
@@ -79,7 +99,7 @@ class LongTermPage {
     aivanteLogoEle = "img";
     
     clickLongtermBtn(){
-        cy.get(this.longtermBtnEle).click()};
+        cy.xpath(this.longtermBtnEle).click()};
     
     clickExpansionArrow(){      
         cy.get(this.longtermArrow).click()}
@@ -111,7 +131,7 @@ class LongTermPage {
         cy.xpath(this.adultcare1yearsEle).click({force:true})}    
     
     clickAdultcare2years(){
-        cy.xpath(this.adultcare2yearsEle).click({force:true})}
+        cy.xpath(this.adultcare2yearsEle).click({force:true, multiple: true})}
     
     clickAdultcare3years(){
         cy.xpath(this.adultcare3yearsEle).click({force:true})}    
@@ -124,7 +144,7 @@ class LongTermPage {
     
     
     clickInhomecareArrow(){
-        cy.xpath(this.inhomecareArrowEle).click()}
+        cy.xpath(this.inhomecareArrowEle).click({force:true, multiple: true})}
     
     clickInhomecare0years(){
         cy.xpath(this.inhomecare0yearsEle).click()}
@@ -239,17 +259,6 @@ class LongTermPage {
         cy.xpath(this.nursingcareinchart).click()
     }
     
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

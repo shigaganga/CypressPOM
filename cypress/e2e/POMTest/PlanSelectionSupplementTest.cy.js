@@ -33,6 +33,7 @@ describe("Automation of test cases for PlanSelection Suppliment Page",()=>{
             lPage.setUserName(testData.username);
             lPage.setPassword(testData.password);
             lPage.clickLoginBtn();
+            cy.wait(2000)
             lPage.verifyLogin(); // Ensure login was successful
             recPage.clickCreateRecommendation();
            cy.wait(500);

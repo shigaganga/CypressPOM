@@ -1,6 +1,12 @@
 import LoginPage from '../pages/LoginPage.js';
 import LandingPage from '../pages/LandingPage.js';
 import HomePage from '../pages/HomePage.js';
+import PlanselectionPage from '../pages/PlanselectionPage.js';
+import longTermPage from '../pages/LongTermPage.js';
+import PharmacyPage from '../pages/PharmacyPage.js';
+import PreferencePage from '../pages/PreferencePage.js';
+import PrescriptionPage from '../pages/PrescriptionPage.js';
+import MedicarePage from '../pages/MedicarePage.js';
 import ProviderNursingHomeAndRehabPage from '../pages/ProviderNursingHomeAndRehabPage.js';
 
 describe('ProviderNursingHomeTabTest', () => {
@@ -12,36 +18,74 @@ describe('ProviderNursingHomeTabTest', () => {
         });
     });
 
+   const lPage = new LoginPage();
+        const recPage = new LandingPage();
+        const homepage = new HomePage();
+        const prefPage = new PreferencePage();
+        const prescriptionpage=new PrescriptionPage();
+        const pharmacypage=new PharmacyPage();
+        const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
+         const planselectionpage= new PlanselectionPage();
+        
     beforeEach(() => {
-        cy.session("Provider session", () => {
-            cy.visit(testData.baseUrl);
-
-            const lPage = new LoginPage();
+        cy.session("Provider Nursing Home",()=>{
+       cy.visit(testData.baseUrl );
+        cy.wait(500);
+         
+ 
             lPage.setUserName(testData.username);
             lPage.setPassword(testData.password);
-            lPage.clickLoginBtn();   
-            
-            const homepage = new HomePage();
-            const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
-            ProviderNursingHomePage.SpecialHomePageEnterEmail(testData.ProvNursingHome_PageEnterEmail);
-            ProviderNursingHomePage.clickhealthArrow();
-            ProviderNursingHomePage.clickGoodHealth();
-            ProviderNursingHomePage.enterName(testData.ProvNursingHome_PageEnterName);
-            homepage.enterLifeexpectancy(testData.ProvNursingHome_Lifeexpectancy);
-            homepage.clickSearch();
-            cy.wait(200)
-            homepage.nextHomeClick();
-            cy.wait(1000)
-            ProviderNursingHomePage.clickSearchPrefNo();
-            // cy.wait(1000);
-            const ldpage = new LandingPage();
-            ldpage.clickSearchPrefNextbut();
-            cy.wait(200);
-            ProviderNursingHomePage.clickProviderPagebtn();
-            cy.wait(1000);
+            lPage.clickLoginBtn();
+            lPage.verifyLogin(); // Ensure login was successful
+            recPage.clickCreateRecommendation();
+           cy.wait(500);
+           homepage.enterEmail(testData.email);
+           cy.wait(500);
+           homepage.clickhealthArrow();
+           cy.wait(500);
+           homepage.clickHealthProfile(testData.healthProfile);
+           cy.wait(500);
+           homepage.enterName(testData.name);
+           cy.wait(500);
+           homepage.enterLifeexpectancy(testData.lifeExpectancy);
+           cy.wait(500);
+           homepage.clickDatePicker();
+           cy.wait(500);
+           homepage.clickYear(testData.yearOfBirth);
+           cy.wait(500);
+           homepage.clickMonth(testData.monthOfBirth);
+           cy.wait(500);
+           homepage.enterZip(testData.zip)
+           cy.wait(500);
+           homepage.clickSearch();
+           cy.wait(500);
+           homepage.nextHomeClick();
+           cy.wait(500);
+           prefPage.clickyesRadioDrugCost();
+         cy.wait(500);
+         prefPage.clickNextPrefPage();
+         cy.wait(500);
+         prescriptionpage.enterDrugSearchBox(testData.drugName1);
+         cy.wait(500);
+         prescriptionpage.selectDrug();
+         cy.wait(500);
+         prescriptionpage.clickAddToDrug();
+        cy.wait(500);
+        prescriptionpage.doneAddDrugClick();
+        cy.wait(500);
+        pharmacypage.clickFindFarmacy();
+        cy.wait(500);
+        pharmacypage.clickfarmacyOne();
+        cy.wait(500);
+        pharmacypage.clickfarmacyTwo();
+        cy.wait(500);
+        pharmacypage.clicknextpharmacy();
+        planselectionpage.setProviderButtn();
+      
+        
         });
         cy.visit(testData.manageProviders_url);
-        const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
+        //const ProviderNursingHomePage = new ProviderNursingHomeAndRehabPage();
         ProviderNursingHomePage.clickNursingHometabSelector();
         cy.wait(1000);
     });

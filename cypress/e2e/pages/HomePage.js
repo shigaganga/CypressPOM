@@ -24,21 +24,29 @@ class HomePage {
     year = "div.mat-calendar-body-cell-content.mat-focus-indicator";
     month = "//div[contains(@class, 'mat-calendar-body-cell-content mat-focus-indicator')]";
     gender = "#mat-select-value-3" //"mat-select[formcontrolname='gender']";
-    genderM = "//span[normalize-space()='Male']" //"(//span[@class='mat-option-text'][normalize-space()='Male'])";
-    genderF = "//span[@class='mat-option-text'][normalize-space()='Female']"; //"//span[@class='mat-option-text'][normalize-space()='Female']";
-    taboccoNo = "#mat-radio-4 > .mat-radio-label" //"label[for='mat-radio-7-input'] span[class='mat-radio-inner-circle']";
+    //genderM = "//span[normalize-space()='Male']" //"(//span[@class='mat-option-text'][normalize-space()='Male'])";
+    genderM= "//span[@class='mat-option-text' and normalize-space(text())='Male']"
+    //genderF = "//span[@class='mat-option-text'][normalize-space()='Female']"; //"//span[@class='mat-option-text'][normalize-space()='Female']";
+    genderF ="//span[contains(text(), 'Female') and contains(@class, 'mat-select-min-line')]"
+    //taboccoNo = "#mat-radio-4 > .mat-radio-label" //"label[for='mat-radio-7-input'] span[class='mat-radio-inner-circle']";
+     taboccoNo = "//mat-radio-group[@role='radiogroup' and @formcontrolname='tobacco']//input[@type='radio' and @value='0']"
+
     taboccoYes = "#mat-radio-5 > .mat-radio-label" //"label[for='mat-radio-8-input'] span[class='mat-radio-inner-circle']";
     tobacoUserLink = 'mat-label > app-help-icon > .mat-focus-indicator > .mat-button-wrapper > .mat-icon';
-    taxFilingJoin = "#mat-radio-6 > .mat-radio-label" //"#mat-radio-8 > .mat-radio-label";
-    taxFilingIndiv = "#mat-radio-7 > .mat-radio-label" //"#mat-radio-9 > .mat-radio-label";
+    //taxFilingJoin = "#mat-radio-6 > .mat-radio-label" //"#mat-radio-8 > .mat-radio-label";
+    taxFilingJoin="//label[@class='mat-radio-label']//input[@type='radio'and @value='MARRIED_FILING_JOINTLY']"
+    //taxFilingIndiv = "#mat-radio-7 > .mat-radio-label" //"#mat-radio-9 > .mat-radio-label";
+    taxFilingIndiv = "//label[@class='mat-radio-label']//input[@type='radio'and @value='FILING_INDIVIDUALLY']"
     street = "#mat-input-7";
     nextButt = ".form-wrapper > .mat-raised-button";
     countyState = "//mat-label[normalize-space(.)='County, State']";
     city = "(//div[@id='mat-select-value-9'])[1]";
     city1 = "#mat-option-18 > .mat-option-text";
     city2 = "#mat-option-19 > .mat-option-text";
-    magiTier = "#mat-select-value-9";//#mat-select-value-9
-    maggiTierOption = "//span[@class='mat-option-text']";
+    //magiTier = "#mat-select-value-9";//#mat-select-value-9
+    magiTier ="//mat-select[@role='combobox' and @formcontrolname='magiTier']"
+    //maggiTierOption = "//span[@class='mat-option-text']";
+    maggiTierOption = "//div[@class='mat-select-panel']//div[@role='listbox' and @tabindex='-1']//span[@class='mat-option-text']"
     magiTier1 = "#mat-option-7 > .mat-option-text"
     magiTier2 = "#mat-option-8 > .mat-option-text";
     magiTier3 = "#mat-option-9 > .mat-option-text";
@@ -127,10 +135,10 @@ clickBestHealth() {
         cy.get(this.gender).should('be.visible').click({ force: true });
     }
     clickMale() {
-        cy.xpath(this.genderM).should('be.visible').click({ force: true });
+        cy.xpath(this.genderM,{timeout:5000}).should('be.visible').click({ force: true });
     }
     clickFemale() {
-        cy.xpath(this.genderF).should('be.visible').click({ force: true });
+        cy.xpath(this.genderF,{timeout:5000}).should('be.visible').click({ force: true });
     }
     selectGender(gender) {
         if (gender.toLowerCase() === 'male') {
@@ -140,7 +148,9 @@ clickBestHealth() {
         }
     }
     clickTabaccoNo() {
-        cy.get(this.taboccoNo).should('be.visible').click({ force: true });
+       // cy.get(this.taboccoNo).should('be.visible').click({ force: true });
+       cy.xpath(this.taboccoNo,{timeout:5000}).should('be.visible').click({force:true});
+
     }
     clickTabaccoYes() {
         cy.get(this.taboccoYes).should('be.visible').click({ force: true });
@@ -156,10 +166,10 @@ clickBestHealth() {
         }
     }
     clickTaxIndiv() {
-        cy.get(this.taxFilingIndiv).should('be.visible').click({ force: true });
+        cy.xpath(this.taxFilingIndiv).should('be.visible').click({ force: true });
     }
     clickTaxJoin() {
-        cy.get(this.taxFilingJoin).should('be.visible').click({ force: true });
+        cy.xpath(this.taxFilingJoin).should('be.visible').click({ force: true });
     }
     selectTaxFilingStatus(status) {
         if (!status) throw new Error('Tax filing status is undefined or null');
@@ -188,12 +198,21 @@ clickCountyState() {
     clickCity2() {
         cy.get(this.city2).should('be.visible').click({ force: true });
     }
+    magiTierTxtField() {
+        cy.xpath(this.magiTier).should('be.visible').click({ force: true })
+    }
 
-    clickMagiTier() {
-        cy.get(this.magiTier).should('be.visible').click({ force: true });
+    clickMagiTier(magitier) {
+        //cy.get(this.magiTier).should('be.visible').click({ force: true });
+        cy.xpath(this.magiTier).should('be.visible').click({ force: true })
+        cy.xpath("//div[@role='listbox']")
+        .find('span[class ="mat-option-text"]')
+        .contains(magitier)
+        .click({force:true})
+        
     }
     clickMaggiTireOptions(magitier) {
-        cy.xpath(this.maggiTierOption).contains(magitier).should('be.visible').click({ force: true });
+        cy.xpath(this.maggiTierOption,{timeout:5000}).contains(magitier).should('be.visible').click({ force: true });
     }
     clickMagiTier1() {
         cy.get(this.magiTier1).should('be.visible').click({ force: true });
