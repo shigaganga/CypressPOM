@@ -53,7 +53,7 @@ cy.task('csv:parseFromDropbox').then((data) => {
 
     });
  
-    it('TC_PDP_AiVante_Logo_01 - Verify the functionality of Aivante logo', () => {
+    it('TC_PDP_AiVante_Logo_01, Verify the functionality of Aivante logo', () => {
 
         homepage.clickAiVanteLogo();
 

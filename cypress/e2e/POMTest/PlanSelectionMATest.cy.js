@@ -1,3 +1,4 @@
+
 import LoginPage from "../pages/LoginPage.js";
 import HomePage from "../pages/HomePage.js";
 import PreferencePage from "../pages/PreferencePage.js";
@@ -97,12 +98,12 @@ describe('PlanSelectionMA', () => {
     })
 
     //TEST CASES
-    it('TC_PDP_MA_PLAN_01 This is to verify the "Medicare Advantage" functionality on the plan-selection page within the PDP application..', () => {
+    it('TC_PDP_MA_PLAN_99 This is to verify the "Medicare Advantage" functionality on the plan-selection page within the PDP application.', () => {
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
     });
 
-    it('TC_PDP_MA_PLAN_02 This is to verify the "Filter Icon" functionality on the plan-selection/plan-list/MEDICARE page within the PDP application, .', () => {
+    it('TC_PDP_MA_PLAN_103 This is to verify the "Filter Icon" functionality on the plan-selection/plan-list/MEDICARE page within the PDP application .', () => {
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
         planSelectionMA.clickFilterPlans();
@@ -120,7 +121,7 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickNoCoverage();
     });
 
-    it('TC_PDP_MA_PLAN_03 This is to verify the "Filter Plans with prescription" functionality on the plan-selection/plan-list/MEDICARE page within the PDP application..', () => {
+    it('TC_PDP_MA_PLAN_107 This is to verify the "Filter Plans with prescription" functionality on the plan-selection/plan-list/MEDICARE page within the PDP application.', () => {
         cy.wait(1000);
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
@@ -143,7 +144,7 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickWithPrescription();
     });
 
-    it('TC_PDP_MA_PLAN_04 to verify the funcitionality of reset button on plan selection.', () => {
+    it('TC_PDP_MA_PLAN_124 to verify the funcitionality of reset button on plan selection.', () => {
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
         planSelectionMA.clickFilterPlans();
@@ -167,7 +168,7 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickReset();
     });
 
-    it('TC_PDP_MA_PLAN_05 This is to verify the MA plan details functionality on the plan-selection/plan-list/MEDICARE within the PDP application., .', () => {
+    it('TC_PDP_MA_PLAN_114 This is to verify the MA plan details functionality on the plan-selection/plan-list/MEDICARE within the PDP application .', () => {
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
         planSelectionMA.clickFilterPlans();
@@ -207,7 +208,7 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickBackButton();
     });
 
-    it('TC_PDP_MA_PLAN_06 funcitionality of PlanSelection Done button MA ', () => {
+    it('TC_PDP_MA_PLAN_112 funcitionality of PlanSelection Done button MA ', () => {
         cy.wait(1000);
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
@@ -247,7 +248,7 @@ describe('PlanSelectionMA', () => {
     });
 
     //short plan filter
-    it('TC_PDP_MA_PLAN_07 This is to verify the "Sort Plans" and cancel button functionality on the plan-selection/plan-list/MEDICARE page within the PDP application., .', () => {
+    it.only('TC_PDP_MA_PLAN_109 This is to verify the "Sort Plans" and cancel button functionality on the plan-selection/plan-list/MEDICARE page within the PDP application .', () => {
         cy.wait(1000);
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
@@ -311,7 +312,7 @@ describe('PlanSelectionMA', () => {
         planSelectionMA.clickCancelButton();
     });
 
-    it('TC_PDP_MA_PLAN_08 to verify nthe funciotionality of back and done button.', () => {
+    it('TC_PDP_MA_PLAN_115 to verify nthe funciotionality of back and done button.', () => {
         cy.wait(1000);
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
@@ -351,7 +352,7 @@ describe('PlanSelectionMA', () => {
         cy.wait(1000);
     });
 
-    it('TC_PDP_MA_PLAN_09 This is to verify that the "Reset" button is always enabled on the plan selection page..', () => {
+    it('TC_PDP_MA_PLAN_125 This is to verify that the "Reset" button is always enabled on the plan selection page.', () => {
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
         planSelectionMA.clickFilterPlans();
@@ -399,10 +400,8 @@ describe('PlanSelectionMA', () => {
        // planSelectionMA.clickWarningButton(); 
     });
 
-    it('TC_PDP_MA_PLAN_10, PlanSelection MA Aivante Logo Sign Function', () => {
+    it('TC_PDP_MA_PLAN_121, PlanSelection MA Aivante Logo Sign Function', () => {
         cy.wait(1000);
         planSelectionMA.clickAivanteLogo();
     });
 });
-
-

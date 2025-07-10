@@ -392,4 +392,10 @@ landingpage.viewGreyEyeRecomendationClick()
  //  drugpage.clickAddAnotherDrug();
     
   });
+
+  it('TC_PDP_PVOVIDER_05,click provider', () => {
+    const landingpage = new LandingPage();
+    landingpage.clickproviderBut();
+    cy.wait(2000);
+    });
 });

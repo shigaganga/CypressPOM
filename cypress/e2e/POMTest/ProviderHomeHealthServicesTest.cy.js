@@ -85,13 +85,13 @@ describe("Automation of test cases for Provider_Home_Health_Care_Services",()=>{
         cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/manage-providers");
     })
  
-  it('TC_PDP_PRV_HHS_162: "Verify "Home health services" Category is Visible and Clickable on the Provider Page": Enter Home Health Services button', () => {
+  it('TC_PDP_PRV_HHS_174: "Verify "Home health services" Category is Visible and Clickable on the Provider Page": Enter Home Health Services button', () => {
 
     providerhomehealthservices.clickhomeHealthservicesBtn();
     cy.log("Home Health services button - Passed");
     cy.wait(5000)
 });
-it('TC_TC_PDP_PRV_HHS_163: "Verify Functionality of the Optional "Home health name (Optional)" Field on the Provider Page": Click Home Health Name Search Provider Button',() =>{
+it('TC_PDP_PRV_HHS_175: "Verify Functionality of the Optional "Home health name (Optional)" Field on the Provider Page": Click Home Health Name Search Provider Button',() =>{
 
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickHomeHealthName_3();
@@ -105,7 +105,7 @@ it('TC_TC_PDP_PRV_HHS_163: "Verify Functionality of the Optional "Home health na
   cy.wait(5000)
 })
 
-it('TC_PDP_PRV_HHS_: "Verify Zip Code Field Accepts Valid Street Name": Enter Home Health Services street_3', () =>{
+it('TC_PDP_PRV_HHS_176: "Verify Zip Code Field Accepts Valid Street Name": Enter Home Health Services street_3', () =>{
 
  providerhomehealthservices.clickhomeHealthservicesBtn();
  providerhomehealthservices.clickStreet_3;
@@ -115,7 +115,7 @@ it('TC_PDP_PRV_HHS_: "Verify Zip Code Field Accepts Valid Street Name": Enter Ho
 });
 
 
-it('TC_PDP_PRV_HHS_164: "Verify Zip Code Field Accepts Valid Zip Codes" : Home Health Services Enter zipcode_3', () =>{
+it('TC_PDP_PRV_HHS_177: "Verify Zip Code Field Accepts Valid Zip Codes" : Home Health Services Enter zipcode_3', () =>{
 
 providerhomehealthservices.clickhomeHealthservicesBtn();
 providerhomehealthservices.clickZipCode_3();
@@ -125,7 +125,7 @@ cy.log("Provider_Home Health Services Enter ZipCode - Passed");
 cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_165: "Verify Zip Code Field Accepts In_Valid Zip Codes" : Home Health Services Enter zipcode_3', () =>{
+it('TC_PDP_PRV_HHS_178: "Verify Zip Code Field Accepts In_Valid Zip Codes" : Home Health Services Enter zipcode_3', () =>{
   
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickZipCode_3();
@@ -134,7 +134,7 @@ it('TC_PDP_PRV_HHS_165: "Verify Zip Code Field Accepts In_Valid Zip Codes" : Hom
   cy.log("Provider_Home Health Services Enter ZipCode - Passed");
   cy.wait(5000)
 });
-it('TC_PDP_PRV_HHS_166: "Verify Zip Code Field Accepts Blank Zip Codes" : Home Health Services Enter zipcode_3', () =>{
+it('TC_PDP_PRV_HHS_179: "Verify Zip Code Field Accepts Blank Zip Codes" : Home Health Services Enter zipcode_3', () =>{
   
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickZipSearch_3Blank();
@@ -142,7 +142,7 @@ it('TC_PDP_PRV_HHS_166: "Verify Zip Code Field Accepts Blank Zip Codes" : Home H
   cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_167: Verify County, City are Visible in County, State Dropdown : Click County, State Dropdown arrow', () =>{
+it('TC_PDP_PRV_HHS_180: Verify County, City are Visible in County, State Dropdown : Click County, State Dropdown arrow', () =>{
 
 providerhomehealthservices.clickhomeHealthservicesBtn();
 providerhomehealthservices.clickZipCode_3();
@@ -156,7 +156,7 @@ cy.log("Provider_Home Health Services Click County, State Dropdown - passed");
 cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_168: "Ensure that County and City options are visible and selectable in the County, State dropdown  : County, State Visible', () =>{
+it('TC_PDP_PRV_HHS_181: "Ensure that County and City options are visible and selectable in the County, State dropdown  : County, State Visible', () =>{
 
 providerhomehealthservices.clickhomeHealthservicesBtn();
 providerhomehealthservices.clickZipCode_3();
@@ -169,7 +169,7 @@ cy.log("Provider_Home Health Services County, State Visible and Selected - passe
 cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_169: "Verify Cities are Visible in the City Dropdown": Home Health Services click_CityDropDownArrow', () =>{
+it('TC_PDP_PRV_HHS_182: "Verify Cities are Visible in the City Dropdown": Home Health Services click_CityDropDownArrow', () =>{
 providerhomehealthservices.clickhomeHealthservicesBtn();
 providerhomehealthservices.clickZipCode_3();
 providerhomehealthservices.enterZipcode_3(testData.ProviderHomeHealthCareZipCode);
@@ -185,7 +185,7 @@ cy.log("Provider_Home Health Services Click City - Passed");
 cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_170:"Verify Clicking on a City Selects the City Correctly": Home Health Services select_Cityname', () => {
+it('TC_PDP_PRV_HHS_183:"Verify Clicking on a City Selects the City Correctly": Home Health Services select_Cityname', () => {
 providerhomehealthservices.clickhomeHealthservicesBtn();
 providerhomehealthservices.clickZipCode_3();
 providerhomehealthservices.enterZipcode_3(testData.ProviderHomeHealthCareZipCode);
@@ -200,14 +200,14 @@ providerhomehealthservices.enterCity_3();
 cy.wait(5000)
 });
 
-it('TCTC_PDP_PRV_HHS_171:"Verify Search icon for Category Home Health Services on the manage-provider page.": Click Home Health Services Search Provider button',() => {
+it('TCTC_PDP_PRV_HHS_184:"Verify Search icon for Category Home Health Services on the manage-provider page.": Click Home Health Services Search Provider button',() => {
 providerhomehealthservices.clickSearchProviderBtn_3();
 cy.log("Provider_Home Health Services Button - Passed");
 cy.log("Home Health services button - Passed");
 cy.wait(5000)
 });
 
-it('TC_PDP_PRV_HHS_172: "Verify Overall Rating Filter Visibility on the Provider List Page": Provider Filters Button Visible',() => {
+it('TC_PDP_PRV_HHS_185: "Verify Overall Rating Filter Visibility on the Provider List Page": Provider Filters Button Visible',() => {
  providerhomehealthservices.clickhomeHealthservicesBtn();
  providerhomehealthservices.clickStreet_3;
  providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -232,7 +232,7 @@ it('TC_PDP_PRV_HHS_172: "Verify Overall Rating Filter Visibility on the Provider
   cy.wait(5000)
 })
 
-it('TC_PDP_PRV_HHS_173: "Verify Overall Rating Filter is Clickable and Expandable" : Click the Overall Rating Box and expand it', () =>{
+it('TC_PDP_PRV_HHS_186: "Verify Overall Rating Filter is Clickable and Expandable" : Click the Overall Rating Box and expand it', () =>{
  providerhomehealthservices.clickhomeHealthservicesBtn();
  providerhomehealthservices.clickStreet_3;
  providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -257,7 +257,7 @@ it('TC_PDP_PRV_HHS_173: "Verify Overall Rating Filter is Clickable and Expandabl
   cy.log("Overall Rating Filter is Clickable and Expandable - Passed")
   cy.wait(5000)
 })
-it('TC_PDP_PRV_HHS_174: "Verify Selecting a Rating Option from Overall Rating Filter" : Click and expand the Overall Rating Box and select a rating option', () =>{
+it('TC_PDP_PRV_HHS_187: "Verify Selecting a Rating Option from Overall Rating Filter" : Click and expand the Overall Rating Box and select a rating option', () =>{
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickStreet_3;
   providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -285,7 +285,7 @@ it('TC_PDP_PRV_HHS_174: "Verify Selecting a Rating Option from Overall Rating Fi
    cy.log("Verify Selecting a Rating Option from Overall Rating Filter - Passed");
 
 })
-it('TC_PDP_PRV_HHS_175: "Verify Overall Rating Filter Displays Selected Rating in the provider list card." : Verify the rating displayed', () =>{
+it('TC_PDP_PRV_HHS_188: "Verify Overall Rating Filter Displays Selected Rating in the provider list card." : Verify the rating displayed', () =>{
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickStreet_3;
   providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -313,7 +313,7 @@ it('TC_PDP_PRV_HHS_175: "Verify Overall Rating Filter Displays Selected Rating i
    cy.log("Verify the rating displayed - Passed");
 
 })
-it('TC_PDP_PRV_HHS_176: "Verify Apply Filter_Button Functionality in the Home health services Category on the manage-providers/provider-listPage" : Verify the Apply Filter_Button Functionality', () =>{
+it('TC_PDP_PRV_HHS_189: "Verify Apply Filter_Button Functionality in the Home health services Category on the manage-providers/provider-listPage" : Verify the Apply Filter_Button Functionality', () =>{
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickStreet_3;
   providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -342,7 +342,7 @@ it('TC_PDP_PRV_HHS_176: "Verify Apply Filter_Button Functionality in the Home he
    cy.log("Verify the Apply Filter_Button Functionality - Passed");
 
 })
-it('TC_PDP_PRV_HHS_177: "Verify Clear Filter_Button Functionality in the Home health services Category on the Provider Page" : Verify the Clear Filter_Button Functionality', () =>{
+it('TC_PDP_PRV_HHS_190: "Verify Clear Filter_Button Functionality in the Home health services Category on the Provider Page" : Verify the Clear Filter_Button Functionality', () =>{
   providerhomehealthservices.clickhomeHealthservicesBtn();
   providerhomehealthservices.clickStreet_3;
   providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
@@ -372,7 +372,7 @@ it('TC_PDP_PRV_HHS_177: "Verify Clear Filter_Button Functionality in the Home he
 
 })
 
-it('TC_PDP_PRV_CATEGORY_178:"Verify search providers with Category Home health services" Click Home Health Services SearchProvider_Button', () =>{
+it('TC_PDP_PRV_CATEGORY_191:"Verify search providers with Category Home health services" Click Home Health Services SearchProvider_Button', () =>{
  providerhomehealthservices.clickhomeHealthservicesBtn();
  providerhomehealthservices.clickStreet_3;
  providerhomehealthservices.enterStreet_3(testData.ProviderHomeHealthCareStreet);
