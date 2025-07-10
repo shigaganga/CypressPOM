@@ -39,7 +39,7 @@ clickSearchProvider()
 }
 optionalIpName(ipname)
 {
-    cy.get(this.optionalipName, { timeout: 10000 }).should('be.visible').clear().type(ipname);
+    cy.get(this.optionalipName, { timeout: 10000 }).should('be.visible').clear().wait(2000).type(ipname);
 
 }
 emptyRehabName()
