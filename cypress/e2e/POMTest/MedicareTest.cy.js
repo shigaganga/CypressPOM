@@ -87,7 +87,8 @@ const lPage = new LoginPage();
    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
     })
 
-   it("TC_PDP_MC_01:Click on medicare button",()=>{
+   
+   it("TC_PDP_MC_01: Click on medicare button",()=>{
        medicarepage.clickmedicare();
     })
 
@@ -121,11 +122,11 @@ const lPage = new LoginPage();
         medicarepage.aivanteimgclick();
     })
 
-    /*it("Test08_Edit recommendation and check the profile details if the user profile is updated",()=>{
+    it("TC_PDP_MC_07: Edit recommendation and check the profile details if the user profile is updated",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
         medicarepage.editrecommendation();         
-    })*/  //This test is not in manual test file
+    })  //This test is not in manual test file
 
     it("TC_PDP_MC_21:Select 30 lifetime reserve days and submit plan details",()=>{
         medicarepage.clickmedicare();

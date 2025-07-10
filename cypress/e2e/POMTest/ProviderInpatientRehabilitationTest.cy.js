@@ -8,9 +8,7 @@ import PlanselectionPage from "../pages/PlanselectionPage.js";
 
 describe('providerTest' , ()=>
 {
-    const loginPage = new LoginPage();
-    const landingPage = new LandingPage();
-    const homePage = new HomePage();
+   
     const planselectionPage=new PlanselectionPage();
     const providerInRePage=new ProviderInpatientRehabilitationPage();
     let testData = null;
@@ -99,12 +97,12 @@ describe('providerTest' , ()=>
         cy.visit(testData.planSelection_url);
       });
 
-    /*it('TC_PDP_PRV_IRF_212: test1 , Should click on provider link' ,()=>
+    it('TC_PDP_PRV_IRF_212: test1 , Should click on provider link' ,()=>
     {
          const planselectionPage=new PlanselectionPage();
          planselectionPage.clickProviderButton();
 
-    })*/
+    })
 
     it('TC_PDP_PRV_IRF_212: test2,Inpatient Rehabilitation Facilities is visible' , ()=>
     {
@@ -122,7 +120,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickSearchProvider();
     })
 
-    it('TC_PDP_PRV_IRF_216 : test4, Check providers by giving Rehabilitaion Name',()=>
+    it('TC_PDP_PRV_IRF_216: test4, Check providers by giving Rehabilitaion Name',()=>
     {
         
         planselectionPage.clickProviderButton();
@@ -153,7 +151,7 @@ describe('providerTest' , ()=>
         providerInRePage.clickProviderFilter();
     })
 
-    it('TC_PDP_PRV_IRF_221 : test7 , select Government from ownership dropdown',()=>
+    it('TC_PDP_PRV_IRF_221: test7 , select Government from ownership dropdown',()=>
     {
        
         planselectionPage.clickProviderButton();
