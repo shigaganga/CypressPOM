@@ -12,8 +12,8 @@ class ProviderHospitalsPage {
  displayHosNameEle='[style="width: 65%;"] > .mat-tooltip-trigger';
  radiusEle='#mat-input-4';
  streetEle='mat-input-6';
- zipcodeEle='#mat-input-7';
- searchiconEle='.mat-form-field-suffix > .mat-focus-indicator';
+ zipcodeEle='input[formcontrolname="zipcode"]';//'#mat-input-7';
+ searchiconEle='button mat-icon';//'.mat-form-field-suffix > .mat-focus-indicator';
  countyEle='#mat-select-value-5';
  cityEle='#mat-select-value-7';
  searchProvBtnEle='.display-flex > .mat-focus-indicator';
@@ -96,11 +96,11 @@ setRadius(Radius)
 }
 setZipcode(zipcode)
 {  
-  cy.get(this.zipcodeEle).type(zipcode);
+  cy.get(this.zipcodeEle).click().clear().type(zipcode);
 }
 clickSearchIcon()
 {
-  cy.get(this.searchiconEle).click();
+  cy.get(this.searchiconEle).contains('search').click();
 }
 ClickSearchProv(Radius)
 {

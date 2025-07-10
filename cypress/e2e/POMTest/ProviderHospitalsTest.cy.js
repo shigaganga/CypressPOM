@@ -95,7 +95,8 @@ describe('ProviderHospitalTest',()=>{
         cy.visit(testData.manageProviders_url)
     });
      
-        it('TC_PDP_PRV_HOSP_136 : verify the functionality of Category as "Hospitals"',()=>{
+
+         it('TC_PDP_PRV_HOSP_136 : verify the functionality of Category as "Hospitals"',()=>{
             cy.wait(500);
             const provHos = new ProviderHospitalsPage();
             provHos.clickHospitalCat();    
@@ -400,16 +401,6 @@ describe('ProviderHospitalTest',()=>{
             provHos.setRadius(testData.ProviderHosRadius);
             provHos.ClickSearchProv(testData.ProviderHosRadius);
         });
-       
-        
-        
-        
-        
-        
-        
-       
-       
-
     });
     
     
