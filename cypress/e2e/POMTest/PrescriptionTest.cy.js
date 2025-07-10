@@ -177,27 +177,27 @@ describe('PrescriptionPageTest', () => {
         searchAndSelectDrug(testData.invalidDrug);
         cy.log("Drug was not found in the dropdown, test passed.");
     });
-    it('TC_PDP_SELECT_DRUG_14: Verify select prescription drug from existing list', () => {
+    it('TC_PDP_SELECT_DRUG_15: Verify select prescription drug from existing list', () => {
         cy.log("User can see prescription list, test passed.");
     });
-    it('TC_PDP_CLR_SEARCH_15: Verify clear search functionality', () => {
+    it('TC_PDP_CLR_SEARCH_16: Verify clear search functionality', () => {
         searchAndSelectDrug(testData.drugName1);
         drugPage.clickClearSearch();
         cy.log("Search cleared successfully.");
     });
-    it('TC_PDP_GO_BACK_16: Verify going back to preference page', () => {
+    it('TC_PDP_GO_BACK_17: Verify going back to preference page', () => {
         drugPage.clickGobackPreference();
         const homepage = new HomePage();
         homepage.verifyUrl(testData.preferencePage_url);
         cy.log("User navigated back to preference page.");
     });
-    it('TC_PDP_GO_BACK_17: Verify going back to add drug page', () => {
+    it('TC_PDP_GO_BACK_18: Verify going back to add drug page', () => {
         searchAndSelectDrug(testData.drugName3);
         drugPage.addMyDrugListClick();
         drugPage.clickGobackAddDrug();
         cy.log("User navigated back to add drug page.");
     });
-    it('TC_PDP_EDT_DRUG_18: Verify edit drug functionality', () => {
+    it('TC_PDP_EDT_DRUG_19: Verify edit drug functionality', () => {
         searchAndSelectDrug(testData.drugName3);
         drugPage.addMyDrugListClick();
         drugPage.editDrugClick();
@@ -205,13 +205,13 @@ describe('PrescriptionPageTest', () => {
         drugPage.updateThisDrugClick();
         cy.log("Drug quantity updated successfully.");
     });
-    it('TC_PDP_REMOVE_DRUG_19: Verify remove drug functionality', () => {
+    it('TC_PDP_REMOVE_DRUG_20: Verify remove drug functionality', () => {
         searchAndSelectDrug(testData.drugName3);
         drugPage.addMyDrugListClick();
         drugPage.removeDrugClick();
         cy.log("Drug was successfully removed from the list.");
     });
-    it('TC_PDP_REVIEW_PRES_20: Review prescription list functionality', () => {
+    it('TC_PDP_REVIEW_PRES_21: Review prescription list functionality', () => {
         searchAndSelectDrug(testData.drugName3);
         drugPage.addMyDrugListClick();
         drugPage.clickAddAnotherDrug();

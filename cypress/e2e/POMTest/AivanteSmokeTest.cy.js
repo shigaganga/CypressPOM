@@ -8,8 +8,11 @@ import PreferencePage from '../pages/PreferencePage.js';
 import PrescriptionPage from '../pages/PrescriptionPage.js';
 import MedicarePage from '../pages/MedicarePage.js';
 
+
+
 describe('smoke Flow Test', () => {
-  it('should log in and create a recommendation', () => {
+  
+  it('TC_Smoke1 should log in and create a recommendation', () => {
 
     cy.task('csv:parseFromDropbox').then((data) => {
       const testData = data[0];
@@ -134,4 +137,5 @@ describe('smoke Flow Test', () => {
       cy.wait(500);
     });
   });
+
 });

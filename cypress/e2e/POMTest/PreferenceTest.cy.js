@@ -76,10 +76,10 @@ describe('Preference Test Suite (Single Row from Dropbox CSV)', () => {
             cy.wait(500);
             homepage.selectTaxFilingStatus(testData.taxFilingStatus);
             cy.wait(500);
-            homepage.clickMagiTier();
+            homepage.clickMagiTier(testData.magiTier);
             cy.wait(500);
-            homepage.clickMaggiTireOptions(testData.magiTier);
-            cy.wait(500);
+            //homepage.clickMaggiTireOptions(testData.magiTier);
+           // cy.wait(500);
             homepage.selectConciergeOption(testData.conceirge);
             cy.wait(500);
             homepage.nextHomeClick();
