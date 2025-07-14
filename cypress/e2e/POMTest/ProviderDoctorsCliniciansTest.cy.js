@@ -66,11 +66,13 @@ const lPage = new LoginPage();
            homepage.nextHomeClick();
            cy.wait(500);
            prefPage.clicknoRadioDrugCost();
-           cy.wait(100);
+           cy.wait(500);
            prefPage.clickNextPrefPage();
+           cy.wait(2000)
         
       const planselectionPage = new PlanselectionPage();
         planselectionPage.setProviderButtn();
+        cy.wait(2000)
 
         //const providerdoctorscliniciansPage = new ProviderdoctorscliniciansPage();
         providerdoctorscliniciansPage.clickDoctorsCliniciansBtn();

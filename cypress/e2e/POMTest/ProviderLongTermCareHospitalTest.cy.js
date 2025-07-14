@@ -24,7 +24,7 @@ describe('Long-term care hospitals testing', () => {
         cy.visit('http://169.61.105.110/medicareAdvantage_sandbox/landing-page');
     });
 
-    it("Test1: Verify Long-term care hospitals Category is Visible and Clickable", () => {
+    it("TC_PDP_PRV_LTCH_225: Verify Long-term care hospitals Category is Visible and Clickable", () => {
         const providerPage = new ProviderLongTermCareHospitalPage();
         providerPage.clickProviderPage();
         providerPage.wait(2000);
@@ -33,7 +33,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage.verifyLongTermCareCategory();
     });
 
-    it("Test2: Verify Default Radius Value is 250 Miles", () => {
+    it("TC_PDP_PRV_LTCH_226: Verify Default Radius Value is 250 Miles", () => {
         const providerPage2 = new ProviderLongTermCareHospitalPage();
         providerPage2.clickProviderPage();
         providerPage2.wait(2000);
@@ -42,7 +42,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage2.verifyLongTermCareRadius('250');
     });
 
-    it("Test3: Verify Radius Entry up to 500 Miles for Long-term care hospitals Category on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_227: Verify Radius Entry up to 500 Miles for Long-term care hospitals Category on the Provider Page", () => {
         const providerPage3 = new ProviderLongTermCareHospitalPage();
         providerPage3.clickProviderPage();
         providerPage3.wait(2000);
@@ -55,7 +55,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage3.clickSearchProviderButton();
     });
 
-    it("Test4: Verify Radius Entry more than 500 Miles for Long-term care hospitals Category on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_228: Verify Radius Entry more than 500 Miles for Long-term care hospitals Category on the Provider Page", () => {
         const providerPage4 = new ProviderLongTermCareHospitalPage();
         providerPage4.clickProviderPage();
         providerPage4.wait(2000);
@@ -68,7 +68,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage4.checkSearchProviderButton();
     });
 
-    it("Test5: Verify Functionality of the Optional LTC hospitals Name (Optional) Field on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_229: Verify Functionality of the Optional LTC hospitals Name (Optional) Field on the Provider Page", () => {
         const providerPage5 = new ProviderLongTermCareHospitalPage();
         providerPage5.clickProviderPage();
         providerPage5.wait(2000);
@@ -83,7 +83,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage5.clickSearchProviderButton();
     });
 
-    it("Test6: Verify that the Long-term care hospitals name field empty", () => {
+    it("TC_PDP_PRV_LTCH_230: Verify that the Long-term care hospitals name field empty", () => {
         const providerPage6 = new ProviderLongTermCareHospitalPage();
         providerPage6.clickProviderPage();
         providerPage6.wait(2000);
@@ -97,7 +97,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage6.clickSearchProviderButton();
     });
 
-    it("Test7: Verify Search Providers with Category Long-term care hospitals and radius as 250 miles on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_232: Verify Search Providers with Category Long-term care hospitals and radius as 250 miles on the Provider Page", () => {
         const providerPage7 = new ProviderLongTermCareHospitalPage();
         providerPage7.clickProviderPage();
         providerPage7.wait(2000);
@@ -112,7 +112,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage7.checkTheNumberOfResult(5);
     });
 
-    it("Test8: Verify Distance Filter Options for Long-Term Care Hospitals Category on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_233: Verify Distance Filter Options for Long-Term Care Hospitals Category on the Provider Page", () => {
         const providerPage8 = new ProviderLongTermCareHospitalPage();
         providerPage8.clickProviderPage();
         providerPage8.wait(2000);
@@ -131,7 +131,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage8.checkTheNumberOfResult(4);
     });
 
-    it("Test9: Verify Search Providers with Category as Long-Term Care Hospitals and Ownership Dropdown options", () => {
+    it("TC_PDP_PRV_LTCH_234: Verify Search Providers with Category as Long-Term Care Hospitals and Ownership Dropdown options", () => {
         const providerPage9 = new ProviderLongTermCareHospitalPage();
         providerPage9.clickProviderPage();
         providerPage9.wait(2000);
@@ -148,7 +148,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage9.checkOwnershipDropdownOptions();
     });
 
-    it("Test10: Verify Apply Filter Button Functionality in the Long-Term Care Hospitals Category on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_236: Verify Apply Filter Button Functionality in the Long-Term Care Hospitals Category on the Provider Page", () => {
         const providerPage10 = new ProviderLongTermCareHospitalPage();
         providerPage10.clickProviderPage();
         providerPage10.wait(2000);
@@ -169,7 +169,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage10.clearApplyFilterButton();
     });
 
-    it("Test11: Verify Clear Filter Button Functionality in the Long-Term Care Hospitals Category on the Provider Page", () => {
+    it("TC_PDP_PRV_LTCH_237: Verify Clear Filter Button Functionality in the Long-Term Care Hospitals Category on the Provider Page", () => {
         const providerPage11 = new ProviderLongTermCareHospitalPage();
         providerPage11.clickProviderPage();
         providerPage11.wait(2000);
@@ -194,7 +194,7 @@ describe('Long-term care hospitals testing', () => {
         providerPage11.clearApplyFilterButton();
     });
 
-    it("Test12: This is to verify Back button Functionality on the manage-providers/provider-list page within PDP application", () => {
+    it("TC_PDP_PRV_LTCH_238: This is to verify Back button Functionality on the manage-providers/provider-list page within PDP application", () => {
         const providerPage12 = new ProviderLongTermCareHospitalPage();
         providerPage12.clickProviderPage();
         providerPage12.wait(2000);

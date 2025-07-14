@@ -87,66 +87,67 @@ const lPage = new LoginPage();
    cy.visit("http://169.61.105.110/medicareAdvantage_sandbox/plan-selection")
     })
 
+   
    it("TC_PDP_MC_01: Click on medicare button",()=>{
        medicarepage.clickmedicare();
     })
 
-    it("TC_PDP_MC_02: Click on medicare button and validatepgelements",()=>{
+    it("TC_PDP_MC_02:Click on medicare button and validatepgelements",()=>{
         medicarepage.clickmedicare();
         medicarepage.validatepgelements();
     })
 
-    it("TC_PDP_MC_10: PurchasepartA",()=>{
+    it("TC_PDP_MC_10:PurchasepartA",()=>{
         medicarepage.clickmedicare();
         medicarepage.togglepurchasepartA();
     })
 
-    it("TC_PDP_MC_03: Verify user info detalis",()=>{ 
+    it("TC_PDP_MC_03:Verify user info detalis",()=>{ 
         medicarepage.clickmedicare();  
         medicarepage.verifyuserinfodetalis();
     })
 
-    it("TC_PDP_MC_07: Verify PV ABMA IRMA",()=>{
+    it("TC_PDP_MC_07:Verify PV ABMA IRMA",()=>{
         medicarepage.clickmedicare();
         medicarepage.verifyPVABMAIRMA();
     })
 
-    it("TC_PDP_MC_06: Verify total premium surcharge oop",()=>{
+    it("TC_PDP_MC_06:Verify total premium surcharge oop",()=>{
         medicarepage.clickmedicare();
         medicarepage.verifytotalpremiumsurchargeoop();
     })
  
-    it("TC_PDP_MC_22_Click on AIVANTE_IMAGE",()=>{
+    it("TC_PDP_MC_22:Click on AIVANTE_IMAGE",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
     })
 
-    it("TC_PDP_MC_07: Edit recommendation and check the profile details if the user profile is updated",()=>{
+    it("TC_PDP_MC_09: Edit recommendation and check the profile details if the user profile is updated",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
         medicarepage.editrecommendation();         
-    })
+    })  //This test is not in manual test file
 
-    it("TC_PDP_MC_21: Select 30 lifetime reserve days and submit plan details",()=>{
+    it("TC_PDP_MC_21:Select 30 lifetime reserve days and submit plan details",()=>{
         medicarepage.clickmedicare();
         medicarepage.select30lifetimeresdays();
         cy.wait(3000);
         cy.url().should("eq","http://169.61.105.110/medicareAdvantage_sandbox/medicare-advantage");
     })
 
-    it("TC_PDP_MC_08: View recommendation and check OOP details",()=>{
+    it("TC_PDP_MC_08:View recommendation and check OOP details",()=>{
         medicarepage.clickmedicare();
         medicarepage.aivanteimgclick();
         medicarepage.viewrecommendation();
         cy.wait(3000);         
     })
 
-    it("TC_PDP_MC_15: Click on BACK buton",()=>{
+    it("TC_PDP_MC_15:Click on BACK buton",()=>{
         medicarepage.clickmedicare();
         medicarepage.clickbackbtn();
         })
 
-    it("TC_PDP_MC_16: Click on generatepdf button to generate plan details",()=>{
+    it("TC_PDP_MC_16:Click on generatepdf button to generate plan details",()=>{
     medicarepage.clickmedicare();
     medicarepage.generatepdf();
     })
