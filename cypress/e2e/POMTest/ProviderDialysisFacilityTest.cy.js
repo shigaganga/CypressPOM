@@ -20,8 +20,10 @@ describe("ProviderDialysisFacility-TestSuite", () => {
 
     //Load data fixures before tests.
     before(() => {
-        cy.fixture('LoginFixture').then((data) => {
-            testData = data;
+        //cy.fixture('LoginFixture').then((data) => {
+          //  testData = data;
+          cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
         })
     })
 

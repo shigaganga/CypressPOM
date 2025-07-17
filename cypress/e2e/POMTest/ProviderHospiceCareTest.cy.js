@@ -13,10 +13,10 @@ describe('Provider Hospic care', () => {
     let testData
     const planselectionpage= new PlanselectionPage();
     before(()=>{
-   cy.fixture('LoginFixture').then((data) => {
-        testData = data;
-    // cy.task('csv:parseFromDropbox').then((data) => {
-           //testData = data[0];
+ //  cy.fixture('LoginFixture').then((data) => {
+   //     testData = data;
+     cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     })
 })
 

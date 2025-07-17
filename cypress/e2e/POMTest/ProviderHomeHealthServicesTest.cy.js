@@ -13,8 +13,10 @@ describe("Automation of test cases for Provider_Home_Health_Care_Services",()=>{
     const planselectionpage= new PlanselectionPage();
     const providerhomehealthservices = new ProviderHomeHealthservicesPage();
     before(()=>{
-    cy.fixture('LoginFixture').then((data) => {
-        testData = data;
+   // cy.fixture('LoginFixture').then((data) => {
+     //   testData = data;
+     cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     })
 })
         

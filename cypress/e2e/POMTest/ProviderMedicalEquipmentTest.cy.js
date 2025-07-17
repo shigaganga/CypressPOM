@@ -21,13 +21,13 @@ describe('ProviderMedicalEquipment-TestSuite', () => {
 
     //Load data fixures before tests.
     before(() => {
-        cy.fixture('LoginFixture').then((data) => {
-        //cy.task('csv:parseFromDropbox').then((data) => {
-            //testData = data[0];
+       // cy.fixture('LoginFixture').then((data) => {
+        cy.task('csv:parseFromDropbox').then((data) => {
+            testData = data[0];
            // cy.task('csv:parseFromDropbox').then((data) => {
                // testData = data[0];
                 //cy.log(testData);
-            testData = data;
+          //  testData = data;
         })
     });
 
