@@ -16,8 +16,11 @@ describe("LandingPage test", () => {
   let homepage;
 
   before(() => {
-    cy.fixture("LoginFixture").then((data) => {
-      testData = data;
+    
+    //cy.fixture("LoginFixture").then((data) => {
+      //testData = data;
+     cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     });
   });
 

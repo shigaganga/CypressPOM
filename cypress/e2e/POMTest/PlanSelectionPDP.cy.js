@@ -14,8 +14,10 @@ describe('PlanselectionPDP Test', () => {
     let testData = null;
 
 before(() => {
-    cy.fixture('LoginFixture').then((data) => {
-        testData=data;
+    //cy.fixture('LoginFixture').then((data) => {
+      //  testData=data;
+      cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     });
 })
     const pharmacypg = new PharmacyPage();
