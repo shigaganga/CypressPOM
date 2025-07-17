@@ -7,8 +7,10 @@ import ProviderHospitalsPage from "../pages/ProviderHospitalsPage";
 describe('ProviderHospitalTest',()=>{
     let testData = null;
     before(()=>{
-         cy.fixture('LoginFixture').then((data)=>{
-            testData=data;
+        // cy.fixture('LoginFixture').then((data)=>{
+          //  testData=data;
+          cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
          });
 
     })
