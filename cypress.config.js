@@ -39,7 +39,7 @@ module.exports = defineConfig({
 
         // NEW: Dropbox CSV parser
         async 'csv:parseFromDropbox'() {
-          const url = 'https://www.dropbox.com/scl/fi/7uhrkxzx03m84xpqulkbx/data.csv?rlkey=vhyafyz32jdia8sapgnwwudr5&st=hoh2zihb&dl=1';
+          const url = 'https://www.dropbox.com/scl/fi/h5p2idg8ertfw8o4uf45l/data.csv?rlkey=q24w9er904igw7q3o9bs37oos&st=cylfpvvp&dl=1';
          
           try {
             const response = await axios.get(url);

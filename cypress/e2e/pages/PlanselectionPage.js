@@ -97,6 +97,17 @@ setSupplementButtn()
   cy.get(this.SupplementButtn).click();
 } 
 
+PDPButtn="//span[normalize-space()='PDP']";
+setPDPButtn(){
+  cy.xpath(this.PDPButtn,{timeout:1000 }).click({ force: true });
+}
+
+MedicareAdvantageButtn="//button/span[contains (@class,'mat-button-wrapper') and normalize-space()='Medicare Advantage']";
+
+setMedicareAdvantageButtn(){
+ cy.xpath(this.MedicareAdvantageButtn,{timeout:1000 }).click({ force: true }); 
+}
+
 ProviderButtn='div[class="button-wrapper ng-star-inserted"] button:nth-child(2)';
 setProviderButtn()
 {
@@ -171,6 +182,10 @@ SelectPlanN='.mat-option-text';
 setSelectPlanN()
 {
 cy.get(this.SelectPlanN).contains("N").wait(2000).click({force:true});
+}
+
+setSelectPlanHDG(){
+ cy.get(this.SelectPlanN).contains("HDG").wait(2000).click({force:true}); 
 }
 
 FilterButton='.ng-fa-icon'
