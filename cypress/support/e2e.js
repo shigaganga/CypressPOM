@@ -50,7 +50,7 @@ require('cypress-grep')()
 });*/
 
 
-beforeEach(function () {
+/*beforeEach(function () {
   let allowed = Cypress.env('allowedTests') || [];
 
   // Normalize to array
@@ -81,5 +81,5 @@ beforeEach(function () {
     console.log(`⏩ Skipping test: ${testId}`);
     this.skip();
   }
-});
+});*/
 
