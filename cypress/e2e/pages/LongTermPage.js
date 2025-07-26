@@ -197,7 +197,7 @@ class LongTermPage {
         .contains('generate PDF').click()}
     
     clickBackButton(){
-        cy.get(this.backbtnEle).click()}
+        cy.get(this.backbtnEle).first().click()}
 
 
     validatepagelements() {
@@ -224,7 +224,7 @@ class LongTermPage {
         
     }
     clickAivanteLogo(){
-        cy.get(this.aivanteLogoEle).click()}    
+        cy.get(this.aivanteLogoEle).click({force:true})}    
 
 
 
