@@ -20,10 +20,10 @@ describe("Long Term Care-TestSuite", () => {
   const longtermpage = new LongTermPage();
 
   before(() => {
-    cy.fixture('LoginFixture').then((data) => {
-      testData = data;
-      //cy.task('csv:parseFromDropbox').then((data) => {
-          // testData = data[0];
+   // cy.fixture('LoginFixture').then((data) => {
+     // testData = data;
+      cy.task('csv:parseFromDropbox').then((data) => {
+           testData = data[0];
     });
   });
 

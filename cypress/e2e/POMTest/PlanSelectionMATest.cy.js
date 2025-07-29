@@ -19,10 +19,10 @@ describe('PlanSelectionMA', () => {
 
     //Load data fixures before tests.
     before(() => {
-        //cy.fixture('LoginFixture').then((data) => {
-          //  testData = data;
+   // cy.fixture('LoginFixture').then((data) => {
+          // testData = data;
           cy.task('csv:parseFromDropbox').then((data) => {
-           testData = data[0];
+         testData = data[0];
         })
     })
 
@@ -250,7 +250,7 @@ describe('PlanSelectionMA', () => {
     });
 
     //short plan filter
-    it.only('TC_PDP_MA_PLAN_109 This is to verify the "Sort Plans" and cancel button functionality on the plan-selection/plan-list/MEDICARE page within the PDP application .', () => {
+    it('TC_PDP_MA_PLAN_109 This is to verify the "Sort Plans" and cancel button functionality on the plan-selection/plan-list/MEDICARE page within the PDP application .', () => {
         cy.wait(1000);
         planSelectionMA.clickMedicareAdvantage();
         cy.wait(3000);
