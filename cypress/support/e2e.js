@@ -47,7 +47,7 @@ beforeEach(function () {
   allowed = allowed.map(s => s.toUpperCase());
 
   const title = this.currentTest.title;
-  const testId = title.match(/TC_[A-Z0-9_]+/i)?.[0].toUpperCase();
+  const testId = title.match(/TC_[A-Z0-9_\/]+/i)?.[0].toUpperCase();
 
   console.log('🔍 Test title:', title);
   console.log('🔍 Extracted testId:', testId);
