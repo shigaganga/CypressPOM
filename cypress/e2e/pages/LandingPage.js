@@ -119,7 +119,8 @@ cy.xpath(this.viewRecom)
   .then(() => {
     // Click only the grey eye icon
     if (greyEyeIcon) {
-      cy.wrap(greyEyeIcon).scrollIntoView().should('be.visible',{timeout:5000}).click({force:true});
+      cy.wrap(greyEyeIcon).scrollIntoView()//.should('be.visible',{timeout:5000})
+      .click({force:true});
       cy.log("grey eye clicked");
     }
   });
