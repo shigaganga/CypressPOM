@@ -32,8 +32,7 @@ before(() => {
     beforeEach(() => {
 cy.intercept('POST', '**/createPartDPlan').as('createProfile');
         cy.session("PDP session",()=>{
-      // cy.intercept('POST', '**/createPartDPlan').as('createProfile');
-  
+      
         cy.visit(testData.baseUrl);
        
         const lPage = new LoginPage();
@@ -117,20 +116,24 @@ cy.intercept('POST', '**/createPartDPlan').as('createProfile');
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
  //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
  planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond();
+  cy.wait(1000)
   medicarepage.clickmedicare();
-
+  cy.wait(1000)
   consistency.setABDGTotalExpences().then((ABDG_TotalExpences) => {
     consistency.setLifeTimeTotalExpences().then((LifeTimeTotalExpences) => {
       expect(ABDG_TotalExpences).to.eql(LifeTimeTotalExpences);
@@ -143,20 +146,24 @@ planselectionpage.setSupplementButtn();
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-cy.wait(2000);
+  cy.wait(2000);
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond();
+  cy.wait(1000)
   medicarepage.clickmedicare();
-
+ cy.wait(1000)
   consistency.setLifeExpectancy().then((LifeExpectancy)=>{
     expect(LifeExpectancy).to.eql(testData.lifeExpectancy)
   });
@@ -178,19 +185,24 @@ it("TC_PDP_CONS_PDP/G_04:Verify that Total Present Value Expences under Long Ter
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+ cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond(); 
+  cy.wait(1000)
   longtermpage.clickLongtermBtn();
+  cy.wait(1000)
   const parseAmount = (value) => parseFloat(value.replace(/[$,]/g, ''));
 
   consistency.setLongTermTotalPresentValueExpenses().then((LongTermTotalPresentValueExpenses)=>{
@@ -223,19 +235,24 @@ planselectionpage.setSupplementButtn();
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond(); 
+  cy.wait(1000)
   longtermpage.clickLongtermBtn();
+  cy.wait(1000)
   const parseAmount = (value) => parseFloat(String(value).replace(/[$,]/g, ''));
 
 consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValueExpenses)=>{
@@ -274,19 +291,24 @@ it("TC_PDP_CONS_PDP/G_06:Verify that all profile details on LongTerm page e.g. A
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond(); 
+  cy.wait(1000)
   longtermpage.clickLongtermBtn();
+  cy.wait(1000)
   consistency.setLTCHealthProfile().then((LTCHealthProfile)=>{
     expect(LTCHealthProfile).to.eql(testData.healthProfile)
   });
@@ -302,20 +324,26 @@ it("TC_PDP_CONS_PDP/G_07:Verify that Health Care Expense value and Health Care P
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond(); 
+  cy.wait(1000)
   medicarepage.clickmedicare();
+  cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -346,21 +374,26 @@ it("TC_PDP_CONS_PDP/G_08:Verify that LongTerm Care Expense value and LongTerm Ca
   cy.wait(10000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanG1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
  // cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
- planselectionpage.setPDPButtn();
+  planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond(); 
+  cy.wait(1000)
   medicarepage.clickmedicare();
   cy.wait(2000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -397,7 +430,7 @@ function PDPandPlanN(testData){
 
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanN1);
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
@@ -405,15 +438,16 @@ function PDPandPlanN(testData){
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
   consistency.setPlanSelectCheckboxSecond();  
 } 
 
 it("TC_PDP_CONS_PDP/N_01:Verify that ABD+N+Concierge Total Expences under lifetime medicare projection matches with Total Expences under Lifetime Expences.",()=>{
     PDPandPlanN(testData);
+    cy.wait(1000)
     medicarepage.clickmedicare();
-
+    cy.wait(1000)
   consistency.setABDGTotalExpences().then((ABDG_TotalExpences) => {
     consistency.setLifeTimeTotalExpences().then((LifeTimeTotalExpences) => {
       expect(ABDG_TotalExpences).to.eql(LifeTimeTotalExpences);
@@ -423,7 +457,9 @@ it("TC_PDP_CONS_PDP/N_01:Verify that ABD+N+Concierge Total Expences under lifeti
 
 it("TC_PDP_CONS_PDP/N_03:Verify that all prifile details e.g. Age,Retierment Age,Life Expectancy,Health profile,Income during medicare,Tax Filing Status matches with the profile data entered on profile page while creating the plan.",()=>{
 PDPandPlanN(testData);
+cy.wait(1000)
 medicarepage.clickmedicare();
+cy.wait(1000)
 consistency.setLifeExpectancy().then((LifeExpectancy)=>{
     expect(LifeExpectancy).to.eql(testData.lifeExpectancy)
   });
@@ -441,7 +477,9 @@ consistency.setLifeExpectancy().then((LifeExpectancy)=>{
 
 it("TC_PDP_CONS_PDP/N_04:Verify that Total Present Value Expences under Long Term Care Expences Projection is equal to the addition of Present value Adult Day Care,In Home Care,Nursing Care",()=>{
     PDPandPlanN(testData);
+    cy.wait(1000)
     longtermpage.clickLongtermBtn();
+    cy.wait(1000)
     const parseAmount = (value) => parseFloat(value.replace(/[$,]/g, ''));
 
     consistency.setLongTermTotalPresentValueExpenses().then((LongTermTotalPresentValueExpenses)=>{
@@ -473,7 +511,9 @@ it("TC_PDP_CONS_PDP/N_04:Verify that Total Present Value Expences under Long Ter
 
 it("TC_PDP_CONS_PDP/N_05:Verify that Total Futuret Value Expences under Long Term Care Expences Projection is equal to the addition of Future value Adult Day Care,In Home Care,Nursing Care",()=>{
    PDPandPlanN(testData);
+   cy.wait(1000)
    longtermpage.clickLongtermBtn(); 
+   cy.wait(1000)
    const parseAmount = (value) => parseFloat(String(value).replace(/[$,]/g, ''));
 
 consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValueExpenses)=>{
@@ -510,8 +550,9 @@ consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValue
 
 it("TC_PDP_CONS_PDP/N_06:Verify that all profile details on LongTerm page e.g. Age,Retierment Age,Life Expectancy,Health Profile matches with the profile data entered on profile page while creating the plan.",()=>{
    PDPandPlanN(testData);
+   cy.wait(1000)
    longtermpage.clickLongtermBtn(); 
-
+   cy.wait(1000)
    consistency.setLTCHealthProfile().then((LTCHealthProfile)=>{
     expect(LTCHealthProfile).to.eql(testData.healthProfile)
   });
@@ -523,8 +564,11 @@ it("TC_PDP_CONS_PDP/N_06:Verify that all profile details on LongTerm page e.g. A
 
 it("TC_PDP_CONS_PDP/N_07:Verify that Health Care Expense value and Health Care Present value on view page identical with ABD+N+Concirge charges and P.V as of year on medicare page respectively.",()=>{
     PDPandPlanN(testData);
+    cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -550,8 +594,11 @@ it("TC_PDP_CONS_PDP/N_07:Verify that Health Care Expense value and Health Care P
 
 it("TC_PDP_CONS_PDP/N_08:Verify that LongTerm Care Expense value and LongTerm Care Present value on view page are identical withTotal Future Value Expenses and Total Present Value Expenses on LongTerm page respectively.",()=>{
  PDPandPlanN(testData);
+ cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -587,17 +634,20 @@ function PDPandPlanHDG(testData){
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/SUPPLEMENT');
   cy.wait(5000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.supplimentPlanHDG);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+ cy.wait(1000)
   //cy.xpath("//span[normalize-space()='PDP']", { timeout: 1000 }).click({ force: true });
   planselectionpage.setPDPButtn();
   cy.wait(5000);
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/PDP');
   cy.wait(10000);
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.PDPPlan1);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
-
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxFirst();
+  cy.wait(1000)
   consistency.setPlanSelectCheckboxSecond();  
 } 
 
@@ -605,8 +655,9 @@ function PDPandPlanHDG(testData){
 
 it("TC_PDP_CONS_PDP/HDG_01:Verify that ABD+HDG+Concierge Total Expences under lifetime medicare projection matches with Total Expences under Lifetime Expences.",()=>{
     PDPandPlanHDG(testData);
+    cy.wait(1000)
     medicarepage.clickmedicare();
-
+    cy.wait(1000)
   consistency.setABDGTotalExpences().then((ABDG_TotalExpences) => {
     consistency.setLifeTimeTotalExpences().then((LifeTimeTotalExpences) => {
       expect(ABDG_TotalExpences).to.eql(LifeTimeTotalExpences);
@@ -616,7 +667,9 @@ it("TC_PDP_CONS_PDP/HDG_01:Verify that ABD+HDG+Concierge Total Expences under li
 
 it("TC_PDP_CONS_PDP/HDG_03:Verify that all prifile details e.g. Age,Retierment Age,Life Expectancy,Health profile,Income during medicare,Tax Filing Status matches with the profile data entered on profile page while creating the plan.",()=>{
 PDPandPlanHDG(testData);
+cy.wait(1000)
 medicarepage.clickmedicare();
+cy.wait(1000)
 consistency.setLifeExpectancy().then((LifeExpectancy)=>{
     expect(LifeExpectancy).to.eql(testData.lifeExpectancy)
   });
@@ -634,7 +687,9 @@ consistency.setLifeExpectancy().then((LifeExpectancy)=>{
 
 it("TC_PDP_CONS_PDP/HDG_04:Verify that Total Present Value Expences under Long Term Care Expences Projection is equal to the addition of Present value Adult Day Care,In Home Care,Nursing Care",()=>{
     PDPandPlanHDG(testData);
+    cy.wait(1000)
     longtermpage.clickLongtermBtn();
+    cy.wait(1000)
     const parseAmount = (value) => parseFloat(value.replace(/[$,]/g, ''));
 
     consistency.setLongTermTotalPresentValueExpenses().then((LongTermTotalPresentValueExpenses)=>{
@@ -666,7 +721,9 @@ it("TC_PDP_CONS_PDP/HDG_04:Verify that Total Present Value Expences under Long T
 
 it("TC_PDP_CONS_PDP/HDG_05:Verify that Total Futuret Value Expences under Long Term Care Expences Projection is equal to the addition of Future value Adult Day Care,In Home Care,Nursing Care",()=>{
    PDPandPlanHDG(testData);
+   cy.wait(1000)
    longtermpage.clickLongtermBtn(); 
+   cy.wait(1000)
    const parseAmount = (value) => parseFloat(String(value).replace(/[$,]/g, ''));
 
 consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValueExpenses)=>{
@@ -703,8 +760,9 @@ consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValue
 
 it("TC_PDP_CONS_PDP/HDG_06:Verify that all profile details on LongTerm page e.g. Age,Retierment Age,Life Expectancy,Health Profile matches with the profile data entered on profile page while creating the plan.",()=>{
    PDPandPlanHDG(testData);
+   cy.wait(1000)
    longtermpage.clickLongtermBtn(); 
-
+    cy.wait(1000)
    consistency.setLTCHealthProfile().then((LTCHealthProfile)=>{
     expect(LTCHealthProfile).to.eql(testData.healthProfile)
   });
@@ -716,8 +774,11 @@ it("TC_PDP_CONS_PDP/HDG_06:Verify that all profile details on LongTerm page e.g.
 
 it("TC_PDP_CONS_PDP/HDG_07:Verify that Health Care Expense value and Health Care Present value on view page identical with ABD+N+Concirge charges and P.V as of year on medicare page respectively.",()=>{
     PDPandPlanHDG(testData);
+    cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -743,8 +804,11 @@ it("TC_PDP_CONS_PDP/HDG_07:Verify that Health Care Expense value and Health Care
 
 it("TC_PDP_CONS_PDP/HDG_08:Verify that LongTerm Care Expense value and LongTerm Care Present value on view page are identical withTotal Future Value Expenses and Total Present Value Expenses on LongTerm page respectively.",()=>{
  PDPandPlanHDG(testData);
+ cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -775,6 +839,7 @@ function PlanMA(testData){
   cy.url().should('eq', 'http://169.61.105.110/medicareAdvantage_sandbox/plan-selection/plan-list/MEDICARE');
 
   planselectionpage.setPlanSelectionCheckBoxByPlanName(testData.MAplan);
+  cy.wait(1000)
   planselectionpage.donePlanSelectionClick();
   cy.wait(2000);
   consistency.setPlanSelectCheckboxMA();
@@ -783,8 +848,9 @@ function PlanMA(testData){
 
 it("TC_PDP_CONS_MA_01:Verify that AB+MA+Concierge Total Expences under lifetime medicare projection matches with Total Expences under Lifetime Expences.",()=>{
     PlanMA(testData);
+    cy.wait(1000)
     medicarepage.clickmedicare();
-
+    cy.wait(1000)
   consistency.setABDGTotalExpences().then((ABDG_TotalExpences) => {
     consistency.setLifeTimeTotalExpences().then((LifeTimeTotalExpences) => {
       expect(ABDG_TotalExpences).to.eql(LifeTimeTotalExpences);
@@ -794,7 +860,9 @@ it("TC_PDP_CONS_MA_01:Verify that AB+MA+Concierge Total Expences under lifetime 
 
 it("TC_PDP_CONS_MA_03:Verify that all prifile details e.g. Age,Retierment Age,Life Expectancy,Health profile,Income during medicare,Tax Filing Status matches with the profile data entered on profile page while creating the plan.",()=>{
 PlanMA(testData);
+cy.wait(1000)
 medicarepage.clickmedicare();
+cy.wait(1000)
 consistency.setLifeExpectancy().then((LifeExpectancy)=>{
     expect(LifeExpectancy).to.eql(testData.lifeExpectancy)
   });
@@ -812,7 +880,9 @@ consistency.setLifeExpectancy().then((LifeExpectancy)=>{
 
 it("TC_PDP_CONS_MA_04:Verify that Total Present Value Expences under Long Term Care Expences Projection is equal to the addition of Present value Adult Day Care,In Home Care,Nursing Care",()=>{
     PlanMA(testData);
+    cy.wait(1000)
     longtermpage.clickLongtermBtn();
+    cy.wait(1000)
     const parseAmount = (value) => parseFloat(value.replace(/[$,]/g, ''));
 
     consistency.setLongTermTotalPresentValueExpenses().then((LongTermTotalPresentValueExpenses)=>{
@@ -844,7 +914,9 @@ it("TC_PDP_CONS_MA_04:Verify that Total Present Value Expences under Long Term C
 
 it("TC_PDP_CONS_MA_05:Verify that Total Futuret Value Expences under Long Term Care Expences Projection is equal to the addition of Future value Adult Day Care,In Home Care,Nursing Care",()=>{
    PlanMA(testData);
-   longtermpage.clickLongtermBtn(); 
+   cy.wait(1000)
+   longtermpage.clickLongtermBtn();
+   cy.wait(1000) 
    const parseAmount = (value) => parseFloat(String(value).replace(/[$,]/g, ''));
 
 consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValueExpenses)=>{
@@ -881,8 +953,9 @@ consistency.setLongTermTotalFutureValueExpenses().then((LongTermTotalFutureValue
 
 it("TC_PDP_CONS_MA_06:Verify that all profile details on LongTerm page e.g. Age,Retierment Age,Life Expectancy,Health Profile matches with the profile data entered on profile page while creating the plan.",()=>{
    PlanMA(testData);
+   cy.wait(1000)
    longtermpage.clickLongtermBtn(); 
-
+  cy.wait(1000)
    consistency.setLTCHealthProfile().then((LTCHealthProfile)=>{
     expect(LTCHealthProfile).to.eql(testData.healthProfile)
   });
@@ -894,8 +967,11 @@ it("TC_PDP_CONS_MA_06:Verify that all profile details on LongTerm page e.g. Age,
 
 it("TC_PDP_CONS_MA_07:Verify that Health Care Expense value and Health Care Present value on view page identical with AB+MA+Concirge charges and P.V as of year on medicare page respectively.",()=>{
     PlanMA(testData);
+    cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
@@ -921,8 +997,11 @@ it("TC_PDP_CONS_MA_07:Verify that Health Care Expense value and Health Care Pres
 
 it("TC_PDP_CONS_MA_08:Verify that LongTerm Care Expense value and LongTerm Care Present value on view page are identical withTotal Future Value Expenses and Total Present Value Expenses on LongTerm page respectively.",()=>{
  PlanMA(testData);
+ cy.wait(1000)
    medicarepage.clickmedicare();
+   cy.wait(1000)
   medicarepage.clickbackbtn();
+  cy.wait(1000)
   longtermpage.clickLongtermBtn(); 
   cy.wait(2000);
   consistency.setAivanteLogo();
