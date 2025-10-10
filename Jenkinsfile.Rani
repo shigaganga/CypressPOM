@@ -1,8 +1,6 @@
 pipeline{
     agent any
-    options{
-        ansiColor('xterm')
-    }
+    
     environment{
          REPORT_DIR = 'cypress/reports'
         FINAL_REPORT_DIR = 'cypress/final-report'
@@ -18,7 +16,7 @@ pipeline{
             }
            }
         }
-    }
+    
     stage('Run Run-test.js'){
         steps{
             script{
@@ -55,6 +53,7 @@ pipeline{
                 archiveArtifacts artifacts: "${FINAL_REPORT_DIR}/**/*", allowEmptyArchive: true
             }
         }
+    }
     
 
     post {
