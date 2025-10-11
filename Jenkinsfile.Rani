@@ -1,71 +1,51 @@
-pipeline{
+pipeline {
     agent any
-    
-    environment{
-         REPORT_DIR = 'cypress/reports'
-        FINAL_REPORT_DIR = 'cypress/final-report'
-        REPORT_FILE = 'mochawesome.json'
+
+    environment {
+        NODE_ENV = "test"
     }
-    stages{
-        stage('Install Dependencies'){
-           steps{
-            script{
-             echo 'Installing dependencies'
-             bat 'npm --version'
-             bat 'npm install --legacy-peer-deps'
-            }
-           }
-        }
-    
-    stage('Run Run-test.js'){
-        steps{
-            script{
-                echo 'Running run-tests.js'
-                bat 'node run-tests.js'
-            }
-        }
-    }
-    stage('Generate Mochawesome Report') {
+
+    stages {
+        stage('Checkout') {
             steps {
-                script {
-                    echo 'Listing files in reports directory...'
-                    bat 'dir cypress/reports'
-
-                    echo 'Merging Mochawesome reports...'
-                    bat 'mochawesome-merge cypress/reports/*.json > cypress/reports/mochawesome.json'
-
-                    echo 'Checking merged mochawesome.json file...'
-                    bat 'dir cypress/reports/mochawesome.json'
-
-                    echo 'Generating final Mochawesome report...'
-                    bat 'marge cypress/reports/mochawesome.json --reportDir cypress/final-report'
-
-                    echo 'Listing files in final-report directory...'
-                    bat 'dir cypress/final-report'
-                }
+                echo 'Checking out source code...'
+                checkout scm
             }
         }
 
-        stage('Archive Report') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Archiving report...'
-                bat 'dir cypress/final-report'
-                archiveArtifacts artifacts: "${FINAL_REPORT_DIR}/**/*", allowEmptyArchive: true
+                echo 'Installing Node.js dependencies...'
+                bat 'npm install'
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                echo 'Running Cypress regression suite...'
+                bat 'npx cypress run --browser chrome --headless'
+            }
+        }
+
+        stage('Generate Mochawesome Report') {
+            steps {
+                echo 'Merging and generating final Mochawesome report...'
+                bat 'npx mochawesome-merge cypress\\reports\\html\\*.json > cypress\\reports\\html\\mochawesome.json'
+                bat 'npx marge cypress\\reports\\html\\mochawesome.json --reportDir cypress\\reports\\html --inline'
             }
         }
     }
-    
 
     post {
         always {
             echo 'Publishing HTML report...'
             publishHTML(target: [
-                reportDir: "${FINAL_REPORT_DIR}",   // Folder where HTML report exists
-                reportFiles: 'index.html',          // The main report file
-                reportName: 'Cypress Mochawesome Report', // Name shown in Jenkins UI
-                keepAll: true,                      // Retain all reports for previous builds
-                alwaysLinkToLastBuild: true,        // Always link to last successful build's report
-                allowMissing: true                  // Allow missing reports, but log a warning
+                reportDir: 'cypress/reports/html',
+                reportFiles: 'index.html',
+                reportName: 'Cypress Mochawesome Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
             ])
 
             echo 'Cleaning up workspace...'
