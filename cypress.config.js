@@ -9,8 +9,8 @@ module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports/html",
-    overwrite: true,
-    html: true,
+    overwrite: false,
+    html: false,
     json: true, // required to generate .json files
     charts: true,
     reportPageTitle: "Aivante Regression Report",
