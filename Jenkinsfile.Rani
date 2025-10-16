@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Installing Node.js dependencies...'
                 bat 'npm --version'
-             bat 'npm install --legacy-peer-deps'
+             bat 'npm ci || npm install --legacy-peer-deps'
             }
         }
 
@@ -29,12 +29,23 @@ pipeline {
         }
 
         stage('Generate Mochawesome Report') {
-            steps {
-                echo 'Merging and generating final Mochawesome report...'
-                bat 'npx mochawesome-merge cypress\\reports\\html\\*.json > cypress\\reports\\html\\mochawesome.json'
-                bat 'npx marge cypress\\reports\\html\\mochawesome.json --reportDir cypress\\reports\\html --inline'
-            }
-        }
+    steps {
+        echo 'Merging and generating final Mochawesome report...'
+
+        // 1️⃣ Check that JSON files exist before merging
+        bat 'dir cypress\\reports\\html\\*.json'
+
+        // 2️⃣ Merge mochawesome JSON reports safely using shell redirection workaround
+        bat '''
+        npx mochawesome-merge "cypress\\reports\\html\\*.json" > merged.json
+        move merged.json cypress\\reports\\html\\mochawesome.json
+        '''
+
+        // 3️⃣ Generate the final HTML report
+        bat 'npx marge cypress\\reports\\html\\mochawesome.json --reportDir cypress\\reports\\html --inline'
+    }
+}
+
     }
 
     post {
