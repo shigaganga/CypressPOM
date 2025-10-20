@@ -12,7 +12,7 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-
+//Prepared by Rani Yelgalwar
 // Import commands.js using ES2015 syntax:
 import './commands'
 //import 'cypress-mochawesome-reporter/register';
@@ -146,7 +146,6 @@ console.log("CSV Preview:", csvData.substring(0, 200));
 })
 });
 
-// HELPER FUNCTION
 
 /**
  * Generates CSV content from a JSON array.
