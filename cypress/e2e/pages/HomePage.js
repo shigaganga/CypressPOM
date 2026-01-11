@@ -56,9 +56,10 @@ class HomePage {
     communicationEmail = "//mat-label[normalize-space(.)='Communication Email']/ancestor::mat-form-field//input";
     contact = "//mat-label[normalize-space(.)='Contact number']/ancestor::mat-form-field//input";
     conciergeNo = "#mat-radio-8 > .mat-radio-label" //"label[for='mat-radio-11-input'] span[class='mat-radio-outer-circle']";
-    conciergeYes = "#mat-radio-9 > .mat-radio-label" //"label[for='mat-radio-12-input'] span[class='mat-radio-outer-circle']";
+    //conciergeYes = "#mat-radio-9 > .mat-radio-label" //"label[for='mat-radio-48-input'] span[class='mat-radio-outer-circle']";
+    conciergeYes = "//label[for='mat-radio-48-input'] span[class='mat-radio-outer-circle']";
     conciergeAmmount = "#mat-input-7"
-
+conciergeYes
 
     clickAiVanteLogo() {
         cy.get(this.AiVanteLogo).should('be.visible').click({ force: true });
@@ -239,7 +240,8 @@ clickCountyState() {
         cy.xpath(this.contact).should('be.visible').type(contact, { force: true });
     }
     clickConciergeYes() {
-        cy.get(this.conciergeYes).should('be.visible').click({ force: true });
+        // cy.xpath(this.conciergeYes).should('be.visible').click({ force: true });
+        cy.get('#mat-radio-12 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click();
     }
     clickConceirgeNo() {
         cy.get(this.conciergeNo).should('be.visible').click({ force: true });
