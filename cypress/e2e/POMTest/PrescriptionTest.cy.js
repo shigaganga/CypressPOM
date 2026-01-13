@@ -123,7 +123,7 @@ describe('PrescriptionPageTest', () => {
         drugPage.clickAddToDrug();
         cy.log("Drug added with correct quantity.");
     });
-    it('TC_PDP_ADD_DRUG_08: Boundary value test as quantity zero', () => {
+    it('TC_PDP_ADD_DRUG_08:Add drug with quantity, Boundary value test as quantity zero', () => {
         searchAndSelectDrug(testData.drugName2);
         drugPage.enterQuantity(testData.drugQuantity0);
         drugPage.clickAddToDrug();
@@ -153,7 +153,7 @@ describe('PrescriptionPageTest', () => {
         drugPage.clickAddToDrug();
         cy.log("User added another drug to the list.");
     });
-    it('TC_PDP_ADD_DRUG_12: Verify user can finish adding drugs', () => {
+    it('TC_PDP_ADD_DRUG_12: Verify user can done adding drugs', () => {
         searchAndSelectDrug(testData.drugName3);
         drugPage.addMyDrugListClick();
         drugPage.doneAddDrugClick();
@@ -173,7 +173,7 @@ describe('PrescriptionPageTest', () => {
         homepage.verifyUrl(testData.managePharmacy_url);
         cy.log("User browsed and added a drug from the A-Z list.");
     });
-    it('TC_PDP_ADD_DRUG_14: Verify drug search with invalid name', () => {
+    it('TC_PDP_ADD_DRUG_14: cant find your drug, drug search with invalid name', () => {
         searchAndSelectDrug(testData.invalidDrug);
         cy.log("Drug was not found in the dropdown, test passed.");
     });
