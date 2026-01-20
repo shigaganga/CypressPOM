@@ -3,13 +3,14 @@ const { beforeRunHook, afterRunHook } = require("cypress-mochawesome-reporter/li
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const os = require("os");
 
 module.exports = defineConfig({
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
     reportDir: "cypress/reports/html",
-    overwrite: true,
-    html: true,
+    overwrite: false,
+    html: false,
     json: true, // required to generate .json files
     charts: true,
     reportPageTitle: "Aivante Regression Report",
@@ -39,7 +40,7 @@ module.exports = defineConfig({
 
         // NEW: Dropbox CSV parser
         async 'csv:parseFromDropbox'() {
-          const url = 'https://www.dropbox.com/scl/fi/7uhrkxzx03m84xpqulkbx/data.csv?rlkey=vhyafyz32jdia8sapgnwwudr5&st=hoh2zihb&dl=1';
+          const url = 'https://www.dropbox.com/scl/fi/dbo7oliwefy1lub9ahju2/data.csv?rlkey=s2rxqgzlijc9f8gmkpdrdgzp8&st=9wvlsftw&dl=1';
          
           try {
             const response = await axios.get(url);
@@ -53,16 +54,28 @@ module.exports = defineConfig({
         },
 
         // Existing write CSV file task
-        writeCsvFile(fileName, data) {
+        writeCsvSync({fileName, data}) {
           try {
-            const filePath = path.join(__dirname, 'cypress', 'downloads', fileName);
-            fs.writeFileSync(filePath, data, 'utf8');
+
+            console.log("writeCsvSync called with:");
+    console.log("→ fileName:", fileName);
+    console.log("→ typeof data:", typeof data);
+    console.log("→ data preview:", data?.substring?.(0, 200));
+
+            if (typeof data !== "string") {
+          throw new Error("writeCsvSync: data must be a string. Received: " + typeof data);
+        }
+            //const filePath = path.join(os.homedir(), "Downloads", fileName);
+            fs.writeFileSync(fileName,data,'utf8');
             return null;
           } catch (error) {
             console.error("Error writing CSV file:", error);
             throw error;
           }
         }
+
+
+        
       });
 
       // Mochawesome hooks

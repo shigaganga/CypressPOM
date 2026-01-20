@@ -1,0 +1,57 @@
+pipeline {
+    agent any
+
+    environment {
+        NODE_ENV = "test"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Checking out source code...'
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing Node.js dependencies...'
+                bat 'npm --version'
+             bat 'npm ci || npm install --legacy-peer-deps'
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                echo 'Running Cypress regression suite...'
+                bat 'node run-tests.js'
+            }
+        }
+
+        stage('Generate Mochawesome Report') {
+    steps { 
+        echo 'Merging and generating final Mochawesome report...'
+     bat 'npx mochawesome-merge cypress\\reports\\html\\*.json > cypress\\reports\\html\\mochawesome.json' 
+     bat 'npx marge cypress\\reports\\html\\mochawesome.json --reportDir cypress\\reports\\html --inline'
+      }
+}
+
+    }
+
+    post {
+        always {
+            echo 'Publishing HTML report...'
+            publishHTML(target: [
+                reportDir: 'cypress/reports/html',
+                reportFiles: 'index.html',
+                reportName: 'Cypress Mochawesome Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: true
+            ])
+
+            echo 'Cleaning up workspace...'
+            cleanWs()
+        }
+    }
+}

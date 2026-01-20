@@ -4,14 +4,15 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-  "merge:reports": "npx mochawesome-merge cypress/reports/html/*.json > mochawesome.json",
-  "generate:report": "npx mochawesome-report-generator mochawesome.json --reportDir cypress/final-report --reportTitle 'Aivante Regression Report'",
-  "report": "npm run merge:reports && npm run generate:report",
-  "test:regression": "npx cypress run --browser chrome --headless",
-  "test:critical": "npx cypress run --env grep=@critical",
-  "test:all": "npm run test:regression && npm run test:critical",
-  "run:full": "npm run test:regression && npm run report && start cypress/final-report/mochawesome.html"
-},
+    "merge:reports": "npx mochawesome-merge cypress/reports/html/*.json > mochawesome.json",
+    "generate:report": "npx mochawesome-report-generator mochawesome.json --reportDir cypress/final-report --reportTitle 'Aivante Regression Report'",
+    "report": "npm run merge:reports && npm run generate:report",
+   
+    "test:regression":"npx cypress run --browser chrome --headless --env dependencyFile=C:\\Users\\ranik\\Downloads\\consistency_dependency.csv",
+    "test:critical": "npx cypress run --env grep=@critical",
+    "test:all": "npm run test:regression && npm run test:critical",
+    "run:full": "npm run test:regression && npm run report && start cypress/final-report/mochawesome.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "axios": "^1.9.0",
+    "convert-csv-to-json": "^3.5.0",
     "neat-csv": "^7.0.0",
     "xlsx": "^0.18.5"
   }

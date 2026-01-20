@@ -20,10 +20,10 @@ describe("Long Term Care-TestSuite", () => {
   const longtermpage = new LongTermPage();
 
   before(() => {
-    cy.fixture('LoginFixture').then((data) => {
+    //cy.fixture('LoginFixture').then((data) => {
       testData = data;
-      //cy.task('csv:parseFromDropbox').then((data) => {
-          // testData = data[0];
+      cy.task('csv:parseFromDropbox').then((data) => {
+          testData = data[0];
     });
   });
 
@@ -158,7 +158,7 @@ describe("Long Term Care-TestSuite", () => {
   });
 
  
-it(' TC_PDP_LTC_47 Navigate back to plan selection', () => {
+it('TC_PDP_LTC_47 Navigate back to plan selection', () => {
     longtermpage.clickMedicareAdvantageButton();
     cy.wait(500);
     longtermpage.clickHumanaGoldPlusPlan();

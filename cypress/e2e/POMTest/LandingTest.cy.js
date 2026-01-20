@@ -97,9 +97,9 @@ describe("LandingPage test", () => {
 
       const prefPage = new PreferencePage();
       prefPage.clickyesRadioDrugCost();
-      cy.wait(500);
+      cy.wait(1500);
       prefPage.clickNextPrefPage();
-      cy.wait(500);
+      cy.wait(1500);
 
       const drugpage = new PrescriptionPage();
       drugpage.enterDrugSearchBox(testData.drugName1);
@@ -153,30 +153,30 @@ describe("LandingPage test", () => {
       cy.wait(500);
       planselctPg.aivanteImagClick();
   }
-  it("TC_PDP_REC_01: recommendation button navigation", () => {
+  it("TC_PDP_REC_01:recommendation button navigation", () => {
     landingpage.clickCreateRecommendation();
     cy.wait(1000);
   });
 
-  it("TC_PDP_REC_02 Verify Tsign", () => {
+  it("TC_PDP_REC_02:Verify Tsign", () => {
     landingpage.clickTsign();
   });
-   it('TC_PDP_REC_03 Verify recommendationRadioButten active', () => {
+   it('TC_PDP_REC_03:Verify recommendationRadioButten active', () => {
         cy.wait(1000);
         landingpage. verifyRecommendationRadioBut();
     });
 
-    it('TC_PDP_REC_04 :Recommendation text field,logout', () => {
+    it('TC_PDP_REC_04:Recommendation text field,logout', () => {
         landingpage.clickTsign();
         landingpage.clickLogOut();
         // Assert user is on login page again
         cy.url().should('include', '/login');
     });
-    it('TC_PDP_CRT_REC_04 Verify create Recommendation', () => {
+    it('TC_PDP_CRT_REC_04:Verify create Recommendation', () => {
         createFullRecommendationFlow(testData);
       landingpage.verifyEmail();
 });
- it('TC_PDP_REC_05 Verify  Recommendation radio button', () => {
+ it('TC_PDP_REC_05:Verify  Recommendation radio button', () => {
         landingpage.verifyRecommendationRadioBut();
         cy.wait(2000);
     });
@@ -184,31 +184,31 @@ it(' TC_PDP_REC_LIST_06:Verify  Recommendation list', () => {
         landingpage.clickEmail();
         cy.wait(2000);
     });
-      it('TC_PDP_SRH_REC_EMAIL_07 Verify the filter by email', () => {
+      it('TC_PDP_SRH_REC_EMAIL_07:Verify the filter by email', () => {
      landingpage.clickEmail();
     });
 
-     it('TC_PDP_SRH_REC_NAME_08 Verify the filter by name', () => {
+     it('TC_PDP_SRH_REC_NAME_08:Verify the filter by name', () => {
         landingpage. enterFilterEmail(testData.name);//Filter by recommendation email 
         cy.wait(2000);
     });
 
-  it('TC_PDP_CRT_REC_09, create recommendation', () => {
+  it('TC_PDP_CRT_REC_09:create recommendation', () => {
      createFullRecommendationFlow(testData); 
     });
-it('TC_PDP_DEL_REC_10, delete recommendation', () => {
+it('TC_PDP_DEL_REC_10:delete recommendation', () => {
      createFullRecommendationFlow(testData);
        landingpage.clickDeletePlanIcon();
        landingpage.clickDeleteWindowBut();
     });
    
-    it('TC_PDP_SRH_REC_EMAIL_11 Verify the filter by email', () => {
+    it('TC_PDP_SRH_REC_EMAIL_11:Verify the filter by email', () => {
         landingpage. enterFilterEmail(testData.email);//Filter by recommendation email 
         cy.wait(2000);
     });
     
 
-    it('TC_11_PDP_EXP_REC_PLAN_11 Verify the Expand Plan', () => {
+    it('TC_11_PDP_EXP_REC_PLAN_11:Verify the Expand Plan', () => {
 
      createFullRecommendationFlow(testData);
         landingpage.clickRecommendationRadioBut();
@@ -217,7 +217,7 @@ it('TC_PDP_DEL_REC_10, delete recommendation', () => {
         landingpage.clickExpandRecomm();
         cy.wait(500);
     });
-      it('TC_11_PDP_EXP_REC_PLAN_11 Verify the collapse Plan', () => {
+      it('TC_11_PDP_EXP_REC_PLAN_11:Verify the collapse Plan', () => {
 
      createFullRecommendationFlow(testData);
      cy.wait(1500);
@@ -229,39 +229,39 @@ it('TC_PDP_DEL_REC_10, delete recommendation', () => {
         landingpage.clickCollapsesPlan();
         cy.wait(500);
     });
- it('TC_PDP_EXA_REC_LST_13,expand next page', () => {
+ it('TC_PDP_EXA_REC_LST_13:expand next page', () => {
 landingpage. clickNextPagesymbol();
 
  });
-it('TC_PDP_EXA_REC_LST_14,expand last page', () => {
+it('TC_PDP_EXA_REC_LST_14:expand last page', () => {
 landingpage.clickLastPagesymbol();
 
  });
- it('TC_PDP_EXA_REC_LST_15,expand previous page', () => {
+ it('TC_PDP_EXA_REC_LST_15:expand previous page', () => {
 
 landingpage. clickPreviousPagesymbol();
  });
-  it('TC_PDP_EXA_REC_LST_16,expand first page', () => {
+  it('TC_PDP_EXA_REC_LST_16:expand first page', () => {
 
 landingpage. clickFirstPagesymbol();
  });
- it('TC_PDP_ITEM_PER_PAGE_17,item per page by selector number', () => {
+ it('TC_PDP_ITEM_PER_PAGE_17:item per page by selector number', () => {
 
 landingpage. clickitemPerPageBySelectorNumber();
  
  });
 
-it('TC_PDP_ITEM_PER_PAGE_18,item per page by dropdown', () => {
+it('TC_PDP_ITEM_PER_PAGE_18:item per page by dropdown', () => {
 
 landingpage. clickitemPerPageByDropdown();
  });
- it('TC_PDP_EDT_ICON_19:,Edit icon functionaltest', () => {
+ it('TC_PDP_EDT_ICON_19:Edit icon functionaltest', () => {
   landingpage.clickExpandRecomm();
 cy.wait(500);
 landingpage. editRecommendationClick();
  cy.wait(500);
  });
- it('TC_PDP_EDT_ICON_20:,Edit existing recommendation', () => {
+ it('TC_PDP_EDT_ICON_20:Edit existing recommendation', () => {
 
 
 landingpage.clickExpandRecomm();
@@ -301,7 +301,7 @@ landingpage. editRecommendationClick();
       planselctPg.aivanteImagClick();
  
  });
-it('TC_PDD_VIEW_REC_21:,View icon functionaltest', () => {
+it('TC_PDD_VIEW_REC_21:View icon functionaltest', () => {
 
    cy.wait(500);
   landingpage.clickExpandRecomm();
@@ -309,7 +309,7 @@ cy.wait(500);
 landingpage.viewGreyEyeRecomendationClick();
  cy.wait(500);
  });
- it('TC_PDD_VIEW_REC_22:,View icon gray functionaltest', () => {
+ it('TC_PDD_VIEW_REC_22:View icon gray functionaltest', () => {
   cy.wait(500);
   landingpage.clickExpandRecomm();
 cy.wait(5000);
@@ -317,7 +317,7 @@ cy.wait(5000);
 landingpage.viewGreyEyeRecomendationClick()
  cy.wait(500);
  });
- it('TC_PDP_BACK_24:,backbutton functionaltest', () => {
+ it('TC_PDP_BACK_24:backbutton functionaltest', () => {
   landingpage.clickExpandRecomm();
    cy.wait(500);
   landingpage.viewGreyEyeRecomendationClick();
@@ -326,7 +326,7 @@ landingpage.viewGreyEyeRecomendationClick()
  viewRecPage.clickBackEle();
  cy.wait(5000);
  });
- it('TC_PDP_VIEW_LC_PHAR_25:,View Lowcost Pharmacy,navigation', () => {
+ it('TC_PDP_VIEW_LC_PHAR_25:View Lowcost Pharmacy,navigation', () => {
   landingpage.clickExpandRecomm();
    cy.wait(500);
   landingpage.viewGreyEyeRecomendationClick();
@@ -335,7 +335,7 @@ landingpage.viewGreyEyeRecomendationClick()
  viewRecPage.clickLowCostPharmacy();
  cy.wait(5000);
  });
-  it('TC_PDP_VIEW_LC_PHAR_27:,View Lowcost Pharmacy,functional', () => {
+  it('TC_PDP_VIEW_LC_PHAR_27:View Lowcost Pharmacy,functional', () => {
   landingpage.clickExpandRecomm();
    cy.wait(500);
   landingpage.viewGreyEyeRecomendationClick();
@@ -347,7 +347,7 @@ landingpage.viewGreyEyeRecomendationClick()
  pharmacypage.clickpharmacyfilter();
  pharmacypage. enterLowcostRadius(testData.lowcostPharmacyRadius);
  });
-  it('TC_PDP_SB_28:,submit buttonView Lowcost Pharmacy', () => {
+  it('TC_PDP_SB_28:submit buttonView Lowcost Pharmacy', () => {
   landingpage.clickExpandRecomm();
    cy.wait(500);
   landingpage.viewGreyEyeRecomendationClick();
@@ -361,7 +361,7 @@ landingpage.viewGreyEyeRecomendationClick()
 
  pharmacypage.clickLowcostSubmit()
   });
-  it('TC_PDP_VIEW_LC_PHAR_29:,add/remove prescription navigation testing', () => {
+  it('TC_PDP_VIEW_LC_PHAR_29:add/remove prescription navigation testing', () => {
     cy.wait(5000);
   landingpage.clickExpandRecomm();
    cy.wait(500);
@@ -376,7 +376,7 @@ landingpage.viewGreyEyeRecomendationClick()
  pharmacypage.clickLowcostSubmit();
  pharmacypage.clickAddOrRemovePrescription();
   });
-    it('TC_PDP_VIEW_LC_PHAR_30:,add/remove prescription functional testing', () => {
+    it('TC_PDP_VIEW_LC_PHAR_30:add/remove prescription functional testing', () => {
     cy.wait(500);
   landingpage.clickExpandRecomm();
    cy.wait(500);
@@ -396,7 +396,7 @@ landingpage.viewGreyEyeRecomendationClick()
     
   });
 
-  it('TC_PDP_PVOVIDER_05,click provider', () => {
+  it('TC_PDP_PVOVIDER_05:click provider', () => {
     const landingpage = new LandingPage();
     landingpage.clickproviderBut();
     cy.wait(2000);
